@@ -7,11 +7,11 @@
 |password|string|null: false|
 |familyname|string|null: false|
 |firstname|string|null: false|
-|familyname_kana|string|null: false|
-|firstname_kana|string|null: false|
+|familyname-kana|string|null: false|
+|firstname-kana|string|null: false|
 |birthday|date|null: false|
 |address|string|null: false|
-|tell|integer||
+|phone-number|integer||
 |profile|text||
 
 ### Association
@@ -25,11 +25,11 @@
 |------|----|-------|
 |familyname|string|null: false|
 |firstname|string|null: false|
-|familyname_kana|string|null: false|
-|firstname_kana|string|null: false|
+|familyname-kana|string|null: false|
+|firstname-kana|string|null: false|
 |birthday|date|null: false|
 |address|string|null: false|
-|tell|integer||
+|phone-number|integer||
 |user_id|references|null: false, foreign_key: true|
 
 ### Association
@@ -49,7 +49,7 @@
 |size_id|references|null: false, foreign_key: true|
 |postage|integer|null: false|
 |shipping|integer|null: false|
-|post-area_id|references|null:, foreign_key: true|
+|post-area_id|references|null: false, foreign_key: true|
 |arrival|integer|null: false|
 |price|integer|null: false|
 |text|text|null: false|
