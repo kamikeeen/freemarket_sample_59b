@@ -12,7 +12,7 @@ end
 def edit
 end
 
-def delete
+def destroy
 end
 
 end
