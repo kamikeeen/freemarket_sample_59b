@@ -7,15 +7,15 @@
 |password|string|null: false|
 |familyname|string|null: false|
 |firstname|string|null: false|
-|familyname-kana|string|null: false|
-|firstname-kana|string|null: false|
+|familyname_kana|string|null: false|
+|firstname_kana|string|null: false|
 |birthday|date|null: false|
-|zip-code|string||
+|zip_code|string||
 |region|string||
 |city|string||
 |address|string||
-|building-name|string||
-|phone-number|integer|unique: true|
+|building_name|string||
+|phone_number|integer|unique: true|
 |profile|text||
 
 ### Association
@@ -30,15 +30,15 @@
 |------|----|-------|
 |familyname|string|null: false|
 |firstname|string|null: false|
-|familyname-kana|string|null: false|
-|firstname-kana|string|null: false|
+|familyname_kana|string|null: false|
+|firstname_kana|string|null: false|
 |birthday|date|null: false|
-|zip-code|string|null: false|
+|zip_code|string|null: false|
 |region|string|null: false|
 |city|string|null: false|
 |address|string|null: false|
-|building-name|string||
-|phone-number|integer||
+|building_name|string||
+|phone_number|integer||
 |user_id|references|null: false, foreign_key: true|
 
 ### Association
