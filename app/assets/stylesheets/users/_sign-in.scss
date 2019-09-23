@@ -1,0 +1,13 @@
+.login__main{
+  background-color:#fff;
+  width:50%;
+  margin:0 auto;
+  padding:40px;
+  &__title{
+    border-bottom:solid 1px #eee;
+    padding:20px 0;
+    &-text{
+      font-size:14px;
+    }
+  }
+}

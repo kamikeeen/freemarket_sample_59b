@@ -1,14 +1,14 @@
 .user__background
-  = render "users/shared/center__logo__header"
+  = render "shared/center__logo__header"
   .login__main__title
     .login__main__title-text
       アカウントをお持ちでない方はこちら
-    .login__main__title-signin-button
+    .user__button__signin
       新規会員登録
 
-    .button__facebook
+    .user__button__facebook
       Facebookでログイン
-    .button__google
+    .user__button__google
       Googleでログイン
 
   = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
@@ -22,4 +22,4 @@
     =link_to do
       パスワードをお忘れの方
 
-  = render "users/shared/center__logo__footer"
+  = render "shared/center__logo__footer"

@@ -1,0 +1,85 @@
+@mixin clearfix() {
+  &:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+}
+
+.user__background{
+  background-color:#f5f5f5;
+  text-align:center;
+  .signup__main{
+    background-color:#fff;
+    width:50%;
+    margin:0 auto;
+    &-title{
+      border-bottom:solid 1px #eeeeee;
+      padding:20px 0;
+      &__text{
+        font-size:22px;
+      }
+    }
+  }
+}
+
+.center__logo__header{
+  padding:40px 0;
+  text-align:center;
+}
+
+.center__logo__footer{
+  width:50%;
+  margin:0 auto;
+  padding:40px 0;
+    &-text{
+      @include clearfix();
+      margin:0 auto;
+      display: inline-block;
+    & li{
+      padding: 0 20px;
+      float: left;
+      list-style: none;
+      font-size:12px;
+      & a{
+      text-decoration: none;
+      color:#000000;
+      }
+    }
+  }
+  & small{
+    font-size:12px;
+  }
+}
+
+.user__button{
+  width:50%;
+  padding:40px 40px 64px;
+  margin:0 auto;
+  &__mail{
+    background-color:#ea352d;
+    color:#fff;
+    padding:10px 0;
+    margin:20px 0;
+    border-radius:10px;
+  }
+  &__facebook{
+    background-color:#385185;
+    color:#fff;
+    padding:10px 0;
+    margin:20px 0;
+    border-radius:10px;
+  }
+  &__google{
+    background-color:#fff;
+    padding:10px 0;
+    margin:20px 0;
+    border:solid 1px #000000;
+    border-radius:10px;
+  }
+
+  &__signin{
+    background-color:#0099e8;
+    color:#fff;
+  }
+}
