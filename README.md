@@ -57,21 +57,21 @@
 |size_id|references|null: false, foreign_key: true|
 |postage|integer|null: false|
 |shipping|integer|null: false|
-|post-area_id|references|null: false, foreign_key: true|
+|post_area_id|references|null: false, foreign_key: true|
 |arrival|integer|null: false|
 |price|integer|null: false|
 |text|text|null: false|
-|status|boolean|null: false|
+|status|integer|default(0), not null|
 |buyer_id|integer||
 
 
 ### Association
 - belongs_to :user
-- has_many :item-images
+- has_many :item_images
 - belongs_to :category
 - belongs_to :brand
 - belongs_to :size
-- belongs_to :post-area
+- belongs_to :post_area
 - has_one :assesment
 
 ## Assessmentsテーブル
@@ -87,7 +87,7 @@
 - belongs_to :item
 
 
-## Item-imagesテーブル
+## ItemImagesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -128,7 +128,7 @@
 - has_many :items
 
 
-## Post-areasテーブル
+## PostAreasテーブル
 
 |Column|Type|Options|
 |------|----|-------|
