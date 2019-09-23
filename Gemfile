@@ -73,3 +73,4 @@ gem "nokogiri"
 
 gem 'devise'
 gem "haml-rails", "~> 2.0"
+gem "font-awesome-rails"
