@@ -6,6 +6,12 @@
   }
 }
 
+@mixin button(){
+  padding:10px 0;
+  margin:20px 0;
+  border-radius:10px;
+}
+
 .user__background{
   background-color:#f5f5f5;
   text-align:center;
@@ -59,27 +65,27 @@
   &__mail{
     background-color:#ea352d;
     color:#fff;
-    padding:10px 0;
-    margin:20px 0;
-    border-radius:10px;
+    @include button()
   }
   &__facebook{
     background-color:#385185;
     color:#fff;
-    padding:10px 0;
-    margin:20px 0;
-    border-radius:10px;
+    @include button()
   }
   &__google{
     background-color:#fff;
-    padding:10px 0;
-    margin:20px 0;
     border:solid 1px #000000;
-    border-radius:10px;
+    @include button()
   }
 
   &__signin{
     background-color:#0099e8;
     color:#fff;
+    @include button()
+  }
+  &__login{
+    background-color:#ea352d;
+    color:#fff;
+    @include button()
   }
 }
