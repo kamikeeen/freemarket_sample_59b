@@ -1,0 +1,48 @@
+@mixin button(){
+  padding:10px 0;
+  margin:20px 0;
+  border-radius:10px;
+  i{
+    float:left;
+    padding-left:20px;
+    font-size:24px;
+  }
+  &-text{
+    text-align:center;
+  }
+}
+
+.user__button{
+  width:50%;
+  padding:40px 40px 64px;
+  margin:0 auto;
+  a{text-decoration: none;
+    color:inherit;
+  }
+  &__mail{
+    background-color:#ea352d;
+    color:#fff;
+    @include button();
+  }
+  &__facebook{
+    background-color:#385185;
+    color:#fff;
+    @include button();
+  }
+  &__google{
+    background-color:#fff;
+    border:solid 1px #000000;
+    @include button();
+  }
+
+  &__signin{
+    background-color:#0099e8;
+    color:#fff;
+    @include button();
+  }
+  &__login{
+    background-color:#ea352d;
+    color:#fff;
+    @include button();
+  }
+}

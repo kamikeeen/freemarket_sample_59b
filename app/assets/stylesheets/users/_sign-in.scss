@@ -1,8 +1,11 @@
-.login{
+.signin{
   background-color:#fff;
-  width:456px;
+  width:300px;
   margin:0 auto;
   padding:20px 80px 0 80px;
+  a{text-decoration: none;
+    color:inherit;
+  }
   &__mail{
     border-bottom:solid 1px #eee;
     padding:20px 0;
@@ -12,28 +15,32 @@
   }
   &__main{
     padding: 40px 0;
+    a{text-decoration: none;
+      color:inherit;
+    }
     &__fields{
-      width:456px;
+      width:100%;
       #user_email{
         width:100%;
         @include button();
-        
+        padding-left:10px;
       }
       #user_password{
         width:100%;
         @include button();
+        padding-left:10px;
       }
-      #login{
+      #signin{
         width:100%;
         background-color:#ea352d;
         color:#fff;
+        cursor: pointer;
         @include button();
       }
     }
   }
     &__password__forget{
       font-size:14px;
-
       text-align:left;
       a{text-decoration: none;
         color:#0099e8;
