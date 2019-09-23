@@ -1,0 +1,18 @@
+.mypage__index
+  .header
+    = link_to "#", class: "header__link" do
+      = image_tag "メルカリ背景.jpg", class: "header__link__image"
+      .header__link__user-name
+        user.name
+      .header__link__num
+        .assessment
+          = "評価数 0"
+        .selling
+          = "出品数 8"
+  .notification
+    .notification__tabs
+      .tab
+      .tab
+    .notification__contents
+      .content
+      .content--index
