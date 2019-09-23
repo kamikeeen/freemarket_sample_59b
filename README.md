@@ -3,15 +3,19 @@
 |Column|Type|Options|
 |------|----|-------|
 |nickname|string|null: false|
-|email|string|null: false|
+|email|string|null: false, unique: true|
 |password|string|null: false|
 |familyname|string|null: false|
 |firstname|string|null: false|
 |familyname-kana|string|null: false|
 |firstname-kana|string|null: false|
 |birthday|date|null: false|
-|address|string|null: false|
-|phone-number|integer||
+|zip-code|string||
+|region|string||
+|city|string||
+|address|string||
+|building-name|string||
+|phone-number|integer|unique: true|
 |profile|text||
 
 ### Association
@@ -28,7 +32,11 @@
 |familyname-kana|string|null: false|
 |firstname-kana|string|null: false|
 |birthday|date|null: false|
+|zip-code|string|null: false|
+|region|string|null: false|
+|city|string|null: false|
 |address|string|null: false|
+|building-name|string||
 |phone-number|integer||
 |user_id|references|null: false, foreign_key: true|
 
@@ -41,7 +49,6 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|email|string|null: false|
 |user_id|references|null: false, foreign_key: true|
 |category_id|references|null: false, foreign_key: true|
 |brand_id|references|null: false, foreign_key: true|
@@ -99,7 +106,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|name|string||
+|name|string|unique: true|
 
 ### Association
 - has_many :items
