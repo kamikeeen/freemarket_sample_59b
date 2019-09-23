@@ -1,2 +1,5 @@
 @import "dtests";
 @import "reset";
+@import "items/confirm-purchase-items";
+
+// Rails.application.config.assets.precompile += %w( items )
