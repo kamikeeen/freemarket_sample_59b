@@ -21,6 +21,7 @@
 ### Association
 - has_many :items
 - has_many :addresses
+- has_many :assessments
 
 
 ## Addressテーブル
@@ -62,6 +63,7 @@
 |text|text|null: false|
 |status|boolean|null: false|
 
+
 ### Association
 - belongs_to :user
 - has_many :item-image
@@ -69,6 +71,19 @@
 - belongs_to :brand
 - belongs_to :size
 - belongs_to :post-area
+- has_one :assesment
+
+## Assessmentテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|comment|string|null: false|
+|user_id|references|null: false, foreign_key: true|
+|item_id|references|null: false, foreign_key: true|
+
+### Association
+- belongs_to :user
+- belongs_to :item
 
 
 ## Item-imageテーブル
