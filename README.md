@@ -1,4 +1,4 @@
-## Userテーブル
+## Usersテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -24,7 +24,7 @@
 - has_many :assessments
 
 
-## Addressテーブル
+## Addressesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -45,7 +45,7 @@
 - belongs_to :user
 
 
-## Itemテーブル
+## Itemsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -62,18 +62,19 @@
 |price|integer|null: false|
 |text|text|null: false|
 |status|boolean|null: false|
+|buyer_id|integer||
 
 
 ### Association
 - belongs_to :user
-- has_many :item-image
+- has_many :item-images
 - belongs_to :category
 - belongs_to :brand
 - belongs_to :size
 - belongs_to :post-area
 - has_one :assesment
 
-## Assessmentテーブル
+## Assessmentsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -86,7 +87,7 @@
 - belongs_to :item
 
 
-## Item-imageテーブル
+## Item-imagesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -97,7 +98,7 @@
 - belongs_to :item
 
 
-## Categoryテーブル
+## Categoriesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -107,7 +108,7 @@
 - has_many :items
 
 
-## Sizeテーブル
+## Sizesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -117,7 +118,7 @@
 - has_many :items
 
 
-## Brandテーブル
+## Brandsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -127,7 +128,7 @@
 - has_many :items
 
 
-## Post-areaテーブル
+## Post-areasテーブル
 
 |Column|Type|Options|
 |------|----|-------|
