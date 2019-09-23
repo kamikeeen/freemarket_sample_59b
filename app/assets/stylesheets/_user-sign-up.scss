@@ -6,10 +6,10 @@
   }
 }
 
-.signup{
+.user__background{
   background-color:#eeeeee;
   text-align:center;
-  &__main{
+  .signup__main{
     background-color:#fff;
     width:50%;
     margin:0 auto;
@@ -32,20 +32,6 @@
         margin:20px 0;
         border-radius:10px;
       }
-      &__facebook{
-        background-color:#385185;
-        color:#fff;
-        padding:10px 0;
-        margin:20px 0;
-        border-radius:10px;
-      }
-      &__google{
-        background-color:#fff;
-        padding:10px 0;
-        margin:20px 0;
-        border:solid 1px #000000;
-        border-radius:10px;
-      }
     }
   }
 
@@ -55,9 +41,6 @@
 .center__logo__header{
   padding:40px 0;
 
-  &-logo{
-
-  }
 }
 
 .center__logo__footer{
@@ -79,9 +62,22 @@
     }
   }
 }
-  &-logo{
-  }
   & small{
     font-size:12px;
   }
+}
+
+.button__facebook{
+  background-color:#385185;
+  color:#fff;
+  padding:10px 0;
+  margin:20px 0;
+  border-radius:10px;
+}
+.button__google{
+  background-color:#fff;
+  padding:10px 0;
+  margin:20px 0;
+  border:solid 1px #000000;
+  border-radius:10px;
 }
