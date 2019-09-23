@@ -13,6 +13,8 @@ set :rbenv_ruby, '2.5.1' #カリキュラム通りに進めた場合、2.5.1か2
 set :ssh_options, auth_methods: ['publickey'],
                   keys: ['~/.ssh/teamb.pem']  
 
+set :linked_files, fetch(:linked_files, []).push("/config/master.key")
+
 # プロセス番号を記載したファイルの場所
 set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
 
@@ -52,7 +54,7 @@ end
 # set :pty, true
 
 # Default value for :linked_files is []
-# append :linked_files, "config/database.yml"
+# append :linked_files, "config/database.yml", "config/master.key"
 
 # Default value for linked_dirs is []
 # append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
