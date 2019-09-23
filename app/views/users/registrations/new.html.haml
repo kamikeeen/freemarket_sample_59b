@@ -1,8 +1,5 @@
 .signup
-  .signup__header
-    .signup__header-logo
-      = link_to do
-        = image_tag "logo.svg",size: "200x50", alt: "logo"
+  = render "users/shared/center__logo__header"
 
   .signup__main
     .signup__main-title
@@ -16,18 +13,7 @@
       .signup__main-button__google
         Googleで登録する
 
-  .signup__footer
-    .signup__footer__text
-      %li
-        = link_to "プライバシーポリシー" ,"#"
-      %li
-        = link_to "メルカリ利用規約" ,"#" 
-      %li
-        = link_to "特定商取引に関する表記" ,"#"
-    .signup__footer__logo
-      = image_tag "logo-gray.svg",size: "100x100", alt: "logo"
-    %small
-      © 2019 Mercari
+  = render "users/shared/center__logo__footer"
 
 
 

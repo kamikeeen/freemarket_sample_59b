@@ -9,13 +9,6 @@
 .signup{
   background-color:#eeeeee;
   text-align:center;
-  &__header{
-    padding:40px 0;
-
-    &-logo{
-
-    }
-  }
   &__main{
     background-color:#fff;
     width:50%;
@@ -56,29 +49,39 @@
     }
   }
 
-  &__footer{
-    width:50%;
+
+}
+
+.center__logo__header{
+  padding:40px 0;
+
+  &-logo{
+
+  }
+}
+
+.center__logo__footer{
+  width:50%;
+  margin:0 auto;
+  padding:40px 0;
+  &-text{
+    @include clearfix();
     margin:0 auto;
-    padding:40px 0;
-    &__text{
-      @include clearfix();
-      margin:0 auto;
-      display: inline-block;
-    & li{
-      padding: 0 20px;
-      float: left;
-      list-style: none;
-      font-size:12px;
-      & a{
-      text-decoration: none;
-      color:#000000;
-      }
+    display: inline-block;
+  & li{
+    padding: 0 20px;
+    float: left;
+    list-style: none;
+    font-size:12px;
+    & a{
+    text-decoration: none;
+    color:#000000;
     }
   }
-    &__logo{
-    }
-    & small{
-      font-size:12px;
-    }
+}
+  &-logo{
+  }
+  & small{
+    font-size:12px;
   }
 }
