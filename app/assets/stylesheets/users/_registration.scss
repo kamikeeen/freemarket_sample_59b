@@ -83,7 +83,7 @@
         }
       }
     }
-      &__identification, &__precautions, &__terms-of-service{
+      &__identification, &__precautions, &__terms-of-service, &__about-registration{
         padding:20px 0 ;
         &-text{
         font-size:14px;
@@ -94,6 +94,9 @@
             @include mouseover__under-bar();
         }
       }
+    }
+    &__about-registration{
+      text-align:right;
     }
   }
 }
