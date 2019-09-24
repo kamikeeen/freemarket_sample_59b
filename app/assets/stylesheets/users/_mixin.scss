@@ -20,6 +20,6 @@
 // マウスが上に乗った時に下線をつける 呼び出しコピー用  @include  mouseover__under-bar();
 @mixin mouseover__under-bar() {
   &:hover{
-    text-decoration:underline;
+    text-decoration: underline;
   }
 }

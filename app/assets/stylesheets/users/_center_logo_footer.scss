@@ -13,13 +13,14 @@
       & a{
       text-decoration: none;
       color:#000000;
+      @include mouseover__thincolor();
       @include mouseover__under-bar();
       }
     }
   }
   &-logo{
     & img{
-    @include mouseover__thincolor();
+      @include mouseover__thincolor();
     }
   }
   & small{
