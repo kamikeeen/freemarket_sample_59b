@@ -1,8 +1,7 @@
 = form_tag do |f|
   .confirm_purchase_items
 
-    .confirm_purchase_items__logo
-      = image_tag 'mercarilogo.svg', size: "185x50"
+    = render partial: 'shared/center_logo_header'
 
     .confirm_purchase_items__contents
       .confirm_purchase_items__contents__title
@@ -52,5 +51,4 @@
             変更する
           = fa_icon 'angle-right', class: 'confirm_purchase_items__contents__method__inner__edit__icon fa-2x'
 
-    -#　以下レンダー予定
-    .confirm_purchase_items__footer
+    = render partial: 'shared/center_logo_footer'
