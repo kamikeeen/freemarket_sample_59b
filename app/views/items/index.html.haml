@@ -1,45 +1,5 @@
-.top-page-header
-  .header-box
-    .upper
-      .logo
-        %img{src: "assets/top-page/top-page-logo.png"}
-      .search-box
-        .form
-          = form_tag () do
-            = text_field_tag :search, "何かお探しですか？", class: "form__field"
-            = button_tag type: "submit", class: "form__button" do
-              = fa_icon "search"
-    .lower
-      .search-category
-        .search-category__icon
-          %img{src: "assets/top-page/category-icon.png"}
-        .search-category__text
-          カテゴリーから探す
-      .search-brand
-        .search-brand__icon
-          %img{src: "assets/top-page/brand-icon.png"}
-        .search-brand__text
-          ブランドから探す
-      .good-list
-        .good-list__icon
-          = fa_icon "heart"
-        .good-list__text
-          いいね！一覧
-      .notice
-        .notice__icon
-          = fa_icon "bell"
-        .notice__text
-          お知らせ
-      .todo-list
-        .todo-list__icon
-          = fa_icon "check"
-        .todo-list__text
-          やることリスト
-      .mypage
-        .mypage__icon
-          %image{src: "assets/top-page/defalte-user-icon.png"}
-        .mypage__text
-          マイページ
+.main-header
+  = render "items/top-page-header"
 .main-content
   main
 .shipping-button
