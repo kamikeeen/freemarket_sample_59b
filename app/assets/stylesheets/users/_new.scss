@@ -90,9 +90,12 @@
           color:#fff;
           }
         }
-        &__confirm-text{
-          color:#ea352d;
-          font-size:12px;
+      }
+      &__confirm-text{
+        color:#ea352d;
+        font-size:14px;
+        & li{
+          list-style: none;
         }
       }
     }
