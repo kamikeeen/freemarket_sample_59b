@@ -15,4 +15,7 @@ class ItemsController < ApplicationController
   def destroy
   end
 
+  def purchase
+  end
+
 end
