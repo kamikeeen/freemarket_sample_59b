@@ -1,20 +1,26 @@
 .signin{
   background-color:#fff;
-  width:300px;
+  width:456px;
   margin:0 auto;
-  padding:20px 80px 0 80px;
+  padding-top:20px;
   a{text-decoration: none;
     color:inherit;
   }
   &__mail{
     border-bottom:solid 1px #eee;
     padding:20px 0;
-    &__text{
+    &-text{
       font-size:14px;
+    }
+    &-button{
+      width:50%;
+      margin:0 auto;
     }
   }
   &__main{
+    width:50%;
     padding: 40px 0;
+    margin:0 auto;
     a{text-decoration: none;
       color:inherit;
     }
@@ -45,5 +51,7 @@
       a{text-decoration: none;
         color:#0099e8;
     }
+    @include mouseover__thincolor();
+    @include mouseover__under-bar();
   }
 }

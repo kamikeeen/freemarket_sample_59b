@@ -23,6 +23,7 @@
     background-color:#ea352d;
     color:#fff;
     @include button();
+    @include mouseover__thincolor();
   }
   &__facebook{
     background-color:#385185;
