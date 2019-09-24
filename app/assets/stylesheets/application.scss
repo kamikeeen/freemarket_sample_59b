@@ -1,5 +1,6 @@
-@import "dtests";
 @import "reset";
-@import "items/confirm-purchase-items";
+@import "dtests";
+@import "items/purchase";
+@import "font-awesome";
 
 // Rails.application.config.assets.precompile += %w( items )
