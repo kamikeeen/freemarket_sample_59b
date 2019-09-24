@@ -1,6 +1,9 @@
 @import "reset";
 @import "dtests";
+@import "users/mixin";
 @import "items/purchase";
+@import "users/center_logo_header";
+@import "users/center_logo_footer";
 @import "font-awesome";
 
 // Rails.application.config.assets.precompile += %w( items )
