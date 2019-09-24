@@ -1,0 +1,25 @@
+// 呼び出し方 @include ~~(); ex. @include clearfix();
+// clearfix 呼び出し用  @include clearfix();
+@mixin clearfix() {
+  &:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+}
+// マウスが上に乗った時に色を６０％薄くする 呼び出しコピー用  @include mouseover__thincolor();
+@mixin mouseover__thincolor() {
+  &:hover{
+  cursor:pointer;
+  filter: alpha(opacity=60);
+  -moz-opacity:0.6;
+  -khtml-opacity: 0.6;
+  opacity:0.6;
+  }
+}
+// マウスが上に乗った時に下線をつける 呼び出しコピー用  @include  mouseover__under-bar();
+@mixin mouseover__under-bar() {
+  &:hover{
+    text-decoration:underline;
+  }
+}
