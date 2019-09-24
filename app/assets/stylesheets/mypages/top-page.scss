@@ -4,7 +4,7 @@
   .header{
     height:200px;
     width: 100%;
-    background-image: url(mypage_background_image.jpg);
+    background-image: image-url("mypage_background_image.jpg");
     position: relative;
     &__link{
       display: block;
