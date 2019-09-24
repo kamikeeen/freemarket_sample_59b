@@ -2,7 +2,8 @@
   .header-box
     .upper
       .logo
-        %img{src: "assets/top-page/top-page-logo.png"}
+        = link_to root_path do
+          %img{src: "assets/top-page/top-page-logo.png"}
       .search-box
         .form
           = form_tag () do
