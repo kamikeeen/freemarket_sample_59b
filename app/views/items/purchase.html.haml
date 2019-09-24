@@ -1,0 +1,54 @@
+= form_tag do |f|
+  .confirm_purchase_items
+
+    = render partial: 'shared/center_logo_header'
+
+    .confirm_purchase_items__contents
+      .confirm_purchase_items__contents__title
+        .confirm_purchase_items__contents__title__confirm-purchase-item
+          購入内容の確認
+
+      .confirm_purchase_items__contents__purchase
+        .confirm_purchase_items__contents__purchase__inner
+          .confirm_purchase_items__contents__purchase__inner__item
+            .confirm_purchase_items__contents__purchase__inner__item__item-picture
+              = image_tag 'confirm_purchase_items__item__picture.jpg', size: '64x64'
+            .confirm_purchase_items__contents__purchase__inner__item__item-name
+              【9月中値下げ】小鳥遊 コスプレ ウィッグ
+          .confirm_purchase_items__contents__purchase__inner__price
+            %p.confirm_purchase_items__contents__purchase__inner__price__price
+              ¥2,500
+            %p.confirm_purchase_items__contents__purchase__inner__price__postage
+              送料込み
+          .confirm_purchase_items__contents__purchase__inner__points
+            ポイントはありません
+          .confirm_purchase_items__contents__purchase__inner__payment
+            .confirm_purchase_items__contents__purchase__inner__payment__price
+              支払い金額
+            .confirm_purchase_items__contents__purchase__inner__payment__money
+              ¥2,500
+          .confirm_purchase_items__contents__purchase__inner__validate
+            配送先と支払い方法の入力を完了してください。
+          %button{type: 'submit', class: "confirm_purchase_items__contents__purchase__inner__purchase"}
+            購入する
+      .confirm_purchase_items__contents__shipping
+        .confirm_purchase_items__contents__shipping__address
+          配送先
+        .confirm_purchase_items__contents__shipping__information
+          〒-
+        .confirm_purchase_items__contents__shipping__inner
+          %a{href: '#', class: 'confirm_purchase_items__contents__shipping__inner__edit'}
+            変更する
+          = fa_icon 'angle-right', class: 'confirm_purchase_items__contents__shipping__inner__edit__icon fa-2x'
+
+      .confirm_purchase_items__contents__method
+        .confirm_purchase_items__contents__method__payment
+          支払方法
+        .confirm_purchase_items__contents__method__information
+          クレジット
+        .confirm_purchase_items__contents__method__inner
+          %a{href: '#', class: 'confirm_purchase_items__contents__method__inner__edit'}
+            変更する
+          = fa_icon 'angle-right', class: 'confirm_purchase_items__contents__method__inner__edit__icon fa-2x'
+
+    = render partial: 'shared/center_logo_footer'
