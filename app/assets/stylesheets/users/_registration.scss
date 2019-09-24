@@ -1,7 +1,26 @@
 .user__input__header{
-  background-color:white;
+  text-align:center;
   & ul li{
     display: inline;
     list-style: none;
   }
+}
+
+
+.user__input__common{
+  background-color:#ffffff;
+  width: 700px;
+  margin: 0 auto;
+  &__title{
+    text-align:center;
+    border-bottom:solid 1px #eeeeee;
+    &-text{
+      font-size:22px;
+    }
+  }
+  &__main{
+    
+  }
+
+
 }
