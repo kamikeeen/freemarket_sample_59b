@@ -75,6 +75,14 @@
               日
             .user__input__common__main__precautions-text
               ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
-          .actions
-            = f.submit "Sign up"
+            -# 私はロボットではありませんがはいる予定
+            %br/
+            %br/
+            .user__input__common__main__terms-of-service-text
+              = "「次へ進む」のボタンを押すことにより、"
+              = link_to "#" do
+                ="利用規約"
+              ="に同意したものとみなします"
+            .user__input__common__main-form-field__next-button
+              = f.submit "次へ進む"
   = render "shared/center_logo_footer"

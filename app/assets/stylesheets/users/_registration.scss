@@ -68,13 +68,31 @@
             }
           }
         }
+        &__next-button{
+          & input{
+          background-color:#ea352d;
+          width:calc(100% - 32px);
+          margin: 8px 0 0;
+          padding: 10px 16px 8px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          line-height: 1.5;
+          font-size: 16px;
+          color:#fff;
+          }
+        }
       }
     }
-      &__identification, &__precautions{
+      &__identification, &__precautions, &__terms-of-service{
         padding:20px 0 ;
         &-text{
         font-size:14px;
         color:#888888;
+          a{text-decoration: none;
+            color:#0099e8;
+            @include mouseover__thincolor();
+            @include mouseover__under-bar();
+        }
       }
     }
   }
