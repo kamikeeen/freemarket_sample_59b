@@ -1,5 +1,8 @@
 .user__input__header{
   text-align:center;
+  &-logo{
+    @include mouseover__thincolor();
+  }
   & ul li{
     display: inline;
     list-style: none;
