@@ -11,12 +11,12 @@
           = "出品数 8"
   .notification
     .notification__tabs
-      .tab
+      .tab.active
         お知らせ
       .tab
         やることリスト
     .notification__contents
-      .box__content.active
+      .box__content.show
         = link_to "#", class: "content" do
           = image_tag "messages_index.png", class: "content__image"
           .content__main
@@ -84,12 +84,12 @@
     .transaction__header
       購入した商品
     .transaction__tabs
-      .tab
+      .tab.active
         発送待ち
       .tab
         取引完了
     .transaction__contents
-      .box__content.active
+      .box__content.show
         = link_to "#", class: "content" do
           = image_tag "messages_index.png", class: "content__image"
           .content__main

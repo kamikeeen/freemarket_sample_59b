@@ -61,12 +61,22 @@
         line-height: 74px;
         background-color: #eee;
       }
+      .tab.active{
+        box-sizing: border-box;
+        width: 50%;
+        text-align: center;
+        font-size: 16px;
+        font-weight: bold;
+        line-height: 74px;
+        background-color: white;
+        border-top: 2px solid #ea352d;
+      }
     }
     &__contents{
       .box__content{
         display: none;
       }
-      .box__content.active{
+      .box__content.show{
         display: block;
         .content{
           box-sizing: border-box;
