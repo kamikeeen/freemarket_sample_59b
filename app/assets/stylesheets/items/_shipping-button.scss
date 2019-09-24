@@ -1,0 +1,29 @@
+.shipping-button {
+  background-color: red;
+  height: 160px;
+  width: 160px;
+  position: fixed;
+  right: 32px;
+  bottom: 32px;
+  border-radius: 160px;
+  a:visited { 
+    color:white;
+    }
+    .link-to-shipping-page {
+      text-decoration:none;
+    }
+  .content {
+    padding-top: 28px;
+    margin: auto;
+    text-align: center;
+    .text {
+      height: 23px;
+      font-size: 22px;
+    }
+    .icon {
+      margin: 0;
+      font-size: 55px;
+      margin-top: 0
+    }
+  }
+}
