@@ -1,4 +1,4 @@
-.header {
+.top-page-header {
   min-height: 100px;
   .header-box{
     margin: 0 14.5833333%;
@@ -71,6 +71,7 @@
         &__icon {
           margin-right: 10px;
           font-size: 18px;
+          color: rgb(158, 158, 158);
         }
       }
       .notice {
@@ -80,6 +81,7 @@
         &__icon {
           margin-right: 10px;
           font-size: 18px;
+          color: rgb(158, 158, 158);
         }
       }
       .todo-list {
@@ -89,6 +91,7 @@
         &__icon {
           margin-right: 10px;
           font-size: 18px;
+          color: rgb(158, 158, 158);
         }
       }
       .mypage {
@@ -119,7 +122,6 @@
 }
 
 .advertisement {
-  background-color: gray;
   height: 260px;
 }
 
