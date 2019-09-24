@@ -128,7 +128,8 @@
             = f.submit "次へ進む"
           .user__input__common__main__about-registration
             .user__input__common__main__about-registration-text
-              = link_to "#" do
+              -# リンク仮置き。sms認証ページへ
+              = link_to users_signup_sms_confirmation_path do
                 ="本人情報の登録について＞"
 
   = render "shared/center_logo_footer"
