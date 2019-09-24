@@ -16,20 +16,28 @@
           = render "devise/shared/error_messages", resource: resource
           .user__input__common__main-form-field
             = f.label :"ニックネーム"
+            %span.user__input__common__main-form-field__require
+              必須
             %br/
             -# データベースを作ったらで:emailを:nicknameにする
             = f.text_field :email, placeholder: "例）メルカリ太郎"        
           .user__input__common__main-form-field
             = f.label :"メールアドレス"
+            %span.user__input__common__main-form-field__require
+              必須
             %br/
             = f.email_field :email, autocomplete: "email", placeholder: "PC・携帯どちらでも可" 
           .user__input__common__main-form-field
             = f.label :"パスワード"
+            %span.user__input__common__main-form-field__require
+              必須
             %br/
             -# パスワード文字制限設定したらに変更必要かも７を#{@minimum_password_length}
             = f.password_field :password, autocomplete: "new-password", placeholder: "７文字以上" 
           .user__input__common__main-form-field
             = f.label :"パスワード（確認）"
+            %span.user__input__common__main-form-field__require
+              必須
             %br/
             = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "７文字以上"
           .user__input__common__main__identification
@@ -39,6 +47,8 @@
               安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
           .user__input__common__main-form-field__name
             = f.label :"お名前(全角) "
+            %span.user__input__common__main-form-field__require
+              必須
             %br/
             %li
               -# データベースを作ったら:password_confirmationを:familynameにする
@@ -48,6 +58,8 @@
               = f.text_field :password_confirmation, placeholder: "例）彩"
           .user__input__common__main-form-field__name
             = f.label :"お名前カナ(全角)" 
+            %span.user__input__common__main-form-field__require
+              必須
             %br/
             %li
               -# データベースを作ったら:password_confirmationを:familyname_kanaにする
@@ -57,6 +69,8 @@
               = f.text_field :password_confirmation, placeholder: "例）アヤ"
           .user__input__common__main-form-field__birthday
             = f.label :"生年月日" 
+            %span.user__input__common__main-form-field__require
+              必須
             %br/
             %li
               -# データベースを作ったら:password_confirmationを:birthdayにする

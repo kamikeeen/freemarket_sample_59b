@@ -39,6 +39,12 @@
           line-height: 1.5;
           font-size: 16px;
         }
+        &__require{
+          background-color:#ea352d;
+          font-size:12px;
+          color:#fff;
+          padding:5px;
+        }
         &__name {
           padding: 10px 0;
           & li{
@@ -83,6 +89,10 @@
           font-size: 16px;
           color:#fff;
           }
+        }
+        &__confirm-text{
+          color:#ea352d;
+          font-size:12px;
         }
       }
     }
