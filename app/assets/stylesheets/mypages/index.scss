@@ -1,7 +1,6 @@
 .mypage__index{
   height: 1121px;
   width: 700px;
-  background-color: aquamarine;
   .header{
     height:200px;
     width: 100%;
@@ -41,5 +40,50 @@
       }
     }
     
+  }
+  .notification{
+    &__tabs{
+      width: 100%;
+      display: flex;
+      .tab{
+        width: 50%;
+        text-align: center;
+        font-size: 16px;
+        font-weight: bold;
+        line-height: 74px;
+        background-color: #eee;
+      }
+    }
+    &__contents{
+      .content{
+        box-sizing: border-box;
+        text-decoration: none;
+        display: block;
+        display: flex;
+        min-height: 80px;
+        padding: 16px;
+        border-bottom: 1px solid #eee;
+        color: #333;
+        font-size: 14px;
+        position: relative;
+        &__image{
+          height: 48px;
+          width:  48px;
+        }
+        &__main{
+          margin: 0 40px 0 20px;
+          &__text{
+            word-wrap: break-word;
+            width: 560px;  
+          }
+        }
+        &__icon{
+          height: 14px;
+          position: absolute;
+          top: calc(50% - 7px);
+          right: 20px;
+        }
+      }
+    }
   }
 }

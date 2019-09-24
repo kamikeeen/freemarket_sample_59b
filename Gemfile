@@ -75,3 +75,5 @@ gem "mini_magick"
 gem "fog-aws"
 gem 'devise'
 gem "haml-rails"
+gem 'jquery-rails'
+gem "font-awesome-rails"

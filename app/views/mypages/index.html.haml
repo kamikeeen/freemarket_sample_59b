@@ -12,7 +12,17 @@
   .notification
     .notification__tabs
       .tab
+        お知らせ
       .tab
+        やることリスト
     .notification__contents
+      = link_to "#", class: "content" do
+        = image_tag "messages_index.png", class: "content__image"
+        .content__main
+          .content__main__text
+            そろそろ秋物をお探しではないですか？そんなあなたにぴったりのセールが始まります！！！！10/31まで全品５％オフでお買い物ができます！
+          .content__main__icon
+          .content__main__time
+        %i.fa.fa-chevron-right.content__icon
       .content
-      .content--index
+        = link_to "#", class: "content--index-btn"
