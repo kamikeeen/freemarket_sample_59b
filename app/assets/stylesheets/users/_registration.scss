@@ -22,11 +22,12 @@
   &__main{
     padding: 40px 40px 64px;
     &-form{
-      max-width: 343px;
-      margin:0 auto;
+      width: 343px;
+      margin: 0 auto;
       &-field{
+          padding: 10px 0;
           & input{
-          width:100%;
+          width:calc(100% - 32px);
           margin: 8px 0 0;
           padding: 10px 16px 8px;
           border-radius: 4px;
@@ -35,6 +36,26 @@
           line-height: 1.5;
           font-size: 16px;
         }
+        &__name li{
+          display: inline;
+            input{
+            width:calc(50% - 50px);
+            margin:8px 5px 0;
+            padding: 10px 16px 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            background: #fff;
+            line-height: 1.5;
+            font-size: 16px;
+          }
+        }
+      }
+    }
+      &__identification{
+        padding:20px 0 ;
+        &-text{
+        font-size:14px;
+        color:#888888;
       }
     }
   }
