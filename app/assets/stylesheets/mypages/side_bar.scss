@@ -49,9 +49,21 @@ a{
   background: #fff;
   font-size: 14px;
   color: #333;
-  border-bottom: chartreuse 10px;
+  padding: 13px;
+  border-bottom: medium solid  rgb(248, 248, 248);
+  border-bottom-width: thin;
 }
 
 .big-container{
   background-color: rgb(248, 248, 248)
+}
+
+i.fa.fa-angle-right{
+  // content: '\e005';
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  color: #ccc;
+  transform: translate(0, -50%);
+  transition: all ease-out .2s;
 }
