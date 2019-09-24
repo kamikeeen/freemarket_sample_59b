@@ -11,37 +11,38 @@
       .user__input__common__title-text
         会員情報入力
     .user__input__common__main
-      = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-        = render "devise/shared/error_messages", resource: resource
-        .field
-          = f.label :nickname
-          %br/
-          -# 後で:emailを:nicknameにする
-          = f.text_field :email,  placeholder: "email"        
-        .field
-          = f.label :email
-          %br/
-          = f.email_field :email,  autocomplete: "email"
-        .field
-          = f.label :password
-          - if @minimum_password_length
-            %em
-              (#{@minimum_password_length} characters minimum)
-          %br/
-          = f.password_field :password, autocomplete: "new-password"
-        .field
-          = f.label :password_confirmation
-          %br/
-          = f.password_field :password_confirmation, autocomplete: "new-password"
-        .field
-          = f.label :password_confirmation
-          %br/
-          = f.password_field :password_confirmation, autocomplete: "new-password"
-        .field
-          = f.label :password_confirmation
-          %br/
-          = f.password_field :password_confirmation, autocomplete: "new-password"
-        .actions
-          = f.submit "Sign up"
+      .user__input__common__main-form
+        = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+          = render "devise/shared/error_messages", resource: resource
+          .user__input__common__main-form-field
+            = f.label :"ニックネーム"
+            %br/
+            -# 後で:emailを:nicknameにする
+            = f.text_field :email,  placeholder: "例）メルカリ太郎"        
+          .user__input__common__main-form-field
+            = f.label :email
+            %br/
+            = f.email_field :email,  autocomplete: "PC・携帯どちらでも可"
+          .user__input__common__main-form-field
+            = f.label :password
+            - if @minimum_password_length
+              %em
+                (#{@minimum_password_length} characters minimum)
+            %br/
+            = f.password_field :password, autocomplete: "new-password"
+          .user__input__common__main-form-field
+            = f.label :password_confirmation
+            %br/
+            = f.password_field :password_confirmation, autocomplete: "new-password"
+          .user__input__common__main-form-field
+            = f.label :password_confirmation
+            %br/
+            = f.password_field :password_confirmation, autocomplete: "new-password"
+          .user__input__common__main-form-field
+            = f.label :password_confirmation
+            %br/
+            = f.password_field :password_confirmation, autocomplete: "new-password"
+          .actions
+            = f.submit "Sign up"
       = render "users/shared/links"
   = render "shared/center_logo_footer"

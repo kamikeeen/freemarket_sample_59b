@@ -14,13 +14,28 @@
   &__title{
     text-align:center;
     border-bottom:solid 1px #eeeeee;
+    padding:32px;
     &-text{
       font-size:22px;
     }
   }
   &__main{
-    
+    padding: 40px 40px 64px;
+    &-form{
+      max-width: 343px;
+      margin:0 auto;
+      &-field{
+          & input{
+          width:100%;
+          margin: 8px 0 0;
+          padding: 10px 16px 8px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          background: #fff;
+          line-height: 1.5;
+          font-size: 16px;
+        }
+      }
+    }
   }
-
-
 }
