@@ -16,13 +16,117 @@
       .tab
         やることリスト
     .notification__contents
-      = link_to "#", class: "content" do
-        = image_tag "messages_index.png", class: "content__image"
-        .content__main
-          .content__main__text
-            そろそろ秋物をお探しではないですか？そんなあなたにぴったりのセールが始まります！！！！10/31まで全品５％オフでお買い物ができます！
-          .content__main__icon
-          .content__main__time
-        %i.fa.fa-chevron-right.content__icon
-      .content
-        = link_to "#", class: "content--index-btn"
+      .box__content.active
+        = link_to "#", class: "content" do
+          = image_tag "messages_index.png", class: "content__image"
+          .content__main
+            .content__main__text
+              そろそろ秋物をお探しではないですか？そんなあなたにぴったりのセールが始まります！！！！10/31まで全品５％オフでお買い物ができます！
+            %i.fa.fa-clock-o.content__main__icon
+            .content__main__time
+              1日前
+          %i.fa.fa-chevron-right.content__icon
+
+        = link_to "#", class: "content" do
+          = image_tag "messages_index.png", class: "content__image"
+          .content__main
+            .content__main__text
+              そろそろ秋物をお探しではないですか？そんなあなたにぴったりのセールが始まります！！！！10/31まで全品５％オフでお買い物ができます！
+            %i.fa.fa-clock-o.content__main__icon
+            .content__main__time
+              1日前
+          %i.fa.fa-chevron-right.content__icon
+        = link_to "#", class: "content" do
+          = image_tag "messages_index.png", class: "content__image"
+          .content__main
+            .content__main__text
+              そろそろ秋物をお探しではないですか？そんなあなたにぴったりのセールが始まります！！！！10/31まで全品５％オフでお買い物ができます！
+            %i.fa.fa-clock-o.content__main__icon
+            .content__main__time
+              1日前
+          %i.fa.fa-chevron-right.content__icon
+        = link_to "#", class: "content" do
+          = image_tag "messages_index.png", class: "content__image"
+          .content__main
+            .content__main__text
+              そろそろ秋物をお探しではないですか？そんなあなたにぴったりのセールが始まります！！！！10/31まで全品５％オフでお買い物ができます！
+            %i.fa.fa-clock-o.content__main__icon
+            .content__main__time
+              1日前
+          %i.fa.fa-chevron-right.content__icon
+        = link_to "#", class: "content" do
+          = image_tag "messages_index.png", class: "content__image"
+          .content__main
+            .content__main__text
+              そろそろ秋物をお探しではないですか？そんなあなたにぴったりのセールが始まります！！！！10/31まで全品５％オフでお買い物ができます！
+            %i.fa.fa-clock-o.content__main__icon
+            .content__main__time
+              1日前
+          %i.fa.fa-chevron-right.content__icon
+
+
+        .content
+          = link_to "一覧を見る", "#", class: "content__index-btn"
+      .box__content
+        = link_to "#", class: "content" do
+          = image_tag "メルカリ背景.jpg", class: "content__image"
+          .content__main
+            .content__main__text
+              userさんからメッセージが来ています！返信をしましょう！
+            %i.fa.fa-clock-o.content__main__icon
+            .content__main__time
+              ２時間前
+          %i.fa.fa-chevron-right.content__icon
+        .content
+          = link_to "一覧を見る", "#", class: "content__index-btn"
+
+  .transaction
+    .transaction__header
+      購入した商品
+    .transaction__tabs
+      .tab
+        発送待ち
+      .tab
+        取引完了
+    .transaction__contents
+      .box__content.active
+        = link_to "#", class: "content" do
+          = image_tag "messages_index.png", class: "content__image"
+          .content__main
+            .content__main__text
+              userさんが商品の発送を準備しています！
+            .content__main__status-wait
+              発送待ち
+          %i.fa.fa-chevron-right.content__icon
+        = link_to "#", class: "content" do
+          = image_tag "messages_index.png", class: "content__image"
+          .content__main
+            .content__main__text
+              userさんが商品の発送を準備しています！
+            .content__main__status-wait
+              発送待ち
+          %i.fa.fa-chevron-right.content__icon
+        
+        = link_to "#", class: "content" do
+          = image_tag "messages_index.png", class: "content__image"
+          .content__main
+            .content__main__text
+              userさんが商品の発送を準備しています！
+            .content__main__status-wait
+              発送待ち
+          %i.fa.fa-chevron-right.content__icon
+        .content
+          = link_to "一覧を見る", "#", class: "content__index-btn"
+
+
+      .box__content
+        = link_to "#", class: "content" do
+          = image_tag "messages_index.png", class: "content__image"
+          .content__main
+            .content__main__text
+              userが商品を購入しました！取引が完了しました！
+            .content__main__status-comp
+              取引完了
+          %i.fa.fa-chevron-right.content__icon
+        .content
+          = link_to "一覧を見る", "#", class: "content__index-btn"
