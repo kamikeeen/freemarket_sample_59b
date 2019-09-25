@@ -74,15 +74,15 @@
               番地を入力してください
             .user__input__address__main-form-field
               = f.label :"建物名"
-              %span.user__input__address__main-form-field__require
-                必須
+              %span.user__input__address__main-form-field__arbitrary
+                任意
               %br/
               -# データベースを作ったら:password_confirmationを:building_nameにする
               = f.text_field :password_confirmation, placeholder: "例）柳ビル103"
             .user__input__address__main-form-field
               = f.label :"電話番号"
-              %span.user__input__address__main-form-field__require
-                必須
+              %span.user__input__address__main-form-field__arbitrary
+                任意
               %br/
               -# データベースを作ったら:password_confirmationを:phone_numberにする
               = f.text_field :password_confirmation, placeholder: "例）09012345678"
