@@ -59,7 +59,7 @@
 // 支払い方法→完了
 @mixin end-bar(){
   #payment{
-    color:gray;
+    color: gray;
     .progress-status_bar{
     background: #ea352d;
     }
