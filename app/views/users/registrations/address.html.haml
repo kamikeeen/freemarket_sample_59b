@@ -4,7 +4,7 @@
     .user__input__address
       .user__input__address__title
         .user__input__address__title-text
-          会員情報入力
+          住所入力
       .user__input__address__main
         .user__input__address__main-form
           -# 仮置き、form_forの中身は後で必ず変わる
@@ -50,7 +50,7 @@
               %span.user__input__address__main-form-field__require
                 必須
               %br/
-              -# データベースを作ったら:emailを:regionにする
+              -# データベースを作ったら:emailを:regionにするselectをcollection_selectに変更
               = f.select :email, [["--", 0]]
             .user__input__address__main-form__confirm-text
               都道府県 を入力してください
@@ -80,7 +80,7 @@
               -# データベースを作ったら:password_confirmationを:building_nameにする
               = f.text_field :password_confirmation, placeholder: "例）柳ビル103"
             .user__input__address__main-form-field
-              = f.label :"電話番号"
+              = f.label :"電話"
               %span.user__input__address__main-form-field__arbitrary
                 任意
               %br/
@@ -92,6 +92,6 @@
             .user__input__address__main__about-registration
               .user__input__address__main__about-registration-text
                 -# リンク仮置き。次のページへ。完成時は消す
-                = link_to users_signup_sms_confirmation_path do
+                = link_to users_signup_payment_path do
                   ="本人情報の登録について＞"
   = render "shared/center_logo_footer"

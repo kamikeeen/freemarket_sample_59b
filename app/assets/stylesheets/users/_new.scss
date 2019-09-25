@@ -12,7 +12,7 @@
 }
 
 
-.user__input__basic, .user__input__sms__confirm, .user__input__sms, .user__input__address{
+.user__input__basic, .user__input__sms__confirm, .user__input__sms, .user__input__address, .user__input__payment, .user__input__end{
   background-color:#ffffff;
   width: 700px;
   margin: 50px auto;
@@ -150,5 +150,35 @@
         @include mouseover__thincolor();
         @include mouseover__under-bar();
   }
+  }
+}
+
+.user__input__payment__main-form{
+  &-field{
+    & select{
+      width:30%;
+      appearance:none;
+    }
+  }
+  &__about-card-number{
+  text-align:right;
+    & a{
+      text-decoration: none;
+      color:#0099e8;
+      @include mouseover__thincolor();
+      @include mouseover__under-bar();
+    }
+  }
+}
+
+.user__input__end{
+  border-bottom:solid 1px #eeeeee;
+  &__main-form-field{
+  text-align:center;
+  }
+  &__footer-image{
+    width:100%;
+    height:400px;
+    background-image: image-url("footer_image.png");
   }
 }
