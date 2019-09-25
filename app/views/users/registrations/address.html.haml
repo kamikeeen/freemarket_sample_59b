@@ -9,7 +9,6 @@
         .user__input__address__main-form
           -# 仮置き、form_forの中身は後で必ず変わる
           = form_for('user_registration', as: resource_name, url: registration_path(resource_name)) do |f|
-            -# = render "devise/shared/error_messages", resource: resource
             .user__input__address__main-form-field
               = f.label :"お名前(全角)" 
               %span.user__input__address__main-form-field__require
