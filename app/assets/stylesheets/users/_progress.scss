@@ -1,6 +1,6 @@
 // 会員情報
-@mixin common-bar(){
-  #common{
+@mixin basic-bar(){
+  #basic{
     color: #ea352d;
     .progress-status{
       background: #ea352d;
@@ -10,7 +10,7 @@
 
 // 会員情報→電話番号認証
 @mixin sms-bar(){
-  #common{
+  #basic{
     color:gray;
     .progress-status_bar{
     background: #ea352d;
