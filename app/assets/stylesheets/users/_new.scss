@@ -1,11 +1,13 @@
 .user__input__header{
+  box-sizing:border-box;
   text-align:center;
-  &-logo{
-    @include mouseover__thincolor();
-  }
-  & ul li{
-    display: inline;
+  & ul{
+    display: inline-flex;
     list-style: none;
+  }
+  &-logo{
+    padding-top:40px;
+    @include mouseover__thincolor();
   }
 }
 
@@ -13,7 +15,7 @@
 .user__input__common, .user__sms__confirm, .user__sms{
   background-color:#ffffff;
   width: 700px;
-  margin: 0 auto;
+  margin: 50px auto;
   &__title{
     text-align:center;
     border-bottom:solid 1px #eeeeee;

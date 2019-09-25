@@ -1,11 +1,6 @@
-.user__background
-  .user__input__header
-    %ul
-      %li.user__input__header-logo
-        = link_to "#" do
-          = image_tag "logo.svg",size: "200x50", alt: "logo"
-      %li.user__input__header-bar
-        aaa
+.user__input__background
+  .user__input__background__sms
+    = render "progress_header"
   .user__sms__confirm
     .user__sms__confirm__title
       .user__sms__confirm__title-text

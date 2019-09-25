@@ -1,0 +1,128 @@
+// 会員情報
+@mixin common-bar(){
+  #common{
+    color: #ea352d;
+    .progress-status{
+      background: #ea352d;
+    }
+  }
+}
+
+// 会員情報→電話番号認証
+@mixin sms-bar(){
+  #common{
+    color:gray;
+    .progress-status_bar{
+    background: #ea352d;
+    }
+  }
+  #sms{
+    color: #ea352d;
+    .progress-status{
+      background: #ea352d;
+    }
+  }
+}
+
+// 電話番号認証→お届け先情報入力
+@mixin address-bar(){
+  #sms{
+    color:gray;
+    .progress-status_bar{
+    background: #ea352d;
+    }
+  }
+  #address{
+    color: #ea352d;
+    .progress-status{
+      background: #ea352d;
+    }
+  }
+}
+
+// お届け先情報入力→支払い方法
+@mixin payment-bar(){
+  #address{
+    color:gray;
+    .progress-status_bar{
+    background: #ea352d;
+    }
+  }
+  #payment{
+    color: #ea352d;
+    .progress-status{
+      background: #ea352d;
+    }
+  }
+}
+
+// 支払い方法→完了
+@mixin end-bar(){
+  #payment{
+    color:gray;
+    .progress-status_bar{
+    background: #ea352d;
+    }
+  }
+  #end{
+    color: #ea352d;
+    .progress-status{
+      background: #ea352d;
+    }
+  }
+}
+
+.progress {
+  padding: 40px 0 0 44px;
+  border: 0;
+  display: inline-block;
+  vertical-align: top;
+  font-size: 0;
+  text-align: center;
+  &-bar{
+    margin: 0;
+    li{
+      margin: 0 40px 0 0;
+      padding: 0;
+      position: relative;
+      z-index: 40;
+      display: inline-block;
+      min-width: 60px;
+      font-size: 12px;
+      color: gray;
+      .progress-status{
+        position: absolute;
+        left: 40%;
+        width: 12px;
+        height: 12px;
+        margin: 8px auto 0;
+        background: gray;
+        border-radius: 50%;
+        z-index: 30;
+      }
+    }
+  }
+}
+
+
+// デフォルトのプログレスバー
+.progress-status_bar {
+position: absolute;
+left: 50%;
+top: 30px;
+bottom: 5px;
+display: block;
+width: 130px;
+height: 2px;
+background: gray;
+z-index: 10;
+}
+
+.end .progress-status_bar {
+width: 0px;
+}
+.payment .progress-status_bar {
+width: 100px;
+}
+
+
