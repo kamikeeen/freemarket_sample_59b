@@ -28,14 +28,16 @@
     &__fields{
       width:100%;
       #user_email{
-        width:100%;
+        width:calc(100% - 10px);
         @include button();
         padding-left:10px;
+        border:solid 1px #eee;
       }
       #user_password{
-        width:100%;
+        width:calc(100% - 10px);
         @include button();
         padding-left:10px;
+        border:solid 1px #eee;
       }
       #signin{
         width:100%;
