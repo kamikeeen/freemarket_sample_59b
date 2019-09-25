@@ -50,6 +50,14 @@
           border: 1px solid #ccc;
           background: #fff;
           font-size: 16px;
+          cursor:pointer;
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          appearance: none;
+          background-image: image-url("arrow_down.png");
+          background-repeat: no-repeat;
+          background-size: 12px 10px;
+          background-position: right 10px center;
           }
         &__require{
           background-color:#ea352d;
@@ -92,9 +100,17 @@
             border: 1px solid #ccc;
             background: #fff;
             font-size: 16px;
-            }
+            cursor:pointer;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background-image: image-url("arrow_down.png");
+            background-repeat: no-repeat;
+            background-size: 12px 10px;
+            background-position: right 10px center;
           }
         }
+      }
         &__next-button{
           & input{
           background-color:#ea352d;
@@ -157,7 +173,14 @@
   &-field{
     & select{
       width:30%;
-      appearance:none;
+      cursor:pointer;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      background-image: image-url("arrow_down.png");
+      background-repeat: no-repeat;
+      background-size: 12px 10px;
+      background-position: right 10px center;
     }
   }
   &__about-card-number{
@@ -175,10 +198,5 @@
   border-bottom:solid 1px #eeeeee;
   &__main-form-field{
   text-align:center;
-  }
-  &__footer-image{
-    width:100%;
-    height:400px;
-    background-image: image-url("footer_image.png");
   }
 }
