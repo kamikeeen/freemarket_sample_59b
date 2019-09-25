@@ -1,0 +1,10 @@
+.mypage__profile-edit
+  .profile__header
+    プロフィール
+  .profile__icon
+    = image_tag "mypage_background_image.jpg", class: "profile__icon__image"
+    %input.profile__icon__user-name{name: "nickname", placeholder: "user-name", :type => "text"}
+  .profile__contents
+    %textarea.profile__contents__text{name: "profile_text", placeholder: "例）こんにちは！私の趣味は..."}
+    .profile__contents__btn
+      変更する
