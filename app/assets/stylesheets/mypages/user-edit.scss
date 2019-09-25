@@ -1,0 +1,39 @@
+.mypage__user-edit{
+  width: 700px;
+  height: 1208px;
+  .user__header{
+    box-sizing: border-box;
+    height: 50px;
+    padding: 8px 24px;
+    font-size: 24px;
+    text-align: center;
+    line-height: 33px;
+    font-weight: bold;
+    border-bottom: 1px solid rgb(245, 245, 245);
+  }
+  .user__profile{
+    height: 1158px;
+    padding: 64px;
+    box-sizing: border-box;
+    .explanation{
+      height: 71px;
+      &__text{
+        font-size: 14px;
+        margin: 8px 0 0;
+      }
+      &__link{
+        font-size: 14px;
+        margin: 8px 0 0;
+        display: flex;
+        text-decoration: none;
+        color: #0099e8;
+        justify-content: flex-end;
+        &__text{
+        }
+        &__icon{
+          margin-top: 3.4px;
+        }
+      }
+    }
+  }
+}

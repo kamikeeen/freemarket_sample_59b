@@ -1,0 +1,13 @@
+.mypage__user-edit
+  .user__header
+    本人情報の登録
+  = form_for "", html:{class: "user__profile"} do |f|
+    .explanation
+      .explanation__text
+        お客さまの本人情報をご登録ください。
+        %br 登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+      = link_to "#", class: "explanation__link" do
+        .explanation__link__text
+          本人確認書類のアップロードについて
+        %i.fa.fa-chevron-right.content__icon.explanation__link__icon
+    
