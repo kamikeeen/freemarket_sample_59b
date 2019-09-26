@@ -177,16 +177,16 @@
       .item-detail__comments__inner__submit-comment
         %input{type: 'button', form: '#', value: "コメントする"}
 
-  .item-detail__pre-item
-    = fa_icon 'angle-left', class: 'item-detail__pre-item__angle-left'
-    %p
-      ホットヨガラバ ヨガマットケース
-
-  .item-detail__pro-item
-    = fa_icon 'angle-right', class: 'item-detail__pre-item__angle-left'
-    %p
-      JAL ドリームエクスプレス
-
+  .item-detail__prev-and-next
+    %a.item-detail__prev-and-next__prev-item{href: '#'}
+      = fa_icon 'angle-left', class: 'item-detail__prev-and-next__prev-item__angle-left'
+      %p
+        ホットヨガラバ ヨガマットケース
+    %a.item-detail__prev-and-next__next-item{href: '#'}
+      %p
+        JAL ドリームエクスプレス
+      = fa_icon 'angle-right', class: 'item-detail__prev-and-next__next-item__angle-right'
+      
   .item-detail__SNS-shares
     %ul
       %li

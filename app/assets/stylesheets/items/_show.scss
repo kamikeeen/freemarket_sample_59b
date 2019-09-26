@@ -197,4 +197,42 @@
       }
     }
   }
+  &__prev-and-next {
+    width: 700px;
+    margin: 0px auto;
+    & * {
+      @include mouseover__thincolor();
+      display: inline-block;
+    } 
+    &__prev-item {
+      float: left;
+      text-decoration: none;
+      &__angle-left {
+        color: #0099e8;
+        font-size: 24px;
+      }
+      & p {
+        @include link-action();
+        vertical-align: top;
+        font-size: 14px;
+      }
+    }
+    &__next-item {
+      float: right;
+      text-decoration: none;
+      &__angle-right {
+        color: #0099e8;
+        font-size: 24px;
+      }
+      & p {
+        @include link-action();
+        vertical-align: top;
+        font-size: 14px;
+      }
+    }
+    
+  }
+  &__SNS-shares {
+    clear: both;
+  }
 }
