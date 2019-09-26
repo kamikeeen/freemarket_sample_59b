@@ -170,7 +170,12 @@
         %p
           相手のことを考え丁寧なコメントを心掛けましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
       .item-detail__comments__inner__comment
+        %textarea{rows: '4', cols: ''}
+      .item-detail__comments__inner__validate
+        %p
+          入力してください
       .item-detail__comments__inner__submit-comment
+        %input{type: 'button', form: '#', value: "コメントする"}
 
   .item-detail__pre-item
     = fa_icon 'angle-left', class: 'item-detail__pre-item__angle-left'

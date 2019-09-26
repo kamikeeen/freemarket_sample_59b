@@ -165,4 +165,36 @@
       }
     }
   }
+  &__comments {
+    width: 700px;
+    margin: 8px auto;
+    background-color: #FFFFFF;
+    &__inner {
+      padding: 24px;
+      &__note {
+        padding: 8px;
+        background-color: #fff6de;
+        font-size: 14px;
+      }
+      &__validate {
+        color: red;
+        font-size: 14px;
+      }
+      &__comment textarea {
+        margin-top: 8px;
+        padding: 10px;
+        width: 630px;
+        border-color: #cccccc;
+      }
+      &__submit-comment input {
+        margin-top: 8px;
+        width: 650px;
+        height: 47.5px;
+        border: none;
+        background-color: #AAAAAA;
+        color: #FFFFFF;
+        font-size: 14px;
+      }
+    }
+  }
 }
