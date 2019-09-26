@@ -3,7 +3,7 @@
   font-family: "Font Awesome 5 Brands";
 }
 
-@import 'users/mixin';
+// @import 'items/mixin';
 
 .item-detail {
   background-color: #f5f5f5;
@@ -15,7 +15,7 @@
     width: 700px;
     background-color: #FFFFFF;
     &__inner {
-      padding: 24px 40px 0px;
+      padding: 24px 40px 40px;
       &__name {
         padding-bottom: 16px;
         font-weight: bold;
@@ -44,9 +44,7 @@
         border: 1px solid #f5f5f5;
         font-size: 14px;
         & a {
-          text-decoration: none;
-          color: #0099e8;
-          @include mouseover__under-bar();
+          @include link-action();
         }
       }
       &__details th {
@@ -95,7 +93,7 @@
         &__price {
           clear: both;
           padding-top: 24px;
-          height: 44px;
+          height: 74px;
           font-size: 50px;
           text-align: center;
           font-weight: bold;
@@ -109,6 +107,59 @@
           }
           & p {
             display: inline;
+          }
+        }
+        &__confirm-purchase-item input {
+          border: none;
+          margin-top: 16px;
+          height: 60px;
+          width: 620px;
+          background-color: #ea352d;
+          color: #FFFFFF;
+          font-weight: bold;
+          font-size: 24px;
+        }
+        &__text {
+          padding-top: 32px;
+          font-size: 18px;
+        }
+        &__options-box {
+          margin-top: 16px;
+          &__good {
+            @include options__box;
+            & * {
+              display: inline-block;
+            }
+            &__heart {
+              color: #DADADA;
+            }
+            & p {
+              margin-left: 8px;
+            }
+          }
+          &__report {
+            @include options__box;
+            @include mouseover__thincolor();
+            margin-left: 16px;
+            & * {
+              display: inline-block;
+            }
+            &__flag {
+              color: #DADADA;
+            }
+            & p {
+              margin-left: 8px;
+            }
+          }
+          &__effort-for-safety {
+            margin-left: 44px;
+          }
+          &__effort-for-safety * , a {
+            @include mouseover__thincolor();
+            display: inline-block;
+            color: #0099e8;
+            font-size: 14px;
+            text-decoration: none;
           }
         }
       }
