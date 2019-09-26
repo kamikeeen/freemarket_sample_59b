@@ -1,0 +1,22 @@
+.mypage__logout{
+  width: 700px;
+  height: 179px;
+  padding:64px;
+  background-color:#fff;
+  &__button{
+  & input{
+    height:50px;
+    background-color: #ea352d;
+    width: 320px;
+    margin: 8px 0 0;
+    padding: 10px 16px 8px;
+    border: 1px solid #ccc;
+    line-height: 1.5;
+    font-size: 16px;
+    color: #fff;
+    cursor: pointer;
+    // 本番環境では1.0か0.5くらいにする
+    transition: 0.2s;
+    }
+  }
+}
