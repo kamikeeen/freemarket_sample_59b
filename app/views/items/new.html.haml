@@ -14,8 +14,13 @@
           %span.items__new__sell__form__upload-image-text
             最大10枚までアップロードできます
           %br
-          -# データベースを作ったらで:emailを:nicknameにする
-          = f.text_field :email, placeholder: "例）メルカリ太郎"
+          .items__new__sell__form__upload-image-form
+            -# Dropzonejs？でドラッグ&ドロップができるかもしれない。今は見た目だけ作ります。
+            = f.file_field :image
+            = f.label :image, class:"items__new__sell__form__upload-image-form" do
+              ドラッグアンドドロップ
+              %br
+              またはクリックしてファイルをアップロード
         .items__new__sell__form__items
           .items__new__sell__form__items-name
             商品の詳細
@@ -48,5 +53,4 @@
             出品する
           .items__new__sell__form__button__back-button
             戻る
-          
   = render "shared/center_logo_footer"
