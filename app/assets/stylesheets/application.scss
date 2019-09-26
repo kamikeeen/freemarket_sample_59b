@@ -1,6 +1,8 @@
 @import "reset";
-@import 'font-awesome';
+@import "font-awesome";
+@import "items/top-page-mixin";
 @import "items/top-page-main-contents";
 @import "items/top-page-header";
 @import "items/top-page-footer";
 @import "items/shipping-button";
+@import "items/category-search-pulldown";
