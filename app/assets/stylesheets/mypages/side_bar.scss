@@ -42,6 +42,7 @@ a{
   text-decoration: none;
 }
 .myside-bar-nav-list-item{
+  &:hover i{color: blue}
   position: relative;
   display: block;
   min-height: 8px;
@@ -59,10 +60,15 @@ a{
 }
 
 i.fa.fa-angle-right{
-  position: absolute;
   top: 50%;
   right: 16px;
   color: #ccc;
-  transform: translate(0, -50%);
-  transition: all ease-out .2s;
+}
+
+i.fa.fa-angle-right:hover{
+  // transform: translate(60%, 0);
+  // transition-property: all;
+  // transition-duration: 0.2s;
+  // transition-timing-function: ease-out;
+  // transition-delay: 0.2s;
 }
