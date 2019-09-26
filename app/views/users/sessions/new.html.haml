@@ -32,7 +32,7 @@
           .actions
             = f.submit "ログイン", id:"signin"
       .signin__password__forget
-        = link_to do
+        = link_to users_signin_sms_path do
           パスワードをお忘れの方
 
   = render "shared/center_logo_footer"

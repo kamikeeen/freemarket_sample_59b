@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     get '/users/signup/address/', to:'users/registrations#address'
     get '/users/signup/payment/', to:'users/registrations#payment'
     get '/users/signup/end/', to:'users/registrations#end'
+    get '/users/signin/sms/', to:'users/sessions#sms'
   end
 
   resources :tests
