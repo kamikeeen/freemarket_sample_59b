@@ -1,0 +1,28 @@
+.user__input__background{
+  background-color: #f5f5f5;
+  &__basic{
+    @include basic-bar();
+  }
+  &__sms{
+    @include basic-bar();
+    @include sms-bar();
+  }
+  &__address{
+    @include basic-bar();
+    @include sms-bar();
+    @include address-bar();
+  }
+  &__payment{
+    @include basic-bar();
+    @include sms-bar();
+    @include address-bar();
+    @include payment-bar();
+  }
+  &__end{
+    @include basic-bar();
+    @include sms-bar();
+    @include address-bar();
+    @include payment-bar();
+    @include end-bar();
+  }
+}
