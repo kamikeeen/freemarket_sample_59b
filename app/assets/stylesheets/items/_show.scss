@@ -1,8 +1,3 @@
-.item-detail__SNS-shares__line {
-  color: green;
-  font-family: "Font Awesome 5 Brands";
-}
-
 // @import 'items/mixin';
 
 .item-detail {
@@ -167,7 +162,7 @@
   }
   &__comments {
     width: 700px;
-    margin: 8px auto;
+    margin: 8px auto 13.75px;
     background-color: #FFFFFF;
     &__inner {
       padding: 24px;
@@ -230,9 +225,32 @@
         font-size: 14px;
       }
     }
-    
   }
   &__SNS-shares {
     clear: both;
+    height: 82px;
+    width: 700px;
+    margin: 0px auto;
+    padding: 32px 0px 24px;
+    background-color: #FFFFFF;
+    text-align: center;
+    line-height: 2;
+    & ul li {
+      display: inline;
+      font-size: 50px;
+    }
+    &__facebook {
+      color: #395283;
+    }
+    &__twitter {
+      color: #609EC7;
+    }
+    &__line {
+      font-family: "Font Awesome 5 Brands";
+      color: #1DBF40;
+    }
+    &__pinterest {
+      color: #A8282E;
+    }
   }
 }
