@@ -63,11 +63,13 @@
                   line-height: 32px;
                   font-size: 14px;
                   padding-right: 5px;
-                  text-decoration: none;
                 }
                 &__icon {
                   font-size: 20px;
                 }
+              }
+              .modify-link-to {
+                text-decoration: none;
               }
             }
           }
