@@ -1,0 +1,52 @@
+.items__new__background
+  = render "shared/center_logo_header"
+  .items__new__sell
+    .items__new__sell__title
+      .items__new__sell__title-text
+        商品の情報を入力
+    .items__new__sell__form
+      = form_for "" do |f|
+        .items__new__sell__form__upload-image
+          = f.label :"出品画像"
+          %span.items__new__sell__form__require
+            必須
+          %br
+          %span.items__new__sell__form__upload-image-text
+            最大10枚までアップロードできます
+          %br
+          -# データベースを作ったらで:emailを:nicknameにする
+          = f.text_field :email, placeholder: "例）メルカリ太郎"
+        .items__new__sell__form__items
+          .items__new__sell__form__items-name
+            商品の詳細
+            商品名必須
+            商品名（必須４０文字まで）
+          .items__new__sell__form__items-explanation
+            商品の説明必須
+            商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。
+        .items__new__sell__form__about-delivery
+          .items__new__sell__form__about-delivery__shipping
+            配送について?
+            配送料の負担必須
+          .items__new__sell__form__about-delivery__post-area
+            発送元の地域必須
+          .items__new__sell__form__about-delivery__arrival
+            発送までの日数必須
+        .items__new__sell__form__price
+          .items__new__sell__form__price-price
+            価格必須
+          .items__new__sell__form__price-commission
+            販売手数料
+          .items__new__sell__precautions-profit
+            販売利益
+        .items__new__sell__form__button
+          .items__new__sell__form__button__confirmation
+            禁止されている出品、行為を必ずご確認ください。
+            またブランド品でシリアルナンバー等がある場合はご記載ください。偽ブランドの販売は犯罪であり処罰される可能性があります。
+            また、出品をもちまして加盟店規約に同意したことになります。
+          .items__new__sell__form__button__sell-button
+            出品する
+          .items__new__sell__form__button__back-button
+            戻る
+          
+  = render "shared/center_logo_footer"
