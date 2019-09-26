@@ -6,32 +6,30 @@
 
       .item-detail__contents__inner__name
         kastane ワッシャーシフォンワンピース
-        
+
       .item-detail__contents__inner__pictures
         .item-detail__contents__inner__pictures__main
-          = image_tag 'item-detail.jpg'
+          = image_tag 'item-detail.jpg', size: '300x300'
         .item-detail__contents__inner__pictures__sub
-          = image_tag 'item-detail.jpg'
+          = image_tag 'item-detail.jpg', size: '60x60'
         .item-detail__contents__inner__pictures__sub
-          = image_tag 'item-detail.jpg'
+          = image_tag 'item-detail.jpg', size: '60x60'
         .item-detail__contents__inner__pictures__sub
-          = image_tag 'item-detail.jpg'
+          = image_tag 'item-detail.jpg', size: '60x60'
         .item-detail__contents__inner__pictures__sub
-          = image_tag 'item-detail.jpg'
+          = image_tag 'item-detail.jpg', size: '60x60'
         .item-detail__contents__inner__pictures__sub
-          = image_tag 'item-detail.jpg'
+          = image_tag 'item-detail.jpg', size: '60x60'
         .item-detail__contents__inner__pictures__sub
-          = image_tag 'item-detail.jpg'
+          = image_tag 'item-detail.jpg', size: '60x60'
         .item-detail__contents__inner__pictures__sub
-          = image_tag 'item-detail.jpg'
+          = image_tag 'item-detail.jpg', size: '60x60'
         .item-detail__contents__inner__pictures__sub
-          = image_tag 'item-detail.jpg'
+          = image_tag 'item-detail.jpg', size: '60x60'
         .item-detail__contents__inner__pictures__sub
-          = image_tag 'item-detail.jpg'
+          = image_tag 'item-detail.jpg', size: '60x60'
         .item-detail__contents__inner__pictures__sub
-          = image_tag 'item-detail.jpg'
-        .item-detail__contents__inner__pictures__sub
-          = image_tag 'item-detail.jpg'
+          = image_tag 'item-detail.jpg', size: '60x60'
 
       %table.item-detail__contents__inner__details
         %tr
@@ -40,69 +38,101 @@
               出品者
           %td
             .item-detail__contents__inner__details__buyer-name
-            .item-detail__contents__inner__details__buyer-Assessments
-              .item-detail__contents__inner__details__buyer-Assessments-good
-              .item-detail__contents__inner__details__buyer-Assessments-good-counts
-              .item-detail__contents__inner__details__buyer-Assessments-normal
-              .item-detail__contents__inner__details__buyer-Assessments-normal-counts
-              .item-detail__contents__inner__details__buyer-Assessments-bad
-              .item-detail__contents__inner__details__buyer-Assessments-bad-counts
+              %a{href: '#'}
+                ゆ
+            .item-detail__contents__inner__details__buyer-assessments
+              = fa_icon 'laugh', class: "item-detail__contents__inner__details__buyer-assessments__good"
+              .item-detail__contents__inner__details__buyer-assessments__counts
+                %p
+                  89
+              = fa_icon 'meh', class: "item-detail__contents__inner__details__buyer-assessments__normal"
+              .item-detail__contents__inner__details__buyer-assessments__counts
+                %p
+                  0
+              = fa_icon 'frown-open', class: "item-detail__contents__inner__details__buyer-assessments__bad"
+              .item-detail__contents__inner__details__buyer-assessments__counts
+                %p
+                  0
         %tr
           %th
             %p
               カテゴリー
           %td
-            .item-detail__contents__inner__details__category
+            .item-detail__contents__inner__details__category-main
+              %a{href: '#'}
+                レディース
+            / おそらくeach文でカテゴリを取り出すため、クラス名をmainとsubに分けた
+            .item-detail__contents__inner__details__category-sub
+              = fa_icon 'angle-right', class: 'item-detail__contents__inner__details__category-sub__angle-right'
+              %a{href: '#'}
+                ワンピース
+            .item-detail__contents__inner__details__category-sub
+              = fa_icon 'angle-right', class: 'item-detail__contents__inner__details__category-sub__angle-right'
+              %a{href: '#'}
+                ロングワンピース
         %tr
           %th
             %p
               ブランド
           %td
             .item-detail__contents__inner__details__brand-name
+              %a{href: '#'}
+                カスタネ
         %tr
           %th
             %p
               商品のサイズ
           %td
             .item-detail__contents__inner__details__size
+              %p
+                FREE SIZE
         %tr
           %th
             %p
               商品の状態
           %td
             .item-detail__contents__inner__details__damage
+              %p
+                目立った傷や汚れなし
         %tr
           %th
             %p
               配送料の負担
           %td
             .item-detail__contents__inner__details__postage
+              %p
+                送料込み（出品者負担）
         %tr
           %th
             %p
               配送の方法
           %td
             .item-detail__contents__inner__details__shipping
+              %p
+                らくらくメルカリ便
         %tr
           %th
             %p
               配送元地域
           %td
             .item-detail__contents__inner__details__post-area
+              %a{href: '#'}
+                神奈川県
         %tr
           %th
             %p
               発想の目安
           %td
             .item-detail__contents__inner__details__arrival
+              %p
+                1-2日で発送
 
       .item-detail__contents__inner__details__price
         %p
           ¥6,500
-      .item-detail__contents__inner__details__postage
-        %p
+        %p.item-detail__contents__inner__details__price__tax
           （税込）
-        %p
+        %p.item-detail__contents__inner__details__price__shipping
           送料込み
 
       .item-detail__contents__inner__details__confirm-purchase-item
@@ -118,19 +148,19 @@
 
       .item-detail__contents__inner__details__options-box
         .item-detail__contents__inner__details__options-box__good
-          =fa_icon 'heart', class: 'item-detail__contents__inner__details__options-box__good__heart'
+          = fa_icon 'heart', class: 'item-detail__contents__inner__details__options-box__good__heart'
           %p
             いいね
           .item-detail__contents__inner__details__options-box__good__count
             %p
               25
         .item-detail__contents__inner__details__options-box__report
-          =fa_icon 'flag', class: 'item-detail__contents__inner__details__options-box__report__flag'
+          = fa_icon 'flag', class: 'item-detail__contents__inner__details__options-box__report__flag'
           %p
             不適切な商品の報告
           
         .item-detail__contents__inner__details__options-box__effort-for-safety
-          =fa_icon 'lock', class: 'item-detail__contents__inner__details__options-box__effort-for-safety__lock'
+          = fa_icon 'lock', class: 'item-detail__contents__inner__details__options-box__effort-for-safety__lock'
           %p
             あんしん・あんぜんへの取り組み
 
