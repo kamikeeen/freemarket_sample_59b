@@ -6,14 +6,12 @@
   margin: 40px auto 0;
   width: 1020px;
   height: 1252px;
-  //background-color: grey;
+  display: flex;
 }
 
 .my-side{
-  float: left;
   width: 280px;
   margin: 0 40px 0 0;
-  //background-color: orange;
 }
 
 h3.mypside-bar-nav-head{
@@ -22,7 +20,6 @@ h3.mypside-bar-nav-head{
   font-size: 16px;
   margin-top:40px;
   margin-bottom: 0%;
-  //background-color: blue;
 }
 
 ul{
