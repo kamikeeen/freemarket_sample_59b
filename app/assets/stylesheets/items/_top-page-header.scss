@@ -7,6 +7,9 @@
       height: 40px;
       display: flex;
       .logo {
+        & img {
+          height: 40px;
+        }
         margin-right: 45px;
         width: 134px;
         cursor : pointer;
@@ -33,6 +36,9 @@
             font-size: 14px;
             border: none;
             cursor : pointer;
+            &:focus {
+              outline: none; 
+            }
           }
         } 
       }
@@ -46,18 +52,23 @@
       .search-category-wrapper {
         width:150px;
         padding-right: 10px;
-
       }
       .search-brand-wrapper {
         padding-left: 10px;
         @include pulldown;
-        .search-brand {
-          font-weight: 600;
-          display: flex;
-          cursor : pointer;
-          &__icon {
-            margin-right: 4px;
-            width: 18px;
+        .search-brand-content {
+          @include a-text-decoration;
+          .search-brand {
+            font-weight: 600;
+            display: flex;
+            cursor : pointer;
+            &__icon {
+              margin-right: 4px;
+              width: 18px;
+              & img {
+                height: 15px;
+              }
+            }
           }
         }
         .pull-down {
@@ -65,7 +76,7 @@
           background-color: white;
           margin: 0 -80px 0 -10px;
           box-shadow: 1px 1px rgba(179, 179, 179, 0.185);
-          li  {
+          li {
             font-size: 14px;
             list-style: none;
             padding-left: 14px;
@@ -79,28 +90,34 @@
       }
       .good-list-wrapper {
         margin: 0 0 0 auto;
-        .good-list {
-          padding-right: 14px;
-          display: flex;
-          cursor : pointer;
-          &__icon {
-            margin-right: 10px;
-            font-size: 18px;
-            color: rgb(158, 158, 158);
+        .good-list-content {
+          @include a-text-decoration;
+          .good-list {
+            padding-right: 14px;
+            display: flex;
+            cursor : pointer;
+            &__icon {
+              margin-right: 10px;
+              font-size: 18px;
+              color: rgb(158, 158, 158);
+            }
           }
         }
       }
       .notice-wrapper {
         @include pulldown;
-        .notice {
-          padding: 0 14px;
-          display: flex;
-          cursor : pointer;
-          &__icon {
-            margin-right: 10px;
-            font-size: 18px;
-            color: rgb(158, 158, 158);
-          }
+        .notice-content {
+          @include a-text-decoration;
+          .notice {
+            padding: 0 14px;
+            display: flex;
+            cursor : pointer;
+            &__icon {
+              margin-right: 10px;
+              font-size: 18px;
+              color: rgb(158, 158, 158);
+            }
+        }
         }
         .pull-down {
           visibility: hidden;
@@ -118,13 +135,16 @@
       .todo-list-wrapper {
         @include pulldown;
         padding: 0 14px;
-        .todo-list {
-          display: flex;
-          cursor : pointer;
-          &__icon {
-            margin-right: 10px;
-            font-size: 18px;
-            color: rgb(158, 158, 158);
+        .todo-list-content {
+          @include a-text-decoration;
+          .todo-list {
+            display: flex;
+            cursor : pointer;
+            &__icon {
+              margin-right: 10px;
+              font-size: 18px;
+              color: rgb(158, 158, 158);
+            }
           }
         }
         .pull-down {
@@ -142,14 +162,20 @@
       }
       .mypage-wrapper {
         @include pulldown;
-        .mypage {
-          padding-left: 14px;
-          display: flex;
-          cursor : pointer;
-          &__icon {
-            height: 33px;
-            margin: 5px 10px 0 0;
-            width: 33px;
+        .mypage-content {
+          @include a-text-decoration;
+          .mypage {
+            padding-left: 14px;
+            display: flex;
+            cursor : pointer;
+            &__icon {
+              height: 33px;
+              margin: 5px 10px 0 0;
+              width: 33px;
+              & img {
+                height: 34px;
+              }
+            }
           }
         }
         .pull-down {
@@ -204,9 +230,5 @@
         }
       }
     }
-  }
-  img {
-    max-width: 100%;
-    height: auto;
   }
 }

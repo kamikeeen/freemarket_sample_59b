@@ -6,7 +6,6 @@
       .move-right
         = fa_icon "angle-right"
     .main-content
-      -# ここから人気のカテゴリー
       .show-recommend
         .text
           人気のカテゴリー
@@ -20,7 +19,6 @@
           .list-box__list
             カテゴリー4
       .recommend-box
-        -# ここから繰り返し
         .recommend-item
           .header
             .title
@@ -42,8 +40,6 @@
                     ¥4,000
                   .show-item__name
                     %p ニンテンドースイッチ スプラトゥーン2スプラトゥーン2
-        -# ここまで
-        -# これは上のコピー
         .recommend-item
           .header
             .title
@@ -65,8 +61,30 @@
                     ¥4,000
                   .show-item__name
                     %p ニンテンドースイッチ スプラトゥーン2スプラトゥーン2
-        -# ここまで
-      -# ここから人気のブランド
+        .recommend-item
+          .header
+            .title
+              カテゴリー3新着アイテム
+            .see-more
+              = link_to root_path, class:"modify-link-to" do
+                .see-more__box
+                  .see-more__box__text
+                    もっと見る
+                  .see-more__box__icon
+                    = fa_icon "angle-right"
+          .items-wrapper
+        .recommend-item
+          .header
+            .title
+              カテゴリー4新着アイテム
+            .see-more
+              = link_to root_path, class:"modify-link-to" do
+                .see-more__box
+                  .see-more__box__text
+                    もっと見る
+                  .see-more__box__icon
+                    = fa_icon "angle-right"
+          .items-wrapper
       .show-recommend
         .text
           人気のブランド
@@ -102,3 +120,39 @@
                     ¥4,000
                   .show-item__name
                     %p ニンテンドースイッチ スプラトゥーン2
+        .recommend-item
+          .header
+            .title
+              ブランド2新着アイテム
+            .see-more
+              = link_to root_path, class:"modify-link-to" do
+                .see-more__box
+                  .see-more__box__text
+                    もっと見る
+                  .see-more__box__icon
+                    = fa_icon "angle-right"
+          .items-wrapper
+        .recommend-item
+          .header
+            .title
+              ブランド3新着アイテム
+            .see-more
+              = link_to root_path, class:"modify-link-to" do
+                .see-more__box
+                  .see-more__box__text
+                    もっと見る
+                  .see-more__box__icon
+                    = fa_icon "angle-right"
+          .items-wrapper
+        .recommend-item
+          .header
+            .title
+              ブランド4新着アイテム
+            .see-more
+              = link_to root_path, class:"modify-link-to" do
+                .see-more__box
+                  .see-more__box__text
+                    もっと見る
+                  .see-more__box__icon
+                    = fa_icon "angle-right"
+          .items-wrapper

@@ -3,3 +3,10 @@
     visibility: visible;
   }
 }
+
+@mixin a-text-decoration() {
+  & a {
+    text-decoration: none;
+    color: black;
+  }
+}

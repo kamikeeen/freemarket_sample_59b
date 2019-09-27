@@ -14,11 +14,13 @@
       .search-category-wrapper
         = render "items/category-search-pulldown"
       .search-brand-wrapper
-        .search-brand
-          .search-brand__icon
-            %img{src: "assets/top-page/brand-icon.png"}
-          .search-brand__text
-            ブランドから探す
+        .search-brand-content
+          = link_to root_path do
+            .search-brand
+              .search-brand__icon
+                %img{src: "assets/top-page/brand-icon.png"}
+              .search-brand__text
+                ブランドから探す
         .pull-down
           %li シャネル
           %li ナイキ
@@ -27,47 +29,55 @@
           %li アディダス
           %li ブランド一覧
       -# - if user_sign_in?
-      -# .good-list-wrapper
-      -#   .good-list
-      -#     .good-list__icon
-      -#       = fa_icon "heart"
-      -#     .good-list__text
-      -#       いいね！一覧
-      -# .notice-wrapper
-      -#   .notice
-      -#     .notice__icon
-      -#       = fa_icon "bell"
-      -#     .notice__text
-      -#       お知らせ
-      -#   .pull-down
-      -#     %li test
-      -#     %li test
-      -# .todo-list-wrapper
-      -#   .todo-list
-      -#     .todo-list__icon
-      -#       = fa_icon "check"
-      -#     .todo-list__text
-      -#       やることリスト
-      -#   .pull-down
-      -#     %li test
-      -# .mypage-wrapper
-      -#   .mypage
-      -#     .mypage__icon
-      -#       %image{src: "assets/top-page/defalte-user-icon.png"}
-      -#     .mypage__text
-      -#       マイページ
-      -#   .pull-down
-      -#     %li test
-      -#     %li test
-      -#     %li test
-      -#     %li test
-      -#     %li test
+      .good-list-wrapper
+        .good-list-content
+          = link_to root_path do
+            .good-list
+              .good-list__icon
+                = fa_icon "heart"
+              .good-list__text
+                いいね！一覧
+      .notice-wrapper
+        .notice-content
+          = link_to root_path do
+            .notice
+              .notice__icon
+                = fa_icon "bell"
+              .notice__text
+                お知らせ
+        .pull-down
+          %li test
+          %li test
+      .todo-list-wrapper
+        .todo-list-content
+          = link_to root_path do
+            .todo-list
+              .todo-list__icon
+                = fa_icon "check"
+              .todo-list__text
+                やることリスト
+        .pull-down
+          %li test
+      .mypage-wrapper
+        .mypage-content
+          = link_to root_path do
+            .mypage
+              .mypage__icon
+                %image{src: "assets/top-page/defalte-user-icon.png"}
+              .mypage__text
+                マイページ
+        .pull-down
+          %li test
+          %li test
+          %li test
+          %li test
+          %li test
       -# - else
-      .sign-up-wrapper
-        .sign-up-button
-          = link_to root_path do
-            新規会員登録
-      .sign-in-wrapper
-        .sign-in-button
-          = link_to root_path do
-            ログイン
+      -# .sign-up-wrapper
+      -#   .sign-up-button
+      -#     = link_to root_path do
+      -#       新規会員登録
+      -# .sign-in-wrapper
+      -#   .sign-in-button
+      -#     = link_to root_path do
+      -#       ログイン
