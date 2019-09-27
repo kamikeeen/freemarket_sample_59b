@@ -1,5 +1,4 @@
 .mypage__index{
-  height: 1121px;
   width: 700px;
   .header{
     height:200px;
@@ -42,6 +41,7 @@
     
   }
   .notification, .transaction{
+    background-color: white;
     &__header{
       height: 72px;
       line-height: 72px;

@@ -1,0 +1,58 @@
+.mypage__credit-edit{
+  width: 700px;
+  background-color: white;
+  .header{
+    @include mypageHeader();
+  }
+  .credits{
+    padding: 64px;
+    &__header{
+      font-size: 16px;
+      font-weight: bold;
+      max-width: 320px;
+      margin: 0 auto 24px;
+    }
+    &__add{
+      box-sizing: border-box;
+      display: flex;
+      background-color: #ea352d;
+      color: #fff;
+      border: 1px solid #ea352d;
+      text-decoration: none;
+      max-width: 320px;
+      margin: 0 auto;
+      border-bottom: 1px solid #eee;
+      height: 50px;
+      position: relative;
+      margin-bottom: 30px;
+
+      &__icon{
+      position: absolute;
+      top:17px;
+      left: 45px;
+      font-weight: bold;
+      }
+      &__text{
+        position: absolute;
+        top: 15px;
+        left:80px;
+        font-size: 14px;
+      }
+    }
+    .explanation{
+      font-size: 14px;
+      display: flex;
+      text-decoration: none;
+      color: #0099e8;
+      justify-content: flex-end;
+      border-top: 1px solid #eee;
+      padding-top: 40px;
+      &__icon{
+        font-size: 14px;
+        margin-top: 3.4px;
+        font-weight: bold;
+      }
+    }
+  }
+  
+}

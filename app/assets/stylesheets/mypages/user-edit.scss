@@ -1,18 +1,10 @@
 .mypage__user-edit{
   width: 700px;
-  height: 1208px;
+  background-color: white;
   .user__header{
-    box-sizing: border-box;
-    height: 50px;
-    padding: 8px 24px;
-    font-size: 24px;
-    text-align: center;
-    line-height: 33px;
-    font-weight: bold;
-    border-bottom: 2px solid rgb(245, 245, 245);
+    @include mypageHeader();
   }
   .user__edit{
-    height: 1158px;
     padding: 64px;
     box-sizing: border-box;
     .explanation{
