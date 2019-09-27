@@ -1,0 +1,80 @@
+.mypage__user-edit{
+  width: 700px;
+  height: 1208px;
+  .user__header{
+    box-sizing: border-box;
+    height: 50px;
+    padding: 8px 24px;
+    font-size: 24px;
+    text-align: center;
+    line-height: 33px;
+    font-weight: bold;
+    border-bottom: 2px solid rgb(245, 245, 245);
+  }
+  .user__edit{
+    height: 1158px;
+    padding: 64px;
+    box-sizing: border-box;
+    .explanation{
+      height: 71px;
+      &__text{
+        font-size: 14px;
+        margin: 8px 0 0;
+      }
+      &__link{
+        font-size: 14px;
+        margin: 8px 0 0;
+        display: flex;
+        text-decoration: none;
+        color: #0099e8;
+        justify-content: flex-end;
+        &__icon{
+          font-size: 14px;
+          margin-top: 3.4px;
+          font-weight: bold;
+        }
+      }
+    }
+    &__form{
+      margin:40px 0 0 ;
+      .name, .name_kana, .birthday{
+        font-size: 14px;
+        margin: 8px 0 0;
+      }
+      .label{
+        font-size: 14px;
+        font-weight: bold;
+      }
+      .option{
+        background-color: #ccc;
+        margin: 0 0 0 8px;
+        border-radius: 2px;
+        color: #fff;
+        font-size: 12px;
+        padding: 2px 4px;
+      }
+      select, .input_box{
+        width: 100%;
+        margin: 8px 0 0;
+        height: 48px;
+        padding: 10px 16px 8px;
+        box-sizing: border-box;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+      }
+      .input_box:focus {
+        border: 1px solid #0099e8;
+        outline: 0;
+      }
+    }
+    .submit_btn{
+      width: 100%;
+      margin: 40px 0;
+      line-height: 45px;
+      background-color: #ea352d;
+      color: #fff;
+      border: 1px solid #ea352d;
+      font-size: 14px;
+    }
+  }
+}

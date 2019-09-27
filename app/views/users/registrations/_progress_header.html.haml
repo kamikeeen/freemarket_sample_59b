@@ -1,0 +1,28 @@
+.user__input__header
+  %ul
+    %li.user__input__header-logo
+      = link_to "#" do
+        = image_tag "logo.svg",size: "200x50", alt: "logo"
+    %li.user__input__header-bar
+      %nav.progress
+        %ul.progress-bar
+          %li.basic#basic
+            会員情報
+            .progress-status
+            .progress-status_bar
+          %li.sms#sms
+            電話番号認証
+            .progress-status
+            .progress-status_bar
+          %li.address#address
+            お届け先住所入力
+            .progress-status
+            .progress-status_bar
+          %li.payment#payment
+            支払い方法
+            .progress-status
+            .progress-status_bar
+          %li.end#end
+            完了
+            .progress-status
+            .progress-status_bar

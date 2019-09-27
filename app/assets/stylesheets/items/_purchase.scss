@@ -1,0 +1,152 @@
+.confirm_purchase_items {
+  background-color: #f5f5f5; 
+  color: #333333;
+  &__logo {
+    text-align: center;
+    vertical-align: middle;
+    height: 88px;
+    padding-top: 40px;
+  }
+  &__contents {
+    background-color: #FFFFFF;
+    width: 700px;
+    margin: auto;
+    &__title {
+      &__confirm-purchase-item {
+      text-align: center;
+      padding: 16px;
+      height: 32px;
+      font-size: 22px;
+      font-weight: bold;
+      border-bottom: thin solid #f5f5f5;
+      }
+    }
+    &__purchase {
+      padding: 24px 87.5px 0px;
+      &__inner {
+        margin: 0px 102.5px;
+        &__item {
+          &__item-picture {
+            display: table-cell;
+            vertical-align: middle;
+            width: 64px;
+            height: 64px;
+          }
+          &__item-name {
+            display: table-cell;
+            vertical-align: top;
+            word-break: break-all;
+            padding-left: 16px;
+            width: 240px;
+            height: 64px;
+            font-weight: bold;
+          }
+        }
+        &__price {
+          margin-top: 8px;
+          text-align: center;
+          &__price {
+            display: inline;
+            font-weight: bold;
+            color: #333333;
+          }
+          &__postage {
+            display: inline;
+            margin-left: 8px;
+            color: #333333;
+          }
+        }
+        &__points {
+          margin-top: 16px;
+          height: 54px;
+          text-align: center;
+          line-height: 54px;
+          background-color: #CCCCCC
+        }
+        &__payment {
+          height: 60px;
+          line-height: 60px;
+          &__price, &__money {
+            display: inline-block;
+            font-weight: bold;
+          }
+          &__money {
+            float: right;
+          }
+        }
+        &__validate {
+          text-align: center;
+          color: red;
+        }
+        &__purchase {
+          background-color: #888888;
+          color: #FFFFFF;
+          text-align: center;
+          font-weight: bold;
+          line-height: 50px;
+          margin-top: 8px;
+          padding: 0px;
+          height: 50px;
+          width: 320px;
+          border: none;
+
+        }
+      }
+    }
+    &__shipping {
+      margin-top: 40px;
+      padding: 24px 190px 0px;
+      border-top: thin solid #f5f5f5;
+      &__address {
+        color: #333333;
+        font-weight: bold;
+      }
+      &__information {
+        height: 56px;
+        color: #333333;
+      }
+      &__inner {
+        text-align: right;
+        &__edit {
+          text-align: right;
+          line-height: top;
+          color: #0099e8;
+          text-decoration: none;
+          &:hover {
+            text-decoration: underline;
+          }
+          &__icon {
+            color: #0099e8;
+          }
+        }
+      }
+    }
+    &__method {
+      margin-top: 40px;
+      padding: 24px 190px 40px;
+      border-top: thin solid #f5f5f5;
+      &__payment {
+        font-weight: bold;
+      }
+      &__information {
+        height: 56px;
+        color: #333333;
+      }
+      &__inner {
+        text-align: right;
+        &__edit {
+          text-align: right;
+          color: #0099e8;
+          text-decoration: none;
+          &:hover {
+            text-decoration: underline;
+          }
+          &__icon {
+            color: #0099e8;
+          }
+        }
+      }
+    }
+  }
+}
+
