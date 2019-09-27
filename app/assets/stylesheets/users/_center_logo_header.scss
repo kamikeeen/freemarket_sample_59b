@@ -1,9 +1,9 @@
 .center__logo__header{
-  padding:40px 0;
-  text-align:center;
+  padding: 40px 0;
+  text-align: center;
   &-logo{
     & img{
-      @include mouseover__thincolor();
+  @include mouseover__thincolor();
     }
   }
 }

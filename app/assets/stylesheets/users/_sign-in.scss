@@ -1,0 +1,60 @@
+.signin{
+  background-color: #fff;
+  width: 456px;
+  margin: 0 auto;
+  padding-top: 20px;
+  text-align: center;
+  a{text-decoration: none;
+    color: inherit;
+  }
+  &__mail{
+    border-bottom: solid 1px #eee;
+    padding: 20px 0;
+    &-text{
+      font-size: 14px;
+    }
+    &-button{
+      width: 50%;
+      margin: 0 auto;
+    }
+  }
+  &__main{
+    width: 50%;
+    padding: 40px 0;
+    margin: 0 auto;
+    a{text-decoration: none;
+      color: inherit;
+    }
+    &__fields{
+      width: 100%;
+      #email{
+        width: calc(100% - 10px);
+        @include button();
+        padding-left: 10px;
+        border: solid 1px #eee;
+      }
+      #password{
+        width: calc(100% - 10px);
+        @include button();
+        padding-left: 10px;
+        border: solid 1px #eee;
+      }
+      #signin{
+        width: 100%;
+        background-color: #ea352d;
+        color: #fff;
+        cursor: pointer;
+        @include button();
+      }
+    }
+  }
+    &__password__forget{
+      font-size: 14px;
+      text-align: left;
+      a{text-decoration: none;
+        color: #0099e8;
+    }
+    @include mouseover__thincolor();
+    @include mouseover__under-bar();
+  }
+}

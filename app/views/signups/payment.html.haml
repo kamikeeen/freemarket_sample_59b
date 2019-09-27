@@ -1,0 +1,73 @@
+.user__input__background
+  .user__input__background__payment
+    = render "progress_header"
+  .user__input__payment
+    .user__input__payment__title
+      .user__input__payment__title-text
+        支払い方法
+    .user__input__payment__main
+      .user__input__payment__main-form
+        .user__input__payment__main-form-field
+          %label
+            カード番号
+            %span.user__input__payment__main-form-field__require
+              必須
+          %br
+          %input{placeholder:  "半角数字のみ", type: "number_field"}
+        .user__input__payment__main-form-field__card-image
+          %ul
+            %li
+              = image_tag "visa.svg", size: "35x35"
+            %li
+              = image_tag "master-card.svg", size: "35x35"
+            %li
+              = image_tag "saison-card.svg", size: "35x35"
+            %li
+              = image_tag "jcb.svg", size: "35x35"
+            %li
+              = image_tag "american_express.svg", size: "35x35"
+            %li
+              = image_tag "dinersclub.svg", size: "35x35"
+            %li
+              = image_tag "discover.svg", size: "35x35"
+        .user__input__payment__main-form__confirm-text
+          カード番号を入力してください
+        .user__input__payment__main-form-field
+          %label
+            有効期限
+            %span.user__input__payment__main-form-field__require
+              必須
+          %br
+          %select
+            %option
+              01
+          %span
+            月
+          .user__input__payment__main-form__confirm-text
+            月 を選択してください
+          %br
+          %select
+            %option
+              19
+          %span
+            年
+          .user__input__payment__main-form__confirm-text
+            年 を選択してください
+        .user__input__payment__main-form-field
+          %label
+            セキュリティコード
+            %span.user__input__payment__main-form-field__require
+              必須
+          %br
+          %input{placeholder:  "カード背面4桁もしくは3桁の番号", type: "number_field"}
+        .user__input__payment__main-form__confirm-text
+          セキュリティコード を入力してください
+        .user__input__payment__main-form__about-card-number
+          = link_to end_signups_path do
+            =fa_icon 'question-circle'
+            ="カード裏面の番号とは？"
+        %br
+        .user__input__payment__main-form-field__next-button
+          %input{type: "button", value:"次へ進む"}
+    
+  = render "shared/center_logo_footer"

@@ -1,0 +1,24 @@
+.user__input__background
+  = render "shared/center_logo_header"
+  .signup__main
+    .signup__main-title
+      .signup__main-title__text
+        新規会員登録
+    .user__button
+      -# 新規会員登録のリンク。仮置き変更可能性あり
+      = link_to signups_path do
+        .user__button__mail
+          メールアドレスで登録する
+      -# Facebook認証のリンク
+      = link_to "#" do
+        .user__button__facebook
+          = fa_icon 'facebook-square', class: "button__icon"
+          .user__button__facebook-text
+            Facebookで登録する
+      -# Google認証のリンク
+      = link_to "#" do
+        .user__button__google
+          = fa_icon 'google'
+          .user__button__google-text
+            Googleで登録する
+  = render "shared/center_logo_footer"
