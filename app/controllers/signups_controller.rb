@@ -1,7 +1,7 @@
 class SignupsController < ApplicationController
-  def login
+  def signin
   end
-  
+
   def registration
   end
 
