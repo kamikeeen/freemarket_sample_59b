@@ -3,8 +3,6 @@ Rails.application.routes.draw do
   root "tests#index"
   
   devise_for :users
-
-
   resources :tests
   resources :signups, only: [:new] do
     collection do

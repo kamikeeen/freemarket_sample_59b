@@ -58,3 +58,58 @@
     @include mouseover__under-bar();
   }
 }
+
+// ログインボタンを押した後の電話番号認証ページ。ここに記載されていない基本フォームはsign-up.scssにあるものを使い回している。
+.user__signin__sms__main{
+  border-bottom: solid 1px #eeeeee;
+  &-form-field{
+    &__end-button{
+      & input{
+      height:50px;
+      background-color: #ea352d;
+      width: 100%;
+      margin: 8px 0 0;
+      padding: 10px 16px 8px;
+      border: 1px solid #ccc;
+      line-height: 1.5;
+      font-size: 16px;
+      color: #fff;
+      cursor: pointer;
+      }
+    }
+    & p{
+      font-size: 14px;
+      line-height: 1.5;
+      padding: 20px 0;
+    }
+  }
+  &__phone-text{
+    font-size:14px;
+    color: black;
+  }
+  &__resend{
+    &__phone, &__sms, &__email{
+      padding-bottom: 20px;
+      &-text{
+      padding-top: 20px;
+      font-size: 14px;
+      color: black;
+      }
+      &-button{
+        & input{
+          height:50px;
+          cursor: pointer;
+          text-align: center;
+          background-color: #aaaaaa;
+          width: 100%;
+          margin: 8px 0 0;
+          padding: 10px 16px 8px;
+          border: 1px solid #ccc;
+          line-height: 1.5;
+          font-size: 16px;
+          color: #fff;
+        }
+      }
+    }
+  }
+}

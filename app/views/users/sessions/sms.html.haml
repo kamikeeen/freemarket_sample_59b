@@ -1,0 +1,44 @@
+.user__input__background
+  = render "shared/center_logo_header"
+  .user__signin__sms
+    .user__signin__sms__title
+      .user__signin__sms__title-text
+        認証番号の確認
+    .user__signin__sms__main
+      .user__signin__sms__main-form
+        .user__signin__sms__main-form-field
+          %p
+            ***-****-9062にSMSでお送りした6桁の認証番号を入力してください。
+          %label
+            認証番号
+          %input{placeholder:  "６桁の認証番号を入力", type: "text_field"}
+        .user__signin__sms__main-form__confirm-text
+          認証番号を入力してください
+        %br
+        .user__signin__sms__main-form-field__end-button
+          %input{type: "button", value:"認証して完了"}
+    .user__signin__sms__main
+      .user__signin__sms__main-form
+        .user__signin__sms__main-form-field
+          60秒たっても認証番号が届かない方へ
+        .user__signin__sms__main__resend__phone
+          .user__signin__sms__main__resend__phone-text
+            電話で認証番号を聞くこともできます。
+          .user__signin__sms__main__resend__phone-button
+            %input{type: "button", value:"電話で認証番号を聞く（通話料無料）"}
+        .user__signin__sms__main__resend__sms
+          .user__signin__sms__main__resend__sms-text
+            認証番号を再送することもできます。
+          .user__signin__sms__main__resend__sms-button
+            %input{type: "button", value:"認証番号を再送する"}
+        .user__signin__sms__main__resend__email
+          .user__signin__sms__main__resend__email-text
+            メールアドレスで認証することもできます。
+          .user__signin__sms__main__resend__email-button
+            %input{type: "button", value:"メールアドレスで認証する"}
+        .user__signin__sms__main__precautions-text
+          = "※SMSが届かない場合は"
+          = link_to users_signup_address_path do
+            ="SMS受信設定"
+          ="を確認して、もう一度電話番号を入力してください。"
+  = render "shared/center_logo_footer"
