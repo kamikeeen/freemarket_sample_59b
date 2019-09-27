@@ -32,11 +32,11 @@
         .user__input__sms__main-form-field
           認証番号を再送することもできます。もう一度電話番号を入力して下さい。
         .user__input__sms__main-form__redial
-          = link_to users_signup_address_path do
+          = link_to address_signups_path do
             ="電話番号を再度入力する"
         .user__input__sms__main__precautions-text
           = "※SMSが届かない場合は"
-          = link_to users_signup_address_path do
+          = link_to address_signups_path do
             ="SMS受信設定"
           ="を確認して、もう一度電話番号を入力してください。"
   = render "shared/center_logo_footer"

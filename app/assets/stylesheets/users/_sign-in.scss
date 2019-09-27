@@ -27,13 +27,13 @@
     }
     &__fields{
       width: 100%;
-      #user_email{
+      #email{
         width: calc(100% - 10px);
         @include button();
         padding-left: 10px;
         border: solid 1px #eee;
       }
-      #user_password{
+      #password{
         width: calc(100% - 10px);
         @include button();
         padding-left: 10px;
