@@ -79,8 +79,8 @@
 |------|----|-------|
 |comment|string|null: false|
 |level|integer||
-|user_id|references|null: false, foreign_key: true|
-|item_id|references|null: false, foreign_key: true|
+|user_id|!int|null: false, foreign_key: true|
+|item_id|!int|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
@@ -92,7 +92,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |image|string|null: false|
-|item_id|references|null: false, foreign_key: true|
+|item_id|!int|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :item
@@ -104,7 +104,7 @@
 |------|----|-------|
 |name|string|null: false|
 |size_id|!int||
-|ancestory|string|index: true|
+|ancestry|string|index: true|
 
 ### Association
 - has_many :items
@@ -116,7 +116,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|ancestory|string|index: true|
+|ancestry|string|index: true|
 
 ### Association
 - has_many :items
