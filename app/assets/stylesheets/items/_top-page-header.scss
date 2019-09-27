@@ -7,12 +7,12 @@
       height: 40px;
       display: flex;
       .logo {
-        & img {
-          height: 40px;
-        }
         margin-right: 45px;
         width: 134px;
         cursor : pointer;
+        & img {
+          height: 37px;
+        }
       }
       .search-box {
         .form {
@@ -36,9 +36,6 @@
             font-size: 14px;
             border: none;
             cursor : pointer;
-            &:focus {
-              outline: none; 
-            }
           }
         } 
       }
@@ -52,31 +49,33 @@
       .search-category-wrapper {
         width:150px;
         padding-right: 10px;
+
       }
       .search-brand-wrapper {
+        @include a-text-decoration;
         padding-left: 10px;
         @include pulldown;
-        .search-brand-content {
-          @include a-text-decoration;
+        .search-brand-content{
           .search-brand {
             font-weight: 600;
             display: flex;
             cursor : pointer;
             &__icon {
-              margin-right: 4px;
-              width: 18px;
+              height: 20px;
+              margin: 2px 4px 0 0;
               & img {
-                height: 15px;
+                height: 16px;
               }
             }
           }
         }
         .pull-down {
+          position: relative;
           visibility: hidden;
           background-color: white;
           margin: 0 -80px 0 -10px;
           box-shadow: 1px 1px rgba(179, 179, 179, 0.185);
-          li {
+          li  {
             font-size: 14px;
             list-style: none;
             padding-left: 14px;
@@ -90,8 +89,8 @@
       }
       .good-list-wrapper {
         margin: 0 0 0 auto;
+        @include a-text-decoration;
         .good-list-content {
-          @include a-text-decoration;
           .good-list {
             padding-right: 14px;
             display: flex;
@@ -105,9 +104,10 @@
         }
       }
       .notice-wrapper {
+        @include a-text-decoration;
         @include pulldown;
         .notice-content {
-          @include a-text-decoration;
+          min-width: 111px;
           .notice {
             padding: 0 14px;
             display: flex;
@@ -117,9 +117,10 @@
               font-size: 18px;
               color: rgb(158, 158, 158);
             }
-        }
+          }
         }
         .pull-down {
+          position: relative;
           visibility: hidden;
           background-color: white;
           margin: 0 -100px;
@@ -134,9 +135,9 @@
       }
       .todo-list-wrapper {
         @include pulldown;
+        @include a-text-decoration;
         padding: 0 14px;
         .todo-list-content {
-          @include a-text-decoration;
           .todo-list {
             display: flex;
             cursor : pointer;
@@ -148,6 +149,7 @@
           }
         }
         .pull-down {
+          position: relative;
           visibility: hidden;
           background-color: white;
           margin: 0 -100px;
@@ -162,8 +164,7 @@
       }
       .mypage-wrapper {
         @include pulldown;
-        .mypage-content {
-          @include a-text-decoration;
+        @include a-text-decoration;
           .mypage {
             padding-left: 14px;
             display: flex;
@@ -177,8 +178,8 @@
               }
             }
           }
-        }
         .pull-down {
+          position: relative;
           visibility: hidden;
           background-color: white;
           margin-left: -200px;

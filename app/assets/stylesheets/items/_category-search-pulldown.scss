@@ -1,7 +1,7 @@
 .category-search-pulldown
 .category-search {
   position: relative;
-  width: 180px;
+  min-width: 160px;
   a {
     text-decoration: none;
   }
@@ -18,9 +18,11 @@
       display: flex;
       line-height: 44px;
       &--icon {
+        height: 20px;
         width: 18px;
-        margin: 3px 4px 0 0;
+        margin-right: 4px;
         & img {
+          margin-top: 15px;
           height: 15px;
         }
       }
