@@ -1,5 +1,11 @@
 @import "reset";
 @import "font-awesome";
+@import "items/top-page-mixin";
+@import "items/top-page-main-contents";
+@import "items/top-page-header";
+@import "items/top-page-footer";
+@import "items/shipping-button";
+@import "items/category-search-pulldown";
 @import url(//use.fontawesome.com/releases/v5.0.0/css/all.css);
 @import url(//use.fontawesome.com/releases/v5.11.1/css/all.css);
 @import "users/mixin";
