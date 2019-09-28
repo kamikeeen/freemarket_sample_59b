@@ -1,0 +1,428 @@
+= render partial: 'items/_top-page-header'
+
+.item-detail
+  .item-detail__contents
+    .item-detail__contents__inner
+
+      .item-detail__contents__inner__name
+        kastane ワッシャーシフォンワンピース
+
+      .item-detail__contents__inner__pictures
+        .item-detail__contents__inner__pictures__main
+          = image_tag 'item-detail.jpg', size: '300x300'
+        .item-detail__contents__inner__pictures__sub
+          = image_tag 'item-detail.jpg', size: '60x60'
+        .item-detail__contents__inner__pictures__sub
+          = image_tag 'item-detail.jpg', size: '60x60'
+        .item-detail__contents__inner__pictures__sub
+          = image_tag 'item-detail.jpg', size: '60x60'
+        .item-detail__contents__inner__pictures__sub
+          = image_tag 'item-detail.jpg', size: '60x60'
+        .item-detail__contents__inner__pictures__sub
+          = image_tag 'item-detail.jpg', size: '60x60'
+        .item-detail__contents__inner__pictures__sub
+          = image_tag 'item-detail.jpg', size: '60x60'
+        .item-detail__contents__inner__pictures__sub
+          = image_tag 'item-detail.jpg', size: '60x60'
+        .item-detail__contents__inner__pictures__sub
+          = image_tag 'item-detail.jpg', size: '60x60'
+        .item-detail__contents__inner__pictures__sub
+          = image_tag 'item-detail.jpg', size: '60x60'
+        .item-detail__contents__inner__pictures__sub
+          = image_tag 'item-detail.jpg', size: '60x60'
+
+      %table.item-detail__contents__inner__details
+        %tr
+          %th
+            %p
+              出品者
+          %td
+            .item-detail__contents__inner__details__buyer-name
+              = link_to 'ゆ', "#", class: 'link_to'
+            .item-detail__contents__inner__details__buyer-assessments
+              = fa_icon 'laugh', class: "item-detail__contents__inner__details__buyer-assessments__good"
+              .item-detail__contents__inner__details__buyer-assessments__counts
+                %p
+                  89
+              = fa_icon 'meh', class: "item-detail__contents__inner__details__buyer-assessments__normal"
+              .item-detail__contents__inner__details__buyer-assessments__counts
+                %p
+                  0
+              = fa_icon 'frown-open', class: "item-detail__contents__inner__details__buyer-assessments__bad"
+              .item-detail__contents__inner__details__buyer-assessments__counts
+                %p
+                  0
+        %tr
+          %th
+            %p
+              カテゴリー
+          %td
+            .item-detail__contents__inner__details__category-main
+              = link_to 'レディース', "#", class: 'link_to'
+            / おそらくeach文でカテゴリを取り出すため、クラス名をmainとsubに分けた
+            .item-detail__contents__inner__details__category-sub
+              = fa_icon 'angle-right', class: 'item-detail__contents__inner__details__category-sub__angle-right'
+              = link_to 'ワンピース', "#", class: 'link_to'
+            .item-detail__contents__inner__details__category-sub
+              = fa_icon 'angle-right', class: 'item-detail__contents__inner__details__category-sub__angle-right'
+              = link_to 'ロングワンピース', "#", class: 'link_to'
+        %tr
+          %th
+            %p
+              ブランド
+          %td
+            .item-detail__contents__inner__details__brand-name
+              = link_to 'カスタネ', "#", class: 'link_to'
+        %tr
+          %th
+            %p
+              商品のサイズ
+          %td
+            .item-detail__contents__inner__details__size
+              %p
+                FREE SIZE
+        %tr
+          %th
+            %p
+              商品の状態
+          %td
+            .item-detail__contents__inner__details__damage
+              %p
+                目立った傷や汚れなし
+        %tr
+          %th
+            %p
+              配送料の負担
+          %td
+            .item-detail__contents__inner__details__postage
+              %p
+                送料込み（出品者負担）
+        %tr
+          %th
+            %p
+              配送の方法
+          %td
+            .item-detail__contents__inner__details__shipping
+              %p
+                らくらくメルカリ便
+        %tr
+          %th
+            %p
+              配送元地域
+          %td
+            .item-detail__contents__inner__details__post-area
+              = link_to '神奈川県', "#", class: 'link_to'
+        %tr
+          %th
+            %p
+              発想の目安
+          %td
+            .item-detail__contents__inner__details__arrival
+              %p
+                1-2日で発送
+
+      .item-detail__contents__inner__details__price
+        %p
+          ¥6,500
+        %p.item-detail__contents__inner__details__price__tax
+          （税込）
+        %p.item-detail__contents__inner__details__price__shipping
+          送料込み
+
+      .item-detail__contents__inner__details__confirm-purchase-item
+        %input{type: 'submit', value: "購入画面に進む"}
+
+      .item-detail__contents__inner__details__text
+        %p
+          カスタネのワンピースです。
+          %br 2回着用しております。
+          %br カラー オフホワイト
+          %br
+          %br kastaneの商品他にも出品しておりますのでご覧下さいませ。
+
+      .item-detail__contents__inner__details__options-box
+        .item-detail__contents__inner__details__options-box__good
+          = fa_icon 'heart', class: 'item-detail__contents__inner__details__options-box__good__heart'
+          %p
+            いいね!
+          .item-detail__contents__inner__details__options-box__good__count
+            %p
+              25
+        .item-detail__contents__inner__details__options-box__report
+          = fa_icon 'flag', class: 'item-detail__contents__inner__details__options-box__report__flag'
+          %p
+            不適切な商品の報告
+          
+        = link_to "#", class: 'link_to item-detail__contents__inner__details__options-box__effort-for-safety' do
+          = fa_icon 'lock', class: 'item-detail__contents__inner__details__options-box__effort-for-safety__lock'
+          %p
+            あんしん・あんぜんへの取り組み
+
+  .item-detail__comments
+    .item-detail__comments__inner
+      .item-detail__comments__inner__note
+        %p
+          相手のことを考え丁寧なコメントを心掛けましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+      .item-detail__comments__inner__comment
+        %textarea{rows: '4', cols: ''}
+      .item-detail__comments__inner__validate
+        %p
+          入力してください
+      .item-detail__comments__inner__submit-comment
+        %input{type: 'button', form: '#', value: "コメントする"}
+
+  .item-detail__prev-and-next
+    = link_to "#", class: 'link_to item-detail__prev-and-next__prev-item' do
+      = fa_icon 'angle-left', class: 'item-detail__prev-and-next__prev-item__angle-left'
+      %p
+        ホットヨガラバ ヨガマットケース
+    = link_to "#", class: 'link_to item-detail__prev-and-next__next-item' do
+      %p
+        JAL ドリームエクスプレス
+      = fa_icon 'angle-right', class: 'item-detail__prev-and-next__next-item__angle-right'
+      
+  .item-detail__SNS-shares
+    %ul
+      %li
+        = fa_icon 'facebook-square', class: 'item-detail__SNS-shares__facebook'
+      %li
+        = fa_icon 'twitter-square', class: 'item-detail__SNS-shares__twitter'
+      %li
+        = fa_icon 'line', class: 'item-detail__SNS-shares__line'
+      %li
+        = fa_icon 'pinterest-square', class: 'item-detail__SNS-shares__pinterest'
+
+  .item-detail__another-items
+    .item-detail__another-items__box
+      = link_to '#', class: 'link_to item-detail__another-items__box__buyer' do
+        %p
+          ゆさんのその他の出品
+      .item-detail__another-items__items
+        .item-detail__another-items__items__item-box
+          = link_to '#', class: 'link_to item-detail__another-items__items__item-box__item-link' do
+            .item-detail__another-items__items__item-box__item-link__picture
+              = image_tag 'item-detail.jpg', size: '220x220'
+            .item-detail__another-items__items__item-box__item-link__simple-detail
+              .item-detail__another-items__items__item-box__item-link__simple-detail__name
+                %p
+                  slobe iena コットンリブタンクニット
+              .item-detail__another-items__items__item-box__item-link__simple-detail__boxes
+                .item-detail__another-items__items__item-box__item-link__simple-detail__boxes__price
+                  %p
+                    ¥1,000
+                .item-detail__another-items__items__item-box__item-link__simple-detail__boxes__box
+                  .item-detail__another-items__items__item-box__item-link__simple-detail__boxes__box__good
+                    = fa_icon 'heart', class: 'item-detail__another-items__items__item-box__item-link__simple-detail__boxes__box__good__heart'
+                  .item-detail__another-items__items__item-box__item-link__simple-detail__boxes__box__good-counts
+                    %p
+                      2
+        .item-detail__another-items__items__item-box
+          = link_to '#', class: 'link_to item-detail__another-items__items__item-box__item-link' do
+            .item-detail__another-items__items__item-box__item-link__picture
+              = image_tag 'item-detail.jpg', size: '220x220'
+            .item-detail__another-items__items__item-box__item-link__simple-detail
+              .item-detail__another-items__items__item-box__item-link__simple-detail__name
+                %p
+                  slobe iena コットンリブタンクニット
+              .item-detail__another-items__items__item-box__item-link__simple-detail__boxes
+                .item-detail__another-items__items__item-box__item-link__simple-detail__boxes__price
+                  %p
+                    ¥1,000
+                .item-detail__another-items__items__item-box__item-link__simple-detail__boxes__box
+                  .item-detail__another-items__items__item-box__item-link__simple-detail__boxes__box__good
+                    = fa_icon 'heart', class: 'item-detail__another-items__items__item-box__item-link__simple-detail__boxes__box__good__heart'
+                  .item-detail__another-items__items__item-box__item-link__simple-detail__boxes__box__good-counts
+                    %p
+                      2
+        .item-detail__another-items__items__item-box
+          = link_to '#', class: 'link_to item-detail__another-items__items__item-box__item-link' do
+            .item-detail__another-items__items__item-box__item-link__picture
+              = image_tag 'item-detail.jpg', size: '220x220'
+            .item-detail__another-items__items__item-box__item-link__simple-detail
+              .item-detail__another-items__items__item-box__item-link__simple-detail__name
+                %p
+                  slobe iena コットンリブタンクニット
+              .item-detail__another-items__items__item-box__item-link__simple-detail__boxes
+                .item-detail__another-items__items__item-box__item-link__simple-detail__boxes__price
+                  %p
+                    ¥1,000
+                .item-detail__another-items__items__item-box__item-link__simple-detail__boxes__box
+                  .item-detail__another-items__items__item-box__item-link__simple-detail__boxes__box__good
+                    = fa_icon 'heart', class: 'item-detail__another-items__items__item-box__item-link__simple-detail__boxes__box__good__heart'
+                  .item-detail__another-items__items__item-box__item-link__simple-detail__boxes__box__good-counts
+                    %p
+                      2
+        .item-detail__another-items__items__item-box
+          = link_to '#', class: 'link_to item-detail__another-items__items__item-box__item-link' do
+            .item-detail__another-items__items__item-box__item-link__picture
+              = image_tag 'item-detail.jpg', size: '220x220'
+            .item-detail__another-items__items__item-box__item-link__simple-detail
+              .item-detail__another-items__items__item-box__item-link__simple-detail__name
+                %p
+                  slobe iena コットンリブタンクニット
+              .item-detail__another-items__items__item-box__item-link__simple-detail__boxes
+                .item-detail__another-items__items__item-box__item-link__simple-detail__boxes__price
+                  %p
+                    ¥1,000
+                .item-detail__another-items__items__item-box__item-link__simple-detail__boxes__box
+                  .item-detail__another-items__items__item-box__item-link__simple-detail__boxes__box__good
+                    = fa_icon 'heart', class: 'item-detail__another-items__items__item-box__item-link__simple-detail__boxes__box__good__heart'
+                  .item-detail__another-items__items__item-box__item-link__simple-detail__boxes__box__good-counts
+                    %p
+                      2
+        .item-detail__another-items__items__item-box
+          = link_to '#', class: 'link_to item-detail__another-items__items__item-box__item-link' do
+            .item-detail__another-items__items__item-box__item-link__picture
+              = image_tag 'item-detail.jpg', size: '220x220'
+            .item-detail__another-items__items__item-box__item-link__simple-detail
+              .item-detail__another-items__items__item-box__item-link__simple-detail__name
+                %p
+                  slobe iena コットンリブタンクニット
+              .item-detail__another-items__items__item-box__item-link__simple-detail__boxes
+                .item-detail__another-items__items__item-box__item-link__simple-detail__boxes__price
+                  %p
+                    ¥1,000
+                .item-detail__another-items__items__item-box__item-link__simple-detail__boxes__box
+                  .item-detail__another-items__items__item-box__item-link__simple-detail__boxes__box__good
+                    = fa_icon 'heart', class: 'item-detail__another-items__items__item-box__item-link__simple-detail__boxes__box__good__heart'
+                  .item-detail__another-items__items__item-box__item-link__simple-detail__boxes__box__good-counts
+                    %p
+                      2
+        .item-detail__another-items__items__item-box
+          = link_to '#', class: 'link_to item-detail__another-items__items__item-box__item-link' do
+            .item-detail__another-items__items__item-box__item-link__picture
+              = image_tag 'item-detail.jpg', size: '220x220'
+            .item-detail__another-items__items__item-box__item-link__simple-detail
+              .item-detail__another-items__items__item-box__item-link__simple-detail__name
+                %p
+                  slobe iena コットンリブタンクニット
+              .item-detail__another-items__items__item-box__item-link__simple-detail__boxes
+                .item-detail__another-items__items__item-box__item-link__simple-detail__boxes__price
+                  %p
+                    ¥1,000
+                .item-detail__another-items__items__item-box__item-link__simple-detail__boxes__box
+                  .item-detail__another-items__items__item-box__item-link__simple-detail__boxes__box__good
+                    = fa_icon 'heart', class: 'item-detail__another-items__items__item-box__item-link__simple-detail__boxes__box__good__heart'
+                  .item-detail__another-items__items__item-box__item-link__simple-detail__boxes__box__good-counts
+                    %p
+                      2
+
+  .item-detail__another-brands
+    .item-detail__another-brands__box
+      = link_to '#', class: 'link_to item-detail__another-brands__box__buyer' do
+        %p
+          カスタネのロングワンピース その他の商品
+      .item-detail__another-brands__items
+        .item-detail__another-brands__items__item-box
+          = link_to '#', class: 'link_to item-detail__another-brands__items__item-box__item-link' do
+            .item-detail__another-brands__items__item-box__item-link__picture
+              = image_tag 'item-detail.jpg', size: '220x220'
+            .item-detail__another-brands__items__item-box__item-link__simple-detail
+              .item-detail__another-brands__items__item-box__item-link__simple-detail__name
+                %p
+                  カスタネ 花柄カシュークールワンピ ピンクベージュ
+              .item-detail__another-brands__items__item-box__item-link__simple-detail__boxes
+                .item-detail__another-brands__items__item-box__item-link__simple-detail__boxes__price
+                  %p
+                    ¥4,500
+                .item-detail__another-brands__items__item-box__item-link__simple-detail__boxes__box
+                  .item-detail__another-brands__items__item-box__item-link__simple-detail__boxes__box__good
+                    = fa_icon 'heart', class: 'item-detail__another-brands__items__item-box__item-link__simple-detail__boxes__box__good__heart'
+                  .item-detail__another-brands__items__item-box__item-link__simple-detail__boxes__box__good-counts
+                    %p
+                      2
+        .item-detail__another-brands__items__item-box
+          = link_to '#', class: 'link_to item-detail__another-brands__items__item-box__item-link' do
+            .item-detail__another-brands__items__item-box__item-link__picture
+              = image_tag 'item-detail.jpg', size: '220x220'
+            .item-detail__another-brands__items__item-box__item-link__simple-detail
+              .item-detail__another-brands__items__item-box__item-link__simple-detail__name
+                %p
+                  カスタネ 花柄カシュークールワンピ ピンクベージュ
+              .item-detail__another-brands__items__item-box__item-link__simple-detail__boxes
+                .item-detail__another-brands__items__item-box__item-link__simple-detail__boxes__price
+                  %p
+                    ¥4,500
+                .item-detail__another-brands__items__item-box__item-link__simple-detail__boxes__box
+                  .item-detail__another-brands__items__item-box__item-link__simple-detail__boxes__box__good
+                    = fa_icon 'heart', class: 'item-detail__another-brands__items__item-box__item-link__simple-detail__boxes__box__good__heart'
+                  .item-detail__another-brands__items__item-box__item-link__simple-detail__boxes__box__good-counts
+                    %p
+                      2
+        .item-detail__another-brands__items__item-box
+          = link_to '#', class: 'link_to item-detail__another-brands__items__item-box__item-link' do
+            .item-detail__another-brands__items__item-box__item-link__picture
+              = image_tag 'item-detail.jpg', size: '220x220'
+            .item-detail__another-brands__items__item-box__item-link__simple-detail
+              .item-detail__another-brands__items__item-box__item-link__simple-detail__name
+                %p
+                  カスタネ 花柄カシュークールワンピ ピンクベージュ
+              .item-detail__another-brands__items__item-box__item-link__simple-detail__boxes
+                .item-detail__another-brands__items__item-box__item-link__simple-detail__boxes__price
+                  %p
+                    ¥4,500
+                .item-detail__another-brands__items__item-box__item-link__simple-detail__boxes__box
+                  .item-detail__another-brands__items__item-box__item-link__simple-detail__boxes__box__good
+                    = fa_icon 'heart', class: 'item-detail__another-brands__items__item-box__item-link__simple-detail__boxes__box__good__heart'
+                  .item-detail__another-brands__items__item-box__item-link__simple-detail__boxes__box__good-counts
+                    %p
+                      2
+        .item-detail__another-brands__items__item-box
+          = link_to '#', class: 'link_to item-detail__another-brands__items__item-box__item-link' do
+            .item-detail__another-brands__items__item-box__item-link__picture
+              = image_tag 'item-detail.jpg', size: '220x220'
+            .item-detail__another-brands__items__item-box__item-link__simple-detail
+              .item-detail__another-brands__items__item-box__item-link__simple-detail__name
+                %p
+                  カスタネ 花柄カシュークールワンピ ピンクベージュ
+              .item-detail__another-brands__items__item-box__item-link__simple-detail__boxes
+                .item-detail__another-brands__items__item-box__item-link__simple-detail__boxes__price
+                  %p
+                    ¥4,500
+                .item-detail__another-brands__items__item-box__item-link__simple-detail__boxes__box
+                  .item-detail__another-brands__items__item-box__item-link__simple-detail__boxes__box__good
+                    = fa_icon 'heart', class: 'item-detail__another-brands__items__item-box__item-link__simple-detail__boxes__box__good__heart'
+                  .item-detail__another-brands__items__item-box__item-link__simple-detail__boxes__box__good-counts
+                    %p
+                      2
+        .item-detail__another-brands__items__item-box
+          = link_to '#', class: 'link_to item-detail__another-brands__items__item-box__item-link' do
+            .item-detail__another-brands__items__item-box__item-link__picture
+              = image_tag 'item-detail.jpg', size: '220x220'
+            .item-detail__another-brands__items__item-box__item-link__simple-detail
+              .item-detail__another-brands__items__item-box__item-link__simple-detail__name
+                %p
+                  カスタネ 花柄カシュークールワンピ ピンクベージュ
+              .item-detail__another-brands__items__item-box__item-link__simple-detail__boxes
+                .item-detail__another-brands__items__item-box__item-link__simple-detail__boxes__price
+                  %p
+                    ¥4,500
+                .item-detail__another-brands__items__item-box__item-link__simple-detail__boxes__box
+                  .item-detail__another-brands__items__item-box__item-link__simple-detail__boxes__box__good
+                    = fa_icon 'heart', class: 'item-detail__another-brands__items__item-box__item-link__simple-detail__boxes__box__good__heart'
+                  .item-detail__another-brands__items__item-box__item-link__simple-detail__boxes__box__good-counts
+                    %p
+                      2
+        .item-detail__another-brands__items__item-box
+          = link_to '#', class: 'link_to item-detail__another-brands__items__item-box__item-link' do
+            .item-detail__another-brands__items__item-box__item-link__picture
+              = image_tag 'item-detail.jpg', size: '220x220'
+            .item-detail__another-brands__items__item-box__item-link__simple-detail
+              .item-detail__another-brands__items__item-box__item-link__simple-detail__name
+                %p
+                  カスタネ 花柄カシュークールワンピ ピンクベージュ
+              .item-detail__another-brands__items__item-box__item-link__simple-detail__boxes
+                .item-detail__another-brands__items__item-box__item-link__simple-detail__boxes__price
+                  %p
+                    ¥4,500
+                .item-detail__another-brands__items__item-box__item-link__simple-detail__boxes__box
+                  .item-detail__another-brands__items__item-box__item-link__simple-detail__boxes__box__good
+                    = fa_icon 'heart', class: 'item-detail__another-brands__items__item-box__item-link__simple-detail__boxes__box__good__heart'
+                  .item-detail__another-brands__items__item-box__item-link__simple-detail__boxes__box__good-counts
+                    %p
+                      2
+      
+                  
+/ パンくず
+
+= render partial: 'items/_top-page-footer'
