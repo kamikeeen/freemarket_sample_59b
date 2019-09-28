@@ -1,4 +1,5 @@
-[![Image from Gyazo](https://i.gyazo.com/aec14ad33d795fffe581b1a557880884.png)](https://gyazo.com/aec14ad33d795fffe581b1a557880884)
+## ER図
+[![Image from Gyazo](https://i.gyazo.com/217adbdcfc12434528d5b725ac524106.png)](https://gyazo.com/217adbdcfc12434528d5b725ac524106)
 
 ## Usersテーブル
 
@@ -13,7 +14,7 @@
 |firstname_kana|string|null: false|
 |birthday|date|null: false|
 |zip_code|string||
-|prefecture_id|!int||
+|prefecture_id|bigint||
 |city|string||
 |address|string||
 |building_name|string||
@@ -36,12 +37,12 @@
 |firstname_kana|string|null: false|
 |birthday|date|null: false|
 |zip_code|string|null: false|
-|prefecture_id|!int|null: false|
+|prefecture_id|bigint|null: false|
 |city|string|null: false|
 |address|string|null: false|
 |building_name|string||
 |phone_number|integer||
-|user_id|!int|null: false, foreign_key: true|
+|user_id|bigint|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
@@ -52,18 +53,18 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|user_id|!int|null: false, foreign_key: true|
-|category_id|!int|null: false, foreign_key: true|
-|brand_id|!int|null: false, foreign_key: true|
+|user_id|bigint|null: false, foreign_key: true|
+|category_id|bigint|null: false, foreign_key: true|
+|brand_id|bigint|null: false, foreign_key: true|
 |damage|integer|null: false|
 |postage|integer|null: false|
 |shipping|integer|null: false|
-|prefecture_id|!int|null: false, foreign_key: true|
+|prefecture_id|bigint|null: false, foreign_key: true|
 |arrival|integer|null: false|
 |price|integer|null: false|
 |text|text|null: false|
 |status|integer|default(0), not null|
-|buyer_id|!int||
+|buyer_id|bigint||
 
 
 ### Association
@@ -81,8 +82,8 @@
 |------|----|-------|
 |comment|string|null: false|
 |level|integer||
-|user_id|!int|null: false, foreign_key: true|
-|item_id|!int|null: false, foreign_key: true|
+|user_id|bigint|null: false, foreign_key: true|
+|item_id|bigint|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
@@ -94,7 +95,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |image|string|null: false|
-|item_id|!int|null: false, foreign_key: true|
+|item_id|bigint|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :item
@@ -105,7 +106,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|size_id|!int||
+|size_id|bigint||
 |ancestry|string|index: true|
 
 ### Association
@@ -135,11 +136,11 @@
 - has_many :items
 
 
-## PostAreasテーブル
+## Prefecturesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|area|integer|null: false|
+|name|string|null: false|
 
 ### Association
 - has_many :items
