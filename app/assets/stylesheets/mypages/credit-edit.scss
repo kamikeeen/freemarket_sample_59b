@@ -1,0 +1,87 @@
+.mypage__credit-edit{
+  width: 700px;
+  height: 562px;
+  background-color: white;
+  .header{
+    @include mypageHeader();
+  }
+  .payment__edit{
+    height: 512px;
+    max-width: 343px;
+    margin: 0 auto;
+    .effective-date{
+      display: flex;
+      margin-top: 8px;
+      span{
+        margin: 0 10px;
+        font-size: 14px;
+        line-height: 48px;
+      }
+    }
+    &__form{
+      margin-top: 20px;
+      .card-brands{
+        display: flex;
+        margin-top: 8px;
+        img{
+          display: block;
+          height: 35px;
+          width: 35px;
+          margin-right: 10px;
+        }
+      }
+      #effective_month, #effective_year{
+        display: block;
+        width: 131px;
+        height: 48px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        padding-left: 5px;
+        cursor: pointer;
+      }
+      .icon{
+      position: relative;
+      top: 18px;
+      right: 20px;
+      font-weight: bold;
+      }
+      .explanation{
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 8px;
+        font-size: 14px;
+        color: #0099e8;
+        text-decoration: none;
+        &__icon{
+          padding-top: 3px;
+        }
+      }
+    }
+    .label{
+      font-size: 14px;
+      font-weight: bold;
+    }
+    .option{
+      background-color: #ea352d;
+      margin: 0 0 0 8px;
+      border-radius: 2px;
+      color: #fff;
+      font-size: 12px;
+      padding: 2px 4px;
+    }
+    .payment-num, .security-code{
+      @include mypageInputBox();
+    }
+    .submit-btn{
+      width: 100%;
+      margin: 40px 0;
+      line-height: 45px;
+      background-color: #ea352d;
+      color: #fff;
+      border: 1px solid #ea352d;
+      font-size: 14px;
+      cursor: pointer;
+    }
+  }
+}

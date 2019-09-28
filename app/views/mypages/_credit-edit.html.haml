@@ -1,0 +1,41 @@
+.mypage__credit-edit
+  .header
+    クレジットカード情報入力
+  = form_for "", html:{class: "payment__edit"} do |f|
+    .payment__edit__form
+      = f.label :payment_num, "カード番号", class: "label"
+      %span.option
+        必須
+      = f.text_field :payment_num, placeholder: "半角英数字", class: "payment-num"
+      .card-brands
+        = image_tag "visa.svg"
+        = image_tag "master-card.svg"
+        = image_tag "saison-card.svg"
+        = image_tag "jcb.svg"
+        = image_tag "american_express.svg"
+        = image_tag "dinersclub.svg"
+        = image_tag "discover.svg"
+    .payment__edit__form
+      = f.label :effective_month, "有効期限", class: "label"
+      %span.option
+        必須
+      .effective-date
+        = f.select :effective_month, [["--", 0]]
+        .icon.fa.fa-angle-down
+        %span
+          月
+        = f.select :effective_year, [["--", 0]]
+        .icon.fa.fa-angle-down
+        .drop-icon
+        %span
+          年
+    .payment__edit__form
+      = f.label :security_code, "セキュリティーコード", class: "label"
+      %span.option
+        必須
+      = f.text_field :security_code, placeholder: "カード背面4桁もしくは3桁の番号", class: "security-code"
+      =link_to "#", class: "explanation" do
+        .explanation__icon.fa.fa-question-circle
+        .explanation__text
+          カード裏面の番号とは？
+    = f.button "追加する", class: "submit-btn"  
