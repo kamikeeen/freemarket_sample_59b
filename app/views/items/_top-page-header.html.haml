@@ -1,0 +1,84 @@
+.top-page-header
+  .header-box
+    .upper
+      .logo
+        = link_to "" do
+          .test
+            = image_tag "top-page/top-page-logo.png"
+      .search-box
+        .form
+          = form_tag () do
+            = text_field_tag :search, "何かお探しですか？", class: "form__field"
+            = button_tag type: "submit", class: "form__button" do
+              = fa_icon "search"
+    .lower
+      .search-category-wrapper
+        = render "items/category-search-pulldown"
+      .search-brand-wrapper
+        .search-brand-content
+          = link_to "" do
+            .search-brand
+              .search-brand__icon
+                = image_tag "top-page/brand-icon.png"
+              .search-brand__text
+                ブランドから探す
+        .pull-down
+          %li シャネル
+          %li ナイキ
+          %li ルイ ヴィットン
+          %li シュプリーム
+          %li アディダス
+          %li ブランド一覧
+      -# - if user_sign_in?
+      .good-list-wrapper
+        .good-list-content
+          = link_to "" do
+            .good-list
+              .good-list__icon
+                = fa_icon "heart"
+              .good-list__text
+                いいね！一覧
+      .notice-wrapper
+        .notice-content
+          = link_to "" do
+            .notice
+              .notice__icon
+                = fa_icon "bell"
+              .notice__text
+                お知らせ
+        .pull-down
+          %li test
+          %li test
+      .todo-list-wrapper
+        .todo-list-content
+          = link_to "" do
+            .todo-list
+              .todo-list__icon
+                = fa_icon "check"
+              .todo-list__text
+                やることリスト
+        .pull-down
+          %li test
+      .mypage-wrapper
+        .mypage-content
+          = link_to "" do
+            .mypage
+              .mypage__icon
+                = image_tag "top-page/defalte-user-icon.png"
+              .mypage__text
+                マイページ
+        .pull-down
+          %li test
+          %li test
+          %li test
+          %li test
+          %li test
+      -# - else
+      -# .sign-up-wrapper
+      -#   .sign-up-button
+      -#     = link_to "" do
+      -#       新規会員登録
+      -# .sign-in-wrapper
+      -#   .sign-in-button
+      -#     = link_to "" do
+      -#       ログイン
