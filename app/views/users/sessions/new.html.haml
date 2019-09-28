@@ -1,0 +1,38 @@
+.user__input__background
+  = render "shared/center_logo_header"
+  .signin
+    .signin__mail
+      .signin__mail-text
+        アカウントをお持ちでない方はこちら
+      .signin__mail-button
+        -# メールアドレス登録のリンク。とりあえず飛ばせるようにはしているが変更可能性あり
+        = link_to users_signup_path do
+          .user__button__signin
+            新規会員登録
+    .signin__main
+      -# Facebook認証ログインのリンク
+      = link_to "#" do
+        .user__button__facebook
+          = fa_icon 'facebook-square', class: "button__icon"
+          .user__button__facebook-text
+            Facebookでログイン
+      -# Google認証ログインのリンク
+      = link_to "#" do
+        .user__button__google
+          = fa_icon 'google'
+          .user__button__google-text
+            Googleでログイン
+      .signin__main__fields
+        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+          .field
+            = f.email_field :email, autocomplete: "email", placeholder:"メールアドレス"
+          .field
+            = f.password_field :password, autocomplete: "current-password", placeholder:"パスワード"
+          -# ここに私はロボットではありませんが入る予定
+          .actions
+            = f.submit "ログイン", id:"signin"
+      .signin__password__forget
+        = link_to users_signin_sms_path do
+          パスワードをお忘れの方
+
+  = render "shared/center_logo_footer"

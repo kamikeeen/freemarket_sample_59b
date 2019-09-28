@@ -1,0 +1,42 @@
+.user__input__background
+  .user__input__background__sms
+    = render "progress_header"
+  .user__input__sms
+    .user__input__sms__title
+      .user__input__sms__title-text
+        電話番号の確認
+    .user__input__sms__main
+      .user__input__sms__main-form
+        .user__input__sms__main-form-field
+          %label
+            認証番号
+          %input{placeholder:  "認証番号を入力", type: "text_field"}
+        .user__input__sms__confirm__main-form__confirm-text
+          認証番号を入力してください
+        .user__input__sms__main__precautions-text
+          SMSで届いた認証番号を入力してください
+        %br
+        .user__input__sms__confirm__main-form-field__next-button
+          %input{type: "button", value:"認証して完了"}
+    .user__input__sms__main
+      .user__input__sms__main-form
+        .user__input__sms__main-form-field
+          30秒たっても認証番号が届かない方へ
+        .user__input__sms__main__precautions-text
+          電話で認証番号を聞くこともできます。
+        %br
+        .user__input__sms__main-form-field__next-button
+          %input{type: "button", value:"電話で認証番号を聞く（通話料無料）"}
+    .user__input__sms__main
+      .user__input__sms__main-form
+        .user__input__sms__main-form-field
+          認証番号を再送することもできます。もう一度電話番号を入力して下さい。
+        .user__input__sms__main-form__redial
+          = link_to address_signups_path do
+            ="電話番号を再度入力する"
+        .user__input__sms__main__precautions-text
+          = "※SMSが届かない場合は"
+          = link_to address_signups_path do
+            ="SMS受信設定"
+          ="を確認して、もう一度電話番号を入力してください。"
+  = render "shared/center_logo_footer"

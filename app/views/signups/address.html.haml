@@ -1,0 +1,96 @@
+.user__input__background
+  .user__input__background__address
+    = render "progress_header"
+    .user__input__address
+      .user__input__address__title
+        .user__input__address__title-text
+          住所入力
+      .user__input__address__main
+        .user__input__address__main-form
+          -# 仮置き、form_forの中身は後で必ず変わる
+          = form_for "" do |f|
+            .user__input__address__main-form-field
+              = f.label :"お名前(全角)" 
+              %span.user__input__address__main-form-field__require
+                必須
+              %br/
+              -# データベースを作ったら:password_confirmationを:familynameにする
+              = f.text_field :password_confirmation, placeholder: "例）山田"
+              .user__input__address__main-form__confirm-text
+                姓 を入力してください
+              -# データベースを作ったら:password_confirmationを:firstnameにする
+              = f.text_field :password_confirmation, placeholder: "例）彩"
+              .user__input__address__main-form__confirm-text
+                名 を入力してください
+            .user__input__address__main-form-field
+              = f.label :"お名前(カナ)" 
+              %span.user__input__address__main-form-field__require
+                必須
+              %br/
+              -# データベースを作ったら:password_confirmationを:familyname_kanaにする
+              = f.text_field :password_confirmation, placeholder: "例）ヤマダ"
+              .user__input__address__main-form__confirm-text
+                姓カナ を入力してください
+              -# データベースを作ったら:password_confirmationを:firstname_kanaにする
+              = f.text_field :password_confirmation, placeholder: "例）アヤ"
+              .user__input__address__main-form__confirm-text
+                名カナ を入力してください
+            .user__input__address__main-form-field
+              = f.label :"郵便番号"
+              %span.user__input__address__main-form-field__require
+                必須
+              %br/
+              -# データベースを作ったら:emailを:zip_codeにする
+              = f.text_field :email, placeholder: "例）123-4567"
+            .user__input__address__main-form__confirm-text
+              郵便番号 を入力してください
+            .user__input__address__main-form-field
+              = f.label :"都道府県"
+              %span.user__input__address__main-form-field__require
+                必須
+              %br/
+              -# データベースを作ったら:emailを:regionにするselectをcollection_selectに変更
+              = f.select :email, [["--", 0]]
+            .user__input__address__main-form__confirm-text
+              都道府県 を入力してください
+            .user__input__address__main-form-field
+              = f.label :"市区町村"
+              %span.user__input__address__main-form-field__require
+                必須
+              %br/
+              -# データベースを作ったら:password_confirmationを:cityにする
+              = f.text_field :password_confirmation, placeholder: "例）横浜市緑区"
+            .user__input__address__main-form__confirm-text
+              市区町村 を入力してください
+            .user__input__address__main-form-field
+              = f.label :"番地"
+              %span.user__input__address__main-form-field__require
+                必須
+              %br/
+              -# データベースを作ったら:password_confirmationを:addressにする
+              = f.text_field :password_confirmation, placeholder: "例）青山1-1-1"
+            .user__input__address__main-form__confirm-text
+              番地を入力してください
+            .user__input__address__main-form-field
+              = f.label :"建物名"
+              %span.user__input__address__main-form-field__arbitrary
+                任意
+              %br/
+              -# データベースを作ったら:password_confirmationを:building_nameにする
+              = f.text_field :password_confirmation, placeholder: "例）柳ビル103"
+            .user__input__address__main-form-field
+              = f.label :"電話"
+              %span.user__input__address__main-form-field__arbitrary
+                任意
+              %br/
+              -# データベースを作ったら:password_confirmationを:phone_numberにする
+              = f.text_field :password_confirmation, placeholder: "例）09012345678"
+            %br/
+            .user__input__address__main-form-field__next-button
+              = f.submit "次へ進む"
+            .user__input__address__main__about-registration
+              .user__input__address__main__about-registration-text
+                -# リンク仮置き。次のページへ。完成時は消す
+                = link_to payment_signups_path do
+                  ="本人情報の登録について＞"
+  = render "shared/center_logo_footer"

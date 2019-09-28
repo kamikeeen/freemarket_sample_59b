@@ -1,0 +1,57 @@
+.mypage__user-edit
+  .user__header
+    本人情報の登録
+  = form_for "", html:{class: "user__edit"} do |f|
+    .explanation
+      .explanation__text
+        お客さまの本人情報をご登録ください。
+        %br 登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+      = link_to "#", class: "explanation__link" do
+        .explanation__link__text
+          本人確認書類のアップロードについて
+        %i.fa.fa-angle-right.content__icon.explanation__link__icon
+    .user__edit__form
+      %p.label
+        お名前
+      %p.name
+        山田太郎
+    .user__edit__form
+      %p.label
+        お名前カナ
+      %p.name_kana
+        ヤマダタロウ
+    .user__edit__form
+      %p.label
+        生年月日
+      %p.birthday
+        1993/07/21
+    .user__edit__form
+      = f.label :zip_code, "郵便番号", class: "label"
+      %span.option
+        任意
+      = f.text_field :zip_code, placeholder: "例) 1234567", class: "input_box"
+    .user__edit__form
+      = f.label :prefecture_id, "都道府県", class: "label"
+      %span.option
+        任意
+      = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: ""}, class: "input_box"
+    .user__edit__form
+      = f.label :city, "市区町村", class: "label"
+      %span.option
+        任意
+      = f.text_field :city, placeholder: "例) 横浜市緑区", class: "input_box"
+    .user__edit__form
+      = f.label :address, "番地", class: "label"
+      %span.option
+        任意
+      = f.text_field :address, placeholder: "例) 青山1-1-1", class: "input_box"
+    .user__edit__form
+      = f.label :building_name, "建物名", class: "label"
+      %span.option
+        任意
+      = f.text_field :building_name, placeholder: "例) 柳ビル103", class: "input_box"
+    = f.button "登録する", class: "submit_btn"
+    = link_to "#", class: "explanation__link" do
+      .explanation__link__text
+        本人情報の登録について
+      %i.fa.fa-angle-right.content__icon.explanation__link__icon

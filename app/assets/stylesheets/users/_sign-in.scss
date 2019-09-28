@@ -1,0 +1,115 @@
+.signin{
+  background-color: #fff;
+  width: 456px;
+  margin: 0 auto;
+  padding-top: 20px;
+  text-align: center;
+  a{text-decoration: none;
+    color: inherit;
+  }
+  &__mail{
+    border-bottom: solid 1px #eee;
+    padding: 20px 0;
+    &-text{
+      font-size: 14px;
+    }
+    &-button{
+      width: 50%;
+      margin: 0 auto;
+    }
+  }
+  &__main{
+    width: 50%;
+    padding: 40px 0;
+    margin: 0 auto;
+    a{text-decoration: none;
+      color: inherit;
+    }
+    &__fields{
+      width: 100%;
+      #email{
+        width: calc(100% - 10px);
+        @include button();
+        padding-left: 10px;
+        border: solid 1px #eee;
+      }
+      #password{
+        width: calc(100% - 10px);
+        @include button();
+        padding-left: 10px;
+        border: solid 1px #eee;
+      }
+      #signin{
+        width: 100%;
+        background-color: #ea352d;
+        color: #fff;
+        cursor: pointer;
+        @include button();
+      }
+    }
+  }
+    &__password__forget{
+      font-size: 14px;
+      text-align: left;
+      a{text-decoration: none;
+        color: #0099e8;
+    }
+    @include mouseover__thincolor();
+    @include mouseover__under-bar();
+  }
+}
+
+// ログインボタンを押した後の電話番号認証ページ。ここに記載されていない基本フォームはsign-up.scssにあるものを使い回している。
+.user__signin__sms__main{
+  border-bottom: solid 1px #eeeeee;
+  &-form-field{
+    &__end-button{
+      & input{
+      height:50px;
+      background-color: #ea352d;
+      width: 100%;
+      margin: 8px 0 0;
+      padding: 10px 16px 8px;
+      border: 1px solid #ccc;
+      line-height: 1.5;
+      font-size: 16px;
+      color: #fff;
+      cursor: pointer;
+      }
+    }
+    & p{
+      font-size: 14px;
+      line-height: 1.5;
+      padding: 20px 0;
+    }
+  }
+  &__phone-text{
+    font-size:14px;
+    color: black;
+  }
+  &__resend{
+    &__phone, &__sms, &__email{
+      padding-bottom: 20px;
+      &-text{
+      padding-top: 20px;
+      font-size: 14px;
+      color: black;
+      }
+      &-button{
+        & input{
+          height:50px;
+          cursor: pointer;
+          text-align: center;
+          background-color: #aaaaaa;
+          width: 100%;
+          margin: 8px 0 0;
+          padding: 10px 16px 8px;
+          border: 1px solid #ccc;
+          line-height: 1.5;
+          font-size: 16px;
+          color: #fff;
+        }
+      }
+    }
+  }
+}

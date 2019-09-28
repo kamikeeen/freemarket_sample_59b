@@ -1,0 +1,15 @@
+.center__logo__footer
+  .center__logo__footer-text
+    %ul
+      %li
+        = link_to "プライバシーポリシー" ,"#"
+      %li
+        = link_to "メルカリ利用規約" ,"#" 
+      %li
+        = link_to "特定商取引に関する表記" ,"#"
+  .center__logo__footer-logo
+    = link_to do
+      = image_tag "logo-gray.svg", size: "100x100", alt: "logo"
+  %small.center__logo__footer-copyright
+    -# 余裕があったら©を大きくする
+    © 2019 Mercari
