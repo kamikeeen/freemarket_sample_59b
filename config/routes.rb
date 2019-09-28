@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
 
-  root "tests#index"
+  root "items#index"
   
   devise_for :users
-  resources :tests
   resources :signups, only: [:new] do
     collection do
       get 'registration', to: 'signups#registration'
@@ -23,6 +22,10 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :mypages, only: [:index, :new, :show, :edit, :destroy]
-
+  resources :mypages, only: [:show, :edit] do
+    member do
+      get "edit_identification", to: "mypages#identification"
+      get "logout", to: "mypages#logout"
+    end
+  end
 end

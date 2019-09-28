@@ -2,7 +2,7 @@
   .header-box
     .upper
       .logo
-        = link_to "" do
+        = link_to root_path do
           .test
             = image_tag "top-page/top-page-logo.png"
       .search-box
@@ -65,7 +65,7 @@
             .mypage
               .mypage__icon
                 = image_tag "top-page/defalte-user-icon.png"
-              .mypage__text
+              = link_to mypage_path(1), class:"mypage__text" do
                 マイページ
         .pull-down
           %li test
