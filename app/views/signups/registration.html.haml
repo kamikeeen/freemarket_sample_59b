@@ -16,7 +16,7 @@
           .user__button__facebook-text
             Facebookで登録する
       -# Google認証のリンク
-      = link_to "#" do
+      = link_to user_google_oauth2_omniauth_authorize_path, method: :post do
         .user__button__google
           = fa_icon 'google'
           .user__button__google-text

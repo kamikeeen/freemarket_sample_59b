@@ -15,7 +15,7 @@ Rails.application.routes.draw do
       get 'address', to: 'signups#address'
       get 'payment', to: 'signups#payment'
       get 'end', to: 'signups#end'
-      get 'signin', to: 'signups#signin'
+      get 'signin_sms', to: 'signups#signin_sms'
     end
   end
 
