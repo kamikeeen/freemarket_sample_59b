@@ -108,7 +108,7 @@
 
 ### Association
 - has_many :items
-- has_ancestory
+- has_ancestry
 
 
 ## Sizesテーブル
