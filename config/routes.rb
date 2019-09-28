@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
 
-  root "tests#index"
+  root "items#index"
   
   devise_for :users
-  resources :tests
   resources :signups, only: [:new] do
     collection do
       get 'registration', to: 'signups#registration'

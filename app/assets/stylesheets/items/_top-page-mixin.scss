@@ -1,6 +1,7 @@
 @mixin pulldown() {
   &:hover .pull-down {
     visibility: visible;
+    z-index: 1;
   }
 }
 
