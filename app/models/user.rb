@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
         :recoverable, :rememberable, :validatable,
-        :omniauthable,omniauth_providers: [:facebook]
+        :omniauthable,omniauth_providers: [:facebook, :google_oauth2]
         
   # qiitaから貼り付けただけ、仮置き
   def self.find_oauth(auth)
@@ -18,7 +18,7 @@ class User < ApplicationRecord
         user = User.new(
           # snsの情報
           # binding.pry => auth.infoとかで確認 
-          nickname: auth.info.name,
+          # nickname: auth.info.name,
           email: auth.info.email
         )
       end
@@ -35,7 +35,7 @@ class User < ApplicationRecord
         )
       else #会員登録 未
         user = User.new(
-          nickname: auth.info.name,
+          # nickname: auth.info.name,
           email: auth.info.email
         )
         # binding.pry
