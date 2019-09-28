@@ -1,4 +1,6 @@
-## Usersテーブル 
+[![Image from Gyazo](https://i.gyazo.com/aec14ad33d795fffe581b1a557880884.png)](https://gyazo.com/aec14ad33d795fffe581b1a557880884)
+
+## Usersテーブル
 
 |Column|Type|Options|
 |------|----|-------|
