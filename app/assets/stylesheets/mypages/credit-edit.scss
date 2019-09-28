@@ -1,5 +1,6 @@
 .mypage__credit-edit{
   width: 700px;
+  height: 380px;
   background-color: white;
   .header{
     @include mypageHeader();
@@ -43,8 +44,31 @@
       max-width: 320px;
       padding: 24px 0;
       margin: 0 auto;
+      position: relative;
       &__brand{
-        
+        width: 35px;
+        height: 35px;
+      }
+      &__payment-num{
+        font-size: 14px;
+      }
+      &__date{
+        font-size: 14px;
+      }
+      &__remove-btn{
+        font-size: 14px;
+        color: #ea352d;
+        border: 1px solid #ea352d;
+        padding: 4px 6px;
+        border-radius: 3px;
+        width: 70px;
+        height: 24px;
+        box-sizing: border-box;
+        line-height: 14px;
+        position: absolute;
+        top: 24px;
+        right: 0;
+        text-decoration: none;
       }
     }
     .explanation{
