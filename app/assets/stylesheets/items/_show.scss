@@ -38,7 +38,7 @@
         empty-cells: show;
         border: 1px solid #f5f5f5;
         font-size: 14px;
-        & a {
+        & .link_to {
           @include link-action();
         }
       }
@@ -147,9 +147,11 @@
             }
           }
           &__effort-for-safety {
-            margin-left: 44px;
+            float: right;
+            margin: 8px 0px 0px 44px;
+            
           }
-          &__effort-for-safety * , a {
+          &__effort-for-safety * , & .link_to {
             @include mouseover__thincolor();
             display: inline-block;
             color: #0099e8;
@@ -257,7 +259,7 @@
     width: 700px;
     margin: 0px auto;
     &__box {
-      &__buyer, & a {
+      &__buyer, & .link_to {
         text-decoration: none;
       }
       &__buyer p {
@@ -318,7 +320,7 @@
     width: 700px;
     margin: 0px auto;
     &__box {
-      &__buyer, & a {
+      &__buyer, & .link_to {
         text-decoration: none;
       }
       &__buyer p {
