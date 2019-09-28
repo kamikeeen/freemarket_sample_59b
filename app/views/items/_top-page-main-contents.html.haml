@@ -1,7 +1,6 @@
 .top-page-main-content
   .content-box
     .advertisement
-      -# %img{src: "assets/top-page/top-page-advertisement.png"}
       .move-left
         = fa_icon "angle-left"
       .move-right
@@ -25,7 +24,7 @@
             .title
               カテゴリー1新着アイテム
             .see-more
-              = link_to root_path, class:"modify-link-to" do
+              = link_to "", class:"modify-link-to" do
                 .see-more__box
                   .see-more__box__text
                     もっと見る
@@ -34,9 +33,9 @@
           .items-wrapper
             - 10.times do
               .show-item
-                = link_to root_path, class:"modify-link-to" do
+                = link_to "", class:"modify-link-to" do
                   .show-item__image
-                    %img{src: "assets/top-page/item-sample-image.png"}
+                    = image_tag "top-page/item-sample-image.png"
                   .show-item__price
                     ¥4,000
                   .show-item__name
@@ -46,7 +45,7 @@
             .title
               カテゴリー2新着アイテム
             .see-more
-              = link_to root_path, class:".modify-link-to" do
+              = link_to "", class:".modify-link-to" do
                 .see-more__box
                   .see-more__box__text
                     もっと見る
@@ -55,9 +54,9 @@
           .items-wrapper
             - 10.times do
               .show-item
-                = link_to root_path, class:"modify-link-to" do
+                = link_to "", class:"modify-link-to" do
                   .show-item__image
-                    %img{src: "assets/top-page/item-sample-image.png"}
+                    = image_tag "top-page/item-sample-image.png"
                   .show-item__price
                     ¥4,000
                   .show-item__name
@@ -67,7 +66,7 @@
             .title
               カテゴリー3新着アイテム
             .see-more
-              = link_to root_path, class:"modify-link-to" do
+              = link_to "", class:"modify-link-to" do
                 .see-more__box
                   .see-more__box__text
                     もっと見る
@@ -79,7 +78,7 @@
             .title
               カテゴリー4新着アイテム
             .see-more
-              = link_to root_path, class:"modify-link-to" do
+              = link_to "", class:"modify-link-to" do
                 .see-more__box
                   .see-more__box__text
                     もっと見る
@@ -99,13 +98,12 @@
           .list-box__list
             ブランド4
       .recommend-box
-        -# ここから繰り返し
         .recommend-item
           .header
             .title
               ブランド1新着アイテム
             .see-more
-              = link_to root_path, class:"modify-link-to" do
+              = link_to "", class:"modify-link-to" do
                 .see-more__box
                   .see-more__box__text
                     もっと見る
@@ -114,9 +112,9 @@
           .items-wrapper
             - 10.times do
               .show-item
-                = link_to root_path, class:"modify-link-to" do
+                = link_to "", class:"modify-link-to" do
                   .show-item__image
-                    %img{src: "assets/top-page/item-sample-image.png"}
+                    = image_tag "top-page/item-sample-image.png"
                   .show-item__price
                     ¥4,000
                   .show-item__name
@@ -126,7 +124,7 @@
             .title
               ブランド2新着アイテム
             .see-more
-              = link_to root_path, class:"modify-link-to" do
+              = link_to "", class:"modify-link-to" do
                 .see-more__box
                   .see-more__box__text
                     もっと見る
@@ -138,7 +136,7 @@
             .title
               ブランド3新着アイテム
             .see-more
-              = link_to root_path, class:"modify-link-to" do
+              = link_to "", class:"modify-link-to" do
                 .see-more__box
                   .see-more__box__text
                     もっと見る
@@ -150,7 +148,7 @@
             .title
               ブランド4新着アイテム
             .see-more
-              = link_to root_path, class:"modify-link-to" do
+              = link_to "", class:"modify-link-to" do
                 .see-more__box
                   .see-more__box__text
                     もっと見る
