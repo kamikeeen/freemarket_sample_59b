@@ -5,6 +5,8 @@
 @import "mypages/profile-edit";
 @import "mypages/user-edit";
 @import "mypages/credit-edit";
+@import "mypages/side_bar";
+@import "mypages/logout";
 @import "users/mixin";
 @import "users/progress";
 @import "users/center_logo_header";
@@ -15,4 +17,5 @@
 @import "users/sign-in";
 @import "users/new";
 @import "items/purchase";
+@import "items/new"
 
