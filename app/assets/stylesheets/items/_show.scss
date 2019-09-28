@@ -1,0 +1,380 @@
+// @import 'items/mixin';
+
+.item-detail {
+  background-color: #f5f5f5;
+  position: absolute;
+  padding-top: 40px;
+  width: 100%;
+  &__contents {
+    margin: 0px auto;;
+    width: 700px;
+    background-color: #FFFFFF;
+    &__inner {
+      padding: 24px 40px 40px;
+      &__name {
+        padding-bottom: 16px;
+        font-weight: bold;
+        text-align: center;
+        font-size: 22px;
+      }
+      &__pictures {
+        float: left;
+        width: 300px;
+        height: 420px;
+        &__main {
+          height: 300px;
+        }
+        &__sub {
+          float: left;
+          height: 60px;
+        }
+      }
+      &__details, table {
+        float: right;
+        margin-left: 20px;
+        width: 300px;
+        height: 420px;
+        table-layout: fixed;
+        empty-cells: show;
+        border: 1px solid #f5f5f5;
+        font-size: 14px;
+        & .link_to {
+          @include link-action();
+        }
+      }
+      &__details th {
+        width: 100px;
+        background-color: #fafafa;
+      }
+      &__details table, th,td {
+        border: 1px solid #f5f5f5;
+        padding: 8px;
+      }
+      &__details {
+        &__buyer-assessments {
+          margin-top: 8px;
+          display: flex;
+          &__good {
+            color: #ED5486;
+            font-family: "Font Awesome 5 Free";
+            font-size: 16px;
+            font-weight: bold;
+          }
+          &__normal {
+            margin-left: 16px;
+            color: #F9A841;
+            font-family: "Font Awesome 5 Free";
+            font-size: 16px;
+            font-weight: bold;
+          }
+          &__bad {
+            margin-left: 16px;
+            color: #6DB5D6;
+            font-family: "Font Awesome 5 Free";
+            font-size: 16px;
+            font-weight: bold;
+          }
+          &__counts {
+            margin-left: 5px;
+            vertical-align: top;
+          }
+        }
+        &__category-sub {
+          &__angle-right {
+            color: #0099e8;
+            font-size: 20px;
+          }
+        }
+        &__price {
+          clear: both;
+          padding-top: 24px;
+          height: 74px;
+          font-size: 50px;
+          text-align: center;
+          font-weight: bold;
+          &__tax {
+            font-size: 12.5px;
+            font-weight: normal;
+          }
+          &__shipping {
+            font-weight: normal;
+            font-size: 16px;
+          }
+          & p {
+            display: inline;
+          }
+        }
+        &__confirm-purchase-item input {
+          border: none;
+          margin-top: 16px;
+          height: 60px;
+          width: 620px;
+          background-color: #ea352d;
+          color: #FFFFFF;
+          font-weight: bold;
+          font-size: 24px;
+        }
+        &__text {
+          padding-top: 32px;
+          font-size: 18px;
+        }
+        &__options-box {
+          margin-top: 16px;
+          &__good {
+            @include options__box;
+            & * {
+              display: inline-block;
+            }
+            &__heart {
+              color: #DADADA;
+            }
+            & p {
+              margin-left: 8px;
+            }
+          }
+          &__report {
+            @include options__box;
+            @include mouseover__thincolor();
+            margin-left: 16px;
+            & * {
+              display: inline-block;
+            }
+            &__flag {
+              color: #DADADA;
+            }
+            & p {
+              margin-left: 8px;
+            }
+          }
+          &__effort-for-safety {
+            float: right;
+            margin: 8px 0px 0px 44px;
+            
+          }
+          &__effort-for-safety * , & .link_to {
+            @include mouseover__thincolor();
+            display: inline-block;
+            color: #0099e8;
+            font-size: 14px;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+  &__comments {
+    width: 700px;
+    margin: 8px auto 13.75px;
+    background-color: #FFFFFF;
+    &__inner {
+      padding: 24px;
+      &__note {
+        padding: 8px;
+        background-color: #fff6de;
+        font-size: 14px;
+      }
+      &__validate {
+        color: red;
+        font-size: 14px;
+      }
+      &__comment textarea {
+        margin-top: 8px;
+        padding: 10px;
+        width: 630px;
+        border-color: #cccccc;
+      }
+      &__submit-comment input {
+        margin-top: 8px;
+        width: 650px;
+        height: 47.5px;
+        border: none;
+        background-color: #AAAAAA;
+        color: #FFFFFF;
+        font-size: 14px;
+      }
+    }
+  }
+  &__prev-and-next {
+    width: 700px;
+    margin: 0px auto;
+    & * {
+      @include mouseover__thincolor();
+      display: inline-block;
+    } 
+    &__prev-item {
+      float: left;
+      text-decoration: none;
+      &__angle-left {
+        color: #0099e8;
+        font-size: 24px;
+      }
+      & p {
+        @include link-action();
+        vertical-align: top;
+        font-size: 14px;
+      }
+    }
+    &__next-item {
+      float: right;
+      text-decoration: none;
+      &__angle-right {
+        color: #0099e8;
+        font-size: 24px;
+      }
+      & p {
+        @include link-action();
+        vertical-align: top;
+        font-size: 14px;
+      }
+    }
+  }
+  &__SNS-shares {
+    clear: both;
+    height: 82px;
+    width: 700px;
+    margin: 0px auto;
+    padding: 32px 0px 24px;
+    background-color: #FFFFFF;
+    text-align: center;
+    line-height: 2;
+    & ul li {
+      display: inline;
+      font-size: 50px;
+    }
+    &__facebook {
+      color: #395283;
+    }
+    &__twitter {
+      color: #609EC7;
+    }
+    &__line {
+      font-family: "Font Awesome 5 Brands";
+      color: #1DBF40;
+    }
+    &__pinterest {
+      color: #A8282E;
+    }
+  }
+  &__another-items {
+    width: 700px;
+    margin: 0px auto;
+    &__box {
+      &__buyer, & .link_to {
+        text-decoration: none;
+      }
+      &__buyer p {
+        @include link-action();
+        @include mouseover__thincolor();
+        margin: 24px 0px 8px;
+        font-size: 22px;
+        font-weight: bold;
+        display: inline-block;
+      }
+    }
+    &__items {
+      width: 700px;
+      display: inline-flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      &__item-box {
+        margin-bottom: 20px;
+        height: 330px;
+        width: 220px;
+        background-color: #FFFFFF;
+        &__item-link {
+          color: #000000;
+          &__picture {
+            height: 220px;
+          }
+          &__simple-detail {
+            padding: 16px;
+            font-size: 14px;
+            &__boxes {
+              &__price {
+                margin-top: 8px;
+                font-weight: bold;
+              }
+              &__box {
+                margin-top: 8px;
+                float: right;
+                &__good {
+                  &__heart {
+                    text-align: right;
+                    color: #DADADA;
+                  }
+                  &__good-counts {
+                    float: right;
+                  }
+                }
+              }
+            }
+            &__boxes * {
+              display: inline-block;
+            }
+          }
+        }
+      }
+    }
+  }
+  &__another-brands {
+    width: 700px;
+    margin: 0px auto;
+    &__box {
+      &__buyer, & .link_to {
+        text-decoration: none;
+      }
+      &__buyer p {
+        @include link-action();
+        @include mouseover__thincolor();
+        margin: 24px 0px 8px;
+        font-size: 22px;
+        font-weight: bold;
+        display: inline-block;
+      }
+    }
+    &__items {
+      width: 700px;
+      display: inline-flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      &__item-box {
+        margin-bottom: 20px;
+        height: 330px;
+        width: 220px;
+        background-color: #FFFFFF;
+        &__item-link {
+          color: #000000;
+          &__picture {
+            height: 220px;
+          }
+          &__simple-detail {
+            padding: 16px;
+            font-size: 14px;
+            &__boxes {
+              &__price {
+                margin-top: 8px;
+                font-weight: bold;
+              }
+              &__box {
+                margin-top: 8px;
+                float: right;
+                &__good {
+                  &__heart {
+                    text-align: right;
+                    color: #DADADA;
+                  }
+                  &__good-counts {
+                    float: right;
+                  }
+                }
+              }
+            }
+            &__boxes * {
+              display: inline-block;
+            }
+          }
+        }
+      }
+    }
+  }
+}
