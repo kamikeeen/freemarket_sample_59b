@@ -10,7 +10,7 @@
         .user__button__mail
           メールアドレスで登録する
       -# Facebook認証のリンク
-      = link_to "#" do
+      = link_to user_facebook_omniauth_authorize_path, method: :post do
         .user__button__facebook
           = fa_icon 'facebook-square', class: "button__icon"
           .user__button__facebook-text
