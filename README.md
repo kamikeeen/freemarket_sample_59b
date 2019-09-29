@@ -69,7 +69,7 @@
 
 ### Association
 - belongs_to :user
-- has_many :item_images
+- has_many :images
 - belongs_to :category
 - belongs_to :brand
 - belongs_to :size
