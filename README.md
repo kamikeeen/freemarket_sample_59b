@@ -90,7 +90,7 @@
 - belongs_to :item
 
 
-## ItemImagesテーブル
+## Imagesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
