@@ -1,5 +1,22 @@
 crumb :root do
-  link "Home", root_path
+  link "メルカリ", root_path
+end
+
+# マイページ
+crumb :mypages do
+  link "マイページ", mypage_path
+end
+
+# プロフィール
+crumb :profile do
+  link "プロフィール", edit_mypage_path
+  parent :mypages
+end
+
+# 本人情報の登録
+crumb :identification do
+  link "本人情報の登録", edit_identification_mypage_path
+  parent :mypages
 end
 
 # crumb :projects do
