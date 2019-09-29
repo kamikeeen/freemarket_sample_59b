@@ -1,6 +1,6 @@
 .user__input__background
   .user__input__background__basic
-    = render "progress_header"
+    = render "shared/progress_header"
     .user__input__basic
       .user__input__basic__title
         .user__input__basic__title-text
@@ -25,28 +25,29 @@
               = f.email_field :email, autocomplete: "email", placeholder: "PC・携帯どちらでも可" 
             .user__input__basic__main-form__confirm-text
               メールアドレス を入力してください
-            .user__input__basic__main-form-field
-              = f.label :"パスワード"
-              %span.user__input__basic__main-form-field__require
-                必須
-              %br/
-              -# パスワード文字制限設定したらに変更必要かも７を#{@minimum_password_length}
-              = f.password_field :password, autocomplete: "new-password", placeholder: "７文字以上" 
-            .user__input__basic__main-form__confirm-text
-              %li 
-                パスワード を入力してください
-              %li 
-                パスワードは7文字以上128文字以下で入力してください
-              %li 
-                英字と数字両方を含むパスワードを設定してください
-            .user__input__basic__main-form-field
-              = f.label :"パスワード（確認）"
-              %span.user__input__basic__main-form-field__require
-                必須
-              %br/
-              = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "７文字以上"
-            .user__input__basic__main-form__confirm-text
-              パスワード (確認) を入力してください
+            - unless session[:provider].present? && session[:uid].present?
+              .user__input__basic__main-form-field
+                = f.label :"パスワード"
+                %span.user__input__basic__main-form-field__require
+                  必須
+                %br/
+                -# パスワード文字制限設定したらに変更必要かも７を#{@minimum_password_length}
+                = f.password_field :password, autocomplete: "new-password", placeholder: "７文字以上" 
+              .user__input__basic__main-form__confirm-text
+                %li 
+                  パスワード を入力してください
+                %li 
+                  パスワードは7文字以上128文字以下で入力してください
+                %li 
+                  英字と数字両方を含むパスワードを設定してください
+              .user__input__basic__main-form-field
+                = f.label :"パスワード（確認）"
+                %span.user__input__basic__main-form-field__require
+                  必須
+                %br/
+                = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "７文字以上"
+              .user__input__basic__main-form__confirm-text
+                パスワード (確認) を入力してください
             .user__input__basic__main__identification
               .user__input__basic__main__identification-title
                 本人確認

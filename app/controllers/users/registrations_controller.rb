@@ -18,7 +18,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
       # binding.pry
       sns = SnsCredential.update(user_id:  @user.id)
     else #email登録なら
-      # binding.pry
+      # superでdeviseコントローラのcreateを呼び出している
+      # binding.pry superでdeviseコントローラのcreateを呼び出している
       super
     end
   end

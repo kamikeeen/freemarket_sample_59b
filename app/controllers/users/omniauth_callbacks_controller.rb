@@ -10,7 +10,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     callback_for(:google)
   end
 
-
   def callback_for(provider)
     info = User.find_oauth(request.env["omniauth.auth"]) #usersモデルのメソッド
     @user = info[:user]
@@ -20,8 +19,10 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       sign_in_and_redirect @user, event: :authentication
       set_flash_message(:notice, :success, kind: "#{provider}".capitalize) if is_navigational_format?
     else #userが存在しなかったら
-      session["devise.sns_id"] = sns_id #sns_credentialのid devise.他のアクションに持ち越せる(少し難)
-      render template: "devise/registrations/new" #redirect_to だと更新してしまうのでrenderで
+      session["devise.sns_id"] = sns_id
+      session[:provider] = info[:provider]
+      session[:uid] =info[:uid]
+      render template: "signups/new" #redirect_to だと更新してしまうのでrenderで
     end
   end
 

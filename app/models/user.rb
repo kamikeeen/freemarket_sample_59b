@@ -22,8 +22,9 @@ class User < ApplicationRecord
           email: auth.info.email
         )
       end
+      # snscredentialのid,uid,provider,user_idを持ってもう一度callbacksコントローラへ
       sns = snscredential
-      #binding.pry
+      # binding.pry
 
     else #sns登録 未
       user = User.where(email: auth.info.email).first
@@ -39,7 +40,7 @@ class User < ApplicationRecord
           email: auth.info.email
         )
         # binding.pry
-        sns = SnsCredential.create(
+        sns = SnsCredential.new(
           uid: uid,
           provider: provider
         )
