@@ -72,7 +72,7 @@
               %span.items__new__sell__form__require
                 必須
               %br
-              = f.collection_select :postage_id, Postage.all, :id, :name, {prompt: "---"}
+              = f.select :postage, Item.postages_i18n.invert, include_blank: '---'
             .items__new__sell__form__confirm-text
               選択してください
             .items__new__sell__form__about-delivery-form__post-area
