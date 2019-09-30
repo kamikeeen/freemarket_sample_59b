@@ -1,5 +1,5 @@
 ## ER図
-[![Image from Gyazo](https://i.gyazo.com/217adbdcfc12434528d5b725ac524106.png)](https://gyazo.com/217adbdcfc12434528d5b725ac524106)
+[![Image from Gyazo](https://i.gyazo.com/443534e947821c9fc88634270bc55b41.png)](https://gyazo.com/443534e947821c9fc88634270bc55b41)
 
 ## Usersテーブル
 
@@ -69,7 +69,7 @@
 
 ### Association
 - belongs_to :user
-- has_many :item_images
+- has_many :images
 - belongs_to :category
 - belongs_to :brand
 - belongs_to :size
@@ -90,7 +90,7 @@
 - belongs_to :item
 
 
-## ItemImagesテーブル
+## Imagesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
