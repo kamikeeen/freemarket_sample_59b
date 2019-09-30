@@ -81,3 +81,4 @@ gem 'active_hash'
 gem 'ancestry'
 gem "pry-rails"
 gem 'enum_help'
+gem 'rails-i18n'
