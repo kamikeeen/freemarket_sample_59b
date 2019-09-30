@@ -110,6 +110,8 @@ GEM
       railties (>= 4.1.0, < 6.0)
       responders
       warden (~> 1.2.3)
+    enum_help (0.0.17)
+      activesupport (>= 3.0.0)
     erubi (1.8.0)
     erubis (2.7.0)
     excon (0.66.0)
@@ -317,6 +319,7 @@ DEPENDENCIES
   chromedriver-helper
   coffee-rails (~> 4.2)
   devise
+  enum_help
   fog-aws
   font-awesome-rails
   haml-rails

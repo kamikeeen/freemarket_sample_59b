@@ -58,7 +58,7 @@
                 必須
               %br
               -# あとでコレクションボックスになるかも
-              = f.collection_select :status_id, Status.all, :id, :name, {prompt: "---"}
+              = f.select :status, Item.statuses.keys, include_blank: '---'
             .items__new__sell__form__confirm-text
               選択してください
         .items__new__sell__form__about-delivery
