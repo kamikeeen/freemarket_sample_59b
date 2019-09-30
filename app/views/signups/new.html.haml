@@ -14,7 +14,7 @@
                 必須
               %br/
               -# データベースを作ったらで:emailを:nicknameにする
-              = f.text_field :email, placeholder: "例）メルカリ太郎"
+              = f.text_field :email, placeholder: "例）メルカリ太郎" 
             .user__input__basic__main-form__confirm-text
               ニックネーム を入力してください
             .user__input__basic__main-form-field
@@ -22,10 +22,11 @@
               %span.user__input__basic__main-form-field__require
                 必須
               %br/
-              = f.email_field :email, autocomplete: "email", placeholder: "PC・携帯どちらでも可" 
+              = f.email_field :email, autocomplete: "email", placeholder: "PC・携帯どちらでも可" unless @user.present?
+              = f.email_field :email, autocomplete: "email", placeholder: "PC・携帯どちらでも可", value: @user.email if @user.present?
             .user__input__basic__main-form__confirm-text
               メールアドレス を入力してください
-            - unless session[:provider].present? && session[:uid].present?
+            - unless @sns.present?
               .user__input__basic__main-form-field
                 = f.label :"パスワード"
                 %span.user__input__basic__main-form-field__require
@@ -40,14 +41,14 @@
                   パスワードは7文字以上128文字以下で入力してください
                 %li 
                   英字と数字両方を含むパスワードを設定してください
-              .user__input__basic__main-form-field
-                = f.label :"パスワード（確認）"
-                %span.user__input__basic__main-form-field__require
-                  必須
-                %br/
-                = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "７文字以上"
-              .user__input__basic__main-form__confirm-text
-                パスワード (確認) を入力してください
+                .user__input__basic__main-form-field
+                  = f.label :"パスワード（確認）"
+                  %span.user__input__basic__main-form-field__require
+                    必須
+                  %br/
+                  = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "７文字以上"
+                .user__input__basic__main-form__confirm-text
+                  パスワード (確認) を入力してください
             .user__input__basic__main__identification
               .user__input__basic__main__identification-title
                 本人確認

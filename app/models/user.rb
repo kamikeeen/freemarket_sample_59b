@@ -49,7 +49,7 @@ class User < ApplicationRecord
     end
     # binding.pry
     # hashでsnsのidを返り値として保持しておく
-    return { user: user , sns_id: sns.id }
+    return { user: user , sns: sns }
   end
 
   has_many :sns_credentials, dependent: :destroy
