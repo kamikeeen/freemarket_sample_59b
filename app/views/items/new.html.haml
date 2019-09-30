@@ -49,8 +49,7 @@
               %span.items__new__sell__form__require
                 必須
               %br
-              -# あとでコレクションボックスになるかも
-              = f.select :category, [["---", 0]]
+              = f.collection_select :category_parent, Category.where(ancestry: nil), :id, :name, include_blank: '---'
             .items__new__sell__form__confirm-text
               選択してください
             .items__new__sell__form__item__detail-form__status
@@ -59,7 +58,7 @@
                 必須
               %br
               -# あとでコレクションボックスになるかも
-              = f.select :status, [["---", 0]]
+              = f.collection_select :status_id, Status.all, :id, :name, {prompt: "---"}
             .items__new__sell__form__confirm-text
               選択してください
         .items__new__sell__form__about-delivery
@@ -74,7 +73,7 @@
                 必須
               %br
               -# あとでコレクションボックスになるかも
-              = f.select :postage, [["---", 0]]
+              = f.collection_select :postage_id, Postage.all, :id, :name, {prompt: "---"}
             .items__new__sell__form__confirm-text
               選択してください
             .items__new__sell__form__about-delivery-form__post-area
@@ -82,7 +81,6 @@
               %span.items__new__sell__form__require
                 必須
               %br
-              -# あとでコレクションボックスになるかも
               = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: "---"}
             .items__new__sell__form__confirm-text
               選択してください
@@ -92,7 +90,7 @@
                 必須
               %br
               -# あとでコレクションボックスになるかも
-              = f.select :arrival, [["---", 0]]
+              = f.collection_select :arrival_id, Arrival.all, :id, :name, {prompt: "---"}
             .items__new__sell__form__confirm-text
               選択してください
         .items__new__sell__form__price
