@@ -10,8 +10,12 @@ ja:
         bad: '傷や汚れあり'
         worse: '全体的に状態が悪い'
       postage:
-        exhibitor: '送料込み(出品者負担)'
-        purchaser: '着払い(購入者負担)'
+        exhibitor_side: '送料込み(出品者負担)'
+        purchaser_side: '着払い(購入者負担)'
+      arrival: 
+        soon: '1日~2日で発送'
+        few_days: '2日~3日で発送'
+        about_week: '4日~7日で発送'
   activerecord:
     errors:
       messages:

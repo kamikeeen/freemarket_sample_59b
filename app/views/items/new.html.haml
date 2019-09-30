@@ -88,7 +88,7 @@
               %span.items__new__sell__form__require
                 必須
               %br
-              = f.collection_select :arrival_id, Arrival.all, :id, :name, {prompt: "---"}
+              = f.select :arrival, Item.arrivals_i18n.invert, include_blank: '---'
             .items__new__sell__form__confirm-text
               選択してください
         .items__new__sell__form__price
