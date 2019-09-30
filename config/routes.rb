@@ -32,5 +32,6 @@ Rails.application.routes.draw do
   namespace :api do
     get "categories/select_children"
     get "categories/select_grand_children"
+    get "sizes/select"
   end
 end

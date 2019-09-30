@@ -1,4 +1,4 @@
 %select{name: "category_children", id: "category_children"}
   %option{value: ""} ---
   - @children.each do |child|
-    %option{value: "#{child.id}"}= child.name
+    %option{value: child.id, data:{size:{id: child.size_id}}}= child.name

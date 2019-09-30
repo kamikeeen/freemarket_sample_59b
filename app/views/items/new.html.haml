@@ -72,7 +72,6 @@
               %span.items__new__sell__form__require
                 必須
               %br
-              -# あとでコレクションボックスになるかも
               = f.collection_select :postage_id, Postage.all, :id, :name, {prompt: "---"}
             .items__new__sell__form__confirm-text
               選択してください
@@ -89,7 +88,6 @@
               %span.items__new__sell__form__require
                 必須
               %br
-              -# あとでコレクションボックスになるかも
               = f.collection_select :arrival_id, Arrival.all, :id, :name, {prompt: "---"}
             .items__new__sell__form__confirm-text
               選択してください
