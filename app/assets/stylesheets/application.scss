@@ -32,3 +32,9 @@
 @import "users/sign-in";
 @import "users/new";
 
+.breadcrumbs{
+  background-color: #fff;
+  border-top: 1px solid #eee;
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+  height: 48px;
+}
