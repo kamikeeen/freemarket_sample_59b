@@ -1,0 +1,4 @@
+%select{name: "category_grand_children", id: "category_grand_children"}
+  %option{value: ""} ---
+  - @grand_children.each do |child|
+    %option{value: "#{child.id}"}= child.name
