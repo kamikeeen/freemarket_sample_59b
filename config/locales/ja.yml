@@ -16,6 +16,16 @@ ja:
         soon: '1日~2日で発送'
         few_days: '2日~3日で発送'
         about_week: '4日~7日で発送'
+      delivery_method:
+        undecide: "未定"
+        rakurakumercari: "らくらくメルカリ便"
+        yu_mail: "ゆうメール"
+        leter_pack: "レターパック"
+        nurmal_post: "普通郵便(定形・定形外)"
+        kuroneko: "クロネコヤマト"
+        yu_pack: "ゆうパック" 
+        click_post: "クリックポスト"
+        yu_packet: "ゆうパケット"
   activerecord:
     errors:
       messages:
