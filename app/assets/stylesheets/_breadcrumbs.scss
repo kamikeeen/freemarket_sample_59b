@@ -1,5 +1,7 @@
 
-.breadcrumbs{
+nav.bread_crumb{
+  background-color: #fff;
+  border-top: 1px solid #eee;
   position: relative;
   box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
   height: 48px;
@@ -10,31 +12,21 @@
     margin: 0 auto;
     padding-top: 16px;
     padding-bottom: 16px;
-    white-space: normal;
     margin-left:190px;
     margin-right:130px;
-    overflow: visible;
     font-size: 16px;
     .li{
       .breadcrumbs-list{
         font-size: 16px;
         height: 24px;
         background-color: #fff;
+        white-space: normal;
       }
     }
   }
 }
 
-
-.breadcrumb{
-  .breadcrumb-item{
-    &:first-child {
-      &:before{
-
-      }
-    }
-    &:before{
-      padding: 0 .2em;
-     }
-  }
-}
+// .breadcrumb li:first-child a:before{
+//   content: "\f3c5"; /* 好きなアイコンに変更してください。 */
+//   font-size: 1.5em;  /* アイコンの大きさ */
+// }

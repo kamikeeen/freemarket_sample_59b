@@ -1,7 +1,4 @@
-
-.breadcrumbs
+%nav.bread_crumb
   .ul
     .li
-    = breadcrumbs pretext: "",separator: " &rsaquo; ", class: "breadcrumbs-list"
-    -# font-family: FontAwesome;
-    -# fa-angle-right
+    = breadcrumbs separator: " #{content_tag(:i, '', :class=>'fa-angle-right')}"
