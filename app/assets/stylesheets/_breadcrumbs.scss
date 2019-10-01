@@ -14,13 +14,20 @@ nav.bread_crumb{
     padding-bottom: 16px;
     margin-left:190px;
     margin-right:130px;
-    font-size: 16px;
+    font-size: 14px;
     .li{
-      .breadcrumbs-list{
-        font-size: 16px;
-        height: 24px;
-        background-color: #fff;
-        white-space: normal;
+      .breadcrumbs{
+        a{
+          color: black;
+        }
+        .fa{
+          font-size: 16px;
+          color: #888;
+          white-space: normal;
+          margin: 0 8px;
+          .fa-angle-right:before{
+          }
+        }
       }
     }
   }
@@ -29,4 +36,6 @@ nav.bread_crumb{
 // .breadcrumb li:first-child a:before{
 //   content: "\f3c5"; /* 好きなアイコンに変更してください。 */
 //   font-size: 1.5em;  /* アイコンの大きさ */
-// }
+//  }
+// font-family: "Font Awesome 5 Free";
+// content: "\f105";
