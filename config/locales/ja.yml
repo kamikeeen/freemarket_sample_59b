@@ -2,7 +2,7 @@
 ja:
   enums:
     item:
-      status:
+      damage:
         excerent: '新品、未使用'
         great: '未使用に近い'
         good: '目立った傷や汚れなし'
