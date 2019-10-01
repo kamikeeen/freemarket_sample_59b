@@ -9,9 +9,9 @@ ja:
         normal: 'やや傷や汚れあり'
         bad: '傷や汚れあり'
         worse: '全体的に状態が悪い'
-      postage:
-        exhibitor_side: '送料込み(出品者負担)'
-        purchaser_side: '着払い(購入者負担)'
+      postage_side:
+        exhibitor: '送料込み(出品者負担)'
+        purchaser: '着払い(購入者負担)'
       arrival: 
         soon: '1日~2日で発送'
         few_days: '2日~3日で発送'

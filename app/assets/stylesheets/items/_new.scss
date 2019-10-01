@@ -76,7 +76,7 @@
       &-form{
         width: 60%;
         float: right;
-        &__category, &__status, &__postage, &__post-area, &__arrival, &__size{
+        &__category, &__status, &__postage, &__post-area, &__arrival, &__size, &__delivery_method{
           padding: 10px 0;
         }
         &-price, &-profit{
@@ -137,6 +137,7 @@
             line-height: 50px;
             border-bottom: solid 1px #eeeeee;
             padding: 10px 0;
+            font-weight: bold;
             &-title{
               float: left;
           }

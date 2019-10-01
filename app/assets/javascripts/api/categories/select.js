@@ -12,7 +12,7 @@ $(function(){
       .done(function(html){
         $("#category_children").remove();
         $("#category_grand_children").remove();
-        $("#size_id").remove();
+        $(".items__new__sell__form__item__detail-form__size").remove();
         $(".items__new__sell__form__item__detail-form__category").append(html);
       })
       .fail(function(){
@@ -20,13 +20,13 @@ $(function(){
     }else{
       $("#category_children").remove();
       $("#category_grand_children").remove();
-      $("#size_id").remove();
+      $(".items__new__sell__form__item__detail-form__size").remove();
 
     }
   })
 
   $(document).on("change", "#category_children", function(){
-    if (($(this).val() !== "" ) && ($(this).val() !== "1234" ) && ($(this).val() !== "1325" )){
+    if ($(this).val() !== "" ){
       var children_id = $(this).val();
       $.ajax({
         url: "/api/categories/select_grand_children",
@@ -37,13 +37,13 @@ $(function(){
       .done(function(html){
         $("#category_grand_children").remove();
         $(".items__new__sell__form__item__detail-form__category").append(html);
-        $("#size_id").remove();
+        $(".items__new__sell__form__item__detail-form__size").remove();
       })
       .fail(function(){
       })
     }else{
       $("#category_grand_children").remove();
-      $("#size_id").remove();
+      $(".items__new__sell__form__item__detail-form__size").remove();
     }
   })
   
@@ -59,11 +59,11 @@ $(function(){
         dataType: "html"
       })
       .done(function(html){
-        $("#size_id").remove();
+        $(".items__new__sell__form__item__detail-form__size").remove();
         $(".items__new__sell__form__item__detail-form__status").before(html);
       })
     }else{
-      $("#size_id").remove();
+      $(".items__new__sell__form__item__detail-form__size").remove();
     }
   })
 })

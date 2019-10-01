@@ -1,5 +1,5 @@
 ## ER図
-[![Image from Gyazo](https://i.gyazo.com/443534e947821c9fc88634270bc55b41.png)](https://gyazo.com/443534e947821c9fc88634270bc55b41)
+[![Image from Gyazo](https://i.gyazo.com/551f4120aae789e01c911030d756f6eb.png)](https://gyazo.com/551f4120aae789e01c911030d756f6eb)
 
 ## Usersテーブル
 
@@ -57,8 +57,8 @@
 |category_id|bigint|null: false, foreign_key: true|
 |brand_id|bigint|null: false, foreign_key: true|
 |damage|integer|null: false|
-|postage|integer|null: false|
-|shipping|integer|null: false|
+|postage_side|integer|null: false|
+|delivery_method|integer|null: false|
 |prefecture_id|bigint|null: false, foreign_key: true|
 |arrival|integer|null: false|
 |price|integer|null: false|
