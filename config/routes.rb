@@ -28,4 +28,11 @@ Rails.application.routes.draw do
       get "logout", to: "mypages#logout"
     end
   end
+
+  namespace :api do
+    get "categories/select_children"
+    get "categories/select_grand_children"
+    get "sizes/select"
+    get "delivery_methods/select"
+  end
 end

@@ -49,8 +49,7 @@
               %span.items__new__sell__form__require
                 必須
               %br
-              -# あとでコレクションボックスになるかも
-              = f.select :category, [["---", 0]]
+              = f.collection_select :category_parent, Category.where(ancestry: nil), :id, :name, include_blank: '---'
             .items__new__sell__form__confirm-text
               選択してください
             .items__new__sell__form__item__detail-form__status
@@ -59,7 +58,7 @@
                 必須
               %br
               -# あとでコレクションボックスになるかも
-              = f.select :status, [["---", 0]]
+              = f.select :damage, Item.damages_i18n.invert, include_blank: '---'
             .items__new__sell__form__confirm-text
               選択してください
         .items__new__sell__form__about-delivery
@@ -73,8 +72,7 @@
               %span.items__new__sell__form__require
                 必須
               %br
-              -# あとでコレクションボックスになるかも
-              = f.select :postage, [["---", 0]]
+              = f.select :postage_side, Item.postage_sides_i18n.invert, include_blank: '---'
             .items__new__sell__form__confirm-text
               選択してください
             .items__new__sell__form__about-delivery-form__post-area
@@ -82,7 +80,6 @@
               %span.items__new__sell__form__require
                 必須
               %br
-              -# あとでコレクションボックスになるかも
               = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: "---"}
             .items__new__sell__form__confirm-text
               選択してください
@@ -91,8 +88,7 @@
               %span.items__new__sell__form__require
                 必須
               %br
-              -# あとでコレクションボックスになるかも
-              = f.select :arrival, [["---", 0]]
+              = f.select :arrival, Item.arrivals_i18n.invert, include_blank: '---'
             .items__new__sell__form__confirm-text
               選択してください
         .items__new__sell__form__price
@@ -114,12 +110,12 @@
               .items__new__sell__form__price-form-commission-title
                 販売手数料
               .items__new__sell__form__price-form-commission-price
-                ー
+                = "-"
             .items__new__sell__form__price-form-profit
               .items__new__sell__form__price-form-profit-title
                 販売利益
               .items__new__sell__form__price-form-profit-price
-                ー
+                = "-"
         .items__new__sell__form__button
           .items__new__sell__form__button__confirmation
             =link_to "禁止されている出品", "#"

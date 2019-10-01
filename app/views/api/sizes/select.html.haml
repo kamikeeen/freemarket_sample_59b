@@ -1,0 +1,12 @@
+.items__new__sell__form__item__detail-form__size
+  %label
+    サイズ
+  %span.items__new__sell__form__require
+    必須
+  %br
+  %select{name: "size_id", id: "size_id"}
+    %option{value: ""} ---
+    - @child_sizes.each do |size|
+      %option{value: size.id}= size.name
+  .items__new__sell__form__confirm-text
+    選択してください
