@@ -10,16 +10,20 @@ class ItemsController < ApplicationController
 
     end
 
-    def create
-      @item = Item.create(item_params)
+    def new
+      @item = Item.new
+      @item.images.build
     end
 
-    def new
+    def create
+      @item = Item.new(item_params)
+      @item.user_id = 1
+      @item.save
     end
 
     def show
     end
-
+    
     def edit
     end
 
@@ -29,10 +33,10 @@ class ItemsController < ApplicationController
     def purchase
     end
 
-    private
+  private
 
-    def item_params
-      params.require(:item).permit(:name, :price, images_attributes: [:image])
-    end
+  def item_params
+    params.require(:item).permit(:name, :text, :size_id, :category_id, :damage, :postage_side, :prefecture_id, :delivery_method, :arrival, :price, images_attributes: [:name])
+  end
 
 end

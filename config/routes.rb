@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   root "items#index"
-  
+
   devise_for :users
   resources :signups, only: [:new] do
     collection do
@@ -15,7 +15,7 @@ Rails.application.routes.draw do
       get 'signin', to: 'signups#signin'
     end
   end
-
+  
   resources :items, only: [:index, :new, :show, :edit, :destroy, :create] do
     collection do #member?
       get 'purchase/:id', to: 'items#purchase', as: 'purchase'

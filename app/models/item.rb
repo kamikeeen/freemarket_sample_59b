@@ -1,6 +1,11 @@
 class Item < ApplicationRecord
 
   has_many :images
+  belongs_to :user
+  belongs_to :category
+  belongs_to :size, optional: true
+
+  accepts_nested_attributes_for :images
 
   accepts_nested_attributes_for :images
 

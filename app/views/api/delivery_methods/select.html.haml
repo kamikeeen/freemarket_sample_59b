@@ -4,9 +4,9 @@
   %span.items__new__sell__form__require
     必須
   %br
-  %select{name: "delivery_method"}
+  %select{name: "item[delivery_method]"}
     %option{value: ""} ---
-    - @delivery_methods.invert.each_key do |key|
-      %option{value: key}= key
+    - @delivery_methods.invert.each do |key, value|
+      %option{value: value}= key
   .items__new__sell__form__confirm-text
     選択してください

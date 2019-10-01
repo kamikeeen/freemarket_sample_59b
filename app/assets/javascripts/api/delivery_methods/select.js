@@ -1,5 +1,5 @@
 $(function(){
-  $("#postage_side").on("change", function(){
+  $("#item_postage_side").on("change", function(){
     if ($(this).val() !== ""){
       var postage_side = $(this).val();
 
