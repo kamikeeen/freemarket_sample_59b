@@ -5,7 +5,7 @@
       .items__new__sell__title-text
         商品の情報を入力
     .items__new__sell__form
-      = form_for "" do |f|
+      = form_for @item do |f|
         .items__new__sell__form__upload-image
           = f.label :"出品画像"
           %span.items__new__sell__form__require
@@ -16,13 +16,14 @@
           %br
           .items__new__sell__form__upload-image-form
             -# Dropzonejs？でドラッグ&ドロップができるかもしれない。今は見た目だけ作ります。
-            = f.file_field :image, multiple: true
-            = f.label :image, class:"items__new__sell__form__upload-image-form" do
-              ドラッグアンドドロップ
-              %br
-              またはクリックしてファイルをアップロード
-          .items__new__sell__form__confirm-text
-            画像がありません
+            =f.fields_for :images do |image|
+              = image.file_field :name
+              = image.label :name, class:"items__new__sell__form__upload-image-form" do
+                ドラッグアンドドロップ
+                %br
+                またはクリックしてファイルをアップロード
+            .items__new__sell__form__confirm-text
+              画像がありません
         .items__new__sell__form__items
           .items__new__sell__form__items-name
             = f.label :"商品名"
@@ -49,7 +50,7 @@
               %span.items__new__sell__form__require
                 必須
               %br
-              = f.collection_select :category_parent, Category.where(ancestry: nil), :id, :name, include_blank: '---'
+              = collection_select :items, :category_id, Category.where(ancestry: nil), :id, :name, include_blank: '---'
             .items__new__sell__form__confirm-text
               選択してください
             .items__new__sell__form__item__detail-form__status

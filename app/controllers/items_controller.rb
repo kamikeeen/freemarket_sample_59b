@@ -4,6 +4,14 @@ class ItemsController < ApplicationController
   end
 
   def new
+    @item = Item.new
+    @item.images.build
+  end
+
+  def create
+    @item = Item.new(item_params)
+    @item.user_id = 1
+    @item.save
   end
 
   def show
@@ -18,4 +26,10 @@ class ItemsController < ApplicationController
   def purchase
   end
 
+
+  private
+
+  def item_params
+    params.require(:item).permit(:name, :text, :size_id, :category_id, :damage, :postage_side, :prefecture_id, :delivery_method, :arrival, :price, images_attributes: [:name])
+  end
 end

@@ -4,7 +4,7 @@
   %span.items__new__sell__form__require
     必須
   %br
-  %select{name: "size_id", id: "size_id"}
+  %select{name: "item[size_id]", id: "size_id"}
     %option{value: ""} ---
     - @child_sizes.each do |size|
       %option{value: size.id}= size.name

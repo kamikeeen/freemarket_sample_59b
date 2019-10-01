@@ -1,6 +1,6 @@
 $(function(){
 
-  $("#category_parent").on("change", function(){
+  $("#items_category_id").on("change", function(){
     if ($(this).val() !== ""){
       var parent_id = $(this).val();
       $.ajax({
