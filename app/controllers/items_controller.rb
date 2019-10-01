@@ -4,12 +4,9 @@ class ItemsController < ApplicationController
       @item = Item.new
       @item.images.build
 
-      @items = Item.order(id Desc).limet(10)
-      @images = Image.order(id Desc).limet(10)
+      @items = Item.order('id Desc').limit(10)
+      @images = Image.order('id Desc').limit(10)
 
-      
-
-      binding.pry
     end
 
     def create
