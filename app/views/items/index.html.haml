@@ -1,5 +1,5 @@
 .form
-  = form_for @item do |f|
+  = form_with model: @item, local: true do |f|
     = f.text_field :name
     = f.text_field :price
     = f.fields_for :images do |image|
@@ -9,7 +9,7 @@
 .main-header
   = render "items/top-page-header"
 .main-content
-  = render "items/top-page-main-contents"
+  = render partial: "items/top-page-main-contents", locals: {items: @items, images: @images}
 .top-page-shipping-button
   = render "items/shipping-button"
 .main-footer

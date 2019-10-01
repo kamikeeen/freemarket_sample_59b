@@ -6,6 +6,7 @@ class ItemsController < ApplicationController
 
       @items = Item.order('id Desc').limit(10)
       @images = Image.order('id Desc').limit(10)
+      # @item-brandとimage-category
 
     end
 

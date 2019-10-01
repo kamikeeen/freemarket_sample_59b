@@ -31,29 +31,16 @@
                   .see-more__box__icon
                     = fa_icon "angle-right"
           .items-wrapper
-            - @items.zip(@images).each do |item, image|
+            - items.zip(images).each do |item, image|
               .show-item
                 = link_to "", class:"modify-link-to" do
                   .show-item__image
-                    = image_tag "#{image.image}", height: '188'
+                    = image_tag "#{image.image}", size: '163x163'
                   .show-item__price
                     = item.price.to_s(:currency, unit: '¥', precision: 0)
                   .show-item__name
                     %p 
                       = item.name
-
-
-
-          
-            -# - 10.times do
-            -#   .show-item
-            -#     = link_to "", class:"modify-link-to" do
-            -#       .show-item__image
-            -#         = image_tag "top-page/item-sample-image.png"
-            -#       .show-item__price
-            -#         ¥4,000
-            -#       .show-item__name
-            -#         %p ニンテンドースイッチ スプラトゥーン2スプラトゥーン2
         .recommend-item
           .header
             .title
