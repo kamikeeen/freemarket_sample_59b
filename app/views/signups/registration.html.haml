@@ -1,24 +1,129 @@
 .user__input__background
-  = render "shared/center_logo_header"
-  .signup__main
-    .signup__main-title
-      .signup__main-title__text
-        新規会員登録
-    .user__button
-      -# 新規会員登録のリンク。仮置き変更可能性あり
-      = link_to signups_path do
-        .user__button__mail
-          メールアドレスで登録する
-      -# Facebook認証のリンク
-      = link_to "#" do
-        .user__button__facebook
-          = fa_icon 'facebook-square', class: "button__icon"
-          .user__button__facebook-text
-            Facebookで登録する
-      -# Google認証のリンク
-      = link_to "#" do
-        .user__button__google
-          = fa_icon 'google'
-          .user__button__google-text
-            Googleで登録する
+  .user__input__background__basic
+    = render "progress_header"
+    .user__input__basic
+      .user__input__basic__title
+        .user__input__basic__title-text
+          会員情報入力
+      .user__input__basic__main
+        .user__input__basic__main-form
+          = form_for sms_confirmation_signups_path, method: :get do |f|
+            .user__input__basic__main-form-field
+              = f.label :"ニックネーム"
+              %span.user__input__basic__main-form-field__require
+                必須
+              %br/
+              -# データベースを作ったらで:emailを:nicknameにする
+              = f.text_field :email, placeholder: "例）メルカリ太郎"
+            .user__input__basic__main-form__confirm-text
+              ニックネーム を入力してください
+            .user__input__basic__main-form-field
+              = f.label :"メールアドレス"
+              %span.user__input__basic__main-form-field__require
+                必須
+              %br/
+              = f.email_field :email, autocomplete: "email", placeholder: "PC・携帯どちらでも可" 
+            .user__input__basic__main-form__confirm-text
+              メールアドレス を入力してください
+            .user__input__basic__main-form-field
+              = f.label :"パスワード"
+              %span.user__input__basic__main-form-field__require
+                必須
+              %br/
+              -# パスワード文字制限設定したらに変更必要かも７を#{@minimum_password_length}
+              = f.password_field :password, autocomplete: "new-password", placeholder: "７文字以上" 
+            .user__input__basic__main-form__confirm-text
+              %li 
+                パスワード を入力してください
+              %li 
+                パスワードは7文字以上128文字以下で入力してください
+              %li 
+                英字と数字両方を含むパスワードを設定してください
+            .user__input__basic__main-form-field
+              = f.label :"パスワード（確認）"
+              %span.user__input__basic__main-form-field__require
+                必須
+              %br/
+              = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "７文字以上"
+            .user__input__basic__main-form__confirm-text
+              パスワード (確認) を入力してください
+            .user__input__basic__main__identification
+              .user__input__basic__main__identification-title
+                本人確認
+              .user__input__basic__main__identification-text
+                安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+            .user__input__basic__main-form-field__name
+              = f.label :"お名前(全角) "
+              %span.user__input__basic__main-form-field__require
+                必須
+              %br/
+              %li
+                -# データベースを作ったら:password_confirmationを:familynameにする
+                = f.text_field :password_confirmation, placeholder: "例）山田"
+              %li
+                -# データベースを作ったら:password_confirmationを:firstnameにする
+                = f.text_field :password_confirmation, placeholder: "例）彩"
+            .user__input__basic__main-form__confirm-text
+              %li 
+                姓 を入力してください
+              %li 
+                名 を入力してください
+            .user__input__basic__main-form-field__name
+              = f.label :"お名前カナ(全角)" 
+              %span.user__input__basic__main-form-field__require
+                必須
+              %br/
+              %li
+                -# データベースを作ったら:password_confirmationを:familyname_kanaにする
+                = f.text_field :password_confirmation, placeholder: "例）ヤマダ"
+              %li
+                -# データベースを作ったら:password_confirmationを:firstname_kanaにする
+                = f.text_field :password_confirmation, placeholder: "例）アヤ"
+            .user__input__basic__main-form__confirm-text
+              %li 
+                姓カナ を入力してください
+              %li 
+                名カナ を入力してください
+            .user__input__basic__main-form-field__birthday
+              = f.label :"生年月日" 
+              %span.user__input__basic__main-form-field__require
+                必須
+              %br/
+              %li
+                -# データベースを作ったら:password_confirmationを:birthdayにする
+                = f.select :password_confirmation, [["--", 0]]
+              %span
+                年
+              %li
+                -# データベースを作ったら:password_confirmationを:birthdayにする
+                = f.select :password_confirmation, [["--", 0]]
+              %span
+                月
+              %li
+                -# データベースを作ったら:password_confirmationを:birthdayにする
+                = f.select :password_confirmation, [["--", 0]]
+              %span
+                日
+            .user__input__basic__main-form__confirm-text
+              生年月日を入力してください
+            .user__input__basic__main__precautions-text
+              ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+            -# 私はロボットではありませんがはいる予定
+            %br/
+            %br/
+            .user__input__basic__main-form__confirm-text
+              選択してください
+            .user__input__basic__main__terms-of-service-text
+              = "「次へ進む」のボタンを押すことにより、"
+              = link_to "#" do
+                ="利用規約"
+              ="に同意したものとみなします"
+            .user__input__basic__main-form-field__next-button
+              = f.submit "次へ進む"
+            .user__input__basic__main__about-registration
+              .user__input__basic__main__about-registration-text
+                -# リンク仮置き。sms認証ページへ
+                = link_to "#" do
+                  ="本人情報の登録について＞"
+
   = render "shared/center_logo_footer"
