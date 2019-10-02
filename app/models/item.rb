@@ -7,8 +7,6 @@ class Item < ApplicationRecord
 
   accepts_nested_attributes_for :images
 
-  accepts_nested_attributes_for :images
-
   enum damage: [:excerent, :great, :good, :normal, :bad, :worse]
   enum postage_side: [:exhibitor, :purchaser]
   enum arrival: [:soon, :few_days, :about_week]

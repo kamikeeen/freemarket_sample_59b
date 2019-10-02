@@ -31,11 +31,12 @@
                   .see-more__box__icon
                     = fa_icon "angle-right"
           .items-wrapper
-            - itemsCategory1.zip(imagesCategory1).each do |item, image|
-              .show-item
-                = link_to "", class:"modify-link-to" do
-                  .show-item__image
-                    = image_tag "#{image.name}", height: '163'
+            - itemsCategory1.each do |item|
+              - item.images.each do |image|
+                .show-item
+                  = link_to "", class:"modify-link-to" do
+                    .show-item__image
+                      = image_tag "#{image.name}", height: '163'
                   .show-item__price
                     = item.price.to_s(:currency, precision: 0, format: '¥%n')
                   .show-item__name
@@ -53,11 +54,12 @@
                   .see-more__box__icon
                     = fa_icon "angle-right"
           .items-wrapper
-            - itemsCategory2.zip(imagesCategory2).each do |item, image|
-              .show-item
-                = link_to "", class:"modify-link-to" do
-                  .show-item__image
-                    = image_tag "#{image.name}", height: '163'
+            - itemsCategory2.each do |item|
+              - item.images.each do |image|
+                .show-item
+                  = link_to "", class:"modify-link-to" do
+                    .show-item__image
+                      = image_tag "#{image.name}", height: '163'
                   .show-item__price
                     = item.price.to_s(:currency, precision: 0, format: '¥%n')
                   .show-item__name
@@ -75,11 +77,12 @@
                   .see-more__box__icon
                     = fa_icon "angle-right"
           .items-wrapper
-            - itemsCategory3.zip(imagesCategory3).each do |item, image|
-              .show-item
-                = link_to "", class:"modify-link-to" do
-                  .show-item__image
-                    = image_tag "#{image.name}", height: '163'
+            - itemsCategory2.each do |item|
+              - item.images.each do |image|
+                .show-item
+                  = link_to "", class:"modify-link-to" do
+                    .show-item__image
+                      = image_tag "#{image.name}", height: '163'
                   .show-item__price
                     = item.price.to_s(:currency, precision: 0, format: '¥%n')
                   .show-item__name
@@ -97,11 +100,12 @@
                   .see-more__box__icon
                     = fa_icon "angle-right"
           .items-wrapper
-            - itemsCategory4.zip(imagesCategory4).each do |item, image|
-              .show-item
-                = link_to "", class:"modify-link-to" do
-                  .show-item__image
-                    = image_tag "#{image.name}", height: '163'
+            - itemsCategory2.each do |item|
+              - item.images.each do |image|
+                .show-item
+                  = link_to "", class:"modify-link-to" do
+                    .show-item__image
+                      = image_tag "#{image.name}", height: '163'
                   .show-item__price
                     = item.price.to_s(:currency, precision: 0, format: '¥%n')
                   .show-item__name
