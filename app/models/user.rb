@@ -5,13 +5,11 @@ class User < ApplicationRecord
         :recoverable, :rememberable, :validatable,
         :omniauthable,omniauth_providers: [:facebook, :google_oauth2]
         
-  # qiitaから貼り付けただけ、仮置き
   def self.find_oauth(auth)
     uid = auth.uid
     provider = auth.provider
     snscredential = SnsCredential.where(uid: uid, provider: provider).first
     # binding.pry
-
     if snscredential.present? #sns登録のみ完了してるユーザー
       user = User.where(id: snscredential.user_id).first
       unless user.present? #ユーザーが存在しないなら
@@ -51,7 +49,7 @@ class User < ApplicationRecord
     # hashでsnsのidを返り値として保持しておく
     return { user: user , sns: sns }
   end
-
+  
   has_many :sns_credentials, dependent: :destroy
 
 end

@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
-
   def facebook
     callback_for(:facebook) #コールバック
   end
@@ -11,25 +10,33 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def callback_for(provider)
+    # binding.pry
     info = User.find_oauth(request.env["omniauth.auth"]) #usersモデルのメソッド
     @user = info[:user]
     @sns = info[:sns]
     # binding.pry
-    if @user.persisted? #userが存在したら
+    if @sns.persisted? #snsが存在したら
       sign_in_and_redirect @user, event: :authentication
       set_flash_message(:notice, :success, kind: "#{provider}".capitalize) if is_navigational_format?
-    else #userが存在しなかったら
+    else #snsが存在しなかったら
       session["devise.sns_id"] = @sns[:id]
-      session[:uid] = @sns[:uid]
-      session[:provider] = @sns[:provider]
+      session["devise.sns_uid"] = @sns[:uid]
+      session["devise.sns_provider"] = @sns[:provider]
       # binding.pry
-      render template: "signups/new" #redirect_to だと更新してしまうのでrenderで
+      if request.env['omniauth.origin'] == "http://localhost:3000/users/sign_in"
+        render template: "users/sessions/new"
+        session.clear
+      else
+        render template: "devise/registrations/new"
+      # render template: "signups/new" #redirect_to だと更新してしまうのでrenderで
+      end
     end
   end
 
   def failure
     redirect_to root_path and return
   end
+
 
   # You should configure your model like this:
   # devise :omniauthable, omniauth_providers: [:twitter]

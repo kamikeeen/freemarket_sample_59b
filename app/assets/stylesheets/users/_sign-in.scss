@@ -47,6 +47,14 @@
         @include button();
       }
     }
+    &__confirm-text{
+      color: #ea352d;
+      font-size: 14px;
+      text-align:left;
+      & li{
+        list-style: none;
+      }
+    }
   }
     &__password__forget{
       font-size: 14px;
