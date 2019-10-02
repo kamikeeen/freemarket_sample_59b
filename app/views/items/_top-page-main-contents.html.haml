@@ -11,18 +11,18 @@
           人気のカテゴリー
         .list-box
           .list-box__list
-            カテゴリー1
+            #{categoryName1}
           .list-box__list
-            カテゴリ−2
+            #{categoryName2}
           .list-box__list
-            カテゴリー3
+            #{categoryName3}
           .list-box__list
-            カテゴリー4
+            #{categoryName4}
       .recommend-box
         .recommend-item
           .header
             .title
-              カテゴリー1新着アイテム
+              #{categoryName1}新着アイテム
             .see-more
               = link_to "", class:"modify-link-to" do
                 .see-more__box
@@ -31,20 +31,20 @@
                   .see-more__box__icon
                     = fa_icon "angle-right"
           .items-wrapper
-            - items.zip(images).each do |item, image|
+            - itemsCategory1.zip(imagesCategory1).each do |item, image|
               .show-item
                 = link_to "", class:"modify-link-to" do
                   .show-item__image
-                    = image_tag "#{image.image}", size: '163x163'
+                    = image_tag "#{image.name}", height: '163'
                   .show-item__price
-                    = item.price.to_s(:currency, unit: '¥', precision: 0)
+                    = item.price.to_s(:currency, precision: 0, format: '¥%n')
                   .show-item__name
                     %p 
                       = item.name
         .recommend-item
           .header
             .title
-              カテゴリー2新着アイテム
+              #{categoryName2}新着アイテム
             .see-more
               = link_to "", class:".modify-link-to" do
                 .see-more__box
@@ -53,19 +53,20 @@
                   .see-more__box__icon
                     = fa_icon "angle-right"
           .items-wrapper
-            - 10.times do
+            - itemsCategory2.zip(imagesCategory2).each do |item, image|
               .show-item
                 = link_to "", class:"modify-link-to" do
                   .show-item__image
-                    = image_tag "top-page/item-sample-image.png"
+                    = image_tag "#{image.name}", height: '163'
                   .show-item__price
-                    ¥4,000
+                    = item.price.to_s(:currency, precision: 0, format: '¥%n')
                   .show-item__name
-                    %p ニンテンドースイッチ スプラトゥーン2スプラトゥーン2
+                    %p 
+                      = item.name
         .recommend-item
           .header
             .title
-              カテゴリー3新着アイテム
+              #{categoryName3}新着アイテム
             .see-more
               = link_to "", class:"modify-link-to" do
                 .see-more__box
@@ -74,10 +75,20 @@
                   .see-more__box__icon
                     = fa_icon "angle-right"
           .items-wrapper
+            - itemsCategory3.zip(imagesCategory3).each do |item, image|
+              .show-item
+                = link_to "", class:"modify-link-to" do
+                  .show-item__image
+                    = image_tag "#{image.name}", height: '163'
+                  .show-item__price
+                    = item.price.to_s(:currency, precision: 0, format: '¥%n')
+                  .show-item__name
+                    %p 
+                      = item.name
         .recommend-item
           .header
             .title
-              カテゴリー4新着アイテム
+              #{categoryName4}新着アイテム
             .see-more
               = link_to "", class:"modify-link-to" do
                 .see-more__box
@@ -86,6 +97,16 @@
                   .see-more__box__icon
                     = fa_icon "angle-right"
           .items-wrapper
+            - itemsCategory4.zip(imagesCategory4).each do |item, image|
+              .show-item
+                = link_to "", class:"modify-link-to" do
+                  .show-item__image
+                    = image_tag "#{image.name}", height: '163'
+                  .show-item__price
+                    = item.price.to_s(:currency, precision: 0, format: '¥%n')
+                  .show-item__name
+                    %p 
+                      = item.name
       .show-recommend
         .text
           人気のブランド

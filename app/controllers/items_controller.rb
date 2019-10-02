@@ -4,9 +4,31 @@ class ItemsController < ApplicationController
       @item = Item.new
       @item.images.build
 
-      @items = Item.order('id Desc').limit(10)
-      @images = Image.order('id Desc').limit(10)
-      # @item-brandとimage-category
+      # categories = [1, 200, 680, 893, 1088]
+      # categoryNumber = [category1 = 0, category2 = 0, category3 = 0, category4 = 0] 
+
+      # recommenndCategories = categories.sample(4)
+      # recommenndCategories.zip(categoryNumber).each do |c, n|
+      #   n = c
+      # end
+
+      category1 = 1
+      category2 = 200
+      category3 = 893
+      category4 = 680
+
+      @itemsCategory1 = Item.where(category_id: [Category.find(category1).descendant_ids]).order('id Desc').limit(10)
+      @imagesCategory1 = Image.find(@itemsCategory1.ids)
+      @CategoryName1 = Category.find(category1).name
+      @itemsCategory2 = Item.where(category_id: [Category.find(category2).descendant_ids]).order('id Desc').limit(10)
+      @imagesCategory2 = Image.find(@itemsCategory2.ids)
+      @CategoryName2 = Category.find(category2).name
+      @itemsCategory3 = Item.where(category_id: [Category.find(category3).descendant_ids]).order('id Desc').limit(10)
+      @imagesCategory3 = Image.find(@itemsCategory3.ids)
+      @CategoryName3 = Category.find(category3).name
+      @itemsCategory4 = Item.where(category_id: [Category.find(category4).descendant_ids]).order('id Desc').limit(10)
+      @imagesCategory4 = Image.find(@itemsCategory4.ids)
+      @CategoryName4 = Category.find(category4).name
 
     end
 

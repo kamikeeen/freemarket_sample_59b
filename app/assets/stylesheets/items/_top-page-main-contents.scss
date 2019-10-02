@@ -91,6 +91,9 @@
               a:visited { 
                 color : black;
               }
+              &__image {
+                text-align: center;
+              }
               &__price {
                 border-radius: 0 14px 14px 0;
                 background-color: rgba(0, 0, 0, 0.548);
