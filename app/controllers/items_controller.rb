@@ -4,18 +4,14 @@ class ItemsController < ApplicationController
       @item = Item.new
       @item.images.build
 
-      # categories = [1, 200, 680, 893, 1088]
-      # categoryNumber = [category1 = 0, category2 = 0, category3 = 0, category4 = 0] 
+      categories = [1, 200, 680, 893, 1088]
 
-      # recommenndCategories = categories.sample(4)
-      # recommenndCategories.zip(categoryNumber).each do |c, n|
-      #   n = c
-      # end
+      recommenndCategories = categories.sample(4)
 
-      category1 = 1
-      category2 = 200
-      category3 = 893
-      category4 = 680
+      category1 = recommenndCategories[0]
+      category2 = recommenndCategories[1]
+      category3 = recommenndCategories[2]
+      category4 = recommenndCategories[3]
 
       @itemsCategory1 = Item.where(category_id: [Category.find(category1).descendant_ids]).order('id Desc').limit(10)
       @imagesCategory1 = Image.find(@itemsCategory1.ids)
