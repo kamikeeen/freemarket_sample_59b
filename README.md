@@ -35,7 +35,6 @@
 |firstname|string|null: false|
 |familyname_kana|string|null: false|
 |firstname_kana|string|null: false|
-|birthday|date|null: false|
 |zip_code|string|null: false|
 |prefecture_id|bigint|null: false|
 |city|string|null: false|
