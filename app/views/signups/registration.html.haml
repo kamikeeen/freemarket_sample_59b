@@ -85,17 +85,7 @@
                 必須
               %br/
               %li
-                = f.select :birthday, [["--", 0]]
-              %span
-                年
-              %li
-                = f.select :birthday, [["--", 0]]
-              %span
-                月
-              %li
-                = f.select :birthday, [["--", 0]]
-              %span
-                日
+                = f.date_select :birthday
             -# .user__input__basic__main-form__confirm-text
             -#   生年月日を入力してください
             -# .user__input__basic__main__precautions-text
