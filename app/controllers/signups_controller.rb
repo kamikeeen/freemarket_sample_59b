@@ -10,16 +10,16 @@ class SignupsController < ApplicationController
     @user = User.new
   end
 
-  def new
-  end
-
   def sms_confirmation
+    @user = User.new
   end
 
   def sms
   end
 
   def address
+    @user = User.new
+    @user.addresses.build
   end
 
   def payment
