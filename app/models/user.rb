@@ -6,4 +6,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   belongs_to_active_hash :prefecture
+  has_many :addresses
+  accepts_nested_attributes_for :addresses
 end
