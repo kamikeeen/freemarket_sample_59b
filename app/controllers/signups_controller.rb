@@ -1,8 +1,13 @@
 class SignupsController < ApplicationController
+
+  def index
+  end
+
   def signin
   end
 
   def registration
+    @user = User.new
   end
 
   def new
