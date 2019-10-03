@@ -1,5 +1,5 @@
 ## ER図
-[![Image from Gyazo](https://i.gyazo.com/c6f893dcf73deac6b5116fcdec56b67d.png)](https://gyazo.com/c6f893dcf73deac6b5116fcdec56b67d)
+[![Image from Gyazo](https://i.gyazo.com/581d385e40fe6c062d28934e993765d0.png)](https://gyazo.com/581d385e40fe6c062d28934e993765d0)
 
 ## Usersテーブル
 
