@@ -12,9 +12,8 @@
             = f.label :"携帯電話の番号"
             %br/
             = f.text_field :phone_number, placeholder: "携帯電話の番号を入力"
-            -# %input{placeholder:  "携帯電話の番号を入力", type: "text_field"}
             .user__input__sms__confirm__main-form__confirm-text
-            -#   会員登録できません。
+              = render partial: 'error-message', locals: {model: @user, column: "phone_number"}
             .user__input__sms__confirm__main__precautions-text
               本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
             %br
