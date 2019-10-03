@@ -6,5 +6,6 @@ class CreateSnsCredentials < ActiveRecord::Migration[5.2]
       t.integer :user_id
       t.timestamps
     end
+    add_index :sns_credentials, [:provider, :uid], unique: true
   end
 end

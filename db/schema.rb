@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 2019_09_28_032853) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["provider", "uid"], name: "index_sns_credentials_on_provider_and_uid", unique: true
   end
 
   create_table "tests", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
