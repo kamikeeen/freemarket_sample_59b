@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root "items#index"
   
   devise_for :users
-  resources :signups, only: [:index, :new] do
+  resources :signups, only: [:index, :new, :create] do
     collection do
       get 'registration', to: 'signups#registration'
       get 'sms_confirmation', to: 'signups#sms_confirmation'
