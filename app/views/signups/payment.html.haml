@@ -69,7 +69,6 @@
         %br
         .user__input__payment__main-form-field__next-button
           //CSS修正要
-          = link_to end_signups_path do
+          = link_to signups_path, method: :post do
             次へ進む
-    
   = render "shared/center_logo_footer"
