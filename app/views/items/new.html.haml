@@ -15,15 +15,16 @@
             最大10枚までアップロードできます
           %br
           .items__new__sell__form__upload-image-form
-            -# Dropzonejs？でドラッグ&ドロップができるかもしれない。今は見た目だけ作ります。
-            =f.fields_for :images do |image|
-              = image.file_field :name
-              = image.label :name, class:"items__new__sell__form__upload-image-form" do
-                ドラッグアンドドロップ
-                %br
-                またはクリックしてファイルをアップロード
-            .items__new__sell__form__confirm-text
-              画像がありません
+            
+            =f.fields_for :images do |f|
+              = f.label :name do
+                %span
+                  ドラッグアンドドロップ
+                  %br
+                  またはクリックしてファイルをアップロード
+                = f.file_field :name, accept: "image/*"
+          .items__new__sell__form__confirm-text
+            画像がありません
         .items__new__sell__form__items
           .items__new__sell__form__items-name
             = f.label :"商品名"
@@ -58,7 +59,6 @@
               %span.items__new__sell__form__require
                 必須
               %br
-              -# あとでコレクションボックスになるかも
               = f.select :damage, Item.damages_i18n.invert, include_blank: '---'
             .items__new__sell__form__confirm-text
               選択してください

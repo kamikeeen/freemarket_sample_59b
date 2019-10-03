@@ -82,3 +82,4 @@ gem 'ancestry'
 gem "pry-rails"
 gem 'enum_help'
 gem 'rails-i18n'
+gem "dropzonejs-rails"
