@@ -33,7 +33,7 @@
           .items-wrapper
             - itemsCategory1.each do |item|
               - item.images.each do |image|
-                .show-item
+                .show-item.fade-off
                   = link_to "", class:"modify-link-to" do
                     .show-item__image
                       = image_tag "#{image.name}", height: '163'
@@ -56,7 +56,7 @@
           .items-wrapper
             - itemsCategory2.each do |item|
               - item.images.each do |image|
-                .show-item
+                .show-item.fade-off
                   = link_to "", class:"modify-link-to" do
                     .show-item__image
                       = image_tag "#{image.name}", height: '163'
@@ -79,7 +79,7 @@
           .items-wrapper
             - itemsCategory3.each do |item|
               - item.images.each do |image|
-                .show-item
+                .show-item.fade-off
                   = link_to "", class:"modify-link-to" do
                     .show-item__image
                       = image_tag "#{image.name}", height: '163'
@@ -102,7 +102,7 @@
           .items-wrapper
             - itemsCategory4.each do |item|
               - item.images.each do |image|
-                .show-item
+                .show-item.fade-off
                   = link_to "", class:"modify-link-to" do
                     .show-item__image
                       = image_tag "#{image.name}", height: '163'
