@@ -1,0 +1,17 @@
+= render 'items/top-page-header'
+.test05
+  .test1
+    .test2-2
+    .test2-3
+      .test3-4
+        .h2
+          カテゴリー一覧
+        .test4-1
+      .test3-5
+        .test4-2
+          - @parents.each do |parent|
+            =parent.name
+          end
+      .test3-6
+        .test4-3
+= render 'items/top-page-footer'

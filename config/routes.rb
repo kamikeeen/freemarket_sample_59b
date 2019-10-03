@@ -28,4 +28,7 @@ Rails.application.routes.draw do
       get "logout", to: "mypages#logout"
     end
   end
+
+  resources :categories, only: [:index, :new, :show, :edit, :destroy]
+
 end
