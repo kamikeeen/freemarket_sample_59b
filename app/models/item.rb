@@ -10,6 +10,7 @@ class Item < ApplicationRecord
   enum postage_side: [:exhibitor, :purchaser]
   enum arrival: [:soon, :few_days, :about_week]
   enum delivery_method: [:undecide, :rakurakumercari, :yu_mail, :leter_pack, :nurmal_post, :kuroneko, :yu_pack, :click_post, :yu_packet]
+  enum status: [:selling, :contract, :sent, :arrived]
 
   def self.limit_delivery_methods_i18n
     delivery_methods_i18n.slice(:undecide, :yu_mail, :kuroneko, :yu_pack)

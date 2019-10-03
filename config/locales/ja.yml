@@ -26,6 +26,11 @@ ja:
         yu_pack: "ゆうパック" 
         click_post: "クリックポスト"
         yu_packet: "ゆうパケット"
+      status:
+        selling: "出品中"
+        contract: "発送待ち"
+        sent: "配送中"
+        arrived: "取引完了"
   activerecord:
     errors:
       messages:
