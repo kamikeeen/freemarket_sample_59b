@@ -23,7 +23,6 @@ class User < ApplicationRecord
       # snscredentialのid,uid,provider,user_idを持ってもう一度callbacksコントローラへ
       sns = snscredential
       # binding.pry
-
     else #sns登録 未
       user = User.where(email: auth.info.email).first
       if user.present? #会員登録 済
@@ -51,5 +50,4 @@ class User < ApplicationRecord
   end
   
   has_many :sns_credentials, dependent: :destroy
-
 end

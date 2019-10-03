@@ -23,12 +23,11 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       session["devise.sns_uid"] = @sns[:uid]
       session["devise.sns_provider"] = @sns[:provider]
       # binding.pry
-      if request.env['omniauth.origin'] == "http://localhost:3000/users/sign_in"
-        render template: "users/sessions/new"
-        session.clear
-      else
+      if request.env['omniauth.origin'] == "http://localhost:3000/signups"
         render template: "devise/registrations/new"
       # render template: "signups/new" #redirect_to だと更新してしまうのでrenderで
+      else
+        back_to_login_page
       end
     end
   end
@@ -36,6 +35,17 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def failure
     redirect_to root_path and return
   end
+
+  def back_to_login_page
+    # binding.pry
+    @backprovider = session["devise.sns_provider"]
+    session.clear
+    @user = User.new
+    @sns = SnsCredential.new
+    render template: "users/sessions/new"
+    # binding.pry
+  end
+
 
 
   # You should configure your model like this:
