@@ -1,5 +1,4 @@
 $(function(){
-  $("label[for=item_images_attributes_0_name").css("display", "block")
 
   function buildHtml(num){
     var html = `<div class="image_preview">
@@ -31,7 +30,7 @@ $(function(){
   }
   
   var num = $(".image_preview").length
-
+  var form_width = `100%`
   $(".items__new__sell__form__upload-image-form").on("change", $(`#item_images_attributes_${num}_name`), function(e){
       $(`label[for=item_images_attributes_${num}_name`).css("display", "none")
       if (num === 0){
@@ -62,11 +61,11 @@ $(function(){
 
       num += 1
       if (num < 5){
-        var form_width = `calc(100% - 126 * ${num}px)`
+        form_width = `calc(100% - 126 * ${num}px)`
       }else if(num > 5){
-        var form_width = `calc(100% - 126 * ${num - 5}px)`
+        form_width = `calc(100% - 126 * ${num - 5}px)`
       }else{
-        var form_width = `100%`
+        form_width = `100%`
       }
       $(`label[for=item_images_attributes_${num}_name`).css("width", `${form_width}`)
       $(`label[for=item_images_attributes_${num}_name`).css("display", "block")
@@ -78,11 +77,11 @@ $(function(){
     $(this).parent().parent().remove()
     num = $(".image_preview").length
     if (num < 5){
-      var form_width = `calc(100% - 126 * ${num}px)`
+      form_width = `calc(100% - 126 * ${num}px)`
     }else if(num > 5){
-      var form_width = `calc(100% - 126 * ${num - 5}px)`
+      form_width = `calc(100% - 126 * ${num - 5}px)`
     }else{
-      var form_width = `100%`
+      form_width = `100%`
     }
 
     $(".items__new__sell__form__upload-image-form label").css("display", "none")
