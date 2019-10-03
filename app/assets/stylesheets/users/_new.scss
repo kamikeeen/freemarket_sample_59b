@@ -74,17 +74,21 @@
         }
         &__name {
           padding: 10px 0;
-          & li{
-            display: inline;
+          .list {
+            display: flex;
+            & li{
+              list-style: none;
               & input{
-              width: calc(50% - 50px);
-              margin: 8px 5px 0;
-              padding: 10px 16px 8px;
-              border-radius: 4px;
-              border: 1px solid #ccc;
-              background: #fff;
-              line-height: 1.5;
-              font-size: 16px;
+                display: block;
+                width: 120px;
+                margin: 8px 5px 0;
+                padding: 10px 16px 8px;
+                border-radius: 4px;
+                border: 1px solid #ccc;
+                background: #fff;
+                line-height: 1.5;
+                font-size: 16px;
+              }
             }
           }
         }
@@ -113,6 +117,7 @@
         }
       }
         &__next-button{
+          display: flex;
           & input{
           background-color: #ea352d;
           width: calc(100% - 32px);
@@ -125,6 +130,20 @@
           color: #fff;
           cursor: pointer;
           }
+          & a{
+            background-color: #ea352d;
+            width: calc(100% - 32px);
+            margin: 8px 0 0;
+            padding: 10px 16px 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            line-height: 1.5;
+            font-size: 16px;
+            color: #fff;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            }
         }
       }
       &__confirm-text{
