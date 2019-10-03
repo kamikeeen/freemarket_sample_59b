@@ -1,5 +1,5 @@
 ## ER図
-[![Image from Gyazo](https://i.gyazo.com/551f4120aae789e01c911030d756f6eb.png)](https://gyazo.com/551f4120aae789e01c911030d756f6eb)
+[![Image from Gyazo](https://i.gyazo.com/c6f893dcf73deac6b5116fcdec56b67d.png)](https://gyazo.com/c6f893dcf73deac6b5116fcdec56b67d)
 
 ## Usersテーブル
 
@@ -35,7 +35,6 @@
 |firstname|string|null: false|
 |familyname_kana|string|null: false|
 |firstname_kana|string|null: false|
-|birthday|date|null: false|
 |zip_code|string|null: false|
 |prefecture_id|bigint|null: false|
 |city|string|null: false|
@@ -94,7 +93,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|image|string|null: false|
+|name|string|null: false|
 |item_id|bigint|null: false, foreign_key: true|
 
 ### Association
