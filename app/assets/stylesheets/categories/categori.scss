@@ -3,10 +3,8 @@
   height: 40000px;
   width: 100%;
   .test1{
-    background-color: chartreuse;
+    background-color: gainsboro;
     margin: 40px 290px;
-    height: 250px;
-    width: 700px;
     .test2-2{
     }
     .test2-3{
@@ -30,6 +28,8 @@
       }
       .test3-5{
         .test4-2{
+          height: 250px;
+          width: 700px;
         }
       }
       .test3-6{

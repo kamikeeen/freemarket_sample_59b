@@ -1,8 +1,7 @@
 class CategoriesController < ApplicationController
 
   def index
-    # @categories = Category.all
-    @parents = Category.all.order("id ASC").limit(13);
+    @parents = Category.all.where(ancestry: nil).limit(12);
   end
 
   def new
