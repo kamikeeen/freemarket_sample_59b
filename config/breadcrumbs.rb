@@ -24,6 +24,26 @@ crumb :categories do
   link "カテゴリー一覧", categories_path
 end
 
+# 親カテゴリー
+# crumb :parent-categories do
+#   link "親カテゴリーのみを入れた変数", categories_path
+#   parent :categories
+# end
+
+# 子カテゴリー
+# crumb :Child-categories do
+#   link "子カテゴリーのみを入れた変数", categories_path
+#   parent :parent-categories
+# end
+
+# 孫カテゴリー
+# crumb :Grandchild-categories do
+#   link "孫カテゴリーのみを入れた変数", categories_path
+#   parent :Child-categories
+# end
+
+
+
 # crumb :projects do
 #   link "Projects", projects_path
 # end
