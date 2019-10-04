@@ -33,7 +33,7 @@
           .items-wrapper
             - 10.times do
               .show-item
-                = link_to "", class:"modify-link-to" do
+                = link_to item_path(1), class:"modify-link-to" do
                   .show-item__image
                     = image_tag "top-page/item-sample-image.png"
                   .show-item__price

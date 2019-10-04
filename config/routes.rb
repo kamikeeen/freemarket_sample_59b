@@ -24,6 +24,7 @@ Rails.application.routes.draw do
 
   resources :mypages, only: [:show, :edit] do
     member do
+      get "cards", to:"mypages#cards"
       get "edit_identification", to: "mypages#identification"
       get "logout", to: "mypages#logout"
     end
