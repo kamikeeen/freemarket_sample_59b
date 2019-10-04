@@ -3,6 +3,5 @@ FactoryBot.define do
     name {Faker::Demographic.race}
     ancestry {"1/21"}
 
-    size
   end
 end
