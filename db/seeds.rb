@@ -1,8 +1,16 @@
 
 require "csv"
-CSV.foreach('db/完成カテゴリー一覧.csv', headers: true) do |row|
+CSV.foreach('db/完成サイズ一覧.csv', headers: true) do |row|
+  Size.create(
+    name: row['name'],
+    ancestry: row['ancestry']
+  )
+end
+
+CSV.foreach('db/カテゴリー一覧(size) .csv', headers: true) do |row|
   Category.create(
     name: row['Name'],
-    ancestry: row['ancestry']
+    ancestry: row['ancestry'],
+    size_id: row['size_id']
   )
 end
