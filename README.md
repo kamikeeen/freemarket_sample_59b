@@ -22,6 +22,7 @@
 - has_many :items
 - has_many :addresses
 - has_many :assessments
+- has_many :sns_credentials, dependent: :destroy
 
 
 ## Addressesテーブル
@@ -136,3 +137,14 @@
 
 ### Association
 - has_many :items
+
+## SnsCredentialsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|uid|string|unique: true|
+|provider|string|unique: true|
+|user|integer||
+
+### Association
+- belongs_to :user, optional: true
