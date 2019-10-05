@@ -29,6 +29,15 @@ ActiveRecord::Schema.define(version: 2019_09_29_060333) do
     t.index ["ancestry"], name: "index_sizes_on_ancestry"
   end
 
+  create_table "sns_credentials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "uid"
+    t.string "provider"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["provider", "uid"], name: "index_sns_credentials_on_provider_and_uid", unique: true
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
