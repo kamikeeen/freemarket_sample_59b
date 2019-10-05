@@ -119,7 +119,7 @@ describe Item do
       item = build(:item, user_id: user.id, category_id: category.id)
       item.images.clear
       item.valid?
-      expect(item.errors[:images]).to include("写真を選択してください")
+      expect(item.errors[:images]).to include("を入力してください")
     end
 
     it "is invalid without a size_id at category has size" do
