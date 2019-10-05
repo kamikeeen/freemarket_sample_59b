@@ -21,8 +21,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       session["devise.sns_uid"] = @sns[:uid]
       session["devise.sns_provider"] = @sns[:provider]
       if request.env['omniauth.origin'] == "http://localhost:3000/signups"
-        render template: "devise/registrations/new"
-      # render template: "signups/new" #redirect_to だと更新してしまうのでrenderで
+      render template: "signups/new" #redirect_to だと更新してしまうのでrenderで
       else
         back_to_login_page
       end
