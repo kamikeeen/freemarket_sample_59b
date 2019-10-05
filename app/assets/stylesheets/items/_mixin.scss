@@ -1,0 +1,13 @@
+@mixin options__box() {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 1em;
+  background-color: #f5f5f5;
+  font-size: 14px;
+}
+
+@mixin link-action() {
+  text-decoration: none;
+  color: #0099e8;
+  @include mouseover__under-bar();
+}

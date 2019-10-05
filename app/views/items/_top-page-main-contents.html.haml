@@ -1,0 +1,157 @@
+.top-page-main-content
+  .content-box
+    .advertisement
+      .move-left
+        = fa_icon "angle-left"
+      .move-right
+        = fa_icon "angle-right"
+    .main-content
+      .show-recommend
+        .text
+          人気のカテゴリー
+        .list-box
+          .list-box__list
+            カテゴリー1
+          .list-box__list
+            カテゴリ−2
+          .list-box__list
+            カテゴリー3
+          .list-box__list
+            カテゴリー4
+      .recommend-box
+        .recommend-item
+          .header
+            .title
+              カテゴリー1新着アイテム
+            .see-more
+              = link_to "", class:"modify-link-to" do
+                .see-more__box
+                  .see-more__box__text
+                    もっと見る
+                  .see-more__box__icon
+                    = fa_icon "angle-right"
+          .items-wrapper
+            - 10.times do
+              .show-item
+                = link_to item_path(1), class:"modify-link-to" do
+                  .show-item__image
+                    = image_tag "top-page/item-sample-image.png"
+                  .show-item__price
+                    ¥4,000
+                  .show-item__name
+                    %p ニンテンドースイッチ スプラトゥーン2スプラトゥーン2
+        .recommend-item
+          .header
+            .title
+              カテゴリー2新着アイテム
+            .see-more
+              = link_to "", class:".modify-link-to" do
+                .see-more__box
+                  .see-more__box__text
+                    もっと見る
+                  .see-more__box__icon
+                    = fa_icon "angle-right"
+          .items-wrapper
+            - 10.times do
+              .show-item
+                = link_to "", class:"modify-link-to" do
+                  .show-item__image
+                    = image_tag "top-page/item-sample-image.png"
+                  .show-item__price
+                    ¥4,000
+                  .show-item__name
+                    %p ニンテンドースイッチ スプラトゥーン2スプラトゥーン2
+        .recommend-item
+          .header
+            .title
+              カテゴリー3新着アイテム
+            .see-more
+              = link_to "", class:"modify-link-to" do
+                .see-more__box
+                  .see-more__box__text
+                    もっと見る
+                  .see-more__box__icon
+                    = fa_icon "angle-right"
+          .items-wrapper
+        .recommend-item
+          .header
+            .title
+              カテゴリー4新着アイテム
+            .see-more
+              = link_to "", class:"modify-link-to" do
+                .see-more__box
+                  .see-more__box__text
+                    もっと見る
+                  .see-more__box__icon
+                    = fa_icon "angle-right"
+          .items-wrapper
+      .show-recommend
+        .text
+          人気のブランド
+        .list-box
+          .list-box__list
+            ブランド1
+          .list-box__list
+            ブランド2
+          .list-box__list
+            ブランド3
+          .list-box__list
+            ブランド4
+      .recommend-box
+        .recommend-item
+          .header
+            .title
+              ブランド1新着アイテム
+            .see-more
+              = link_to "", class:"modify-link-to" do
+                .see-more__box
+                  .see-more__box__text
+                    もっと見る
+                  .see-more__box__icon
+                    = fa_icon "angle-right"
+          .items-wrapper
+            - 10.times do
+              .show-item
+                = link_to "", class:"modify-link-to" do
+                  .show-item__image
+                    = image_tag "top-page/item-sample-image.png"
+                  .show-item__price
+                    ¥4,000
+                  .show-item__name
+                    %p ニンテンドースイッチ スプラトゥーン2
+        .recommend-item
+          .header
+            .title
+              ブランド2新着アイテム
+            .see-more
+              = link_to "", class:"modify-link-to" do
+                .see-more__box
+                  .see-more__box__text
+                    もっと見る
+                  .see-more__box__icon
+                    = fa_icon "angle-right"
+          .items-wrapper
+        .recommend-item
+          .header
+            .title
+              ブランド3新着アイテム
+            .see-more
+              = link_to "", class:"modify-link-to" do
+                .see-more__box
+                  .see-more__box__text
+                    もっと見る
+                  .see-more__box__icon
+                    = fa_icon "angle-right"
+          .items-wrapper
+        .recommend-item
+          .header
+            .title
+              ブランド4新着アイテム
+            .see-more
+              = link_to "", class:"modify-link-to" do
+                .see-more__box
+                  .see-more__box__text
+                    もっと見る
+                  .see-more__box__icon
+                    = fa_icon "angle-right"
+          .items-wrapper

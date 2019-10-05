@@ -1,0 +1,13 @@
+@mixin pulldown() {
+  &:hover .pull-down {
+    visibility: visible;
+    z-index: 1;
+  }
+}
+
+@mixin a-text-decoration() {
+  & a {
+    text-decoration: none;
+    color: black;
+  }
+}

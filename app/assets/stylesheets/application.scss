@@ -1,10 +1,28 @@
 @import "reset";
 @import "font-awesome";
+@import url(//use.fontawesome.com/releases/v5.0.0/css/all.css);
+@import url(//use.fontawesome.com/releases/v5.11.1/css/all.css);
+@import "mypages/mixin.scss";
+@import "users/mixin";
+@import 'items/mixin';
+@import "items/top-page-mixin";
+@import "items/purchase";
+@import "items/show";
+@import "items/top-page-main-contents";
+@import "items/top-page-header";
+@import "items/top-page-footer";
+@import "items/shipping-button";
+@import "items/category-search-pulldown";
+@import "items/purchase";
+@import "items/new";
+@import "mypages/side_bar";
 @import "mypages/top-page";
 @import "mypages/profile-edit";
 @import "mypages/user-edit";
+@import "mypages/credit-index";
+@import "mypages/credit-edit";
+@import "mypages/side_bar";
 @import "mypages/logout";
-@import "users/mixin";
 @import "users/progress";
 @import "users/center_logo_header";
 @import "users/center_logo_footer";
@@ -13,5 +31,4 @@
 @import "users/sign-up";
 @import "users/sign-in";
 @import "users/new";
-@import "items/purchase";
 

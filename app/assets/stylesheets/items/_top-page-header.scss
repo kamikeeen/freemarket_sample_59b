@@ -1,0 +1,235 @@
+.top-page-header {
+  height: 100px;
+  .header-box{
+    margin: 0 14.5833333%;
+    padding-top: 8px;
+    .upper {
+      height: 40px;
+      display: flex;
+      .logo {
+        margin-right: 45px;
+        width: 134px;
+        cursor : pointer;
+        & img {
+          height: 37px;
+        }
+      }
+      .search-box {
+        .form {
+          height: 40px;
+          width: 841px;
+          position: relative;
+          &__field {
+            border: solid 1px rgb(158, 158, 158);
+            background-color: rgb(248, 248, 248);
+            width: calc(100% - 60px);
+            padding: 0 50px 0 10px;
+            height: 38px;
+            color: rgb(126, 126, 126);
+            border-radius: 4px;
+          }
+          &__button {
+            background-color: inherit;
+            position: absolute;
+            top: 10px;
+            right: 8px;
+            font-size: 14px;
+            border: none;
+            cursor : pointer;
+          }
+        } 
+      }
+    }
+    .lower {
+      display: flex;
+      margin-top: 8px;
+      line-height: 44px;
+      height: 44px;
+      font-size: 14px;
+      .search-category-wrapper {
+        width:150px;
+        padding-right: 10px;
+
+      }
+      .search-brand-wrapper {
+        @include a-text-decoration;
+        padding-left: 10px;
+        @include pulldown;
+        .search-brand-content{
+          .search-brand {
+            font-weight: 600;
+            display: flex;
+            cursor : pointer;
+            &__icon {
+              height: 20px;
+              margin: 2px 4px 0 0;
+              & img {
+                height: 16px;
+              }
+            }
+          }
+        }
+        .pull-down {
+          position: relative;
+          visibility: hidden;
+          background-color: white;
+          margin: 0 -80px 0 -10px;
+          box-shadow: 1px 1px rgba(179, 179, 179, 0.185);
+          li  {
+            font-size: 14px;
+            list-style: none;
+            padding-left: 14px;
+            border-top: solid 1px rgba(180, 179, 179, 0.274); 
+            &:hover {
+              background-color:rgb(234, 53, 45);
+              color: white;
+            }
+          }
+        }
+      }
+      .good-list-wrapper {
+        margin: 0 0 0 auto;
+        @include a-text-decoration;
+        .good-list-content {
+          .good-list {
+            padding-right: 14px;
+            display: flex;
+            cursor : pointer;
+            &__icon {
+              margin-right: 10px;
+              font-size: 18px;
+              color: rgb(158, 158, 158);
+            }
+          }
+        }
+      }
+      .notice-wrapper {
+        @include a-text-decoration;
+        @include pulldown;
+        .notice-content {
+          min-width: 111px;
+          .notice {
+            padding: 0 14px;
+            display: flex;
+            cursor : pointer;
+            &__icon {
+              margin-right: 10px;
+              font-size: 18px;
+              color: rgb(158, 158, 158);
+            }
+          }
+        }
+        .pull-down {
+          position: relative;
+          visibility: hidden;
+          background-color: white;
+          margin: 0 -100px;
+          box-shadow: 1px 1px rgba(179, 179, 179, 0.185);
+          li  {
+            list-style: none;
+            height: 50px;
+            padding: 16px;
+            border-top: solid 1px rgba(180, 179, 179, 0.274); 
+          }
+        }
+      }
+      .todo-list-wrapper {
+        @include pulldown;
+        @include a-text-decoration;
+        padding: 0 14px;
+        .todo-list-content {
+          .todo-list {
+            display: flex;
+            cursor : pointer;
+            &__icon {
+              margin-right: 10px;
+              font-size: 18px;
+              color: rgb(158, 158, 158);
+            }
+          }
+        }
+        .pull-down {
+          position: relative;
+          visibility: hidden;
+          background-color: white;
+          margin: 0 -100px;
+          box-shadow: 1px 1px rgba(179, 179, 179, 0.185);
+          li  {
+            list-style: none;
+            height: 50px;
+            padding: 16px;
+            border-top: solid 1px rgba(180, 179, 179, 0.274); 
+          }
+        }
+      }
+      .mypage-wrapper {
+        @include pulldown;
+        @include a-text-decoration;
+          .mypage {
+            padding-left: 14px;
+            display: flex;
+            cursor : pointer;
+            &__icon {
+              height: 33px;
+              margin: 5px 10px 0 0;
+              width: 33px;
+              & img {
+                height: 34px;
+              }
+            }
+          }
+        .pull-down {
+          position: relative;
+          visibility: hidden;
+          background-color: white;
+          margin-left: -200px;
+          box-shadow: 1px 1px rgba(179, 179, 179, 0.185);
+          li  {
+            list-style: none;
+            height: 50px;
+            border-top: solid 1px rgba(180, 179, 179, 0.274); 
+          }
+        }
+      }
+      .sign-up-wrapper {
+        margin: 0 0 0 auto;
+        .sign-up-button {
+          height: 32px;
+          width: 106px;
+          background-color:rgb(234, 53, 45);
+          border-radius: 4px;
+          margin-right: 10px;
+          & a {
+            display: block;
+            line-height: 32px;
+            text-decoration: none;
+            color: white;
+            padding: 0 0 0 10px;
+            vertical-align: text-bottom;
+          }
+        }
+      }
+      .sign-in-wrapper {
+        .sign-in-button {
+          height: 30px;
+          width: 77px;
+          border-radius: 4px;
+          & a {
+            line-height: 30px;
+            text-decoration: none;
+            color: #0095EE;
+            border: solid 1px #0095EE;
+            border-radius: 4px;
+            padding: 0 0 0 10px;
+            vertical-align: text-bottom;
+            display: block;
+            &:hover {
+              background-color: #0095EE;
+              color: white;
+            }
+          }
+        }
+      }
+    }
+  }
+}
