@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-  before_action :set_category,only:[:show]
+  before_action :set_category_list,only:[:show]
 
   def index
     @parents = Category.all.where(ancestry: nil).limit(12);
@@ -9,7 +9,7 @@ class CategoriesController < ApplicationController
   end
 
   def show
-
+    @Category = Category.find(params[:id])
   end
 
   def edit
