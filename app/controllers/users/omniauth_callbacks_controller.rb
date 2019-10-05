@@ -10,6 +10,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def callback_for(provider)
+    raise "request.env[omniauth.auth]がありません" if auth_params.nil?
     info = User.find_oauth(request.env["omniauth.auth"]) #usersモデルのメソッド
     @user = info[:user]
     @sns = info[:sns]
@@ -21,7 +22,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       session["devise.sns_uid"] = @sns[:uid]
       session["devise.sns_provider"] = @sns[:provider]
       if request.env['omniauth.origin'] == "http://localhost:3000/signups"
-      render template: "signups/new" #redirect_to だと更新してしまうのでrenderで
+      render template: "signups/registration" #redirect_to だと更新してしまうのでrenderで
       else
         back_to_login_page
       end
@@ -39,7 +40,10 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     @sns = SnsCredential.new
     render template: "users/sessions/new"
   end
-
+  
+  def auth_params
+    request.env["omniauth.auth"]
+  end
 
 
   # You should configure your model like this:
