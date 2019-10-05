@@ -22,12 +22,18 @@ end
 # カテゴリー一覧
 crumb :categories do
   link "カテゴリー一覧", categories_path
+  parent :root
 end
 
-crumb :category do |category|
-  link "#{category.name}", categories_path(category)
-  parent :categories
+# カテゴリー商品一覧
+crumb :category do
+  link "カテゴリー商品一覧", category_path
 end
+
+# crumb :category do |category|
+#   link "#{category.name}", categories_path(category)
+#   parent :categories
+# end
 
 # 下のカテゴリの定義
 # def oya
