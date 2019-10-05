@@ -11,6 +11,9 @@ FactoryBot.define do
     price                 {Faker::Number.within(range: 300..9999999)}
     text                  {Faker::Lorem.characters(number: 1..1000)}
     created_at            {Faker::Time.between(from: DateTime.now - 2, to: DateTime.now) }
+    size
+    user
+    category
     after(:build) do |item|
       item.images << FactoryBot.build(:image)
     end
