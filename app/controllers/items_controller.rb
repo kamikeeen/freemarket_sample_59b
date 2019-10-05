@@ -14,6 +14,7 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to root_path
     else
+      10.times {@item.images.build}
       render :new
     end
   end
