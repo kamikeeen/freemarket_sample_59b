@@ -36,7 +36,7 @@ class CategoriesController < ApplicationController
   def destroy
   end
 
-  private
+  # private
   # def set_category_list
   #   @Category = Category.find(params[:id])
   # end
