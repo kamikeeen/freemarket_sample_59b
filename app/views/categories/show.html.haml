@@ -1,7 +1,10 @@
 = render 'items/top-page-header'
-- breadcrumb :category, @category
-= breadcrumbs separator: " &rsaquo; ", class: "breadcrumbs-list"
-.test05
+-# - breadcrumb :categories, @category
+-# = breadcrumbs separator: " &rsaquo; ", class: "breadcrumbs-list"
+-# = render "layouts/breadcrumbs"
+-# = breadcrumbs class: "breadcrumbs-list"
+- breadcrumb :category
+= render "layouts/breadcrumbs"
   .test1
     .test2-2
     .test2-3

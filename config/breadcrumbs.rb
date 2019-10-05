@@ -24,6 +24,11 @@ crumb :categories do
   link "カテゴリー一覧", categories_path
 end
 
+crumb :category do |category|
+  link "#{category.name}", categories_path(category)
+  parent :categories
+end
+
 # 下のカテゴリの定義
 # def oya
 #   parents = Category.all.where(ancestry: nil).limit(12);
@@ -38,10 +43,10 @@ end
 # end
 
 # 親カテゴリー
-crumb :parent_categories do |x|
-  link "#{x.name},"/categories/:id/parent_categories"
-  parent :categories.x
-end
+# crumb :parent_categories do |x|
+#   link "#{x.name},"/categories/:id/parent_categories"
+#   parent :categories.x
+# end
 
 # 子カテゴリー
 # crumb :Child_categories do
@@ -55,6 +60,32 @@ end
 #   parent :Child_categories
 # end
 
+# Category.where(ancestry: nil).each do |p|
+#   crumb :category do
+#     link p.name, category_path
+#     parent :categories
+#   end
+# end
+
+
+# crumb :categories do |category|
+#   # 親カテゴリー
+#   if category.is_root?
+#     link category.name, category_path(category.id)
+#     parent :categories
+#   # 子カテゴリー
+#   elsif category.has_children?
+#     link category.parent.name, category_path(category.parent.id)
+#     link category.name,        category_path(category.id)
+#     parent :categories
+#   # 孫カテゴリー
+#   else
+#     link category.root.name,   category_path(category.root.id)
+#     link category.parent.name, category_path(category.parent.id)
+#     link category.name,        category_path(category.id)
+#     parent :categories
+#   end
+# end
 
 
 # crumb :projects do
