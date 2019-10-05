@@ -24,7 +24,8 @@
                   またはクリックしてファイルをアップロード
                 = f.file_field :name, accept: "image/*"
           .items__new__sell__form__confirm-text
-            画像がありません
+            = render partial: 'shared/error-message', locals: {model: @item, column: "im"}
+            
         .items__new__sell__form__items
           .items__new__sell__form__items-name
             = f.label :"商品名"
@@ -33,7 +34,8 @@
             %br
             = f.text_field :name, placeholder:"商品名（必須４０文字まで）"
           .items__new__sell__form__confirm-text
-            入力してください
+            = render partial: 'shared/error-message', locals: {model: @item, column: "name"}
+            
           .items__new__sell__form__items-explanation
             = f.label :"商品の説明"
             %span.items__new__sell__form__require
@@ -41,7 +43,9 @@
             %br
             = f.text_area :text, placeholder:"商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
           .items__new__sell__form__confirm-text
-            入力してください
+            = render partial: 'shared/error-message', locals: {model: @item, column: "text"}
+
+            
         .items__new__sell__form__item__detail
           .items__new__sell__form__item__detail-title
             商品の詳細
@@ -53,7 +57,9 @@
               %br
               = collection_select :items, :category_id, Category.where(ancestry: nil), :id, :name, include_blank: '---'
             .items__new__sell__form__confirm-text
-              選択してください
+              = render partial: 'shared/error-message', locals: {model: @item, column: "category"}
+
+              
             .items__new__sell__form__item__detail-form__status
               = f.label :"商品の状態"
               %span.items__new__sell__form__require
@@ -61,7 +67,9 @@
               %br
               = f.select :damage, Item.damages_i18n.invert, include_blank: '---'
             .items__new__sell__form__confirm-text
-              選択してください
+              = render partial: 'shared/error-message', locals: {model: @item, column: "damage"}
+
+              
         .items__new__sell__form__about-delivery
           .items__new__sell__form__about-delivery-title
             = "配送について"
@@ -75,7 +83,9 @@
               %br
               = f.select :postage_side, Item.postage_sides_i18n.invert, include_blank: '---'
             .items__new__sell__form__confirm-text
-              選択してください
+              = render partial: 'shared/error-message', locals: {model: @item, column: "postage_side"}
+
+              
             .items__new__sell__form__about-delivery-form__post-area
               = f.label :"発送元の地域"
               %span.items__new__sell__form__require
@@ -83,7 +93,9 @@
               %br
               = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: "---"}
             .items__new__sell__form__confirm-text
-              選択してください
+              = render partial: 'shared/error-message', locals: {model: @item, column: "prefecture_id"}
+
+              
             .items__new__sell__form__about-delivery-form__arrival
               = f.label :"発送までの日数"
               %span.items__new__sell__form__require
@@ -91,7 +103,9 @@
               %br
               = f.select :arrival, Item.arrivals_i18n.invert, include_blank: '---'
             .items__new__sell__form__confirm-text
-              選択してください
+              = render partial: 'shared/error-message', locals: {model: @item, column: "arrival"}
+
+              
         .items__new__sell__form__price
           .items__new__sell__form__price-title
             = "販売価格(300〜9,999,999)"
@@ -106,7 +120,9 @@
                 ¥
               = f.text_field :price, placeholder:"例）300"
               .items__new__sell__form__confirm-text
-                300以上9999999以下で入力してください
+                = render partial: 'shared/error-message', locals: {model: @item, column: "price"}
+
+                
             .items__new__sell__form__price-form-commission
               .items__new__sell__form__price-form-commission-title
                 販売手数料

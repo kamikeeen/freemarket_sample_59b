@@ -6,13 +6,13 @@ describe Item do
     let(:size) {create(:size)}
 
     it "is invalid without a name" do
-      item = build(:item, name: nil)
+      item = build(:item, user_id: user.id, category_id: category.id, size_id: size.id, name: nil)
       item.valid?
       expect(item.errors[:name]).to include("を入力してください")
     end
 
     it "is invalid name length over 40" do
-      item = build(:item, name: Faker::Lorem.characters(number: 41))
+      item = build(:item, user_id: user.id, category_id: category.id, size_id: size.id, name: Faker::Lorem.characters(number: 41))
       item.valid?
       expect(item.errors[:name]).to include("は40文字以内で入力してください")
     end
@@ -119,7 +119,7 @@ describe Item do
       item = build(:item, user_id: user.id, category_id: category.id)
       item.images.clear
       item.valid?
-      expect(item.errors[:images]).to include("を入力してください")
+      expect(item.errors[:images]).to include("写真を選択してください")
     end
 
     it "is invalid without a size_id at category has size" do

@@ -32,6 +32,16 @@ ja:
         sent: "配送中"
         arrived: "取引完了"
   activerecord:
+    attributes:
+      item:
+        name: "商品名"
+        text: "商品の説明"
+        category: "カテゴリー"
+        damage: "商品の状態"
+        postage_side: "配送料の負担"
+        prefecture_id: "発送元の地域"
+        arrival: "発送までの日数"
+        price: "価格"
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
