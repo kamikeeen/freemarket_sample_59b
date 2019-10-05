@@ -10,11 +10,9 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def callback_for(provider)
-    # binding.pry
     info = User.find_oauth(request.env["omniauth.auth"]) #usersモデルのメソッド
     @user = info[:user]
     @sns = info[:sns]
-    # binding.pry
     if @sns.persisted? #snsが存在したら
       sign_in_and_redirect @user, event: :authentication
       set_flash_message(:notice, :success, kind: "#{provider}".capitalize) if is_navigational_format?
@@ -22,7 +20,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       session["devise.sns_id"] = @sns[:id]
       session["devise.sns_uid"] = @sns[:uid]
       session["devise.sns_provider"] = @sns[:provider]
-      # binding.pry
       if request.env['omniauth.origin'] == "http://localhost:3000/signups"
         render template: "devise/registrations/new"
       # render template: "signups/new" #redirect_to だと更新してしまうのでrenderで
@@ -37,13 +34,11 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def back_to_login_page
-    # binding.pry
     @backprovider = session["devise.sns_provider"]
     session.clear
     @user = User.new
     @sns = SnsCredential.new
     render template: "users/sessions/new"
-    # binding.pry
   end
 
 
