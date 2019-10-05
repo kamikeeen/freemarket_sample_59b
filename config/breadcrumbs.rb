@@ -24,23 +24,36 @@ crumb :categories do
   link "カテゴリー一覧", categories_path
 end
 
+# 下のカテゴリの定義
+# def oya
+#   parents = Category.all.where(ancestry: nil).limit(12);
+#   parents.each do |parent|
+#   parent.name
+# end
+
+# カテゴリの定義の参考
+# crumb :show_notice do |i|
+#   link "#{i.name}"さん,"/users/:id/show_notice"
+#   parent :user
+# end
+
 # 親カテゴリー
-crumb :parent_categories do
-  link "親カテゴリーのみを入れた変数", categories_path
-  parent :categories
+crumb :parent_categories do |x|
+  link "#{x.name},"/categories/:id/parent_categories"
+  parent :categories.x
 end
 
 # 子カテゴリー
-crumb :Child_categories do
-  link "子カテゴリーのみを入れた変数", categories_path
-  parent :parent-categories
-end
+# crumb :Child_categories do
+#   link "子カテゴリーのみを入れた変数", categories_path
+#   parent :parent_categories.
+# end
 
 # 孫カテゴリー
-crumb :Grandchild_categories do
-  link "孫カテゴリーのみを入れた変数", categories_path
-  parent :Child-categories
-end
+# crumb :Grandchild_categories do
+#   link "孫カテゴリーのみを入れた変数", categories_path
+#   parent :Child_categories
+# end
 
 
 
