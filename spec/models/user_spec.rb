@@ -310,6 +310,7 @@ describe User do
 
     
     #phone_numberのチェック
+    
     it "phone_numberは規定のフォーマットの時のみ登録できる" do
       user = FactoryBot.build(:user, phone_number: "09012345678")
       expect(user).to be_valid
