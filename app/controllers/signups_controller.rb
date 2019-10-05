@@ -49,7 +49,7 @@ class SignupsController < ApplicationController
       "birthday(1i)": session["birthday(1i)"],
       "birthday(2i)": session["birthday(2i)"],
       "birthday(3i)": session["birthday(3i)"],
-      phone_number: session[:phone_number]
+      phone_number: modify_phone_number(session[:phone_number])
     )
     @user.addresses.build(
       familyname: session[:family_name],
@@ -78,10 +78,10 @@ class SignupsController < ApplicationController
     session[:email] = user_params[:email]
     session[:password] = user_params[:password]
     session[:password_confirmation] = user_params[:password_confirmation]
-    session[:familyname] = user_params[:familyname]
-    session[:firstname] = user_params[:firstname]
-    session[:familyname_kana] = user_params[:familyname_kana]
-    session[:firstname_kana] = user_params[:firstname_kana]
+    session[:familyname] = harf_to_full(user_params[:familyname])
+    session[:firstname] = harf_to_full(user_params[:firstname])
+    session[:familyname_kana] = harf_to_full(user_params[:familyname_kana])
+    session[:firstname_kana] = harf_to_full(user_params[:firstname_kana])
     session["birthday(1i)"] = user_params["birthday(1i)"]
     session["birthday(2i)"] = user_params["birthday(2i)"]
     session["birthday(3i)"] = user_params["birthday(3i)"]
@@ -98,14 +98,14 @@ class SignupsController < ApplicationController
       "birthday(1i)": session["birthday(1i)"],
       "birthday(2i)": session["birthday(2i)"],
       "birthday(3i)": session["birthday(3i)"],
-      phone_number: "99999999999"
+      phone_number: "09099999999"
     )
     # binding.pry
     render 'registration' unless @user.valid?
   end
 
   def validates_sms_confirmation
-    session[:phone_number] = user_params[:phone_number]
+    session[:phone_number] = modify_phone_number(user_params[:phone_number])
     @user = User.new(
       nickname: session[:nickname],
       email: session[:email],
@@ -151,16 +151,16 @@ class SignupsController < ApplicationController
     if @address.invalid?
       @user = User.new
       @user.addresses.build(
-        familyname: session[:familyname],
-        firstname: session[:firstname],
-        familyname_kana: session[:familyname_kana],
-        firstname_kana: session[:firstname_kana],
+        familyname: session[:family_name],
+        firstname: session[:first_name],
+        familyname_kana: session[:family_name_kana],
+        firstname_kana: session[:first_name_kana],
         zip_code: session[:zip_code],
         prefecture_id: session[:prefecture_id],
         city: session[:city],
         address_line: session[:address_line],
         building_name: session[:building_name],
-        phone_number: session[:phone_number]
+        phone_number: session[:phonenumber]
       )
       render 'address'
     end
@@ -192,6 +192,16 @@ class SignupsController < ApplicationController
         :phone_number
       ]
     )
+  end
+
+  # 半角から全角へ変換
+  def harf_to_full(str)
+    str.tr('0-9a-zA-Z', '０-９ａ-ｚＡ-Ｚ')
+  end
+
+  def modify_phone_number(number)
+    str = number.tr('０-９', '0-9').to_s
+    str.gsub(/-/, "")
   end
 
 end
