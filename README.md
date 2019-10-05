@@ -143,7 +143,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |uid|string|unique: true|
-|provider|string|unique: true|
+|provider|string||
 |user|integer||
 
 ### Association
