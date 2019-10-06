@@ -84,6 +84,8 @@
                   任意
                 %br/
                 = f.text_field :phone_number, placeholder: "例）09012345678"
+              .user__input__basic__main-form__confirm-text
+                = render partial: 'error-message', locals: {model: @address, column: "phone_number"}
               %br/
               .user__input__address__main-form-field__next-button
                 = f.submit "次へ進む"
@@ -91,4 +93,5 @@
               .user__input__address__main__about-registration-text
                 = link_to "" do
                   ="本人情報の登録について＞"
+
   = render "shared/center_logo_footer"
