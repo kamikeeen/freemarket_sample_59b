@@ -16,9 +16,9 @@
 |zip_code|string||
 |prefecture_id|bigint||
 |city|string||
-|address|string||
+|address_line|string||
 |building_name|string||
-|phone_number|integer|unique: true|
+|phone_number|string|unique: true|
 |profile|text||
 
 ### Association
@@ -38,9 +38,9 @@
 |zip_code|string|null: false|
 |prefecture_id|bigint|null: false|
 |city|string|null: false|
-|address|string|null: false|
+|address_line|string|null: false|
 |building_name|string||
-|phone_number|integer||
+|phone_number|string||
 |user_id|bigint|null: false, foreign_key: true|
 
 ### Association
