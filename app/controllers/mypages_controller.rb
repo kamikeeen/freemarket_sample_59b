@@ -23,4 +23,8 @@ class MypagesController < ApplicationController
     
   end
 
+  def cards
+    
+  end
+
 end
