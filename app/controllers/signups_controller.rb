@@ -2,9 +2,7 @@ class SignupsController < ApplicationController
 
   before_action :validates_registration, only: :sms_confirmation
   before_action :validates_sms_confirmation, only: :sms
-  # before_action :validates_sms, only: :address
   before_action :validates_address, only: :payment
-  # before_sction :validates_payment, only: :end
 
   def index
   end
