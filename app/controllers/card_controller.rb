@@ -43,14 +43,14 @@ class CardController < ApplicationController
 
   def show
     # user機能実装後コメントアウト部分に変更
-    card = Card.where(user_id: 1).first
+    @card = Card.where(user_id: 1).first
     # card = Card.where(user_id: current_user.id).first
-    if card.blank?
+    if @card.blank?
       redirect_to action: "new" 
     else
       Payjp.api_key = Rails.application.credentials.PAYJP_PRIVATE_KEY
-      customer = Payjp::Customer.retrieve(card.customer_id)
-      @default_card_information = customer.cards.retrieve(card.card_id)
+      customer = Payjp::Customer.retrieve(@card.customer_id)
+      @default_card_information = customer.cards.retrieve(@card.card_id)
     end
   end
 end

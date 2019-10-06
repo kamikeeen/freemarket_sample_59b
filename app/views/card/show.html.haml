@@ -1,10 +1,27 @@
-%label 登録クレジットカード情報
-%br
-= "**** **** **** " + @default_card_information.last4
-%br
-- exp_month = @default_card_information.exp_month.to_s
-- exp_year = @default_card_information.exp_year.to_s.slice(2,3)
-= exp_month + " / " + exp_year
-= form_tag(delete_card_index_path, method: :post, id: 'charge-form',  name: "inputForm") do
-  %input{ type: "hidden", name: "card_id", value: "" }
-  %button 削除する
+= render "items/top-page-header"
+%main.big-container
+  %main.my-container
+    = render "/mypages/side-bar"
+    .mypage__credit-index
+      .header
+        支払い方法
+      .credits
+        .credits__header
+          クレジットカード一覧
+      - @card.blank? do
+        = link_to new_card_path, class: "credits__add" do
+          .fa.fa-credit-card.credits__add__icon
+          .credits__add__text
+            クレジットカードを追加する
+      - unless @card.blank? 
+        .credits__index
+          .credits__index__payment-num
+            = "**** **** **** " + @default_card_information.last4
+          .credits__index__date
+            - exp_month = @default_card_information.exp_month.to_s
+            - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+            = exp_month + " / " + exp_year
+          = form_tag(delete_card_index_path, method: :post, id: 'charge-form',  name: "inputForm") do
+            %input{ type: "hidden", name: "card_id", value: "" }
+            %button.credits__index__remove-btn 削除する
+= render "items/top-page-footer"
