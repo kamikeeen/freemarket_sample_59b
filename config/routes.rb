@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :items, only: [:index, :new, :create, :show, :edit, :destroy] do
+  resources :items, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
     collection do #member?
       get 'purchase/:id', to: 'items#purchase', as: 'purchase'
     end
