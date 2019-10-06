@@ -49,7 +49,7 @@ class SignupsController < ApplicationController
       "birthday(1i)": session["birthday(1i)"],
       "birthday(2i)": session["birthday(2i)"],
       "birthday(3i)": session["birthday(3i)"],
-      phone_number: modify_phone_number(session[:phone_number])
+      phone_number: session[:phone_number]
     )
     @user.addresses.build(
       familyname: session[:family_name],
@@ -63,7 +63,6 @@ class SignupsController < ApplicationController
       building_name: session[:building_name],
       phone_number: session[:phonenumber]
     )
-    # binding.pry
     if @user.save
       session[:id] = @user.id
       redirect_to end_signups_path
