@@ -5,6 +5,7 @@ class SignupsController < ApplicationController
   before_action :validates_address, only: :payment
 
   def index
+  def signin_sms
   end
 
   def signin

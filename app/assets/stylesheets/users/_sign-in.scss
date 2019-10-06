@@ -27,13 +27,13 @@
     }
     &__fields{
       width: 100%;
-      #email{
+      #user_email{
         width: calc(100% - 10px);
         @include button();
         padding-left: 10px;
         border: solid 1px #eee;
       }
-      #password{
+      #user_password{
         width: calc(100% - 10px);
         @include button();
         padding-left: 10px;
@@ -45,6 +45,14 @@
         color: #fff;
         cursor: pointer;
         @include button();
+      }
+    }
+    &__confirm-text{
+      color: #ea352d;
+      font-size: 14px;
+      text-align:left;
+      & li{
+        list-style: none;
       }
     }
   }

@@ -44,9 +44,9 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
-  gem 'rspec-rails'
-  gem 'factory_bot_rails'
+  gem 'rspec-rails', '~> 3.5'
   gem 'rails-controller-testing'
+  gem 'factory_bot_rails'
 end
 
 group :development do
@@ -56,6 +56,7 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'pry-byebug'
 end
 
 group :test do
@@ -81,7 +82,16 @@ gem "carrierwave"
 gem "mini_magick"
 gem "fog-aws"
 gem 'active_hash'
-gem 'ancestry'
+gem "omniauth-rails_csrf_protection"
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
+gem 'dotenv-rails'
 gem 'pry-rails'
+gem 'devise-i18n'
+gem 'devise-i18n-views'
 gem 'rails-i18n'
-
+gem 'ancestry'
+gem 'gretel'
+gem 'enum_help'
+gem "dropzonejs-rails"
+gem 'faker'

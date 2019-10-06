@@ -1,5 +1,5 @@
 ## ER図
-[![Image from Gyazo](https://i.gyazo.com/217adbdcfc12434528d5b725ac524106.png)](https://gyazo.com/217adbdcfc12434528d5b725ac524106)
+[![Image from Gyazo](https://i.gyazo.com/551f4120aae789e01c911030d756f6eb.png)](https://gyazo.com/551f4120aae789e01c911030d756f6eb)
 
 ## Usersテーブル
 
@@ -25,6 +25,7 @@
 - has_many :items
 - has_many :addresses
 - has_many :assessments
+- has_many :sns_credentials, dependent: :destroy
 
 
 ## Addressesテーブル
@@ -56,8 +57,8 @@
 |category_id|bigint|null: false, foreign_key: true|
 |brand_id|bigint|null: false, foreign_key: true|
 |damage|integer|null: false|
-|postage|integer|null: false|
-|shipping|integer|null: false|
+|postage_side|integer|null: false|
+|delivery_method|integer|null: false|
 |prefecture_id|bigint|null: false, foreign_key: true|
 |arrival|integer|null: false|
 |price|integer|null: false|
@@ -68,7 +69,7 @@
 
 ### Association
 - belongs_to :user
-- has_many :item_images
+- has_many :images
 - belongs_to :category
 - belongs_to :brand
 - belongs_to :size
@@ -89,7 +90,7 @@
 - belongs_to :item
 
 
-## ItemImagesテーブル
+## Imagesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -143,3 +144,14 @@
 
 ### Association
 - has_many :items
+
+## SnsCredentialsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|uid|string|unique: true|
+|provider|string||
+|user|integer||
+
+### Association
+- belongs_to :user, optional: true
