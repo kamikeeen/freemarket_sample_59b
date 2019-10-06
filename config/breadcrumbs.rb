@@ -28,6 +28,7 @@ end
 # カテゴリー商品一覧
 crumb :category do
   link "カテゴリー商品一覧", category_path
+  parent :categories
 end
 
 # crumb :category do |category|
