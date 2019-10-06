@@ -44,6 +44,10 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
+  gem 'rspec-rails', '~> 3.5'
+  gem 'rails-controller-testing'
+  gem 'factory_bot_rails'
+  gem 'faker'
 end
 
 group :development do
@@ -79,5 +83,13 @@ gem "carrierwave"
 gem "mini_magick"
 gem "fog-aws"
 gem 'active_hash'
+gem "omniauth-rails_csrf_protection"
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
+gem 'dotenv-rails'
+gem 'pry-rails'
+gem 'devise-i18n'
+gem 'devise-i18n-views'
+gem 'rails-i18n'
 gem 'ancestry'
 gem 'gretel'

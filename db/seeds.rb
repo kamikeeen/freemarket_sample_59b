@@ -1,4 +1,3 @@
-
 require "csv"
 CSV.foreach('db/完成サイズ一覧.csv', headers: true) do |row|
   Size.create(

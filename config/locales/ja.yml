@@ -1,0 +1,8 @@
+ja:
+  activerecord:
+    errors:
+      models:
+        sns_credential:
+          attributes:
+            uid:
+              taken: "既に登録があるため登録できません"
