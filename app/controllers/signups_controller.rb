@@ -34,6 +34,7 @@ class SignupsController < ApplicationController
   end
 
   def end
+    sign_in User.find(session[:id]) unless user_signed_in?
   end
 
   def create
