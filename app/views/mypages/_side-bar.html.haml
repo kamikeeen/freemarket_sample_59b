@@ -2,7 +2,7 @@
   %nav.myside-bar-nav
     %ul.myside-bar-nav-list
       %li
-        %a.myside-bar-nav-list-item{href: "/mypages/1"}
+        %a.myside-bar-nav-list-item{href: "/mypages/#{current_user.id}"}
           マイページ
           %i.fa.fa-angle-right.fa-2x.fa-pull-right
       %li
@@ -70,7 +70,7 @@
     %h3.myside-bar-nav-head 設定
     %ul.myside-bar-nav-list
       %li
-        %a.myside-bar-nav-list-item{href: "/mypages/1/edit"}
+        %a.myside-bar-nav-list-item{href: "/mypages/#{current_user.id}/edit"}
           プロフィール
           %i.fa.fa-angle-right.fa-2x.fa-pull-right
       %li
@@ -78,7 +78,7 @@
           発送元・お届け先住所変更
           %i.fa.fa-angle-right.fa-2x.fa-pull-right
       %li
-        %a.myside-bar-nav-list-item{href:"/mypages/1/cards"}
+        %a.myside-bar-nav-list-item{href:"/mypages/#{current_user.id}/cards"}
           支払い方法
           %i.fa.fa-angle-right.fa-2x.fa-pull-right
       %li
@@ -86,7 +86,7 @@
           メール/パスワード
           %i.fa.fa-angle-right.fa-2x.fa-pull-right
       %li
-        %a.myside-bar-nav-list-item{href:"/mypages/1/edit_identification"}
+        %a.myside-bar-nav-list-item{href:"/mypages/#{current_user.id}/edit_identification"}
           本人情報
           %i.fa.fa-angle-right.fa-2x.fa-pull-right
       %li
@@ -94,6 +94,6 @@
           電話番号の確認
           %i.fa.fa-angle-right.fa-2x.fa-pull-right
       %li
-        %a.myside-bar-nav-list-item{href: "/mypages/1/logout"}
+        %a.myside-bar-nav-list-item{href: "/mypages/#{current_user.id}/logout"}
           ログアウト
           %i.fa.fa-angle-right.fa-2x.fa-pull-right

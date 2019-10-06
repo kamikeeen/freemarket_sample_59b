@@ -3,7 +3,9 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable,
+         :omniauthable,omniauth_providers: [:facebook, :google_oauth2]
+
 
   belongs_to_active_hash :prefecture
   has_many :addresses
@@ -24,9 +26,6 @@ class User < ApplicationRecord
   validates :firstname_kana,          presence: true, length: {maximum: 35}, format: { with: VALID_KANA_REGEX }
   validates :phone_number,            presence: true, format: { with: VALID_PHONE_NUMBER_REGEX }
 
-end
-        :recoverable, :rememberable, :validatable,
-        :omniauthable,omniauth_providers: [:facebook, :google_oauth2]
   
   has_many :items
   has_many :sns_credentials, dependent: :destroy
@@ -39,7 +38,7 @@ end
       user = User.where(id: snscredential.user_id).first
       unless user.present? #ユーザーが存在しないなら
         user = User.new(
-          # nickname: auth.info.name, #メールアドレス登録のブランチとマージしたらコメントアウトを外す
+          nickname: auth.info.name,
           email: auth.info.email
         )
       end
@@ -55,7 +54,7 @@ end
         )
       else #会員登録 未
         user = User.new(
-          # nickname: auth.info.name, #メールアドレス登録のブランチとマージしたらコメントアウトを外す
+          nickname: auth.info.name,
           email: auth.info.email
         )
         sns = SnsCredential.new(
