@@ -84,7 +84,6 @@ class SignupsController < ApplicationController
     session["birthday(1i)"] = user_params["birthday(1i)"]
     session["birthday(2i)"] = user_params["birthday(2i)"]
     session["birthday(3i)"] = user_params["birthday(3i)"]
-    # binding.pry
     @user = User.new(
       nickname: session[:nickname],
       email: session[:email],
@@ -99,7 +98,6 @@ class SignupsController < ApplicationController
       "birthday(3i)": session["birthday(3i)"],
       phone_number: "09099999999"
     )
-    # binding.pry
     render 'registration' unless @user.valid?
   end
 
@@ -119,7 +117,6 @@ class SignupsController < ApplicationController
       "birthday(3i)": session["birthday(3i)"],
       phone_number: session[:phone_number]
     )
-    # binding.pry
     render 'sms_confirmation' unless @user.valid?
   end
 
@@ -146,7 +143,6 @@ class SignupsController < ApplicationController
       building_name: session[:building_name],
       phone_number: session[:phonenumber]
     )
-    # binding.pry
     if @address.invalid?
       @user = User.new
       @user.addresses.build(
@@ -198,6 +194,7 @@ class SignupsController < ApplicationController
     str.tr('0-9a-zA-Z', '０-９ａ-ｚＡ-Ｚ')
   end
 
+  #電話番号のハイフンを取り除く
   def modify_phone_number(number)
     str = number.tr('０-９', '0-9').to_s
     str.gsub(/-/, "")
