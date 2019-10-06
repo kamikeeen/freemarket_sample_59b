@@ -73,10 +73,6 @@ describe SignupsController do
       get :address
       expect(assigns(:address)).to be_a_new(Address)
     end
-    # it "指定クラスのインスタンスかつ未保存レコードであることを検証 :@user.addresses" do
-    #   get :address
-    #   expect(assigns(:user)).to be_a_new(Address)
-    # end
     it "正しいViewが読み込まれるか確認 :address " do
       get :address
       expect(response).to render_template :address

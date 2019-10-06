@@ -59,13 +59,6 @@ describe User do
       expect(user.errors[:firstname_kana]).to include("を入力してください")
     end
 
-    #保留！！現状の設定ではbirthdayが空になることはない！！
-    # it "birthdayが空では登録できない" do
-    #   user = FactoryBot.build(:user, birthday: "")
-    #   user.valid?
-    #   expect(user.errors[:birthday]).to include("を入力してください")
-    # end
-
     it "phone_numberが空では登録できない" do
       user = FactoryBot.build(:user, phone_number: "")
       user.valid?
