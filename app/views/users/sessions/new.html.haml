@@ -6,7 +6,7 @@
         アカウントをお持ちでない方はこちら
       .signin__mail-button
         -# メールアドレス登録のリンク。とりあえず飛ばせるようにはしているが変更可能性あり
-        = link_to users_signup_path do
+        = link_to signups_path do
           .user__button__signin
             新規会員登録
     .signin__main
@@ -32,7 +32,7 @@
           .actions
             = f.submit "ログイン", id:"signin"
       .signin__password__forget
-        = link_to users_signin_sms_path do
+        = link_to root_path do
           パスワードをお忘れの方
 
   = render "shared/center_logo_footer"
