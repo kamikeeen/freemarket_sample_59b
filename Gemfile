@@ -93,3 +93,4 @@ gem 'ancestry'
 gem 'enum_help'
 gem "dropzonejs-rails"
 gem 'faker'
+gem 'payjp'
