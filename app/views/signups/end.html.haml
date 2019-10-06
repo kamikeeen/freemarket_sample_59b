@@ -12,7 +12,7 @@
           %br
           会員登録が完了しました。
         .user__input__end__main-form-field__next-button
-          =link_to root_path do
+          =link_to mypage_path(session[:id]) do
             メルカリをはじめる
             //仮でのrootへのリンク。maypageへのpathへ変更する。
         %br
