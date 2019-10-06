@@ -65,7 +65,7 @@
               .mypage
                 .mypage__icon
                   = image_tag "top-page/defalte-user-icon.png"
-                = link_to mypage_path(1), class:"mypage__text" do
+                = link_to mypage_path(current_user.id), class:"mypage__text" do
                   マイページ
           .pull-down
             %li test
