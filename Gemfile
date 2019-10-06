@@ -47,7 +47,6 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.5'
   gem 'rails-controller-testing'
   gem 'factory_bot_rails'
-  gem 'faker'
 end
 
 group :development do
@@ -91,3 +90,6 @@ gem 'devise-i18n'
 gem 'devise-i18n-views'
 gem 'rails-i18n'
 gem 'ancestry'
+gem 'enum_help'
+gem "dropzonejs-rails"
+gem 'faker'

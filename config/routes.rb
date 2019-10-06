@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :items, only: [:index, :new, :show, :edit, :destroy] do
+  resources :items, only: [:index, :new, :create, :show, :edit, :destroy] do
     collection do #member?
       get 'purchase/:id', to: 'items#purchase', as: 'purchase'
     end
@@ -31,5 +31,12 @@ Rails.application.routes.draw do
       get "edit_identification", to: "mypages#identification"
       get "logout", to: "mypages#logout"
     end
+  end
+
+  namespace :api do
+    get "categories/select_children"
+    get "categories/select_grand_children"
+    get "sizes/select"
+    get "delivery_methods/select"
   end
 end

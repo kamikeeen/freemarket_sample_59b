@@ -110,6 +110,11 @@ GEM
       railties (>= 4.1.0, < 6.0)
       responders
       warden (~> 1.2.3)
+    diff-lcs (1.3)
+    dropzonejs-rails (0.8.4)
+      rails (> 3.1)
+    enum_help (0.0.17)
+      activesupport (>= 3.0.0)
     devise-i18n (1.8.2)
       devise (>= 4.6)
     devise-i18n-views (0.3.7)
@@ -383,6 +388,8 @@ DEPENDENCIES
   chromedriver-helper
   coffee-rails (~> 4.2)
   devise
+  dropzonejs-rails
+  enum_help
   devise-i18n
   devise-i18n-views
   dotenv-rails
@@ -397,6 +404,11 @@ DEPENDENCIES
   mini_magick
   mysql2 (>= 0.4.4, < 0.6.0)
   nokogiri
+  pry-rails
+  puma (~> 3.11)
+  rails (~> 5.2.3)
+  rails-i18n
+  rspec-rails
   omniauth-facebook
   omniauth-google-oauth2
   omniauth-rails_csrf_protection
