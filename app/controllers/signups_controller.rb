@@ -1,5 +1,5 @@
 class SignupsController < ApplicationController
-  def signin
+  def signin_sms
   end
 
   def registration

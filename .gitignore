@@ -27,3 +27,6 @@
 /config/master.key
 public/uploads/*
 
+# Ignore id and secret key for sns credentials
+.env
+
