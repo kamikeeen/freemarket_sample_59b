@@ -90,8 +90,6 @@ gem 'devise-i18n'
 gem 'devise-i18n-views'
 gem 'rails-i18n'
 gem 'ancestry'
-gem "pry-rails"
 gem 'enum_help'
-gem 'rails-i18n'
 gem "dropzonejs-rails"
 gem 'faker'
