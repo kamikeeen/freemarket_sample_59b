@@ -17,11 +17,9 @@
                 = f.text_field :familyname, placeholder: "例）山田"
                 .user__input__address__main-form__confirm-text
                   = render partial: 'error-message', locals: {model: @address, column: "familyname"}
-                -#   姓 を入力してください
                 = f.text_field :firstname, placeholder: "例）彩"
                 .user__input__address__main-form__confirm-text
                   = render partial: 'error-message', locals: {model: @address, column: "firstname"}
-                -#   名 を入力してください
               .user__input__address__main-form-field
                 = f.label :"お名前(カナ)" 
                 %span.user__input__address__main-form-field__require
@@ -30,11 +28,9 @@
                 = f.text_field :familyname_kana, placeholder: "例）ヤマダ"
                 .user__input__address__main-form__confirm-text
                   = render partial: 'error-message', locals: {model: @address, column: "familyname_kana"}
-                -#   姓カナ を入力してください
                 = f.text_field :firstname_kana, placeholder: "例）アヤ"
                 .user__input__address__main-form__confirm-text
                   = render partial: 'error-message', locals: {model: @address, column: "firstname_kana"}
-                -#   名カナ を入力してください
               .user__input__address__main-form-field
                 = f.label :"郵便番号"
                 %span.user__input__address__main-form-field__require
@@ -43,17 +39,14 @@
                 = f.text_field :zip_code, placeholder: "例）123-4567"
               .user__input__address__main-form__confirm-text
                 = render partial: 'error-message', locals: {model: @address, column: "zip_code"}
-              -#   郵便番号 を入力してください
               .user__input__address__main-form-field
                 = f.label :"都道府県"
                 %span.user__input__address__main-form-field__require
                   必須
                 %br/
-                -# selectをcollection_selectに変更
                 = f.collection_select :prefecture_id, Prefecture.all, :id, :name
               .user__input__address__main-form__confirm-text
                 = render partial: 'error-message', locals: {model: @address, column: "prefecture_id"}
-              -#   都道府県 を入力してください
               .user__input__address__main-form-field
                 = f.label :"市区町村"
                 %span.user__input__address__main-form-field__require
@@ -62,7 +55,6 @@
                 = f.text_field :city, placeholder: "例）横浜市緑区"
                 .user__input__address__main-form__confirm-text
                   = render partial: 'error-message', locals: {model: @address, column: "city"}
-              -#   市区町村 を入力してください
               .user__input__address__main-form-field
                 = f.label :"番地"
                 %span.user__input__address__main-form-field__require
@@ -71,7 +63,6 @@
                 = f.text_field :address_line, placeholder: "例）青山1-1-1"
               .user__input__address__main-form__confirm-text
                 = render partial: 'error-message', locals: {model: @address, column: "address_line"}
-              -#   番地を入力してください
               .user__input__address__main-form-field
                 = f.label :"建物名"
                 %span.user__input__address__main-form-field__arbitrary

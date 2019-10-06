@@ -16,7 +16,6 @@
               = f.text_field :nickname, placeholder: "例）メルカリ太郎"
             .user__input__basic__main-form__confirm-text
               = render partial: 'error-message', locals: {model: @user, column: "nickname"}
-            -#   ニックネーム を入力してください
             .user__input__basic__main-form-field
               = f.label :"メールアドレス"
               %span.user__input__basic__main-form-field__require
@@ -25,22 +24,14 @@
               = f.email_field :email, autocomplete: "email", placeholder: "PC・携帯どちらでも可"
             .user__input__basic__main-form__confirm-text
               = render partial: 'error-message', locals: {model: @user, column: "email"}
-            -#   メールアドレス を入力してください
             .user__input__basic__main-form-field
               = f.label :"パスワード"
               %span.user__input__basic__main-form-field__require
                 必須
               %br/
-              -# パスワード文字制限設定したらに変更必要かも７を#{@minimum_password_length}
               = f.password_field :password, autocomplete: "new-password", placeholder: "７文字以上" 
             .user__input__basic__main-form__confirm-text
               = render partial: 'error-message', locals: {model: @user, column: "password"}
-            -#   %li 
-            -#     パスワード を入力してください
-            -#   %li 
-            -#     パスワードは7文字以上128文字以下で入力してください
-            -#   %li 
-            -#     英字と数字両方を含むパスワードを設定してください
             .user__input__basic__main-form-field
               = f.label :"パスワード（確認）"
               %span.user__input__basic__main-form-field__require
@@ -49,7 +40,6 @@
               = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "７文字以上"
             .user__input__basic__main-form__confirm-text
               = render partial: 'error-message', locals: {model: @user, column: "password_confirmation"}
-            -#   パスワード (確認) を入力してください
             .user__input__basic__main__identification
               .user__input__basic__main__identification-title
                 本人確認
@@ -68,11 +58,6 @@
             .user__input__basic__main-form__confirm-text
               = render partial: 'error-message', locals: {model: @user, column: "familyname"}
               = render partial: 'error-message', locals: {model: @user, column: "firstname"}
-
-            -#   %li 
-            -#     姓 を入力してください
-            -#   %li 
-            -#     名 を入力してください
             .user__input__basic__main-form-field__name
               = f.label :"お名前カナ(全角)" 
               %span.user__input__basic__main-form-field__require
@@ -86,11 +71,6 @@
             .user__input__basic__main-form__confirm-text
               = render partial: 'error-message', locals: {model: @user, column: "familyname_kana"}
               = render partial: 'error-message', locals: {model: @user, column: "firstname_kana"}
-
-            -#   %li 
-            -#     姓カナ を入力してください
-            -#   %li 
-            -#     名カナ を入力してください
             .user__input__basic__main-form-field__birthday
               = f.label :"生年月日" 
               %span.user__input__basic__main-form-field__require
@@ -100,13 +80,10 @@
                 != sprintf(f.date_select(:birthday, use_month_numbers: true, start_year: (Time.now.year), end_year: 1900, date_separator: '%s'),'年', '月') + '日'
             .user__input__basic__main-form__confirm-text
               = render partial: 'error-message', locals: {model: @user, column: "birthday"}
-
-            -#   生年月日を入力してください
-            -# .user__input__basic__main__precautions-text
-            -#   ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
-            -# 私はロボットではありませんがはいる予定
+            -# recaptchaがはいる予定
             %br/
             %br/
+            -# recaptchaのエラーメッセージ
             -# .user__input__basic__main-form__confirm-text
             -#   選択してください
             .user__input__basic__main__terms-of-service-text
