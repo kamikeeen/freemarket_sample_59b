@@ -29,56 +29,56 @@
           %li シュプリーム
           %li アディダス
           %li ブランド一覧
-      -# - if user_sign_in?
-      -# .good-list-wrapper
-      -#   .good-list-content
-      -#     = link_to "" do
-      -#       .good-list
-      -#         .good-list__icon
-      -#           = fa_icon "heart"
-      -#         .good-list__text
-      -#           いいね！一覧
-      -# .notice-wrapper
-      -#   .notice-content
-      -#     = link_to "" do
-      -#       .notice
-      -#         .notice__icon
-      -#           = fa_icon "bell"
-      -#         .notice__text
-      -#           お知らせ
-      -#   .pull-down
-      -#     %li test
-      -#     %li test
-      -# .todo-list-wrapper
-      -#   .todo-list-content
-      -#     = link_to "" do
-      -#       .todo-list
-      -#         .todo-list__icon
-      -#           = fa_icon "check"
-      -#         .todo-list__text
-      -#           やることリスト
-      -#   .pull-down
-      -#     %li test
-      -# .mypage-wrapper
-      -#   .mypage-content
-      -#     = link_to "" do
-      -#       .mypage
-      -#         .mypage__icon
-      -#           = image_tag "top-page/defalte-user-icon.png"
-      -#         = link_to mypage_path(1), class:"mypage__text" do
-      -#           マイページ
-      -#   .pull-down
-      -#     %li test
-      -#     %li test
-      -#     %li test
-      -#     %li test
-      -#     %li test
-      -# - else
-      .sign-up-wrapper
-        .sign-up-button
-          = link_to signups_path do
-            新規会員登録
-      .sign-in-wrapper
-        .sign-in-button
-          = link_to "" do
-            ログイン
+      - if user_signed_in?
+        .good-list-wrapper
+          .good-list-content
+            = link_to "" do
+              .good-list
+                .good-list__icon
+                  = fa_icon "heart"
+                .good-list__text
+                  いいね！一覧
+        .notice-wrapper
+          .notice-content
+            = link_to "" do
+              .notice
+                .notice__icon
+                  = fa_icon "bell"
+                .notice__text
+                  お知らせ
+          .pull-down
+            %li test
+            %li test
+        .todo-list-wrapper
+          .todo-list-content
+            = link_to "" do
+              .todo-list
+                .todo-list__icon
+                  = fa_icon "check"
+                .todo-list__text
+                  やることリスト
+          .pull-down
+            %li test
+        .mypage-wrapper
+          .mypage-content
+            = link_to "" do
+              .mypage
+                .mypage__icon
+                  = image_tag "top-page/defalte-user-icon.png"
+                = link_to mypage_path(1), class:"mypage__text" do
+                  マイページ
+          .pull-down
+            %li test
+            %li test
+            %li test
+            %li test
+            %li test
+      - else
+        .sign-up-wrapper
+          .sign-up-button
+            = link_to signups_path do
+              新規会員登録
+        .sign-in-wrapper
+          .sign-in-button
+            = link_to signin_signups_path do
+              ログイン
