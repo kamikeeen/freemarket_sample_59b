@@ -4,6 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
         :recoverable, :rememberable, :validatable,
         :omniauthable,omniauth_providers: [:facebook, :google_oauth2]
+  
+  has_many :items
+  has_many :sns_credentials, dependent: :destroy
         
   def self.find_oauth(auth)
     uid = auth.uid
@@ -41,6 +44,4 @@ class User < ApplicationRecord
     # hashでsnsのidを返り値として保持しておく
     return { user: user , sns: sns }
   end
-  
-  has_many :sns_credentials, dependent: :destroy
 end

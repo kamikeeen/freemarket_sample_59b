@@ -1,0 +1,12 @@
+.items__new__sell__form__about-delivery-form__delivery_method
+  %label
+    配送方法
+  %span.items__new__sell__form__require
+    必須
+  %br
+  %select{name: "item[delivery_method]"}
+    %option{value: ""} ---
+    - @delivery_methods.invert.each do |key, value|
+      %option{value: value}= key
+  .items__new__sell__form__confirm-text
+    選択してください
