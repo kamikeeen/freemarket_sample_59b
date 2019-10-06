@@ -6,33 +6,46 @@
         アカウントをお持ちでない方はこちら
       .signin__mail-button
         -# メールアドレス登録のリンク。とりあえず飛ばせるようにはしているが変更可能性あり
-        = link_to users_signup_path do
+        = link_to signups_path do
           .user__button__signin
             新規会員登録
     .signin__main
       -# Facebook認証ログインのリンク
-      = link_to "#" do
+      = link_to user_facebook_omniauth_authorize_path, method: :post do
         .user__button__facebook
           = fa_icon 'facebook-square', class: "button__icon"
           .user__button__facebook-text
             Facebookでログイン
       -# Google認証ログインのリンク
-      = link_to "#" do
+      = link_to user_google_oauth2_omniauth_authorize_path, method: :post do
         .user__button__google
           = fa_icon 'google'
           .user__button__google-text
-            Googleでログイン
+            Googleでログイン      
+      .signin__main__confirm-text
+        = "Googleでの登録情報はありません。他の方法でログインをお試しください。" if @backprovider == "google_oauth2"
+        = "Facebookでの登録情報はありません。他の方法でログインをお試しください。" if @backprovider == "facebook"
+      
       .signin__main__fields
         = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
           .field
             = f.email_field :email, autocomplete: "email", placeholder:"メールアドレス"
+          .signin__main__confirm-text
+            = render "users/shared/error_messages", user: @user
+            -# 入力してください
           .field
             = f.password_field :password, autocomplete: "current-password", placeholder:"パスワード"
+          -# .signin__main__confirm-text
+          -#   入力してください
+            %br
+            パスワードは6文字以上128文字以下で入力してください
           -# ここに私はロボットではありませんが入る予定
+          -# .signin__main__confirm-text
+          -#   入力してください
           .actions
             = f.submit "ログイン", id:"signin"
       .signin__password__forget
-        = link_to users_signin_sms_path do
+        = link_to signin_sms_signups_path do
           パスワードをお忘れの方
 
   = render "shared/center_logo_footer"
