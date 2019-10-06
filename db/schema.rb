@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_05_055208) do
+ActiveRecord::Schema.define(version: 2019_10_06_095509) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 2019_10_05_055208) do
     t.string "zip_code"
     t.integer "prefecture_id"
     t.string "city"
-    t.string "adress"
+    t.string "address_line"
     t.string "phone_number"
     t.text "profile"
     t.string "email", default: "", null: false
