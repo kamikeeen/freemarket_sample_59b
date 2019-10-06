@@ -10,7 +10,10 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
+
+    # usrは仮置き userログイン機能実装後は削除
     @item.user_id = 1
+
     if @item.save
       redirect_to root_path
     else
@@ -50,6 +53,8 @@ class ItemsController < ApplicationController
         :name
       ]
     )
+
+    # userログイン機能実装後は下記に変更予定
     # params.require(:item).permit(
     #   :name, 
     #   :text, 
