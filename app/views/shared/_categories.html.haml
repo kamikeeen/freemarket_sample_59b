@@ -1,0 +1,21 @@
+-# .category-list-position
+-#   .category
+-#     -# 親カテゴリー
+-#     %ul.category-list__parent
+-#       - categories.each do |parent|
+-#         - if parent.ancestry == nil
+-#           = link_to category_path(parent.id) do
+-#             %li.category-list__parent__item
+-#               = parent.name
+-#               -# 子カテゴリー
+-#               %ul.category-list__child
+-#                 - parent.children.each do |child|
+-#                   = link_to category_path(child.id) do
+-#                     %li.category-list__child__item
+-#                       = child.name
+-#                       -# 孫カテゴリー
+-#                       %ul.category-list__grand__child
+-#                         - child.children.each do |grandChild|
+-#                           %li.category-list__grand__child__item
+-#                             = link_to category_path(grandChild.id) do
+-#                               = grandChild.name

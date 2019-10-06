@@ -33,6 +33,7 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :categories, only: [:index, :new, :show, :edit, :destroy]
   namespace :api do
     get "categories/select_children"
     get "categories/select_grand_children"
