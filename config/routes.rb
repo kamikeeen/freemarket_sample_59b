@@ -20,14 +20,14 @@ Rails.application.routes.draw do
   end
 
   resources :items, only: [:index, :new, :create, :show, :edit, :destroy] do
-    collection do #member?
-      get 'purchase/:id', to: 'items#purchase', as: 'purchase'
+    member do 
+      get 'purchase', to: 'items#purchase', as: 'purchase'
+      get "buy", to: "items#buy"
     end
   end
 
   resources :mypages, only: [:show, :edit] do
     member do
-      get "cards", to:"mypages#cards"
       get "edit_identification", to: "mypages#identification"
       get "logout", to: "mypages#logout"
     end

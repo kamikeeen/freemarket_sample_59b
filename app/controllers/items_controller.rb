@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  require 'payjp'
 
   def index
   end
@@ -32,8 +33,38 @@ class ItemsController < ApplicationController
   end
 
   def purchase
+    @item = Item.find(params[:id])
   end
+  
+  def buy
+    # userが登録機能がついたらコメントアウトの方に切り替え
+    card = Card.where(user_id: 1).first
+    # card = current_user.credit_card
+    if card.blank?
+      redirect_to new_card_path
+      flash[:alert] = '購入にはクレジットカード登録が必要です'
+    else
+      @item = Item.find(params[:id])
 
+
+      Payjp.api_key = Rails.application.credentials.PAYJP_PRIVATE_KEY
+      Payjp::Charge.create(
+      amount: @item.price,
+      customer: card.customer_id,
+      currency: 'jpy',
+      )
+
+      # userが登録機能がついたらコメントアウトの方に切り替え
+      if @item.update(status: 1, buyer_id: 1)
+      # if @item.update(status: 1, buyer_id: current_user.id)
+        flash[:notice] = '購入しました。'
+        redirect_to controller: "items", action: 'show'
+      else
+        flash[:alert] = '購入に失敗しました。'
+        redirect_to controller: "items", action: 'show'
+      end
+    end
+  end
 
   private
 
@@ -71,4 +102,6 @@ class ItemsController < ApplicationController
     #   ]
     # ).merge(user_id: current_user.id)
   end
+
+  
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_06_061656) do
+ActiveRecord::Schema.define(version: 2019_10_06_120642) do
 
   create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 2019_10_06_061656) do
     t.text "text", null: false
     t.bigint "size_id"
     t.integer "status", default: 0, null: false
+    t.integer "buyer_id"
     t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["size_id"], name: "index_items_on_size_id"
     t.index ["user_id"], name: "index_items_on_user_id"
