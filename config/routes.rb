@@ -7,7 +7,7 @@ Rails.application.routes.draw do
               registrations: 'users/registrations',
               sessions: 'users/sessions' }
   resources :tests
-  resources :signups, only: [:index,:new] do
+  resources :signups, only: [:index,:new, :create] do
     collection do
       get 'registration', to: 'signups#registration'
       get 'sms_confirmation', to: 'signups#sms_confirmation'
