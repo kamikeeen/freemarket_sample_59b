@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :size do
-    name {Faker::Ancient.god}
+    sequence(:id) {|n| 145 + n}
+    name  {"teamb"}
     ancestry {"1"}
-
   end
 end
