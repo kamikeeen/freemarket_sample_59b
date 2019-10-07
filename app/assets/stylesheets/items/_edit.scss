@@ -1,0 +1,246 @@
+.items__edit__background{
+  background-color: #f5f5f5;
+}
+.items__edit__sell{
+  background-color: #ffffff;
+  width: 700px;
+  margin: 50px auto;
+  &__title{
+    text-align: center;
+    border-bottom: solid 1px #eeeeee;
+    padding: 32px;
+    &-text{
+      font-size: 22px;
+    }
+  }
+  &__form{
+    &__upload-image,  &__item__detail, &__items, &__about-delivery, &__price, 
+    &__button{
+      padding: 40px;
+      border-bottom: solid 1px #eeeeee;
+    }
+    &__require{
+      background-color: #ea352d;
+      font-size: 12px;
+      color: #fff;
+      padding: 5px;
+    }
+    &__upload-image{
+      &-text{
+      font-size: 12px;
+      }
+      &-form{
+        min-height: 162px;
+        display: block;
+        text-align: center;
+        display: flex;
+        flex-wrap: wrap;
+        .image_preview{
+          width: 124px;
+          height: 164px;
+          box-sizing: border-box;
+          border: 1px solid #eeeeee;
+          .btns{
+            display: flex;
+            width: 100%;
+            height: 63px;
+            .btn{
+              color: #0099e8;
+              display: block;
+              height: 100%;
+              width: 61px;
+              line-height: 63px;
+              cursor: pointer;
+              }
+          }
+        }
+        & label{
+          cursor: pointer;
+          height: 162px;
+          border: 1px dashed #ccc;
+          background: #f5f5f5;
+          width: 100%;
+          position: relative;
+          display: none;
+          span {
+            display: inline-block;
+            padding-top: 40px;
+            font-size: 14px;
+          }
+          & input{
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+          }
+        }
+        & label[for^="item_images_attributes_0_name"]{
+          display: block;
+        }
+      }
+    }
+    &__items{
+        &-name{
+          padding: 20px 0;
+      }
+        & input, textarea{
+          min-width: calc(100% - 32px);
+          max-width: calc(100% - 32px);
+          padding: 10px 16px 8px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          background: #fff;
+          line-height: 1.5;
+          font-size: 16px;
+      }
+        & textarea{
+          min-height: 105px;
+      }
+    }
+    &__item__detail, &__about-delivery, &__price{
+      @include clearfix();
+      &-title{
+        & a{
+          color: #0099e8;
+          @include mouseover__thincolor();
+        }
+        color: #888;
+        float: left;
+      }
+      &-form{
+        width: 60%;
+        float: right;
+        &__category, &__status, &__postage, &__post-area, &__arrival, &__size, &__delivery_method{
+          padding: 10px 0;
+        }
+        &-price, &-profit{
+          line-height: 50px;
+          border-bottom: solid 1px #eeeeee;
+          padding: 10px 0;
+          & label{
+            float: left;
+          }
+          & input{
+            &::-webkit-input-placeholder{
+              text-align: right;
+            }
+            float: right;
+            width: 50%;
+            padding: 10px 16px 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            background: #fff;
+            line-height: 1.5;
+            font-size: 16px;
+          }
+        }
+        & select{
+          margin-top: 8px;
+          width: 100%;
+          height: 48px;
+          padding: 0 16px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          background: 0;
+          font-size: 16px;
+          line-height: 1.5;
+          cursor: pointer;
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          appearance: none;
+          background-image: image-url("arrow_down.png");
+          background-repeat: no-repeat;
+          background-size: 12px 10px;
+          background-position: right 10px center
+        }
+        &-commission{
+          height: 50px;
+          line-height: 50px;
+          border-bottom: solid 1px #eeeeee;
+          padding: 10px 0;
+          font-size: 14px;
+          &-title{
+            float: left;
+          }
+          &-price{
+            float: right;
+          }
+        }
+          &-profit{
+            height: 50px;
+            line-height: 50px;
+            border-bottom: solid 1px #eeeeee;
+            padding: 10px 0;
+            font-weight: bold;
+            &-title{
+              float: left;
+          }
+            &-price{
+              float: right;
+          }
+        }
+      }
+    }
+    &__button{
+      &__confirmation{
+        padding: 20px 0;
+        font-size: 14px;
+        & a{
+          color: #0099e8;
+          text-decoration: none;
+          @include mouseover__thincolor();
+          @include mouseover__under-bar();
+        }
+      }
+      &__sell-button{
+        padding: 20px 0;
+        & input{
+          background-color: #ea352d;
+          width: 100%;
+          margin: 8px 0 0;
+          padding: 10px 16px 8px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          line-height: 1.5;
+          font-size: 16px;
+          color: #fff;
+          cursor:pointer;
+        }
+      }
+      &__back-button{
+        padding: 20px 0;
+        text-align:center;
+        & input{
+          background-color: #aaa;
+          width: 50%;
+          margin: 8px 0 0;
+          padding: 10px 16px 8px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          line-height: 1.5;
+          font-size: 16px;
+          color: #fff;
+          @include mouseover__thincolor();
+        }
+      }
+    }
+    &__price-mark{
+      text-align: right;
+      padding-left:70px;
+    }
+    &__confirm-text{
+      color: #ea352d;
+      font-size: 14px;
+      display:inline;
+      & li{
+        list-style: none;
+      }
+    }
+  }
+}
+
+#item_id{
+  display: none;
+}
