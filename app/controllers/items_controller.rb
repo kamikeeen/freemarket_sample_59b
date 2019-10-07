@@ -20,6 +20,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @item = Item.find(params[:id])
   end
 
   def edit
@@ -29,6 +30,12 @@ class ItemsController < ApplicationController
   end
 
   def purchase
+    @card = Card.where(user_id: current_user.id).first
+    if @card
+      Payjp.api_key = Rails.application.credentials.PAYJP_PRIVATE_KEY
+      customer = Payjp::Customer.retrieve(@card.customer_id)
+      @default_card_information = customer.cards.retrieve(@card.card_id)
+    end
     @item = Item.find(params[:id])
   end
   
@@ -36,7 +43,6 @@ class ItemsController < ApplicationController
     card = Card.where(user_id: current_user.id).first
     if card.blank?
       redirect_to new_card_path
-      flash[:alert] = '購入にはクレジットカード登録が必要です'
     else
       @item = Item.find(params[:id])
 
@@ -49,11 +55,9 @@ class ItemsController < ApplicationController
       )
 
       if @item.update(status: 1, buyer_id: current_user.id)
-        flash[:notice] = '購入しました。'
-        redirect_to controller: "items", action: 'show'
+        redirect_to item_path(params[:id])
       else
-        flash[:alert] = '購入に失敗しました。'
-        redirect_to controller: "items", action: 'show'
+        redirect_to item_path(params[:id])
       end
     end
   end
