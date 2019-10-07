@@ -28,9 +28,6 @@ class ItemsController < ApplicationController
   def edit
   end
 
-  def listings
-  end
-
   def destroy
   end
 
