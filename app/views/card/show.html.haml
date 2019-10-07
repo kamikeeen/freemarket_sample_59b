@@ -8,12 +8,12 @@
       .credits
         .credits__header
           クレジットカード一覧
-      - @card.blank? do
+      - if @card.blank? 
         = link_to new_card_path, class: "credits__add" do
           .fa.fa-credit-card.credits__add__icon
           .credits__add__text
             クレジットカードを追加する
-      - unless @card.blank? 
+      - unless @card.blank?  
         .credits__index
           .credits__index__payment-num
             = "**** **** **** " + @default_card_information.last4

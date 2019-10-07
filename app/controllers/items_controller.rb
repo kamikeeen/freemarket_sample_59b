@@ -11,10 +11,6 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-
-    # usrは仮置き userログイン機能実装後は削除
-    @item.user_id = 1
-
     if @item.save
       redirect_to root_path
     else
@@ -37,9 +33,7 @@ class ItemsController < ApplicationController
   end
   
   def buy
-    # userが登録機能がついたらコメントアウトの方に切り替え
-    card = Card.where(user_id: 1).first
-    # card = current_user.credit_card
+    card = Card.where(user_id: current_user.id).first
     if card.blank?
       redirect_to new_card_path
       flash[:alert] = '購入にはクレジットカード登録が必要です'
@@ -54,9 +48,7 @@ class ItemsController < ApplicationController
       currency: 'jpy',
       )
 
-      # userが登録機能がついたらコメントアウトの方に切り替え
-      if @item.update(status: 1, buyer_id: 1)
-      # if @item.update(status: 1, buyer_id: current_user.id)
+      if @item.update(status: 1, buyer_id: current_user.id)
         flash[:notice] = '購入しました。'
         redirect_to controller: "items", action: 'show'
       else
@@ -83,25 +75,6 @@ class ItemsController < ApplicationController
       images_attributes: [
         :name
       ]
-    )
-
-    # userログイン機能実装後は下記に変更予定
-    # params.require(:item).permit(
-    #   :name, 
-    #   :text, 
-    #   :size_id, 
-    #   :category_id, 
-    #   :damage, 
-    #   :postage_side, 
-    #   :prefecture_id, 
-    #   :delivery_method, 
-    #   :arrival, 
-    #   :price, 
-    #   images_attributes: [
-    #     :name
-    #   ]
-    # ).merge(user_id: current_user.id)
+    ).merge(user_id: current_user.id)
   end
-
-  
 end
