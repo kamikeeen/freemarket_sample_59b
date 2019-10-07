@@ -5,32 +5,15 @@
     .item-detail__contents__inner
 
       .item-detail__contents__inner__name
-        kastane ワッシャーシフォンワンピース
+        = @item.name
 
       .item-detail__contents__inner__pictures
         .item-detail__contents__inner__pictures__main
-          = image_tag 'item-detail.jpg', size: '300x300'
-        .item-detail__contents__inner__pictures__sub
-          = image_tag 'item-detail.jpg', size: '60x60'
-        .item-detail__contents__inner__pictures__sub
-          = image_tag 'item-detail.jpg', size: '60x60'
-        .item-detail__contents__inner__pictures__sub
-          = image_tag 'item-detail.jpg', size: '60x60'
-        .item-detail__contents__inner__pictures__sub
-          = image_tag 'item-detail.jpg', size: '60x60'
-        .item-detail__contents__inner__pictures__sub
-          = image_tag 'item-detail.jpg', size: '60x60'
-        .item-detail__contents__inner__pictures__sub
-          = image_tag 'item-detail.jpg', size: '60x60'
-        .item-detail__contents__inner__pictures__sub
-          = image_tag 'item-detail.jpg', size: '60x60'
-        .item-detail__contents__inner__pictures__sub
-          = image_tag 'item-detail.jpg', size: '60x60'
-        .item-detail__contents__inner__pictures__sub
-          = image_tag 'item-detail.jpg', size: '60x60'
-        .item-detail__contents__inner__pictures__sub
-          = image_tag 'item-detail.jpg', size: '60x60'
-
+          = image_tag "#{@item.images.first.name}", size: '300x300'
+        %ul.item-detail__contents__inner__pictures__sub
+          - @item.images.each do |image|
+            %li.picture
+              = image_tag "#{image.name}", size: '60x60'
       %table.item-detail__contents__inner__details
         %tr
           %th
@@ -134,11 +117,6 @@
 
       .item-detail__contents__inner__details__text
         %p
-          カスタネのワンピースです。
-          %br 2回着用しております。
-          %br カラー オフホワイト
-          %br
-          %br kastaneの商品他にも出品しておりますのでご覧下さいませ。
 
       .item-detail__contents__inner__details__options-box
         .item-detail__contents__inner__details__options-box__good
