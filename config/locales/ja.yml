@@ -1,4 +1,3 @@
----
 ja:
   enums:
     item:
@@ -26,8 +25,50 @@ ja:
         yu_pack: "ゆうパック" 
         click_post: "クリックポスト"
         yu_packet: "ゆうパケット"
+      status:
+        selling: "出品中"
+        contract: "発送待ち"
+        sent: "配送中"
+        arrived: "取引完了"
   activerecord:
+    attributes:
+      item:
+        name: "商品名"
+        text: "商品の説明"
+        category: "カテゴリー"
+        damage: "商品の状態"
+        postage_side: "配送料の負担"
+        prefecture_id: "発送元の地域"
+        arrival: "発送までの日数"
+        price: "価格"
+      user:
+        nickname: ニックネーム
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード
+        familyname: 姓
+        firstname: 名
+        familyname_kana: 姓 カナ
+        firstname_kana: 名 カナ
+        birthday: 生年月日
+        phone_number: 電話番号
+      address:
+        familyname: 姓
+        firstname: 名
+        familyname_kana: 姓 カナ
+        firstname_kana: 名 カナ
+        zip_code: 郵便番号
+        prefecture_id: 都道府県
+        city: 市区町村
+        address_line: 番地
+        building_name: 建物名
+        phone_number: 電話番号
     errors:
+      models:
+          sns_credential:
+            attributes:
+              uid:
+                taken: "既に登録があるため登録できません"
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
         restrict_dependent_destroy:

@@ -10,7 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_01_102931) do
+ActiveRecord::Schema.define(version: 2019_10_06_095509) do
+
+  create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "familyname", null: false
+    t.string "firstname", null: false
+    t.string "familyname_kana", null: false
+    t.string "firstname_kana", null: false
+    t.string "zip_code", null: false
+    t.integer "prefecture_id", null: false
+    t.string "city", null: false
+    t.string "address_line", null: false
+    t.string "building_name"
+    t.string "phone_number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_addresses_on_user_id"
+  end
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -43,6 +60,7 @@ ActiveRecord::Schema.define(version: 2019_10_01_102931) do
     t.integer "arrival", null: false
     t.text "text", null: false
     t.bigint "size_id"
+    t.integer "status", default: 0, null: false
     t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["size_id"], name: "index_items_on_size_id"
     t.index ["user_id"], name: "index_items_on_user_id"
@@ -56,7 +74,28 @@ ActiveRecord::Schema.define(version: 2019_10_01_102931) do
     t.index ["ancestry"], name: "index_sizes_on_ancestry"
   end
 
+  create_table "sns_credentials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "uid"
+    t.string "provider"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["provider", "uid"], name: "index_sns_credentials_on_provider_and_uid", unique: true
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "nickname", null: false
+    t.string "familyname", null: false
+    t.string "firstname", null: false
+    t.string "familyname_kana", null: false
+    t.string "firstname_kana", null: false
+    t.date "birthday", null: false
+    t.string "zip_code"
+    t.integer "prefecture_id"
+    t.string "city"
+    t.string "address_line"
+    t.string "phone_number"
+    t.text "profile"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -68,6 +107,7 @@ ActiveRecord::Schema.define(version: 2019_10_01_102931) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "addresses", "users"
   add_foreign_key "images", "items"
   add_foreign_key "items", "categories"
   add_foreign_key "items", "sizes"

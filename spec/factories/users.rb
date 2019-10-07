@@ -1,8 +1,14 @@
 FactoryBot.define do
   factory :user do
-    sequence(:id) {|n| 1 + n}
-    sequence(:email)  {|n| Faker::Internet.free_email + n.to_s}
-    password  {11111111}
-    encrypted_password  {11111111}
+    nickname                {"test"}
+    email                   {"test@gmail.com"}
+    password                {"test123"}
+    password_confirmation   {"test123"}
+    familyname              {"test"}
+    firstname               {"test"}
+    familyname_kana         {"テスト"}
+    firstname_kana          {"テスト"}
+    birthday                {"2019-10-5"}
+    phone_number            {"09099999999"}
   end
 end
