@@ -1,6 +1,10 @@
-= render "items/top-page-header"
-%main.big-container
-  %main.my-container
-    = render "side-bar"
-    .test
-= render "items/top-page-footer"
+.temporary
+  - @items.each do |item|
+    .item-list
+      = link_to "" do
+        .wrapper
+          = item.name
+          = link_to edit_item_path(item.id) do
+            編集
+          = link_to item_path, method: :delete do
+            削除

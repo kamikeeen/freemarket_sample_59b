@@ -13,11 +13,11 @@ class MypagesController < ApplicationController
   end
 
   def destroy
+    binding.pry
   end
 
   def listings
-    @item = Item.where(user_id: "1").first
-    binding.pry
+    @items = Item.where(user_id: current_user.id)
   end
 
   def dentification
