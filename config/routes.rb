@@ -30,6 +30,7 @@ Rails.application.routes.draw do
       get "cards", to:"mypages#cards"
       get "edit_identification", to: "mypages#identification"
       get "logout", to: "mypages#logout"
+      get 'listings', to: 'mypages#listings'
     end
   end
 
