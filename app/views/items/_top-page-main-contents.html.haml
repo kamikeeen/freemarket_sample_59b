@@ -31,16 +31,17 @@
                   .see-more__box__icon
                     = fa_icon "angle-right"
           .items-wrapper
-            - 10.times do
-              .show-item
-                = link_to item_path(1), class:"modify-link-to" do
-                  .show-item__image
-                    = image_tag "top-page/item-sample-image.png"
-                  .show-item__price
-                    = item.price.to_s(:currency, precision: 0, format: '¥%n')
-                  .show-item__name
-                    %p 
-                      = item.name
+            - itemsCategory1.each do |item|
+              - item.images.each do |image|
+                .show-item.fade-off
+                  = link_to item_path(1), class:"modify-link-to" do
+                    .show-item__image
+                      = image_tag "#{image.name}", height: '163'
+                    .show-item__price
+                      = item.price.to_s(:currency, precision: 0, format: '¥%n')
+                    .show-item__name
+                      %p 
+                        = item.name
         .recommend-item
           .header
             .title
