@@ -1,5 +1,42 @@
 $(function(){
 
+      var item_id = $("#item_id").text();
+      $.ajax({
+        url: "/api/categories/set_children",
+        type: "get",
+        dataType: "html",
+        data: {item_id: item_id}
+      })
+      .done(function(html){
+        $(".items__edit__sell__form__item__detail-form__category").append(html);
+        $.ajax({
+          url: "/api/categories/set_grand_children",
+          type: "get",
+          dataType: "html",
+          data: {item_id: item_id}
+        })
+        .done(function(html){
+          $(".items__edit__sell__form__item__detail-form__category").append(html);
+          var grand_child_size_id = $("#category_grand_children option:selected").data("size-id")
+          var child_size_id = $("#category_children option:selected").data("size-id")
+          if (grand_child_size_id || child_size_id){
+            var size_id = (grand_child_size_id) ? grand_child_size_id : child_size_id
+            $.ajax({
+              url: "/api/sizes/set",
+              type: "get",
+              data: { item_id: item_id, size_id: size_id },
+              dataType: "html"
+            })
+            .done(function(html){
+              $(".items__edit__sell__form__item__detail-form__size").remove();
+              $(".items__edit__sell__form__item__detail-form__status").before(html);
+            })
+          }else{
+            $(".items__edit__sell__form__item__detail-form__size").remove();
+          }
+        })
+      })
+  
   $("#items_category_id").on("change", function(){
     if ($(this).val() !== ""){
       var parent_id = $(this).val();
