@@ -1,6 +1,6 @@
 .user__input__background
   .user__input__background__end
-    = render "progress_header"
+    = render "shared/progress_header"
   .user__input__end
     .user__input__end__title
       .user__input__end__title-text
@@ -12,8 +12,8 @@
           %br
           会員登録が完了しました。
         .user__input__end__main-form-field__next-button
-          =link_to mypages_path do
-            %input{type: "button", value:"メルカリをはじめる"}
+          =link_to mypage_path(session[:id]) do
+            メルカリをはじめる
         %br
     .user__input__end__footer-image
       = image_tag "footer_image.png", size: '700x700'

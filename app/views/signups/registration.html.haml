@@ -1,24 +1,100 @@
 .user__input__background
-  = render "shared/center_logo_header"
-  .signup__main
-    .signup__main-title
-      .signup__main-title__text
-        新規会員登録
-    .user__button
-      -# 新規会員登録のリンク。仮置き変更可能性あり
-      = link_to signups_path do
-        .user__button__mail
-          メールアドレスで登録する
-      -# Facebook認証のリンク
-      = link_to "#" do
-        .user__button__facebook
-          = fa_icon 'facebook-square', class: "button__icon"
-          .user__button__facebook-text
-            Facebookで登録する
-      -# Google認証のリンク
-      = link_to "#" do
-        .user__button__google
-          = fa_icon 'google'
-          .user__button__google-text
-            Googleで登録する
+  .user__input__background__basic
+    = render "shared/progress_header"
+    .user__input__basic
+      .user__input__basic__title
+        .user__input__basic__title-text
+          会員情報入力
+      .user__input__basic__main
+        .user__input__basic__main-form
+          = form_for @user, url: sms_confirmation_signups_path, method: :get do |f|
+            .user__input__basic__main-form-field
+              = f.label :"ニックネーム"
+              %span.user__input__basic__main-form-field__require
+                必須
+              %br/
+              = f.text_field :nickname, placeholder: "例）メルカリ太郎"
+            .user__input__basic__main-form__confirm-text
+              = render partial: 'error-message', locals: {model: @user, column: "nickname"}
+            .user__input__basic__main-form-field
+              = f.label :"メールアドレス"
+              %span.user__input__basic__main-form-field__require
+                必須
+              %br/
+              = f.email_field :email, autocomplete: "email", placeholder: "PC・携帯どちらでも可"
+            .user__input__basic__main-form__confirm-text
+              = render partial: 'error-message', locals: {model: @user, column: "email"}
+            .user__input__basic__main-form-field
+              = f.label :"パスワード"
+              %span.user__input__basic__main-form-field__require
+                必須
+              %br/
+              = f.password_field :password, autocomplete: "new-password", placeholder: "７文字以上" 
+            .user__input__basic__main-form__confirm-text
+              = render partial: 'error-message', locals: {model: @user, column: "password"}
+            .user__input__basic__main-form-field
+              = f.label :"パスワード（確認）"
+              %span.user__input__basic__main-form-field__require
+                必須
+              %br/
+              = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "７文字以上"
+            .user__input__basic__main-form__confirm-text
+              = render partial: 'error-message', locals: {model: @user, column: "password_confirmation"}
+            .user__input__basic__main__identification
+              .user__input__basic__main__identification-title
+                本人確認
+              .user__input__basic__main__identification-text
+                安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+            .user__input__basic__main-form-field__name
+              = f.label :"お名前(全角) "
+              %span.user__input__basic__main-form-field__require
+                必須
+              %br/
+              .list
+                %li
+                  = f.text_field :familyname, placeholder: "例）山田"
+                %li
+                  = f.text_field :firstname, placeholder: "例）彩"
+            .user__input__basic__main-form__confirm-text
+              = render partial: 'error-message', locals: {model: @user, column: "familyname"}
+              = render partial: 'error-message', locals: {model: @user, column: "firstname"}
+            .user__input__basic__main-form-field__name
+              = f.label :"お名前カナ(全角)" 
+              %span.user__input__basic__main-form-field__require
+                必須
+              %br/
+              .list
+                %li
+                  = f.text_field :familyname_kana, placeholder: "例）ヤマダ"
+                %li
+                  = f.text_field :firstname_kana, placeholder: "例）アヤ"
+            .user__input__basic__main-form__confirm-text
+              = render partial: 'error-message', locals: {model: @user, column: "familyname_kana"}
+              = render partial: 'error-message', locals: {model: @user, column: "firstname_kana"}
+            .user__input__basic__main-form-field__birthday
+              = f.label :"生年月日" 
+              %span.user__input__basic__main-form-field__require
+                必須
+              %br/
+              %li
+                != sprintf(f.date_select(:birthday, use_month_numbers: true, start_year: (Time.now.year), end_year: 1900, date_separator: '%s'),'年', '月') + '日'
+            .user__input__basic__main-form__confirm-text
+              = render partial: 'error-message', locals: {model: @user, column: "birthday"}
+            -# recaptchaがはいる予定
+            %br/
+            %br/
+            -# recaptchaのエラーメッセージ
+            -# .user__input__basic__main-form__confirm-text
+            -#   選択してください
+            .user__input__basic__main__terms-of-service-text
+              = "「次へ進む」のボタンを押すことにより、"
+              = link_to "#" do
+                ="利用規約"
+              ="に同意したものとみなします"
+            .user__input__basic__main-form-field__next-button
+              = f.submit "次へ進む"
+            .user__input__basic__main__about-registration
+              .user__input__basic__main__about-registration-text
+                = link_to "#" do
+                  ="本人情報の登録について＞"
   = render "shared/center_logo_footer"

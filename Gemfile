@@ -57,6 +57,7 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'pry-byebug'
 end
 
 group :test do
@@ -82,8 +83,16 @@ gem "carrierwave"
 gem "mini_magick"
 gem "fog-aws"
 gem 'active_hash'
+gem "omniauth-rails_csrf_protection"
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
+gem 'dotenv-rails'
+gem 'devise-i18n'
+gem 'devise-i18n-views'
 gem 'ancestry'
 gem 'rb-readline'
 gem "pry-rails"
-gem 'enum_help'
 gem 'rails-i18n'
+gem 'gretel'
+gem 'enum_help'
+gem "dropzonejs-rails"
