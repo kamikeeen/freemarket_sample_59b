@@ -7,7 +7,7 @@ Rails.application.routes.draw do
               registrations: 'users/registrations',
               sessions: 'users/sessions' }
   resources :tests
-  resources :signups, only: [:index,:new] do
+  resources :signups, only: [:index,:new, :create] do
     collection do
       get 'registration', to: 'signups#registration'
       get 'sms_confirmation', to: 'signups#sms_confirmation'
@@ -33,6 +33,7 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :categories, only: [:index, :new, :show, :edit, :destroy]
   namespace :api do
     get "categories/select_children"
     get "categories/select_grand_children"
