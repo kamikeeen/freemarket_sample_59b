@@ -12,7 +12,7 @@ $(function() {
       let imgPos = $(this).offset().top;
       let scroll = $(window).scrollTop();
       let windowHeight = $(window).height();
-      if (scroll > imgPos - windowHeight + windowHeight/5){
+      if (scroll > imgPos - windowHeight + windowHeight/5) {
         $(this).addClass("fade-on");
       };
     });
