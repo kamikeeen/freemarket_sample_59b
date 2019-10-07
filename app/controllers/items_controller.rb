@@ -7,13 +7,14 @@ class ItemsController < ApplicationController
       category3 = 680
       category4 = 893
     else
-    categories = [1, 200, 680, 893, 1088]
-    recommenndCategories = categories.sample(4)
+      categories = [1, 200, 680, 893, 1088]
+      recommenndCategories = categories.sample(4)
 
-    category1 = recommenndCategories[0]
-    category2 = recommenndCategories[1]
-    category3 = recommenndCategories[2]
-    category4 = recommenndCategories[3]
+      category1 = recommenndCategories[0]
+      category2 = recommenndCategories[1]
+      category3 = recommenndCategories[2]
+      category4 = recommenndCategories[3]
+
     end
 
     @itemsCategory1 = Item.where(category_id: [Category.find(category1).descendant_ids]).order('id Desc').limit(10)
