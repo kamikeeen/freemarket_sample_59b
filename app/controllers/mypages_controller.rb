@@ -7,7 +7,6 @@ class MypagesController < ApplicationController
   end
 
   def show
-    @user = User.find(current_user.id)
   end
 
   def edit
