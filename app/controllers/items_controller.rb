@@ -1,5 +1,7 @@
 class ItemsController < ApplicationController
 
+  before_action :set_item, only: [:show, :edit, :update]
+
   def index
   end
 
@@ -25,18 +27,19 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @item = Item.find(params[:id])
-    (10 - @item.images.length).times {@item.images.build}
+    # if @item.user.id == current_user
+      (10 - @item.images.count).times {@item.images.build}
+    # else
+    #   redirect_to root_path
   end
 
   def update
-    @item = Item.find(params[:id])
     @item.update(item_params)
     if @item.save
       redirect_to item_path(params[:id])
     else
-      10.times {@item.images.build}
-      render :new
+      (10 - @item.images.count).times {@item.images.build}
+      render :edit
     end
   end
 
@@ -48,6 +51,10 @@ class ItemsController < ApplicationController
 
 
   private
+
+  def set_item
+    @item = Item.find(params[:id])
+  end
 
   def item_params
     params.require(:item).permit(

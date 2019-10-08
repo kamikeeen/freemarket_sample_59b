@@ -1,6 +1,11 @@
 .items__edit__background
   = render "shared/center_logo_header"
   #item_id= @item.id
+  -# - i = 0
+  -# - @item.images.each do |image|
+  -#   - unless image.id == nil
+  -#     .item_images{id: "item_images_#{i}", style: "display: none;"}= image.name
+  -#     -i += 1
   .items__edit__sell
     .items__edit__sell__title
       .items__edit__sell__title-text
@@ -16,23 +21,26 @@
             最大10枚までアップロードできます
           %br
           .items__edit__sell__form__upload-image-form
+            - num = 0
             - @item.images.each do |image|
               - if image.name.present?
                 .image_preview
-                  %div{class:  "image#{@item.images.length}", "data-num" => "#{@item.images.length}"}
-                    = image_tag image.name.url, width: '400', height: '100'
+                  %div{class:  "image#{num}", "data-num" => "#{num}"}
+                    = image_tag image.name.url, width: "122px", height: "103px"
                   .btns
                     .btn.edit
                       編集
                     .btn.delete
                       削除
-            =f.fields_for :images do |f|
-              = f.label :name do
-                %span
-                  ドラッグアンドドロップ
-                  %br
-                  またはクリックしてファイルをアップロード
-                = f.file_field :name, accept: "image/*"
+                - num += 1
+              =f.fields_for :images, image do |img|
+                = img.label :name do
+                  %span
+                    ドラッグアンドドロップ
+                    %br
+                    またはクリックしてファイルをアップロード
+                  = img.file_field :name, accept: "image/*"
+
           .items__edit__sell__form__confirm-text
             = render partial: 'shared/error-message', locals: {model: @item, column: "im"}
             
