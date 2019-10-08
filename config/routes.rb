@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
 
   root "items#index"
-  
+
   devise_for :users,
               controllers: { omniauth_callbacks: 'users/omniauth_callbacks',
               registrations: 'users/registrations',
               sessions: 'users/sessions' }
               
-  resources :signups, only: [:index,:new] do
+  resources :signups, only: [:index,:new, :create] do
     collection do
       get 'registration', to: 'signups#registration'
       get 'sms_confirmation', to: 'signups#sms_confirmation'
@@ -19,20 +19,21 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :items, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
-    collection do #member?
-      get 'purchase/:id', to: 'items#purchase', as: 'purchase'
+  resources :items do
+    member do 
+      get 'purchase', to: 'items#purchase', as: 'purchase'
+      get "buy", to: "items#buy"
     end
   end
 
   resources :mypages, only: [:show, :edit] do
     member do
-      get "cards", to:"mypages#cards"
       get "edit_identification", to: "mypages#identification"
       get "logout", to: "mypages#logout"
     end
   end
 
+  resources :categories, only: [:index, :new, :show, :edit, :destroy]
   namespace :api do
     get "categories/select_children"
     get "categories/select_grand_children"
@@ -43,4 +44,14 @@ Rails.application.routes.draw do
     get "delivery_methods/select"
     get "delivery_methods/set"
   end
+
+  resources :card, only: [:new, :show] do
+    collection do
+      post 'show', to: 'card#show'
+      post 'pay', to: 'card#pay'
+      post 'delete', to: 'card#delete'
+    end
+  end
 end
+
+

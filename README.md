@@ -1,5 +1,5 @@
 ## ER図
-[![Image from Gyazo](https://i.gyazo.com/551f4120aae789e01c911030d756f6eb.png)](https://gyazo.com/551f4120aae789e01c911030d756f6eb)
+[![Image from Gyazo](https://i.gyazo.com/8e93d8aa2b299ccf910e1a79d71de1dc.png)](https://gyazo.com/8e93d8aa2b299ccf910e1a79d71de1dc)
 
 ## Usersテーブル
 
@@ -16,9 +16,9 @@
 |zip_code|string||
 |prefecture_id|bigint||
 |city|string||
-|address|string||
+|address_line|string||
 |building_name|string||
-|phone_number|integer|unique: true|
+|phone_number|string|unique: true|
 |profile|text||
 
 ### Association
@@ -36,13 +36,12 @@
 |firstname|string|null: false|
 |familyname_kana|string|null: false|
 |firstname_kana|string|null: false|
-|birthday|date|null: false|
 |zip_code|string|null: false|
 |prefecture_id|bigint|null: false|
 |city|string|null: false|
-|address|string|null: false|
+|address_line|string|null: false|
 |building_name|string||
-|phone_number|integer||
+|phone_number|string||
 |user_id|bigint|null: false, foreign_key: true|
 
 ### Association
@@ -95,7 +94,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|image|string|null: false|
+|name|string|null: false|
 |item_id|bigint|null: false, foreign_key: true|
 
 ### Association
