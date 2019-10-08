@@ -1,4 +1,4 @@
-.item-delete-confimation-popup
+#item-delete-confimation-popup
   .content
     .content__upper
       .confirmation
@@ -12,6 +12,7 @@
           %br
           本当に削除しますか？
           %br
+          -# 仮置き、商品詳細のサーバーサイド完成後に削除する
           = "商品名: #{@item.name}"
     .content__lower
       = link_to "" ,class: "content__lower--cancel" do

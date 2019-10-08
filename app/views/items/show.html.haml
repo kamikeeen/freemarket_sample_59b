@@ -133,11 +133,12 @@
         %input{type: 'submit', value: "購入画面に進む"}
 
       -# サーバーサイド完了後コメントアウト外す
+      -# inputtag内の(#{@item.name})も同時に消す
       -# - if (@item.user_id == current_user.id)
       .item-detail__contents__inner__details__confirm-delete-item
         %input{type: 'submit', value: "この商品(#{@item.name})を削除する"}
-        = render partial: 'item-delete-popup', locals: {item: @item}
-        
+      = render partial: 'item-delete-popup', locals: {item: @item}
+
       .item-detail__contents__inner__details__text
         %p
           カスタネのワンピースです。
