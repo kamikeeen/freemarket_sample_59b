@@ -1,6 +1,8 @@
 class ItemsController < ApplicationController
   require 'payjp'
-
+  before_action :set_item, only: [:show, :purchase, :buy]
+  before_action :set_card, only: [:purchase, :buy]
+  
   def index
   end
 
@@ -20,7 +22,6 @@ class ItemsController < ApplicationController
   end
 
   def show
-    set_item
   end
 
   def edit
@@ -30,29 +31,23 @@ class ItemsController < ApplicationController
   end
 
   def purchase
-    set_card
     if @card
       Payjp.api_key = Rails.application.credentials.PAYJP_PRIVATE_KEY
       customer = Payjp::Customer.retrieve(@card.customer_id)
       @default_card_information = customer.cards.retrieve(@card.card_id)
     end
-    set_item
   end
   
   def buy
-    set_card
     if @card.blank?
       redirect_to new_card_path
     else
-      set_item
-
       Payjp.api_key = Rails.application.credentials.PAYJP_PRIVATE_KEY
       Payjp::Charge.create(
       amount: @item.price,
       customer: @card.customer_id,
       currency: 'jpy',
       )
-
       if @item.update(status: 1, buyer_id: current_user.id)
         redirect_to item_path(params[:id])
       else
