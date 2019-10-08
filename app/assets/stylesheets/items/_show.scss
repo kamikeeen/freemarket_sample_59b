@@ -112,6 +112,15 @@
           font-weight: bold;
           font-size: 24px;
         }
+        &__confirm-delete-item input {
+          border: none;
+          margin-top: 16px;
+          height: 60px;
+          width: 620px;
+          background-color: rgb(194, 194, 194);
+          color: #FFFFFF;
+          font-size: 18px;
+        }
         &__text {
           padding-top: 32px;
           font-size: 18px;

@@ -132,6 +132,11 @@
       .item-detail__contents__inner__details__confirm-purchase-item
         %input{type: 'submit', value: "購入画面に進む"}
 
+      -# サーバーサイド完了後コメントアウト外す
+      -# - if (@item.user_id == current_user.id)
+      .item-detail__contents__inner__details__confirm-delete-item
+        %input{type: 'submit', value: "この商品を削除する"}
+
       .item-detail__contents__inner__details__text
         %p
           カスタネのワンピースです。
