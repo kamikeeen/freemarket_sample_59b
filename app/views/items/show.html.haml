@@ -116,8 +116,8 @@
         %input{type: 'submit', value: "購入画面に進む"}
 
       .item-detail__contents__inner__details__text
-        %p.item-detail-explanation
-          = @item.text
+      %p.item-detail-explanation
+      = simple_format(@item.text)
 
       .item-detail__contents__inner__details__options-box
         .item-detail__contents__inner__details__options-box__good
@@ -414,5 +414,4 @@
       
                   
 / パンくず
-
 = render 'items/top-page-footer'
