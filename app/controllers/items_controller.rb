@@ -20,7 +20,7 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
+    set_item
   end
 
   def edit
@@ -30,27 +30,26 @@ class ItemsController < ApplicationController
   end
 
   def purchase
-    @card = Card.where(user_id: current_user.id).first
+    set_card
     if @card
       Payjp.api_key = Rails.application.credentials.PAYJP_PRIVATE_KEY
       customer = Payjp::Customer.retrieve(@card.customer_id)
       @default_card_information = customer.cards.retrieve(@card.card_id)
     end
-    @item = Item.find(params[:id])
+    set_item
   end
   
   def buy
-    card = Card.where(user_id: current_user.id).first
-    if card.blank?
+    set_card
+    if @card.blank?
       redirect_to new_card_path
     else
-      @item = Item.find(params[:id])
-
+      set_item
 
       Payjp.api_key = Rails.application.credentials.PAYJP_PRIVATE_KEY
       Payjp::Charge.create(
       amount: @item.price,
-      customer: card.customer_id,
+      customer: @card.customer_id,
       currency: 'jpy',
       )
 
@@ -80,5 +79,13 @@ class ItemsController < ApplicationController
         :name
       ]
     ).merge(user_id: current_user.id)
+  end
+
+  def set_item
+    @item = Item.find(params[:id])
+  end
+
+  def set_card
+    @card = Card.where(user_id: current_user.id).first
   end
 end
