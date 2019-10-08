@@ -12,7 +12,7 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
 
     # usrは仮置き userログイン機能実装後は削除
-    @item.user_id = 1
+    # @item.user_id = 1
 
     if @item.save
       redirect_to root_path
@@ -29,6 +29,10 @@ class ItemsController < ApplicationController
   end
 
   def destroy
+    # if item.status.selling?
+    @item = Item.find(params[:id])
+    @item.destroy if @item.user_id == current_user.id
+    redirect_to listings_mypage_path
   end
 
   def purchase
