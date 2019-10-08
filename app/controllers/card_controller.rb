@@ -1,10 +1,9 @@
 class CardController < ApplicationController
   require "payjp"
-  
-  def new
-    card = Card.where(user_id: current_user.id)
+  before_action :set_card
 
-    redirect_to action: "show" if card.exists?
+  def new
+    redirect_to action: "show" if @card
   end
 
   def pay 
@@ -23,23 +22,27 @@ class CardController < ApplicationController
   end
 
   def delete
-    card = Card.where(user_id: current_user.id).first
-    if card.blank?
+    if @card.blank?
     else
       Payjp.api_key = Rails.application.credentials.PAYJP_PRIVATE_KEY
-      customer = Payjp::Customer.retrieve(card.customer_id)
+      customer = Payjp::Customer.retrieve(@card.customer_id)
       customer.delete
-      card.delete
+      @card.delete
     end
       redirect_to action: "new"
   end
 
   def show
-    @card = Card.where(user_id: current_user.id).first
     unless @card.blank?
       Payjp.api_key = Rails.application.credentials.PAYJP_PRIVATE_KEY
       customer = Payjp::Customer.retrieve(@card.customer_id)
       @default_card_information = customer.cards.retrieve(@card.card_id)
     end
+  end
+
+  private
+
+  def set_card
+    @card = current_user.card
   end
 end

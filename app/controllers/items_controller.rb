@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   require 'payjp'
   before_action :set_item, only: [:show, :purchase, :buy]
   before_action :set_card, only: [:purchase, :buy]
-  
+
   def index
     if Rails.env == "test" then
       category1 = 1
@@ -106,7 +106,7 @@ class ItemsController < ApplicationController
   end
 
   def set_card
-    @card = Card.where(user_id: current_user.id).first
+    @card = current_user.card
   end
 
 end
