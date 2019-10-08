@@ -1,0 +1,53 @@
+.mypage__shipping-item-list
+  -# .urer-name
+  -#   = "#{current_user.nickname}さんの商品一覧"
+  -# .temporary
+  -#   - @items.each do |item|
+  -#     .item-list
+  -#       = link_to "" do
+  -#         .wrapper
+  -#           = item.name
+  -#           = link_to item_path(item.id) do
+  -#             商品詳細
+
+  .transaction
+    .transaction__header
+      出品した商品
+    .transaction__tabs
+      .tab.active
+        出品中
+      .tab
+        取引中
+      .tab
+        売却済み
+    .transaction__contents
+      - @items.each do |item|
+        .box__content.show
+          = link_to item_path(item.id), class: "content" do
+            = image_tag "mypage_index.logo.png", class: "content__image"
+            .content__main
+              .content__main__text
+                = item.name
+            %i.fa.fa-chevron-right.content__icon
+
+
+
+      .box__content
+        = link_to "#", class: "content" do
+          = image_tag "mypage_index.logo.png", class: "content__image"
+          .content__main
+            .content__main__text
+              userが商品を購入しました！取引が完了しました！
+            .content__main__status-comp
+              取引完了
+          %i.fa.fa-chevron-right.content__icon
+
+      .box__content
+        = link_to "#", class: "content" do
+          = image_tag "mypage_index.logo.png", class: "content__image"
+          .content__main
+            .content__main__text
+              userが商品を購入しました！取引が完了しました！
+            .content__main__status-comp
+              取引完了
+          %i.fa.fa-chevron-right.content__icon
