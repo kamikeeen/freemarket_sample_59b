@@ -6,7 +6,7 @@
           = item.name
           = link_to edit_item_path(item.id) do
             編集
-          = link_to item_path(item.id), method: :delete do
+          = link_to "", class: "item-delete-popup" do
             削除
 
 = link_to mypage_path do
@@ -15,7 +15,8 @@
 = link_to root_path do
   トップページへ戻る
 
-.item-delete-alart
+
+.item-delete-confimation-popup
   .content
     .content__upper
       .confirmation
@@ -31,5 +32,5 @@
     .content__lower
       .content__lower--cancel
         キャンセル
-      .content__lower--delete
+      = link_to "", class: "content__lower--delete" do
         削除する
