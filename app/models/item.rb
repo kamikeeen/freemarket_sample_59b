@@ -4,7 +4,7 @@ class Item < ApplicationRecord
   belongs_to :category
   belongs_to :size, optional: true
 
-  accepts_nested_attributes_for :images, reject_if: :reject_family_member, allow_destroy: true
+  accepts_nested_attributes_for :images, reject_if: :reject_images, allow_destroy: true
 
   enum damage: [:excerent, :great, :good, :normal, :bad, :worse]
   enum postage_side: [:exhibitor, :purchaser]
@@ -45,7 +45,7 @@ class Item < ApplicationRecord
     delivery_methods_i18n.slice(:undecide, :yu_mail, :kuroneko, :yu_pack)
   end
 
-  def reject_family_member(attributes)
+  def reject_images(attributes)
     exists = attributes[:id].present?
     empty = attributes[:name].blank?
     attributes.merge!(_destroy: 1) if exists && empty
