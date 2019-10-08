@@ -6,5 +6,30 @@
           = item.name
           = link_to edit_item_path(item.id) do
             編集
-          = link_to item_path, method: :delete do
+          = link_to item_path(item.id), method: :delete do
             削除
+
+= link_to mypage_path do
+  マイページへ戻る
+
+= link_to root_path do
+  トップページへ戻る
+
+.item-delete-alart
+  .content
+    .content__upper
+      .confirmation
+        確認
+      .text
+        %P
+          削除すると二度と復活できません。
+          %br
+          削除する代わりに停止することもできます。
+          %br
+          %br
+          本当に削除しますか？
+    .content__lower
+      .content__lower--cancel
+        キャンセル
+      .content__lower--delete
+        削除する

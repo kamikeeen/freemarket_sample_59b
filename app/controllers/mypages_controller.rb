@@ -13,7 +13,6 @@ class MypagesController < ApplicationController
   end
 
   def destroy
-    binding.pry
   end
 
   def listings
