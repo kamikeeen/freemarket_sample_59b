@@ -30,12 +30,13 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    if item.status.selling?
-      @item = Item.find(params[:id])
+    @item = Item.find(params[:id])
+    binding.pry
+    if @item.selling?
       @item.destroy if @item.user_id == current_user.id
       redirect_to listings_mypage_path
     else
-      
+      redirect_to item_path(params[:id])
     end
   end
 
@@ -46,23 +47,6 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(
-      :name, 
-      :text, 
-      :size_id, 
-      :category_id, 
-      :damage, 
-      :postage_side, 
-      :prefecture_id, 
-      :delivery_method, 
-      :arrival, 
-      :price, 
-      images_attributes: [
-        :name
-      ]
-    )
-
-    # userログイン機能実装後は下記に変更予定
     # params.require(:item).permit(
     #   :name, 
     #   :text, 
@@ -77,6 +61,23 @@ class ItemsController < ApplicationController
     #   images_attributes: [
     #     :name
     #   ]
-    # ).merge(user_id: current_user.id)
+    # )
+
+    # userログイン機能実装後は下記に変更予定
+    params.require(:item).permit(
+      :name, 
+      :text, 
+      :size_id, 
+      :category_id, 
+      :damage, 
+      :postage_side, 
+      :prefecture_id, 
+      :delivery_method, 
+      :arrival, 
+      :price, 
+      images_attributes: [
+        :name
+      ]
+    ).merge(user_id: current_user.id)
   end
 end
