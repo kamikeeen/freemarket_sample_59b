@@ -4,6 +4,31 @@ class ItemsController < ApplicationController
   before_action :set_card, only: [:purchase, :buy]
   
   def index
+    if Rails.env == "test" then
+      category1 = 1
+      category2 = 200
+      category3 = 680
+      category4 = 893
+    else
+      categories = [1, 200, 680, 893, 1088]
+      recommenndCategories = categories.sample(4)
+
+      category1 = recommenndCategories[0]
+      category2 = recommenndCategories[1]
+      category3 = recommenndCategories[2]
+      category4 = recommenndCategories[3]
+
+    end
+
+    @itemsCategory1 = Item.where(category_id: [Category.find(category1).descendant_ids]).order('id Desc').limit(10)
+    @CategoryName1 = Category.find(category1).name
+    @itemsCategory2 = Item.where(category_id: [Category.find(category2).descendant_ids]).order('id Desc').limit(10)
+    @CategoryName2 = Category.find(category2).name
+    @itemsCategory3 = Item.where(category_id: [Category.find(category3).descendant_ids]).order('id Desc').limit(10)
+    @CategoryName3 = Category.find(category3).name
+    @itemsCategory4 = Item.where(category_id: [Category.find(category4).descendant_ids]).order('id Desc').limit(10)
+    @CategoryName4 = Category.find(category4).name
+
   end
 
   def new
@@ -55,7 +80,7 @@ class ItemsController < ApplicationController
       end
     end
   end
-
+    
   private
 
   def item_params
@@ -83,4 +108,5 @@ class ItemsController < ApplicationController
   def set_card
     @card = Card.where(user_id: current_user.id).first
   end
+
 end

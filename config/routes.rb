@@ -1,12 +1,11 @@
 Rails.application.routes.draw do
 
   root "items#index"
-  
+
   devise_for :users,
               controllers: { omniauth_callbacks: 'users/omniauth_callbacks',
               registrations: 'users/registrations',
               sessions: 'users/sessions' }
-  resources :tests
   resources :signups, only: [:index,:new, :create] do
     collection do
       get 'registration', to: 'signups#registration'
@@ -49,3 +48,5 @@ Rails.application.routes.draw do
     end
   end
 end
+
+

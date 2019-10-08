@@ -1,5 +1,5 @@
 ## ER図
-[![Image from Gyazo](https://i.gyazo.com/551f4120aae789e01c911030d756f6eb.png)](https://gyazo.com/551f4120aae789e01c911030d756f6eb)
+[![Image from Gyazo](https://i.gyazo.com/8e93d8aa2b299ccf910e1a79d71de1dc.png)](https://gyazo.com/8e93d8aa2b299ccf910e1a79d71de1dc)
 
 ## Usersテーブル
 
@@ -94,7 +94,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|image|string|null: false|
+|name|string|null: false|
 |item_id|bigint|null: false, foreign_key: true|
 
 ### Association
