@@ -1,12 +1,11 @@
 Rails.application.routes.draw do
 
   root "items#index"
-  
+
   devise_for :users,
               controllers: { omniauth_callbacks: 'users/omniauth_callbacks',
               registrations: 'users/registrations',
               sessions: 'users/sessions' }
-  resources :tests
   resources :signups, only: [:index,:new, :create] do
     collection do
       get 'registration', to: 'signups#registration'
@@ -18,8 +17,8 @@ Rails.application.routes.draw do
       get 'signin_sms', to: 'signups#signin_sms'
     end
   end
-
-  resources :items, only: [:index, :new, :create, :show, :edit, :destroy] do
+  
+  resources :items, only: [:index, :new, :show, :edit, :destroy, :create] do
     collection do #member?
       get 'purchase/:id', to: 'items#purchase', as: 'purchase'
     end

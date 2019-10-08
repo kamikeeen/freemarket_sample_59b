@@ -91,13 +91,16 @@
               a:visited {
                 color : black;
               }
+              &__image {
+                text-align: center;
+              }
               &__price {
                 border-radius: 0 14px 14px 0;
                 background-color: rgba(0, 0, 0, 0.548);
                 position: absolute;
                 padding: 0 14px;
                 color: white;
-                top: 60%;
+                top: 55%;
               }
               &__name {
                 padding: 14px;
@@ -109,6 +112,10 @@
                   -webkit-box-orient: vertical;
                   -webkit-line-clamp: 2;
                   overflow: hidden;
+                  color: black;
+                  background: -webkit-linear-gradient(-70deg, #000000, rgb(45, 45, 43), #FFFFFF);
+                  -webkit-background-clip: text;
+                  -webkit-text-fill-color: transparent;
                 }
               }
             }
@@ -119,9 +126,14 @@
   }
   img {
     max-width: 100%;
-    height: auto;
   }
 }
 
+.fade-off {
+  opacity: 0;
+  transition: all 1s;
+}
 
-
+.fade-on {
+    opacity: 1;
+}
