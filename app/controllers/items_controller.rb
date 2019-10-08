@@ -31,7 +31,6 @@ class ItemsController < ApplicationController
 
   def destroy
     @item = Item.find(params[:id])
-    binding.pry
     if @item.selling?
       @item.destroy if @item.user_id == current_user.id
       redirect_to listings_mypage_path
