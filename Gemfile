@@ -96,3 +96,4 @@ gem 'rails-i18n'
 gem 'gretel'
 gem 'enum_help'
 gem "dropzonejs-rails"
+gem 'payjp'

@@ -1,9 +1,9 @@
 .mypage__index
   .header
     = link_to "#", class: "header__link" do
-      = image_tag "mypage_background_image.jpg", class: "header__link__image"
+      = image_tag "top-page/defalte-user-icon.png", class: "header__link__image"
       .header__link__user-name
-        user.name
+        = @user.nickname
       .header__link__num
         .assessment
           = "評価数 0"

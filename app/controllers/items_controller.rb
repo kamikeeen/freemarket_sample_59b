@@ -1,4 +1,7 @@
 class ItemsController < ApplicationController
+  require 'payjp'
+  before_action :set_item, only: [:show, :purchase, :buy]
+  before_action :set_card, only: [:purchase, :buy]
 
   def index
     if Rails.env == "test" then
@@ -35,10 +38,6 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-
-    # usrは仮置き userログイン機能実装後は削除
-    @item.user_id = 1
-
     if @item.save
       redirect_to root_path
     else
@@ -57,8 +56,31 @@ class ItemsController < ApplicationController
   end
 
   def purchase
+    if @card
+      Payjp.api_key = Rails.application.credentials.PAYJP_PRIVATE_KEY
+      customer = Payjp::Customer.retrieve(@card.customer_id)
+      @default_card_information = customer.cards.retrieve(@card.card_id)
+    end
   end
-
+  
+  def buy
+    if @card.blank?
+      redirect_to new_card_path
+    else
+      Payjp.api_key = Rails.application.credentials.PAYJP_PRIVATE_KEY
+      Payjp::Charge.create(
+      amount: @item.price,
+      customer: @card.customer_id,
+      currency: 'jpy',
+      )
+      if @item.update(status: 1, buyer_id: current_user.id)
+        redirect_to item_path(params[:id])
+      else
+        redirect_to item_path(params[:id])
+      end
+    end
+  end
+    
   private
 
   def item_params
@@ -76,24 +98,15 @@ class ItemsController < ApplicationController
       images_attributes: [
         :name
       ]
-    )
+    ).merge(user_id: current_user.id)
+  end
 
-    # userログイン機能実装後は下記に変更予定
-    # params.require(:item).permit(
-    #   :name, 
-    #   :text, 
-    #   :size_id, 
-    #   :category_id, 
-    #   :damage, 
-    #   :postage_side, 
-    #   :prefecture_id, 
-    #   :delivery_method, 
-    #   :arrival, 
-    #   :price, 
-    #   images_attributes: [
-    #     :name
-    #   ]
-    # ).merge(user_id: current_user.id)
+  def set_item
+    @item = Item.find(params[:id])
+  end
+
+  def set_card
+    @card = current_user.card
   end
 
 end

@@ -28,9 +28,15 @@
             .confirm_purchase_items__contents__purchase__inner__payment__money
               ¥2,500
           .confirm_purchase_items__contents__purchase__inner__validate
-            配送先と支払い方法の入力を完了してください。
-          %button{type: 'submit', class: "confirm_purchase_items__contents__purchase__inner__purchase"}
-            購入する
+            
+          - unless @card.blank?
+            = link_to buy_item_path(params[:id]) do
+              .confirm_purchase_items__contents__purchase__inner__purchase
+                購入する
+          - if @card.blank?
+            = link_to new_card_path do
+              .confirm_purchase_items__contents__purchase__inner__purchase
+                クレジットカードを登録する
       .confirm_purchase_items__contents__shipping
         .confirm_purchase_items__contents__shipping__address
           配送先
@@ -46,6 +52,14 @@
           支払方法
         .confirm_purchase_items__contents__method__information
           クレジット
+        - unless @card.blank?
+          .credits__index
+            .credits__index__payment-num
+              = "**** **** **** " + @default_card_information.last4
+            .credits__index__date
+              - exp_month = @default_card_information.exp_month.to_s
+              - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+              = exp_month + " / " + exp_year
         .confirm_purchase_items__contents__method__inner
           %a{href: '#', class: 'confirm_purchase_items__contents__method__inner__edit'}
             変更する

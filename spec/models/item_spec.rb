@@ -143,5 +143,11 @@ describe Item do
       item.valid?
       expect(item.errors[:size]).to include("を選択してください")
     end
+
+    it "is valid " do
+      item = build(:item, user_id: user.id, category_id: category.id, size_id: size.id)
+      item.valid?
+      expect(item).to be_valid
+    end
   end
 end

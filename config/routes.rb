@@ -17,16 +17,16 @@ Rails.application.routes.draw do
       get 'signin_sms', to: 'signups#signin_sms'
     end
   end
-  
-  resources :items, only: [:index, :new, :show, :edit, :destroy, :create] do
-    collection do #member?
-      get 'purchase/:id', to: 'items#purchase', as: 'purchase'
+
+  resources :items, only: [:index, :new, :create, :show, :edit, :destroy] do
+    member do 
+      get 'purchase', to: 'items#purchase', as: 'purchase'
+      get "buy", to: "items#buy"
     end
   end
 
   resources :mypages, only: [:show, :edit] do
     member do
-      get "cards", to:"mypages#cards"
       get "edit_identification", to: "mypages#identification"
       get "logout", to: "mypages#logout"
     end
@@ -39,4 +39,14 @@ Rails.application.routes.draw do
     get "sizes/select"
     get "delivery_methods/select"
   end
+
+  resources :card, only: [:new, :show] do
+    collection do
+      post 'show', to: 'card#show'
+      post 'pay', to: 'card#pay'
+      post 'delete', to: 'card#delete'
+    end
+  end
 end
+
+

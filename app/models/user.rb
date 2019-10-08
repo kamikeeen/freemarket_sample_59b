@@ -29,6 +29,8 @@ class User < ApplicationRecord
   
   has_many :items
   has_many :sns_credentials, dependent: :destroy
+
+  has_one :card
         
   def self.find_oauth(auth)
     uid = auth.uid
