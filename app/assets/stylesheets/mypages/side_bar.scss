@@ -28,25 +28,31 @@
         margin-inline-start: 0px;
         margin-inline-end: 0px;
         padding-left: 0%;
-        .myside-bar-nav-list-item{
-          text-decoration: none;
-          position: relative;
-          display: block;
-          min-height: 8px;
-          padding: 16px;
-          background: #fff;
-          font-size: 14px;
+        a {
           color: #333;
-          padding: 13px;
-          border-bottom: medium solid  rgb(248, 248, 248);
-          border-bottom-width: thin;
-          i.fa.fa-angle-right{
-            top: 50%;
-            right: 16px;
-            color: #ccc;
+          text-decoration: none;
+          .myside-bar-nav-list-item{
+            position: relative;
+            display: block;
+            min-height: 8px;
+            padding: 16px;
+            background: #fff;
+            font-size: 14px;
+            padding: 13px;
+            border-bottom: medium solid  rgb(248, 248, 248);
+            border-bottom-width: thin;
+            i.fa.fa-angle-right{
+              top: 50%;
+              right: 16px;
+              color: #ccc;
+            }
+          }
+          &:visited {
+            color: #333;
+            text-decoration: none;
           }
         }
       }
     }
   }
- }
+}

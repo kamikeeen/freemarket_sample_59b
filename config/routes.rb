@@ -1,13 +1,12 @@
 Rails.application.routes.draw do
 
   root "items#index"
-  
+
   devise_for :users,
               controllers: { omniauth_callbacks: 'users/omniauth_callbacks',
               registrations: 'users/registrations',
               sessions: 'users/sessions' }
-  resources :tests
-  resources :signups, only: [:index,:new] do
+  resources :signups, only: [:index,:new, :create] do
     collection do
       get 'registration', to: 'signups#registration'
       get 'sms_confirmation', to: 'signups#sms_confirmation'
@@ -20,14 +19,14 @@ Rails.application.routes.draw do
   end
 
   resources :items, only: [:index, :new, :create, :show, :edit, :destroy] do
-    collection do #member?
-      get 'purchase/:id', to: 'items#purchase', as: 'purchase'
+    member do 
+      get 'purchase', to: 'items#purchase', as: 'purchase'
+      get "buy", to: "items#buy"
     end
   end
 
   resources :mypages, only: [:show, :edit] do
     member do
-      get "cards", to:"mypages#cards"
       get "edit_identification", to: "mypages#identification"
       get "logout", to: "mypages#logout"
     end
@@ -40,4 +39,14 @@ Rails.application.routes.draw do
     get "sizes/select"
     get "delivery_methods/select"
   end
+
+  resources :card, only: [:new, :show] do
+    collection do
+      post 'show', to: 'card#show'
+      post 'pay', to: 'card#pay'
+      post 'delete', to: 'card#delete'
+    end
+  end
 end
+
+
