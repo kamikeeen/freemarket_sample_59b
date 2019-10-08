@@ -10,7 +10,6 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-
     # usrは仮置き userログイン機能実装後は削除
     @item.user_id = 1
 
@@ -26,6 +25,19 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @item = Item.find(params[:id])
+    (10 - @item.images.length).times {@item.images.build}
+  end
+
+  def update
+    @item = Item.find(params[:id])
+    @item.update(item_params)
+    if @item.save
+      redirect_to item_path(params[:id])
+    else
+      10.times {@item.images.build}
+      render :new
+    end
   end
 
   def destroy
@@ -50,6 +62,7 @@ class ItemsController < ApplicationController
       :arrival, 
       :price, 
       images_attributes: [
+        :id,
         :name
       ]
     )
@@ -67,6 +80,7 @@ class ItemsController < ApplicationController
     #   :arrival, 
     #   :price, 
     #   images_attributes: [
+    #     :id,
     #     :name
     #   ]
     # ).merge(user_id: current_user.id)
