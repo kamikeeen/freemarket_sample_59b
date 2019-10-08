@@ -37,6 +37,9 @@
       height: 25%;
       border-top: solid 1px gray;
       font-size: 14px;
+      & a {
+        text-decoration: none;
+      }
       &--cancel {
         display: flex;
         justify-content: center;
@@ -44,6 +47,7 @@
         width: 50%;
         border-right: solid 1px gray;
         height: 100%;
+        color: black;
       }
       &--delete {
         display: flex;
