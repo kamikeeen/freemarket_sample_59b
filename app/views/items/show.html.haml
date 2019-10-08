@@ -106,7 +106,7 @@
 
       .item-detail__contents__inner__details__price
         %p
-          ¥6,500
+          = @item.price
         %p.item-detail__contents__inner__details__price__tax
           （税込）
         %p.item-detail__contents__inner__details__price__shipping
@@ -176,20 +176,22 @@
     .item-detail__another-items__box
       = link_to '#', class: 'link_to item-detail__another-items__box__buyer' do
         %p
-          ゆさんのその他の出品
+          = @item.user.nickname
+          さんのその他の出品
       .item-detail__another-items__items
         .item-detail__another-items__items__item-box
           = link_to '#', class: 'link_to item-detail__another-items__items__item-box__item-link' do
             .item-detail__another-items__items__item-box__item-link__picture
-              = image_tag 'item-detail.jpg', size: '220x220'
+              = image_tag "#{@item.images.first.name}", size: '220x220'
             .item-detail__another-items__items__item-box__item-link__simple-detail
               .item-detail__another-items__items__item-box__item-link__simple-detail__name
                 %p
-                  slobe iena コットンリブタンクニット
+                  = @item.name
+            - @another_items.each do |another_item|
               .item-detail__another-items__items__item-box__item-link__simple-detail__boxes
                 .item-detail__another-items__items__item-box__item-link__simple-detail__boxes__price
                   %p
-                    ¥1,000
+                    =another_item.price
                 .item-detail__another-items__items__item-box__item-link__simple-detail__boxes__box
                   .item-detail__another-items__items__item-box__item-link__simple-detail__boxes__box__good
                     = fa_icon 'heart', class: 'item-detail__another-items__items__item-box__item-link__simple-detail__boxes__box__good__heart'
