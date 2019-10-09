@@ -112,6 +112,22 @@
           font-weight: bold;
           font-size: 24px;
         }
+        &__confirm-edit-item {
+          .edit-link {
+            text-decoration: none;
+          }
+          &--link {
+            height: 60px;
+            width: 620px;
+            background-color: rgb(194, 194, 194);
+            border: none;
+            margin-top: 16px;
+            font-size: 18px;
+            color: #FFFFFF;
+            line-height: 60px;
+            text-align: center;
+          }
+        }
         &__confirm-delete-item input {
           border: none;
           margin-top: 16px;
@@ -120,6 +136,7 @@
           background-color: rgb(194, 194, 194);
           color: #FFFFFF;
           font-size: 18px;
+          cursor: pointer;
         }
         &__text {
           padding-top: 32px;

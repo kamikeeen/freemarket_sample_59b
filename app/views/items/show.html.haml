@@ -135,9 +135,11 @@
       -# サーバーサイド完了後コメントアウト外す
       -# inputtag内の(#{@item.name})も同時に消す
       -# - if (@item.user_id == current_user.id)
+      -#   -if @item.selling?
       .item-detail__contents__inner__details__confirm-edit-item
-        = link_to edit_item_path do
-          = "この商品(#{@item.name})を編集する"
+        = link_to edit_item_path, class: "edit-link" do
+          .item-detail__contents__inner__details__confirm-edit-item--link
+            = "この商品(#{@item.name})を編集する"
 
       .item-detail__contents__inner__details__confirm-delete-item
         %input{type: 'submit', value: "この商品(#{@item.name})を削除する"}
