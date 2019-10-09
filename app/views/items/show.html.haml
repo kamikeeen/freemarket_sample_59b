@@ -178,7 +178,8 @@
         %p
           = @item.user.nickname
           さんのその他の出品
-      .item-detail__another-items__items
+    .item-detail__another-items__items
+      - @another_items.each do |another_item|
         .item-detail__another-items__items__item-box
           = link_to '#', class: 'link_to item-detail__another-items__items__item-box__item-link' do
             .item-detail__another-items__items__item-box__item-link__picture
@@ -187,11 +188,10 @@
               .item-detail__another-items__items__item-box__item-link__simple-detail__name
                 %p
                   = @item.name
-            - @another_items.each do |another_item|
               .item-detail__another-items__items__item-box__item-link__simple-detail__boxes
                 .item-detail__another-items__items__item-box__item-link__simple-detail__boxes__price
                   %p
-                    =another_item.price
+                    = @item.price
                 .item-detail__another-items__items__item-box__item-link__simple-detail__boxes__box
                   .item-detail__another-items__items__item-box__item-link__simple-detail__boxes__box__good
                     = fa_icon 'heart', class: 'item-detail__another-items__items__item-box__item-link__simple-detail__boxes__box__good__heart'
