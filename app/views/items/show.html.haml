@@ -63,7 +63,7 @@
           %td
             .item-detail__contents__inner__details__size
               %p
-                FREE SIZE
+                = @item.size_id
         %tr
           %th
             %p
@@ -71,7 +71,7 @@
           %td
             .item-detail__contents__inner__details__damage
               %p
-                =@item.damage
+                =@item.damage_i18n
         %tr
           %th
             %p
@@ -79,7 +79,7 @@
           %td
             .item-detail__contents__inner__details__postage
               %p
-                送料込み（出品者負担）
+                = @item.postage_side_i18n
         %tr
           %th
             %p
@@ -87,7 +87,7 @@
           %td
             .item-detail__contents__inner__details__shipping
               %p
-                らくらくメルカリ便
+                = @item.delivery_method_i18n
         %tr
           %th
             %p
@@ -102,7 +102,7 @@
           %td
             .item-detail__contents__inner__details__arrival
               %p
-                1-2日で発送
+                = @item.arrival_i18n
 
       .item-detail__contents__inner__details__price
         %p
