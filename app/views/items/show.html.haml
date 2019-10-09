@@ -183,15 +183,15 @@
         .item-detail__another-items__items__item-box
           = link_to '#', class: 'link_to item-detail__another-items__items__item-box__item-link' do
             .item-detail__another-items__items__item-box__item-link__picture
-              = image_tag "#{@item.images.first.name}", size: '220x220'
+              = image_tag "#{another_item.images.first.name}", size: '220x220'
             .item-detail__another-items__items__item-box__item-link__simple-detail
               .item-detail__another-items__items__item-box__item-link__simple-detail__name
                 %p
-                  = @item.name
+                  = another_item.name
               .item-detail__another-items__items__item-box__item-link__simple-detail__boxes
                 .item-detail__another-items__items__item-box__item-link__simple-detail__boxes__price
                   %p
-                    = @item.price
+                    = another_item.price
                 .item-detail__another-items__items__item-box__item-link__simple-detail__boxes__box
                   .item-detail__another-items__items__item-box__item-link__simple-detail__boxes__box__good
                     = fa_icon 'heart', class: 'item-detail__another-items__items__item-box__item-link__simple-detail__boxes__box__good__heart'
