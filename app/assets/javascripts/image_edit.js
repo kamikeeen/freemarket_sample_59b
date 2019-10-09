@@ -1,20 +1,19 @@
 $(function(){
   var item_id = $("#item_id").text();
   if (item_id !== ""){
-    var num = $(".image_preview").length
+
     var form_width = `100%`
-    for (var i = 0; i < num; i++) {
-      $(`label[for=item_images_attributes_${i}_name`).css("display", "none")
-      if (i < 4){
-        form_width = `calc(100% - 126 * ${i + 1}px)`
-      }else if(i > 4){
-        form_width = `calc(100% - 126 * ${i - 4}px)`
+    for (var m = 0; m < $(".image_preview").length; m++) {
+      $(`label[for=item_images_attributes_${m}_name`).css("display", "none")
+      if (m < 4){
+        form_width = `calc(100% - 126 * ${m + 1}px)`
+      }else if(m > 4){
+        form_width = `calc(100% - 126 * ${m - 4}px)`
       }else{
         form_width = `100%`
       }
-      $(`#item_images_attributes_${i}_name`).val =  $(`#item_images_${i}`).text()
-      $(`label[for=item_images_attributes_${i+1}_name`).css("width", `${form_width}`)
-      $(`label[for=item_images_attributes_${i+1}_name`).css("display", "block")
+      $(`label[for=item_images_attributes_${m + 1}_name`).css("width", `${form_width}`)
+      $(`label[for=item_images_attributes_${m + 1}_name`).css("display", "block")
       }
 
     function buildHtml(num){
@@ -41,7 +40,7 @@ $(function(){
                     <br>
                       またはクリックしてファイルをアップロード
                     </span>
-                    <input accept="image/*" type="file" name="item[images_attributes][0][name]" id="item_images_attributes_${num}_name">
+                    <input accept="image/*" type="file" name="item[images_attributes][${num}][name]" id="item_images_attributes_${num}_name">
                     </label>`
       return html
     }
@@ -114,7 +113,7 @@ $(function(){
         $(`.items__edit__sell__form__upload-image-form label:eq(${num - 1})`).after(buildForm(num, form_width))
       }
   
-      $(".items__edit__sell__form__upload-image-form label").children("input").each(function(i, input){
+      $(".items__edit__sell__form__upload-image-form label").children("input").first().each(function(i, input){
           $(input).attr("id", `item_images_attributes_${i}_name`)
           $(input).parent().attr("for", `item_images_attributes_${i}_name`)
         })

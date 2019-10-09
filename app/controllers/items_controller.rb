@@ -1,10 +1,8 @@
 class ItemsController < ApplicationController
   require 'payjp'
-  before_action :set_item, only: [:show, :purchase, :buy]
+  before_action :set_item, only: [:show, :edit, :update, :purchase, :buy]
   before_action :set_card, only: [:purchase, :buy]
-
-  before_action :set_item, only: [:show, :edit, :update]
-
+  before_action :user_redirect, only: [:edit, :update]
   def index
     if Rails.env == "test" then
       category1 = 1
@@ -52,15 +50,16 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    # if @item.user.id == current_user
+      @item.images.each do |image|
+        image.name.cache!
+      end
       (10 - @item.images.count).times {@item.images.build}
-    # else
-    #   redirect_to root_path
   end
 
   def update
-    @item.update(item_params)
-    if @item.save
+
+
+    if @item.update(item_params)
       redirect_to item_path(params[:id])
     else
       (10 - @item.images.count).times {@item.images.build}
@@ -96,11 +95,20 @@ class ItemsController < ApplicationController
       end
     end
   end
-    
   private
+
+
 
   def set_item
     @item = Item.find(params[:id])
+  end
+
+  def user_redirect
+    unless user_signed_in?
+      redirect_to root_path
+    else
+      redirect_to root_path unless current_user.id == @item.user.id  
+    end
   end
 
   def item_params
@@ -117,13 +125,10 @@ class ItemsController < ApplicationController
       :price, 
       images_attributes: [
         :id,
-        :name
+        :name,
+        :name_cache
       ]
     ).merge(user_id: current_user.id)
-  end
-
-  def set_item
-    @item = Item.find(params[:id])
   end
     
   def set_card
