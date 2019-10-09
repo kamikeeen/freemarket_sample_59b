@@ -143,7 +143,7 @@ describe ItemsController do
         expect(response).to_not be_success
       end
       
-      it "redirects the page to /users/sign_in" do
+      it "トップページへ戻る" do
         item_params = {
           text: "テストさん",
           user_id: 1
