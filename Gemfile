@@ -44,10 +44,9 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
-  gem 'rspec-rails'
+  gem 'rspec-rails', '~> 3.5'
   gem 'rails-controller-testing'
   gem 'factory_bot_rails'
-  gem 'faker'
 end
 
 group :development do
@@ -87,14 +86,12 @@ gem "omniauth-rails_csrf_protection"
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'dotenv-rails'
+gem 'pry-rails'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
-gem 'ancestry'
-gem 'rb-readline'
-gem "pry-rails"
 gem 'rails-i18n'
+gem 'ancestry'
 gem 'gretel'
 gem 'enum_help'
 gem "dropzonejs-rails"
-gem "unf_ext"
-gem 'payjp'
+gem 'faker'

@@ -1,11 +1,7 @@
 .main-header
   = render "items/top-page-header"
 .main-content
-  = render partial: "items/top-page-main-contents", locals: {itemsCategory1: @itemsCategory1, categoryName1: @CategoryName1, |
-                                                              itemsCategory2: @itemsCategory2, categoryName2: @CategoryName2, |
-                                                              itemsCategory3: @itemsCategory3, categoryName3: @CategoryName3, |
-                                                              itemsCategory4: @itemsCategory4, categoryName4: @CategoryName4}
-
+  = render "items/top-page-main-contents"
 .top-page-shipping-button
   = render "items/shipping-button"
 .main-footer

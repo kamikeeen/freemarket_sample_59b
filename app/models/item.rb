@@ -32,14 +32,13 @@ class Item < ApplicationRecord
   validates_presence_of :arrival
   validates_presence_of :status
   validates_presence_of :images
-  # validate :size_if_category_has_size, if: :category_id
+  validate :size_if_category_has_size, if: :category_id
 
-  # def size_if_category_has_size
-  #   binding.pry
-  #   if category.size_id?
-  #     errors.add(:size, "を選択してください") unless size
-  #   end
-  # end
+  def size_if_category_has_size
+    if category.size_id?
+      errors.add(:size, "を選択してください") unless size
+    end
+  end
 
 
   def self.limit_delivery_methods_i18n

@@ -11,18 +11,80 @@
           人気のカテゴリー
         .list-box
           .list-box__list
-            #{categoryName1}
+            カテゴリー1
           .list-box__list
-            #{categoryName2}
+            カテゴリ−2
           .list-box__list
-            #{categoryName3}
+            カテゴリー3
           .list-box__list
-            #{categoryName4}
+            カテゴリー4
       .recommend-box
-        = render partial: "top-page-item-wrapper", locals: {itemsCategory1: @itemsCategory1, categoryName1: @CategoryName1, |
-                                                    itemsCategory2: @itemsCategory2, categoryName2: @CategoryName2, |
-                                                    itemsCategory3: @itemsCategory3, categoryName3: @CategoryName3, |
-                                                    itemsCategory4: @itemsCategory4, categoryName4: @CategoryName4}
+        .recommend-item
+          .header
+            .title
+              カテゴリー1新着アイテム
+            .see-more
+              = link_to "", class:"modify-link-to" do
+                .see-more__box
+                  .see-more__box__text
+                    もっと見る
+                  .see-more__box__icon
+                    = fa_icon "angle-right"
+          .items-wrapper
+            - 10.times do
+              .show-item
+                = link_to item_path(1), class:"modify-link-to" do
+                  .show-item__image
+                    = image_tag "top-page/item-sample-image.png"
+                  .show-item__price
+                    ¥4,000
+                  .show-item__name
+                    %p ニンテンドースイッチ スプラトゥーン2スプラトゥーン2
+        .recommend-item
+          .header
+            .title
+              カテゴリー2新着アイテム
+            .see-more
+              = link_to "", class:".modify-link-to" do
+                .see-more__box
+                  .see-more__box__text
+                    もっと見る
+                  .see-more__box__icon
+                    = fa_icon "angle-right"
+          .items-wrapper
+            - 10.times do
+              .show-item
+                = link_to "", class:"modify-link-to" do
+                  .show-item__image
+                    = image_tag "top-page/item-sample-image.png"
+                  .show-item__price
+                    ¥4,000
+                  .show-item__name
+                    %p ニンテンドースイッチ スプラトゥーン2スプラトゥーン2
+        .recommend-item
+          .header
+            .title
+              カテゴリー3新着アイテム
+            .see-more
+              = link_to "", class:"modify-link-to" do
+                .see-more__box
+                  .see-more__box__text
+                    もっと見る
+                  .see-more__box__icon
+                    = fa_icon "angle-right"
+          .items-wrapper
+        .recommend-item
+          .header
+            .title
+              カテゴリー4新着アイテム
+            .see-more
+              = link_to "", class:"modify-link-to" do
+                .see-more__box
+                  .see-more__box__text
+                    もっと見る
+                  .see-more__box__icon
+                    = fa_icon "angle-right"
+          .items-wrapper
       .show-recommend
         .text
           人気のブランド

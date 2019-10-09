@@ -9,10 +9,6 @@
     background-color: #FFFFFF;
     &__inner {
       padding: 24px 40px 40px;
-      a{
-        text-decoration: none;
-      }
-
       &__name {
         padding-bottom: 16px;
         font-weight: bold;
@@ -106,7 +102,7 @@
             display: inline;
           }
         }
-        &__confirm-purchase-item{
+        &__confirm-purchase-item input {
           border: none;
           margin-top: 16px;
           height: 60px;
@@ -115,8 +111,6 @@
           color: #FFFFFF;
           font-weight: bold;
           font-size: 24px;
-          line-height: 60px;
-          text-align: center;
         }
         &__confirm-delete-item input {
           border: none;

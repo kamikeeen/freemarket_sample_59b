@@ -129,9 +129,8 @@
         %p.item-detail__contents__inner__details__price__shipping
           送料込み
 
-      = link_to purchase_item_path(@item.id) do
-        .item-detail__contents__inner__details__confirm-purchase-item
-          購入画面に進む
+      .item-detail__contents__inner__details__confirm-purchase-item
+        %input{type: 'submit', value: "購入画面に進む"}
 
       -# サーバーサイド完了後コメントアウト外す
       -# inputtag内の(#{@item.name})も同時に消す

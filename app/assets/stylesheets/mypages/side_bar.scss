@@ -28,31 +28,31 @@
         margin-inline-start: 0px;
         margin-inline-end: 0px;
         padding-left: 0%;
-        a {
-          color: #333;
-          text-decoration: none;
-          .myside-bar-nav-list-item{
-            position: relative;
-            display: block;
-            min-height: 8px;
-            padding: 16px;
-            background: #fff;
-            font-size: 14px;
-            padding: 13px;
-            border-bottom: medium solid  rgb(248, 248, 248);
-            border-bottom-width: thin;
-            i.fa.fa-angle-right{
-              top: 50%;
-              right: 16px;
-              color: #ccc;
-            }
-          }
-          &:visited {
+        .myside-bar-nav-list-item{
+          position: relative;
+          display: block;
+          min-height: 8px;
+          padding: 16px;
+          background: #fff;
+          font-size: 14px;
+          padding: 13px;
+          border-bottom: medium solid  rgb(248, 248, 248);
+          border-bottom-width: thin;
+          a {
             color: #333;
             text-decoration: none;
+            &:visited {
+              color: #333;
+              text-decoration: none;
+            }
+          }
+          i.fa.fa-angle-right{
+            top: 50%;
+            right: 16px;
+            color: #ccc;
           }
         }
       }
     }
   }
-}
+ }
