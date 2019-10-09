@@ -1,11 +1,6 @@
 .items__edit__background
   = render "shared/center_logo_header"
   #item_id= @item.id
-  -# - i = 0
-  -# - @item.images.each do |image|
-  -#   - unless image.id == nil
-  -#     .item_images{id: "item_images_#{i}", style: "display: none;"}= image.name
-  -#     -i += 1
   .items__edit__sell
     .items__edit__sell__title
       .items__edit__sell__title-text
@@ -21,8 +16,7 @@
             最大10枚までアップロードできます
           %br
           .items__edit__sell__form__upload-image-form
-            - num = 0
-            - @item.images.each do |image|
+            - @item.images.each.with_index do |image,num|
               - if image.name.present?
                 .image_preview
                   %div{class:  "image#{num}", "data-num" => "#{num}"}
@@ -32,15 +26,15 @@
                       編集
                     .btn.delete
                       削除
-                - num += 1
-              =f.fields_for :images, image do |img|
+            - @item.images.each do |image|
+              =f.fields_for :images,image do |img|
                 = img.label :name do
                   %span
                     ドラッグアンドドロップ
                     %br
                     またはクリックしてファイルをアップロード
-                  = img.file_field :name, accept: "image/*"
-
+                  = img.file_field :name, accept: "image/*" 
+                  = img.hidden_field :name_cache unless image.name.blank?
           .items__edit__sell__form__confirm-text
             = render partial: 'shared/error-message', locals: {model: @item, column: "im"}
             
@@ -165,5 +159,6 @@
           .items__edit__sell__form__button__sell-button
             = f.submit "出品する"
           .items__edit__sell__form__button__back-button
-            %input{type:"button", value:"もどる"}
+            = link_to root_path do
+              %input{type:"button", value:"もどる"}
   = render "shared/center_logo_footer"
