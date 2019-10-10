@@ -33,7 +33,7 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    10.times {@item.images.build}
+    image_build
   end
 
   def create
@@ -41,7 +41,7 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to root_path
     else
-      10.times {@item.images.build}
+      image_build
       render :new
     end
   end
@@ -53,7 +53,7 @@ class ItemsController < ApplicationController
       @item.images.each do |image|
         image.name.cache!
       end
-      (10 - @item.images.count).times {@item.images.build}
+      image_build
   end
 
   def update
@@ -62,7 +62,7 @@ class ItemsController < ApplicationController
     if @item.update(item_params)
       redirect_to item_path(params[:id])
     else
-      (10 - @item.images.count).times {@item.images.build}
+      image_build
       render :edit
     end
   end
@@ -131,6 +131,11 @@ class ItemsController < ApplicationController
     ).merge(user_id: current_user.id)
   end
     
+  def image_build
+    item_limit = 10
+    (item_limit - @item.images.count).times {@item.images.build}
+  end
+
   def set_card
     @card = current_user.card
   end
