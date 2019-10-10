@@ -1,9 +1,11 @@
 class Item < ApplicationRecord
 
+  extend ActiveHash::Associations::ActiveRecordExtensions
   has_many :images
   belongs_to :user
   belongs_to :category
   belongs_to :size, optional: true
+  belongs_to_active_hash :prefecture
 
   accepts_nested_attributes_for :images
 

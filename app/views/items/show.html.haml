@@ -21,7 +21,7 @@
               出品者
           %td
             .item-detail__contents__inner__details__buyer-name
-              = link_to 'ゆ', "#", class: 'link_to'
+              = link_to @item.user.nickname, "#", class: 'link_to'
             .item-detail__contents__inner__details__buyer-assessments
               = fa_icon 'laugh', class: "item-detail__contents__inner__details__buyer-assessments__good"
               .item-detail__contents__inner__details__buyer-assessments__counts
@@ -63,7 +63,7 @@
           %td
             .item-detail__contents__inner__details__size
               %p
-                = @item.size_id
+                = @item.size.name
         %tr
           %th
             %p
@@ -94,7 +94,7 @@
               配送元地域
           %td
             .item-detail__contents__inner__details__post-area
-              = link_to '神奈川県', "#", class: 'link_to'
+              = link_to @item.prefecture.name, "#", class: 'link_to'
         %tr
           %th
             %p
