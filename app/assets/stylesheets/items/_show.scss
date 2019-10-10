@@ -29,7 +29,12 @@
         &__sub {
           float: left;
           height: 60px;
-          display: flex;
+          display: inline-flex;
+          flex-wrap: wrap;
+          justify-content: flex-start;
+          .picture{
+            height: 60px;
+          }
         }
       }
       &__details, table {
