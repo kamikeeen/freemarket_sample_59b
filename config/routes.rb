@@ -38,6 +38,7 @@ Rails.application.routes.draw do
     get "categories/select_grand_children"
     get "sizes/select"
     get "delivery_methods/select"
+    get "brands/form"
   end
 
   resources :card, only: [:new, :show] do
