@@ -16,9 +16,7 @@ $(function(){
   })
 
     $(document).on("keyup", ".brand_form", function(){
-      console.log("ok")
       var keyword = $(this).val();
-      console.log(keyword)
       if ($(this).val() !== ""){
         $.ajax({
           url: "/api/brands/form",
@@ -27,7 +25,6 @@ $(function(){
           dataType: "json"
         })
         .done(function(brands){
-          console.log(brands)
           $(".brand__result__lists li").remove()
           if (brands.length === 0){
             $(".brand__result__lists").append(buildBrandNone())
