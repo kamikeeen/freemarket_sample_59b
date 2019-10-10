@@ -58,7 +58,7 @@
               = collection_select :items, :category_id, Category.where(ancestry: nil), :id, :name, include_blank: '---'
             .items__new__sell__form__item__detail-form__brand
               = f.label :"ブランド"
-              %span.items__new__sell__form__require
+              %span.items__new__sell__form__require__option
                 任意
               %br
               %input.brand_form
