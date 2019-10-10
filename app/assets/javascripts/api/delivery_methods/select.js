@@ -10,13 +10,13 @@ $(function(){
         dataType: "html"
       })
       .done(function(html){
-        $(".items__new__sell__form__about-delivery-form__delivery_method").remove();
-        $(".items__new__sell__form__about-delivery-form__post-area").before(html)
+        $(".items__sell__form__about-delivery-form__delivery_method").remove();
+        $(".items__sell__form__about-delivery-form__post-area").before(html)
       })
       .fail(function(){
       })
     }else{
-      $(".items__new__sell__form__about-delivery-form__delivery_method").remove();
+      $(".items__sell__form__about-delivery-form__delivery_method").remove();
     }
   })
 })
