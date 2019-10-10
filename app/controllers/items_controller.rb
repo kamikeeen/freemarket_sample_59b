@@ -132,8 +132,8 @@ class ItemsController < ApplicationController
   end
     
   def image_build
-    item_limit = 10
-    (item_limit - @item.images.count).times {@item.images.build}
+    image_limit = 10
+    (image_limit - @item.images.count).times {@item.images.build}
   end
 
   def set_card
