@@ -98,3 +98,4 @@ gem 'enum_help'
 gem "dropzonejs-rails"
 gem "unf_ext"
 gem 'payjp'
+gem 'ransack'
