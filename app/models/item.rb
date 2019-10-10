@@ -4,6 +4,7 @@ class Item < ApplicationRecord
   belongs_to :user
   belongs_to :category
   belongs_to :size, optional: true
+  belongs_to :brand, optional: true
 
   accepts_nested_attributes_for :images, reject_if: :reject_images, allow_destroy: true
 

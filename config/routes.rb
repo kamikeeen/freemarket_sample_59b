@@ -43,6 +43,7 @@ Rails.application.routes.draw do
     get "sizes/set"
     get "delivery_methods/select"
     get "delivery_methods/set"
+    get "brands/form"
   end
 
   resources :card, only: [:new, :show] do

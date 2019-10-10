@@ -123,6 +123,7 @@ class ItemsController < ApplicationController
       :delivery_method, 
       :arrival, 
       :price, 
+      :brand_id,
       images_attributes: [
         :id,
         :name,

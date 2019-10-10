@@ -1,5 +1,5 @@
 ## ER図
-[![Image from Gyazo](https://i.gyazo.com/8e93d8aa2b299ccf910e1a79d71de1dc.png)](https://gyazo.com/8e93d8aa2b299ccf910e1a79d71de1dc)
+[![Image from Gyazo](https://i.gyazo.com/349230d6454e4668e3645267feb95de7.png)](https://gyazo.com/349230d6454e4668e3645267feb95de7)
 
 ## Usersテーブル
 
@@ -14,7 +14,7 @@
 |firstname_kana|string|null: false|
 |birthday|date|null: false|
 |zip_code|string||
-|prefecture_id|bigint||
+|prefecture_id|reference||
 |city|string||
 |address_line|string||
 |building_name|string||
@@ -26,7 +26,7 @@
 - has_many :addresses
 - has_many :assessments
 - has_many :sns_credentials, dependent: :destroy
-
+- has_one  :card
 
 ## Addressesテーブル
 
@@ -37,12 +37,12 @@
 |familyname_kana|string|null: false|
 |firstname_kana|string|null: false|
 |zip_code|string|null: false|
-|prefecture_id|bigint|null: false|
+|prefecture_id|reference|null: false|
 |city|string|null: false|
 |address_line|string|null: false|
 |building_name|string||
 |phone_number|string||
-|user_id|bigint|null: false, foreign_key: true|
+|user_id|reference|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
@@ -53,26 +53,26 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|user_id|bigint|null: false, foreign_key: true|
-|category_id|bigint|null: false, foreign_key: true|
-|brand_id|bigint|null: false, foreign_key: true|
+|user_id|reference|null: false, foreign_key: true|
+|category_id|reference|null: false, foreign_key: true|
+|brand_id|reference|null: false, foreign_key: true|
 |damage|integer|null: false|
 |postage_side|integer|null: false|
 |delivery_method|integer|null: false|
-|prefecture_id|bigint|null: false, foreign_key: true|
+|prefecture_id|reference|null: false, foreign_key: true|
 |arrival|integer|null: false|
 |price|integer|null: false|
 |text|text|null: false|
 |status|integer|default(0), not null|
-|buyer_id|bigint||
+|buyer_id|reference||
 
 
 ### Association
 - belongs_to :user
 - has_many :images
 - belongs_to :category
-- belongs_to :brand
-- belongs_to :size
+- belongs_to :brand, optional: true
+- belongs_to :size, optional: true
 - belongs_to :post_area
 - has_one :assesment
 
@@ -82,8 +82,8 @@
 |------|----|-------|
 |comment|string|null: false|
 |level|integer||
-|user_id|bigint|null: false, foreign_key: true|
-|item_id|bigint|null: false, foreign_key: true|
+|user_id|reference|null: false, foreign_key: true|
+|item_id|reference|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
@@ -95,7 +95,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|item_id|bigint|null: false, foreign_key: true|
+|item_id|reference|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :item
@@ -106,7 +106,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|size_id|bigint||
+|size_id|reference||
 |ancestry|string|index: true|
 
 ### Association
@@ -130,7 +130,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|name|string|unique: true|
+|name|string||
 
 ### Association
 - has_many :items
@@ -155,3 +155,14 @@
 
 ### Association
 - belongs_to :user, optional: true
+
+## cardsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer||
+|customer_id|string||
+|card_id|string||
+
+### Association
+- belongs_to :user
