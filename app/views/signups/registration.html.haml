@@ -24,20 +24,24 @@
               = f.email_field :email, autocomplete: "email", placeholder: "PC・携帯どちらでも可"
             .user__input__basic__main-form__confirm-text
               = render partial: '/signups/error-message', locals: {model: @user, column: "email"}
-            .user__input__basic__main-form-field
-              = f.label :"パスワード"
-              %span.user__input__basic__main-form-field__require
-                必須
-              %br/
-              = f.password_field :password, autocomplete: "new-password", placeholder: "７文字以上" 
-            .user__input__basic__main-form__confirm-text
-              = render partial: '/signups/error-message', locals: {model: @user, column: "password"}
-            .user__input__basic__main-form-field
-              = f.label :"パスワード（確認）"
-              %span.user__input__basic__main-form-field__require
-                必須
-              %br/
-              = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "７文字以上"
+            - if @user.password.blank?
+              .user__input__basic__main-form-field
+                = f.label :"パスワード"
+                %span.user__input__basic__main-form-field__require
+                  必須
+                %br/
+                = f.password_field :password, autocomplete: "new-password", placeholder: "７文字以上"
+              .user__input__basic__main-form__confirm-text
+                = render partial: '/signups/error-message', locals: {model: @user, column: "password"}
+              .user__input__basic__main-form-field
+                = f.label :"パスワード（確認）"
+                %span.user__input__basic__main-form-field__require
+                  必須
+                %br/
+                = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "７文字以上"
+            - else
+              = f.hidden_field :password
+              = f.hidden_field :password_confirmation
             .user__input__basic__main-form__confirm-text
               = render partial: '/signups/error-message', locals: {model: @user, column: "password_confirmation"}
             .user__input__basic__main__identification
