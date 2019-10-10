@@ -11,7 +11,7 @@ $(function(){
   }
 
   $(document).on("change", "#category_grand_children", function(){
-    $(".items__new__sell__form__item__detail-form__brand").css("display", "block")
+    $(".items__sell__form__item__detail-form__brand").css("display", "block")
   })
 
   $(document).on("keyup", ".brand_form", function(){
