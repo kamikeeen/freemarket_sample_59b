@@ -9,17 +9,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  def create
-    if session["devise.sns_uid"].present?  #sns登録なら
-      params[:user][:password] = "Devise.friendly_token.first(6)" #deviseのパスワード自動生成機能を使用
-      params[:user][:password_confirmation] = "Devise.friendly_token.first(6)"
-      sns = SnsCredential.create(uid: session["devise.sns_uid"] , provider: session["devise.sns_provider"]) 
-      super
-      sns.update(user_id: @user.id)
-    else #email登録なら
-      super
-    end
-  end
+  # def create
+  #   super
+  # end
 
   # GET /resource/edit
   # def edit
