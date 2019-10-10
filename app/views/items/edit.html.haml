@@ -68,6 +68,16 @@
                 必須
               %br
               = collection_select :items, :category_id, Category.where(ancestry: nil), :id, :name, {include_blank: '---', selected: @item.category.root.id }
+            
+            .items__edit__sell__form__item__detail-form__brand
+              = f.label :"ブランド"
+              %span.items__edit__sell__form__require__option
+                任意
+              %br
+              %input.brand_form{value: "#{@item.brand.name}"}
+              = f.hidden_field :brand_id, type: "hidden"
+              .brand__result__box
+                %ul.brand__result__lists
             .items__edit__sell__form__confirm-text
               = render partial: 'shared/error-message', locals: {model: @item, column: "category"}
 

@@ -6,7 +6,7 @@ $(function(){
   }
 
   function buildBrandNone(){
-    var html = `<li class="brand__result__list" >該当するブランドはありません</li>`
+    var html = `<li class="brand__result__none" >該当するブランドはありません</li>`
     return html
   }
 
@@ -24,11 +24,11 @@ $(function(){
         dataType: "json"
       })
       .done(function(brands){
-        $(".brand__result__list").remove()
+        $(".brand__result__lists li").remove()
         if (brands.length === 0){
           $(".brand__result__lists").append(buildBrandNone())
         }else{
-          $(".brand__result__list").remove()
+          $(".brand__result__lists li").remove()
           brands.forEach(function(brand){
             $(".brand__result__lists").append(buildBrandList(brand))
           });
@@ -37,7 +37,7 @@ $(function(){
       .fail(function(){
       })
     }else{
-      $(".brand__result__list").remove()
+      $(".brand__result__lists li").remove()
     }
   })
 
@@ -46,6 +46,6 @@ $(function(){
     var get_brand_name = $(this).text()
     $("#item_brand_id").val(get_brand_id)
     $(".brand_form").val(get_brand_name)
-    $(".brand__result__list").remove()
+    $(".brand__result__lists li").remove()
   })
 })
