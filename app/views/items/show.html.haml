@@ -128,10 +128,10 @@
           （税込）
         %p.item-detail__contents__inner__details__price__shipping
           送料込み
-
-      = link_to purchase_item_path(@item.id) do
-        .item-detail__contents__inner__details__confirm-purchase-item
-          購入画面に進む
+      - if @item.status == "selling"
+        = link_to purchase_item_path(@item.id) do
+          .item-detail__contents__inner__details__confirm-purchase-item
+            購入画面に進む
 
       .item-detail__contents__inner__details__text
         %p

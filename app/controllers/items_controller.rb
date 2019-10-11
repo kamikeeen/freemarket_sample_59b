@@ -1,8 +1,11 @@
 class ItemsController < ApplicationController
   require 'payjp'
+  before_action :authenticate_user!, except:[:index, :show]
   before_action :set_item, only: [:show, :edit, :update, :purchase, :buy]
   before_action :set_card, only: [:purchase, :buy]
-  before_action :user_redirect, only: [:edit, :update]
+  before_action :can_buy?, only: [:buy]
+  before_action :seller?, only: [:purchase]
+
   def index
     if Rails.env == "test" then
       category1 = 1
@@ -93,20 +96,12 @@ class ItemsController < ApplicationController
       end
     end
   end
+
+
   private
-
-
 
   def set_item
     @item = Item.find(params[:id])
-  end
-
-  def user_redirect
-    unless user_signed_in?
-      redirect_to root_path
-    else
-      redirect_to root_path unless current_user.id == @item.user.id  
-    end
   end
 
   def item_params
@@ -139,4 +134,17 @@ class ItemsController < ApplicationController
     @card = current_user.card
   end
 
+  def can_buy?
+    if @item.status != "selling"
+      redirect_to action: "show"
+    end
+  end
+
+  def seller?
+    if @item.user_id == current_user.id
+      redirect_to action: "show"
+    end
+  end
+
 end
+
