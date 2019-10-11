@@ -1,8 +1,10 @@
 class SignupsController < ApplicationController
-
+  
+  before_action :authenticate_user!
   before_action :validates_registration, only: :sms_confirmation
   before_action :validates_sms_confirmation, only: :sms
   before_action :validates_address, only: :payment
+  before_action :already_signed_in?
 
   def index
   end
@@ -203,6 +205,12 @@ class SignupsController < ApplicationController
   def modify_phone_number(number)
     str = number.tr('０-９', '0-9').to_s
     str.gsub(/-/, "")
+  end
+
+  def already_signed_in?
+    if user_signed_in?
+      redirect_to root_path
+    end
   end
 
 end
