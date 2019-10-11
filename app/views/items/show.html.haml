@@ -5,32 +5,19 @@
     .item-detail__contents__inner
 
       .item-detail__contents__inner__name
-        kastane ワッシャーシフォンワンピース
+        = @item.name
 
       .item-detail__contents__inner__pictures
         .item-detail__contents__inner__pictures__main
-          = image_tag 'item-detail.jpg', size: '300x300'
-        .item-detail__contents__inner__pictures__sub
-          = image_tag 'item-detail.jpg', size: '60x60'
-        .item-detail__contents__inner__pictures__sub
-          = image_tag 'item-detail.jpg', size: '60x60'
-        .item-detail__contents__inner__pictures__sub
-          = image_tag 'item-detail.jpg', size: '60x60'
-        .item-detail__contents__inner__pictures__sub
-          = image_tag 'item-detail.jpg', size: '60x60'
-        .item-detail__contents__inner__pictures__sub
-          = image_tag 'item-detail.jpg', size: '60x60'
-        .item-detail__contents__inner__pictures__sub
-          = image_tag 'item-detail.jpg', size: '60x60'
-        .item-detail__contents__inner__pictures__sub
-          = image_tag 'item-detail.jpg', size: '60x60'
-        .item-detail__contents__inner__pictures__sub
-          = image_tag 'item-detail.jpg', size: '60x60'
-        .item-detail__contents__inner__pictures__sub
-          = image_tag 'item-detail.jpg', size: '60x60'
-        .item-detail__contents__inner__pictures__sub
-          = image_tag 'item-detail.jpg', size: '60x60'
-
+          - if @item.status != 'selling'
+            .item__badge
+            .item__badge__text
+              SOLD
+          = image_tag "#{@item.images.first.name}", size: '300x300'
+        %ul.item-detail__contents__inner__pictures__sub
+          - @item.images.each do |image|
+            %li.picture
+              = image_tag "#{image.name}", size: '60x60'
       %table.item-detail__contents__inner__details
         %tr
           %th
@@ -38,7 +25,7 @@
               出品者
           %td
             .item-detail__contents__inner__details__buyer-name
-              = link_to 'ゆ', "#", class: 'link_to'
+              = link_to @item.user.nickname, "#", class: 'link_to'
             .item-detail__contents__inner__details__buyer-assessments
               = fa_icon 'laugh', class: "item-detail__contents__inner__details__buyer-assessments__good"
               .item-detail__contents__inner__details__buyer-assessments__counts
@@ -58,29 +45,31 @@
               カテゴリー
           %td
             .item-detail__contents__inner__details__category-main
-              = link_to 'レディース', "#", class: 'link_to'
+              = link_to @item.category.root.name, "#", class: 'link_to'
             / おそらくeach文でカテゴリを取り出すため、クラス名をmainとsubに分けた
             .item-detail__contents__inner__details__category-sub
               = fa_icon 'angle-right', class: 'item-detail__contents__inner__details__category-sub__angle-right'
-              = link_to 'ワンピース', "#", class: 'link_to'
+              = link_to @item.category.parent.name, "#", class: 'link_to'
             .item-detail__contents__inner__details__category-sub
               = fa_icon 'angle-right', class: 'item-detail__contents__inner__details__category-sub__angle-right'
-              = link_to 'ロングワンピース', "#", class: 'link_to'
-        %tr
-          %th
-            %p
-              ブランド
-          %td
-            .item-detail__contents__inner__details__brand-name
-              = link_to 'カスタネ', "#", class: 'link_to'
-        %tr
-          %th
-            %p
-              商品のサイズ
-          %td
-            .item-detail__contents__inner__details__size
+              = link_to @item.category.name, "#", class: 'link_to'
+        - if @item.brand
+          %tr
+            %th
               %p
-                FREE SIZE
+                ブランド
+            %td
+              .item-detail__contents__inner__details__brand-name
+                = link_to @item.brand.name, "#", class: 'link_to'
+        - if @item.size
+          %tr
+            %th
+              %p
+                商品のサイズ
+            %td
+              .item-detail__contents__inner__details__size
+                %p
+                  = @item.size.name
         %tr
           %th
             %p
@@ -88,7 +77,7 @@
           %td
             .item-detail__contents__inner__details__damage
               %p
-                目立った傷や汚れなし
+                =@item.damage_i18n
         %tr
           %th
             %p
@@ -96,7 +85,7 @@
           %td
             .item-detail__contents__inner__details__postage
               %p
-                送料込み（出品者負担）
+                = @item.postage_side_i18n
         %tr
           %th
             %p
@@ -104,14 +93,14 @@
           %td
             .item-detail__contents__inner__details__shipping
               %p
-                らくらくメルカリ便
+                = @item.delivery_method_i18n
         %tr
           %th
             %p
               配送元地域
           %td
             .item-detail__contents__inner__details__post-area
-              = link_to '神奈川県', "#", class: 'link_to'
+              = link_to @item.prefecture.name, "#", class: 'link_to'
         %tr
           %th
             %p
@@ -119,11 +108,11 @@
           %td
             .item-detail__contents__inner__details__arrival
               %p
-                1-2日で発送
+                = @item.arrival_i18n
 
       .item-detail__contents__inner__details__price
         %p
-          ¥6,500
+          = @item.price.to_s(:currency, precision: 0, format: '¥%n')
         %p.item-detail__contents__inner__details__price__tax
           （税込）
         %p.item-detail__contents__inner__details__price__shipping
@@ -134,12 +123,8 @@
           購入画面に進む
 
       .item-detail__contents__inner__details__text
-        %p
-          カスタネのワンピースです。
-          %br 2回着用しております。
-          %br カラー オフホワイト
-          %br
-          %br kastaneの商品他にも出品しておりますのでご覧下さいませ。
+      %p.item-detail-explanation
+      = simple_format(@item.text)
 
       .item-detail__contents__inner__details__options-box
         .item-detail__contents__inner__details__options-box__good
@@ -197,110 +182,22 @@
     .item-detail__another-items__box
       = link_to '#', class: 'link_to item-detail__another-items__box__buyer' do
         %p
-          ゆさんのその他の出品
-      .item-detail__another-items__items
+          = @item.user.nickname
+          さんのその他の出品
+    .item-detail__another-items__items
+      - @another_items.each do |another_item|
         .item-detail__another-items__items__item-box
-          = link_to '#', class: 'link_to item-detail__another-items__items__item-box__item-link' do
+          = link_to item_path(another_item.id), class: 'link_to item-detail__another-items__items__item-box__item-link' do
             .item-detail__another-items__items__item-box__item-link__picture
-              = image_tag 'item-detail.jpg', size: '220x220'
+              = image_tag "#{another_item.images.first.name}", size: '220x220'
             .item-detail__another-items__items__item-box__item-link__simple-detail
               .item-detail__another-items__items__item-box__item-link__simple-detail__name
                 %p
-                  slobe iena コットンリブタンクニット
+                  = another_item.name
               .item-detail__another-items__items__item-box__item-link__simple-detail__boxes
                 .item-detail__another-items__items__item-box__item-link__simple-detail__boxes__price
                   %p
-                    ¥1,000
-                .item-detail__another-items__items__item-box__item-link__simple-detail__boxes__box
-                  .item-detail__another-items__items__item-box__item-link__simple-detail__boxes__box__good
-                    = fa_icon 'heart', class: 'item-detail__another-items__items__item-box__item-link__simple-detail__boxes__box__good__heart'
-                  .item-detail__another-items__items__item-box__item-link__simple-detail__boxes__box__good-counts
-                    %p
-                      2
-        .item-detail__another-items__items__item-box
-          = link_to '#', class: 'link_to item-detail__another-items__items__item-box__item-link' do
-            .item-detail__another-items__items__item-box__item-link__picture
-              = image_tag 'item-detail.jpg', size: '220x220'
-            .item-detail__another-items__items__item-box__item-link__simple-detail
-              .item-detail__another-items__items__item-box__item-link__simple-detail__name
-                %p
-                  slobe iena コットンリブタンクニット
-              .item-detail__another-items__items__item-box__item-link__simple-detail__boxes
-                .item-detail__another-items__items__item-box__item-link__simple-detail__boxes__price
-                  %p
-                    ¥1,000
-                .item-detail__another-items__items__item-box__item-link__simple-detail__boxes__box
-                  .item-detail__another-items__items__item-box__item-link__simple-detail__boxes__box__good
-                    = fa_icon 'heart', class: 'item-detail__another-items__items__item-box__item-link__simple-detail__boxes__box__good__heart'
-                  .item-detail__another-items__items__item-box__item-link__simple-detail__boxes__box__good-counts
-                    %p
-                      2
-        .item-detail__another-items__items__item-box
-          = link_to '#', class: 'link_to item-detail__another-items__items__item-box__item-link' do
-            .item-detail__another-items__items__item-box__item-link__picture
-              = image_tag 'item-detail.jpg', size: '220x220'
-            .item-detail__another-items__items__item-box__item-link__simple-detail
-              .item-detail__another-items__items__item-box__item-link__simple-detail__name
-                %p
-                  slobe iena コットンリブタンクニット
-              .item-detail__another-items__items__item-box__item-link__simple-detail__boxes
-                .item-detail__another-items__items__item-box__item-link__simple-detail__boxes__price
-                  %p
-                    ¥1,000
-                .item-detail__another-items__items__item-box__item-link__simple-detail__boxes__box
-                  .item-detail__another-items__items__item-box__item-link__simple-detail__boxes__box__good
-                    = fa_icon 'heart', class: 'item-detail__another-items__items__item-box__item-link__simple-detail__boxes__box__good__heart'
-                  .item-detail__another-items__items__item-box__item-link__simple-detail__boxes__box__good-counts
-                    %p
-                      2
-        .item-detail__another-items__items__item-box
-          = link_to '#', class: 'link_to item-detail__another-items__items__item-box__item-link' do
-            .item-detail__another-items__items__item-box__item-link__picture
-              = image_tag 'item-detail.jpg', size: '220x220'
-            .item-detail__another-items__items__item-box__item-link__simple-detail
-              .item-detail__another-items__items__item-box__item-link__simple-detail__name
-                %p
-                  slobe iena コットンリブタンクニット
-              .item-detail__another-items__items__item-box__item-link__simple-detail__boxes
-                .item-detail__another-items__items__item-box__item-link__simple-detail__boxes__price
-                  %p
-                    ¥1,000
-                .item-detail__another-items__items__item-box__item-link__simple-detail__boxes__box
-                  .item-detail__another-items__items__item-box__item-link__simple-detail__boxes__box__good
-                    = fa_icon 'heart', class: 'item-detail__another-items__items__item-box__item-link__simple-detail__boxes__box__good__heart'
-                  .item-detail__another-items__items__item-box__item-link__simple-detail__boxes__box__good-counts
-                    %p
-                      2
-        .item-detail__another-items__items__item-box
-          = link_to '#', class: 'link_to item-detail__another-items__items__item-box__item-link' do
-            .item-detail__another-items__items__item-box__item-link__picture
-              = image_tag 'item-detail.jpg', size: '220x220'
-            .item-detail__another-items__items__item-box__item-link__simple-detail
-              .item-detail__another-items__items__item-box__item-link__simple-detail__name
-                %p
-                  slobe iena コットンリブタンクニット
-              .item-detail__another-items__items__item-box__item-link__simple-detail__boxes
-                .item-detail__another-items__items__item-box__item-link__simple-detail__boxes__price
-                  %p
-                    ¥1,000
-                .item-detail__another-items__items__item-box__item-link__simple-detail__boxes__box
-                  .item-detail__another-items__items__item-box__item-link__simple-detail__boxes__box__good
-                    = fa_icon 'heart', class: 'item-detail__another-items__items__item-box__item-link__simple-detail__boxes__box__good__heart'
-                  .item-detail__another-items__items__item-box__item-link__simple-detail__boxes__box__good-counts
-                    %p
-                      2
-        .item-detail__another-items__items__item-box
-          = link_to '#', class: 'link_to item-detail__another-items__items__item-box__item-link' do
-            .item-detail__another-items__items__item-box__item-link__picture
-              = image_tag 'item-detail.jpg', size: '220x220'
-            .item-detail__another-items__items__item-box__item-link__simple-detail
-              .item-detail__another-items__items__item-box__item-link__simple-detail__name
-                %p
-                  slobe iena コットンリブタンクニット
-              .item-detail__another-items__items__item-box__item-link__simple-detail__boxes
-                .item-detail__another-items__items__item-box__item-link__simple-detail__boxes__price
-                  %p
-                    ¥1,000
+                    = another_item.price.to_s(:currency, precision: 0, format: '¥%n')
                 .item-detail__another-items__items__item-box__item-link__simple-detail__boxes__box
                   .item-detail__another-items__items__item-box__item-link__simple-detail__boxes__box__good
                     = fa_icon 'heart', class: 'item-detail__another-items__items__item-box__item-link__simple-detail__boxes__box__good__heart'
@@ -332,98 +229,7 @@
                   .item-detail__another-brands__items__item-box__item-link__simple-detail__boxes__box__good-counts
                     %p
                       2
-        .item-detail__another-brands__items__item-box
-          = link_to '#', class: 'link_to item-detail__another-brands__items__item-box__item-link' do
-            .item-detail__another-brands__items__item-box__item-link__picture
-              = image_tag 'item-detail.jpg', size: '220x220'
-            .item-detail__another-brands__items__item-box__item-link__simple-detail
-              .item-detail__another-brands__items__item-box__item-link__simple-detail__name
-                %p
-                  カスタネ 花柄カシュークールワンピ ピンクベージュ
-              .item-detail__another-brands__items__item-box__item-link__simple-detail__boxes
-                .item-detail__another-brands__items__item-box__item-link__simple-detail__boxes__price
-                  %p
-                    ¥4,500
-                .item-detail__another-brands__items__item-box__item-link__simple-detail__boxes__box
-                  .item-detail__another-brands__items__item-box__item-link__simple-detail__boxes__box__good
-                    = fa_icon 'heart', class: 'item-detail__another-brands__items__item-box__item-link__simple-detail__boxes__box__good__heart'
-                  .item-detail__another-brands__items__item-box__item-link__simple-detail__boxes__box__good-counts
-                    %p
-                      2
-        .item-detail__another-brands__items__item-box
-          = link_to '#', class: 'link_to item-detail__another-brands__items__item-box__item-link' do
-            .item-detail__another-brands__items__item-box__item-link__picture
-              = image_tag 'item-detail.jpg', size: '220x220'
-            .item-detail__another-brands__items__item-box__item-link__simple-detail
-              .item-detail__another-brands__items__item-box__item-link__simple-detail__name
-                %p
-                  カスタネ 花柄カシュークールワンピ ピンクベージュ
-              .item-detail__another-brands__items__item-box__item-link__simple-detail__boxes
-                .item-detail__another-brands__items__item-box__item-link__simple-detail__boxes__price
-                  %p
-                    ¥4,500
-                .item-detail__another-brands__items__item-box__item-link__simple-detail__boxes__box
-                  .item-detail__another-brands__items__item-box__item-link__simple-detail__boxes__box__good
-                    = fa_icon 'heart', class: 'item-detail__another-brands__items__item-box__item-link__simple-detail__boxes__box__good__heart'
-                  .item-detail__another-brands__items__item-box__item-link__simple-detail__boxes__box__good-counts
-                    %p
-                      2
-        .item-detail__another-brands__items__item-box
-          = link_to '#', class: 'link_to item-detail__another-brands__items__item-box__item-link' do
-            .item-detail__another-brands__items__item-box__item-link__picture
-              = image_tag 'item-detail.jpg', size: '220x220'
-            .item-detail__another-brands__items__item-box__item-link__simple-detail
-              .item-detail__another-brands__items__item-box__item-link__simple-detail__name
-                %p
-                  カスタネ 花柄カシュークールワンピ ピンクベージュ
-              .item-detail__another-brands__items__item-box__item-link__simple-detail__boxes
-                .item-detail__another-brands__items__item-box__item-link__simple-detail__boxes__price
-                  %p
-                    ¥4,500
-                .item-detail__another-brands__items__item-box__item-link__simple-detail__boxes__box
-                  .item-detail__another-brands__items__item-box__item-link__simple-detail__boxes__box__good
-                    = fa_icon 'heart', class: 'item-detail__another-brands__items__item-box__item-link__simple-detail__boxes__box__good__heart'
-                  .item-detail__another-brands__items__item-box__item-link__simple-detail__boxes__box__good-counts
-                    %p
-                      2
-        .item-detail__another-brands__items__item-box
-          = link_to '#', class: 'link_to item-detail__another-brands__items__item-box__item-link' do
-            .item-detail__another-brands__items__item-box__item-link__picture
-              = image_tag 'item-detail.jpg', size: '220x220'
-            .item-detail__another-brands__items__item-box__item-link__simple-detail
-              .item-detail__another-brands__items__item-box__item-link__simple-detail__name
-                %p
-                  カスタネ 花柄カシュークールワンピ ピンクベージュ
-              .item-detail__another-brands__items__item-box__item-link__simple-detail__boxes
-                .item-detail__another-brands__items__item-box__item-link__simple-detail__boxes__price
-                  %p
-                    ¥4,500
-                .item-detail__another-brands__items__item-box__item-link__simple-detail__boxes__box
-                  .item-detail__another-brands__items__item-box__item-link__simple-detail__boxes__box__good
-                    = fa_icon 'heart', class: 'item-detail__another-brands__items__item-box__item-link__simple-detail__boxes__box__good__heart'
-                  .item-detail__another-brands__items__item-box__item-link__simple-detail__boxes__box__good-counts
-                    %p
-                      2
-        .item-detail__another-brands__items__item-box
-          = link_to '#', class: 'link_to item-detail__another-brands__items__item-box__item-link' do
-            .item-detail__another-brands__items__item-box__item-link__picture
-              = image_tag 'item-detail.jpg', size: '220x220'
-            .item-detail__another-brands__items__item-box__item-link__simple-detail
-              .item-detail__another-brands__items__item-box__item-link__simple-detail__name
-                %p
-                  カスタネ 花柄カシュークールワンピ ピンクベージュ
-              .item-detail__another-brands__items__item-box__item-link__simple-detail__boxes
-                .item-detail__another-brands__items__item-box__item-link__simple-detail__boxes__price
-                  %p
-                    ¥4,500
-                .item-detail__another-brands__items__item-box__item-link__simple-detail__boxes__box
-                  .item-detail__another-brands__items__item-box__item-link__simple-detail__boxes__box__good
-                    = fa_icon 'heart', class: 'item-detail__another-brands__items__item-box__item-link__simple-detail__boxes__box__good__heart'
-                  .item-detail__another-brands__items__item-box__item-link__simple-detail__boxes__box__good-counts
-                    %p
-                      2
       
                   
 / パンくず
-
 = render 'items/top-page-footer'

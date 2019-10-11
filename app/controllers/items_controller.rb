@@ -47,6 +47,8 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @item = Item.find(params[:id])
+    @another_items = Item.where(user_id: @item.user_id).where.not(id: @item.id)
   end
 
   def edit
