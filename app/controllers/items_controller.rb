@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :purchase, :buy]
   before_action :set_card, only: [:purchase, :buy]
   before_action :can_buy?, only: [:buy]
-  before_action :seller?, only: [:purchase]
+  before_action :seller?, only: [:purchase, :edit, :update]
 
   def index
     if Rails.env == "test" then
