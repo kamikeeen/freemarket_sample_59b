@@ -3,8 +3,8 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, except:[:index, :show]
   before_action :set_item, only: [:show, :edit, :update, :purchase, :buy]
   before_action :set_card, only: [:purchase, :buy]
-  before_action :can_buy?, only: [:buy]
-  before_action :seller?, only: [:purchase, :edit, :update]
+  before_action :can_buy?, only: [:buy, :purchase]
+  before_action :seller?, only: [:edit, :update]
 
   def index
     if Rails.env == "test" then
@@ -51,7 +51,7 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-    @another_items = Item.where(user_id: @item.user_id).where.not(id: @item.id)
+    @another_items = Item.where(user_id: @item.user_id).where.not(id: @item.id).limit(6)
   end
 
   def edit
@@ -137,13 +137,13 @@ class ItemsController < ApplicationController
   end
 
   def can_buy?
-    if @item.status != "selling"
+    if @item.status != "selling" || @item.user_id == current_user.id
       redirect_to action: "show"
     end
   end
 
   def seller?
-    if @item.user_id == current_user.id
+    if @item.user_id != current_user.id
       redirect_to action: "show"
     end
   end
