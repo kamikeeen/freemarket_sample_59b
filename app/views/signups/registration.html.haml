@@ -24,7 +24,7 @@
               = f.email_field :email, autocomplete: "email", placeholder: "PC・携帯どちらでも可"
             .user__input__basic__main-form__confirm-text
               = render partial: '/signups/error-message', locals: {model: @user, column: "email"}
-            - if @user.password.blank?
+            - if session["devise.sns_uid"].blank?
               .user__input__basic__main-form-field
                 = f.label :"パスワード"
                 %span.user__input__basic__main-form-field__require
