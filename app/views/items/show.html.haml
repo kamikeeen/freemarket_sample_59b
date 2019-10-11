@@ -9,9 +9,10 @@
 
       .item-detail__contents__inner__pictures
         .item-detail__contents__inner__pictures__main
-          .item__badge
-          .item__badge__text
-            SOLD
+          - if @item.status != 'selling'
+            .item__badge
+            .item__badge__text
+              SOLD
           = image_tag "#{@item.images.first.name}", size: '300x300'
         %ul.item-detail__contents__inner__pictures__sub
           - @item.images.each do |image|
@@ -44,21 +45,22 @@
               カテゴリー
           %td
             .item-detail__contents__inner__details__category-main
-              = link_to 'レディース', "#", class: 'link_to'
+              = link_to @item.category.root.name, "#", class: 'link_to'
             / おそらくeach文でカテゴリを取り出すため、クラス名をmainとsubに分けた
             .item-detail__contents__inner__details__category-sub
               = fa_icon 'angle-right', class: 'item-detail__contents__inner__details__category-sub__angle-right'
-              = link_to 'ワンピース', "#", class: 'link_to'
+              = link_to @item.category.parent.name, "#", class: 'link_to'
             .item-detail__contents__inner__details__category-sub
               = fa_icon 'angle-right', class: 'item-detail__contents__inner__details__category-sub__angle-right'
-              = link_to 'ロングワンピース', "#", class: 'link_to'
-        %tr
-          %th
-            %p
-              ブランド
-          %td
-            .item-detail__contents__inner__details__brand-name
-              = link_to 'カスタネ', "#", class: 'link_to'
+              = link_to @item.category.name, "#", class: 'link_to'
+        - if @item.brand
+          %tr
+            %th
+              %p
+                ブランド
+            %td
+              .item-detail__contents__inner__details__brand-name
+                = link_to @item.brand.name, "#", class: 'link_to'
         - if @item.size
           %tr
             %th
@@ -110,7 +112,7 @@
 
       .item-detail__contents__inner__details__price
         %p
-          = @item.price
+          = @item.price.to_s(:currency, precision: 0, format: '¥%n')
         %p.item-detail__contents__inner__details__price__tax
           （税込）
         %p.item-detail__contents__inner__details__price__shipping
@@ -195,7 +197,7 @@
               .item-detail__another-items__items__item-box__item-link__simple-detail__boxes
                 .item-detail__another-items__items__item-box__item-link__simple-detail__boxes__price
                   %p
-                    = another_item.price
+                    = another_item.price.to_s(:currency, precision: 0, format: '¥%n')
                 .item-detail__another-items__items__item-box__item-link__simple-detail__boxes__box
                   .item-detail__another-items__items__item-box__item-link__simple-detail__boxes__box__good
                     = fa_icon 'heart', class: 'item-detail__another-items__items__item-box__item-link__simple-detail__boxes__box__good__heart'
