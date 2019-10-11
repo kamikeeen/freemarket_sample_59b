@@ -1,8 +1,8 @@
 class ItemsController < ApplicationController
   require 'payjp'
-  before_action :set_item, only: [:show, :purchase, :buy]
+  before_action :set_item, only: [:show, :edit, :update, :purchase, :buy]
   before_action :set_card, only: [:purchase, :buy]
-
+  before_action :user_redirect, only: [:edit, :update]
   def index
     if Rails.env == "test" then
       category1 = 1
@@ -33,7 +33,7 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    10.times {@item.images.build}
+    image_build
   end
 
   def create
@@ -41,7 +41,7 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to root_path
     else
-      10.times {@item.images.build}
+      image_build
       render :new
     end
   end
@@ -52,6 +52,19 @@ class ItemsController < ApplicationController
   end
 
   def edit
+      @item.images.each do |image|
+        image.name.cache!
+      end
+      image_build
+  end
+
+  def update
+    if @item.update(item_params)
+      redirect_to item_path(params[:id])
+    else
+      image_build
+      render :edit
+    end
   end
 
   def destroy
@@ -82,8 +95,21 @@ class ItemsController < ApplicationController
       end
     end
   end
-    
   private
+
+
+
+  def set_item
+    @item = Item.find(params[:id])
+  end
+
+  def user_redirect
+    unless user_signed_in?
+      redirect_to root_path
+    else
+      redirect_to root_path unless current_user.id == @item.user.id  
+    end
+  end
 
   def item_params
     params.require(:item).permit(
@@ -97,14 +123,18 @@ class ItemsController < ApplicationController
       :delivery_method, 
       :arrival, 
       :price, 
+      :brand_id,
       images_attributes: [
-        :name
+        :id,
+        :name,
+        :name_cache
       ]
     ).merge(user_id: current_user.id)
   end
-
-  def set_item
-    @item = Item.find(params[:id])
+    
+  def image_build
+    image_limit = 10
+    (image_limit - @item.images.count).times {@item.images.build}
   end
 
   def set_card

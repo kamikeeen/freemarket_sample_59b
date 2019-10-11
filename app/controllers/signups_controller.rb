@@ -68,6 +68,9 @@ class SignupsController < ApplicationController
     if @user.save
       session[:id] = @user.id
       redirect_to end_signups_path
+      if session["devise.sns_uid"].present?
+        SnsCredential.create(uid: session["devise.sns_uid"] , provider: session["devise.sns_provider"], user_id: @user.id) 
+      end
     else
       render 'payment'
     end
