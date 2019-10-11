@@ -2,7 +2,7 @@ class CategoriesController < ApplicationController
   # before_action :set_category_list,only:[:show]
 
   def index
-    @parents = Category.all.where(ancestry: nil).limit(12);
+    @parentCategories = Category.where(ancestry: nil);
   end
 
   def new
@@ -18,8 +18,4 @@ class CategoriesController < ApplicationController
   def destroy
   end
 
-  # private
-  # def set_category_list
-  #   @Category = Category.find(params[:id])
-  # end
 end
