@@ -10,8 +10,9 @@
       .category-index-contents__content__parent-category-box__parent-category-list
         %ul
           - @parentCategories.each do |parentCategory|
-            %li
-              #{parentCategory.name}
+            = link_to "#" do
+              %li
+                #{parentCategory.name}
     .category-index-contents__content__box
       - @parentCategories.each do |parentCategory|
         .category-index-contents__content__box__parent-box
@@ -32,3 +33,5 @@
                     = link_to '#' do
                       #{grandChildCategory.name}
   = render 'items/top-page-footer'
+.top-page-shipping-button
+  = render "items/shipping-button"

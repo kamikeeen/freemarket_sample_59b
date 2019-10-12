@@ -16,15 +16,25 @@
     }
     &__parent-category-box {
       &__parent-category-list{
-        & li {
-          display: inline-block;
-          line-height: 40px;
-          height: 40px;
+        display: inline-flex;
+        & a {
+          display: inline-flex;
           margin: 5px;
-          padding: 0px 30px;
-          background-color: #FFFFFF;
-          box-shadow: 2px 2px #E7E7E7;
-          border-radius: 5px;
+          text-decoration: none;
+          color: #000000;
+          & li {
+            display: inline-block;
+            line-height: 40px;
+            height: 40px;
+            padding: 0px 30px;
+            background-color: #FFFFFF;
+            box-shadow: 2px 2px #E7E7E7;
+            border-radius: 5px;
+            &:hover {
+              background-color:rgb(234, 53, 45);
+              color: #FFFFFF;
+            }
+          }
         }
       }
     }
@@ -32,7 +42,6 @@
       margin: 30px 0px;
       &__parent-box {
         padding: 5px 30px;
-        // height: 40px;
         font-size: 22px;
         font-weight: bold;
         color: #FFFFFF;
