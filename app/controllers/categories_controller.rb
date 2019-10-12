@@ -9,7 +9,8 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    @category = Category.find(params[:id])
+    @parentCategories = Category.where(ancestry: nil).page(params[:page]).per(5);
+    
   end
 
   def edit
