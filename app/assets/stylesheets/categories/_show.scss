@@ -1,36 +1,78 @@
-.test05{
-  background-color: gainsboro;
-  height: 40000px;
+.category-show-contents {
+  margin: 0px auto;
+  height: 100%;
   width: 100%;
-  .test1{
-    background-color: gainsboro;
-    margin: 40px 290px;
-    .test2-2{
+  background-color: #f5f5f5;
+  &__content {
+    width: 1020px;
+    margin: 0 auto;
+    padding: 55px 0px 55px 0px;
+    &__category-link {
+      height: 60px;
     }
-    .test2-3{
-      .test3-4{
-        background-color: orchid;
-        width: 700px;
-        height: 46px;
-        .h2{
-          padding: 8px 0;
-          font-size: 22px;
-          text{
-            padding: 8px 0;
-            font-size: 22px;
-            line-height: 1.4;
-            background-color: #f5f5f5;
-            background-repeat: no-repeat;
-            margin: 0;
-            padding: 0;
+    &__items {
+      &__category-name {
+        margin: 10px 0px 8px 0px;
+        font-size: 22px;
+        font-weight: bold;
+      }
+      &__lists {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        &__item {
+          width: 18%;
+          background-color: white;
+          position: relative;
+          box-shadow: 1px 1px rgba(179, 179, 179, 0.589);
+          margin-bottom: 15px;
+          &__image {
+            text-align: center;
+          }
+          &__price {
+            border-radius: 0 14px 14px 0;
+            background-color: rgba(0, 0, 0, 0.548);
+            position: absolute;
+            padding: 0 14px;
+            color: white;
+            top: 55%;
+          }
+          &__name {
+            padding: 14px;
+            font-size: 14px;
+            min-height: 36px;
+            p {
+              word-break: break-word;
+              display: -webkit-box;
+              -webkit-box-orient: vertical;
+              -webkit-line-clamp: 2;
+              overflow: hidden;
+              color: black;
+              background: -webkit-linear-gradient(-70deg, #000000, rgb(45, 45, 43), #FFFFFF);
+              -webkit-background-clip: text;
+              -webkit-text-fill-color: transparent;
+            }
           }
         }
       }
-      .test3-5{
-        .test4-2{
-          height: 250px;
-          width: 700px;
-        }
+    }
+    &__pagenation {
+    
+    }
+    &__explanation-box {
+      margin-top: 30px;
+      &__category-name {
+        padding: 10.5px 0px;
+        font-size: 22px;
+        font-weight: bold;
+        text-align: center;
+        color: #FFFFFF;
+        background-color: rgb(234, 53, 45);
+      }
+      &__category-explanetion {
+        padding: 30px;
+        background-color: #FFFFFF;
+        font-size: 14px;
       }
     }
   }
