@@ -45,15 +45,18 @@
           - if @category.has_parent? then
             #{@category.root.name}の下にあるカテゴリで商品は
           #{@items.length}点あります。よく見られているカテゴリーは
-          #{@category.children[0].name}
-          や
-          #{@category.children[1].name}
+          - if @category.has_children? then
+            #{@category.children[0].name}
+            や
+            #{@category.children[1].name}
+          - else
+            #{@category.siblings[0].name}
+            や
+            #{@category.siblings[1].name}
           です。特に人気の商品は
-          「#{@items[0].name}」
+          「-」
           や
-          「#{@items[1].name}」
-          や
-          「#{@items[2].name}」
+          「-」
           があります。#{@category.name}の買い取りやリサイクル処分、服の整理を検討中の方にお勧めです。
 
   = render 'items/top-page-footer'
