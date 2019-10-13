@@ -10,7 +10,6 @@
     &__category-link {
       display: inline-block;
       margin-right: 16px;
-      // height: 60px;
       & a {
         font-size: 14px;
         @include link-action();
