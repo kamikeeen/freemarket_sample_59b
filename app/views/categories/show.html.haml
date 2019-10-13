@@ -13,51 +13,16 @@
         %p
           トップスの一覧商品
       .category-show-contents__content__items__lists
-        .category-show-contents__content__items__lists__item
-          = link_to '#' do
-            .category-show-contents__content__items__lists__item__image
-              -# = image_tag '', height: '163'
-            .category-show-contents__content__items__lists__item__price
-              = 1000.to_s(:currency, precision: 0, format: '¥%n')
-            .category-show-contents__content__items__lists__item__name
-              %p 
-                タイトル
-        .category-show-contents__content__items__lists__item
-          = link_to '#' do
-            .category-show-contents__content__items__lists__item__image
-              -# = image_tag '', height: '163'
-            .category-show-contents__content__items__lists__item__price
-              = 1000.to_s(:currency, precision: 0, format: '¥%n')
-            .category-show-contents__content__items__lists__item__name
-              %p 
-                タイトル
-        .category-show-contents__content__items__lists__item
-          = link_to '#' do
-            .category-show-contents__content__items__lists__item__image
-              -# = image_tag '', height: '163'
-            .category-show-contents__content__items__lists__item__price
-              = 1000.to_s(:currency, precision: 0, format: '¥%n')
-            .category-show-contents__content__items__lists__item__name
-              %p 
-                タイトル
-        .category-show-contents__content__items__lists__item
-          = link_to '#' do
-            .category-show-contents__content__items__lists__item__image
-              -# = image_tag '', height: '163'
-            .category-show-contents__content__items__lists__item__price
-              = 1000.to_s(:currency, precision: 0, format: '¥%n')
-            .category-show-contents__content__items__lists__item__name
-              %p 
-                タイトル
-        .category-show-contents__content__items__lists__item
-          = link_to '#' do
-            .category-show-contents__content__items__lists__item__image
-              -# = image_tag '', height: '163'
-            .category-show-contents__content__items__lists__item__price
-              = 1000.to_s(:currency, precision: 0, format: '¥%n')
-            .category-show-contents__content__items__lists__item__name
-              %p 
-                タイトル
+        - @items.each do |item|
+          .category-show-contents__content__items__lists__item
+            = link_to '' do
+              .category-show-contents__content__items__lists__item__image
+                = image_tag "#{item.images[0].name}", height: '163'
+              .category-show-contents__content__items__lists__item__price
+                = item.price.to_s(:currency, precision: 0, format: '¥%n')
+              .category-show-contents__content__items__lists__item__name
+                %p 
+                  = item.name
 
     .category-show-contents__content__pagination
       -# = paginate()
