@@ -15,10 +15,10 @@
             %ul.parent-category
               - gc.children.each do |cc|
                 %li.count
-                  = link_to "" do
+                  = link_to "/categories/#{cc.id}" do
                     #{cc.name}
                   %ul.child-category
                     - cc.children.each do |gcc|
                       %li
-                        = link_to "" do
+                        = link_to "/categories/#{gcc.id}" do
                           #{gcc.name}
