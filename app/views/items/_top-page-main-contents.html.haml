@@ -11,18 +11,18 @@
           人気のカテゴリー
         .list-box
           .list-box__list
-            #{categoryName1}
+            #{category1.name}
           .list-box__list
-            #{categoryName2}
+            #{category2.name}
           .list-box__list
-            #{categoryName3}
+            #{category3.name}
           .list-box__list
-            #{categoryName4}
+            #{category4.name}
       .recommend-box
-        = render partial: "top-page-item-wrapper", locals: {itemsCategory1: @itemsCategory1, categoryName1: @CategoryName1, |
-                                                    itemsCategory2: @itemsCategory2, categoryName2: @CategoryName2, |
-                                                    itemsCategory3: @itemsCategory3, categoryName3: @CategoryName3, |
-                                                    itemsCategory4: @itemsCategory4, categoryName4: @CategoryName4}
+        = render partial: "top-page-item-wrapper", locals: {itemsCategory1: @itemsCategory1, category1: @Category1, |
+                                                    itemsCategory2: @itemsCategory2, category2: @Category2, |
+                                                    itemsCategory3: @itemsCategory3, category3: @Category3, |
+                                                    itemsCategory4: @itemsCategory4, category4: @Category4}
       .show-recommend
         .text
           人気のブランド

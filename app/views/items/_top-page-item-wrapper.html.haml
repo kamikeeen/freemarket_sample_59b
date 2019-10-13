@@ -2,9 +2,9 @@
   .recommend-item
     .header
       .title
-        #{categoryName1}新着アイテム
+        #{category1.name}新着アイテム
       .see-more
-        = link_to "", class:"modify-link-to" do
+        = link_to category_path(category1.id), class:"modify-link-to" do
           .see-more__box
             .see-more__box__text
               もっと見る
@@ -24,7 +24,7 @@
   .recommend-item
     .header
       .title
-        #{categoryName2}新着アイテム
+        #{category2.name}新着アイテム
       .see-more
         = link_to "", class:"modify-link-to" do
           .see-more__box
@@ -46,7 +46,7 @@
   .recommend-item
     .header
       .title
-        #{categoryName3}新着アイテム
+        #{category3.name}新着アイテム
       .see-more
         = link_to "", class:"modify-link-to" do
           .see-more__box
@@ -68,7 +68,7 @@
   .recommend-item
     .header
       .title
-        #{categoryName4}新着アイテム
+        #{category4.name}新着アイテム
       .see-more
         = link_to "", class:"modify-link-to" do
           .see-more__box
