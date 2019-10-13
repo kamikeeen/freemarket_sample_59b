@@ -11,13 +11,17 @@
           人気のカテゴリー
         .list-box
           .list-box__list
-            #{category1.name}
+            = link_to "#categoryPath1" do
+              #{category1.name}
           .list-box__list
-            #{category2.name}
+            = link_to "#categoryPath2" do
+              #{category2.name}
           .list-box__list
-            #{category3.name}
+            = link_to "#categoryPath3" do
+              #{category3.name}
           .list-box__list
-            #{category4.name}
+            = link_to "#categoryPath4" do
+              #{category4.name}
       .recommend-box
         = render partial: "top-page-item-wrapper", locals: {itemsCategory1: @itemsCategory1, category1: @Category1, |
                                                     itemsCategory2: @itemsCategory2, category2: @Category2, |
