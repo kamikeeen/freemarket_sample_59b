@@ -1,0 +1,27 @@
+.page, .first, .prev, .next, .last {
+  display: inline-block;
+  height: 44px;
+  width: 44px;
+  border: 1px solid #CCCCCC;
+  border-radius: 5px;
+  letter-spacing: normal;
+  text-align: center;
+  line-height: 44px;
+  background-color: #FFFFFF;
+  font-size: 14px;
+  & a {
+    display: block;
+    color: #000000;
+    text-decoration: none;
+  }
+}
+.first, .prev {
+  float: left;
+}
+.last, .next {
+  float: right;
+}
+.currentPagination {
+  background-color: rgb(234, 53, 45);
+  color: #FFFFFF;
+}
