@@ -75,7 +75,7 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     if @item.selling?
       @item.destroy if @item.user_id == current_user.id
-      redirect_to listings_mypage_path
+      redirect_to listings_mypage_path(current_user.id)
     else
       redirect_to item_path(params[:id])
     end
