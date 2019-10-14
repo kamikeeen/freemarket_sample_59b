@@ -293,7 +293,6 @@ describe ItemsController do
           get :purchase, params: {id: item.id}
         end
         it "アクセス成功" do
-          binding.pry
           expect(response).to be_successful
         end
         
