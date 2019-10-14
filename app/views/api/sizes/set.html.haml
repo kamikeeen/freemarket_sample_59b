@@ -1,0 +1,14 @@
+.items__sell__form__item__detail-form__size
+  %label
+    サイズ
+  %span.items__sell__form__require
+    必須
+  %br
+  %select{name: "item[size_id]", id: "size_id"}
+    %option{value: ""} ---
+    - @child_sizes.each do |size|
+      - if @child_size === size
+        %option{value: size.id, selected: "selected"}= size.name
+      - else
+        %option{value: size.id}= size.name
+  .items__sell__form__confirm-text

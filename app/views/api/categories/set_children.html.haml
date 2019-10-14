@@ -1,0 +1,7 @@
+%select{name: "category_children", id: "category_children"}
+  %option{value: ""} ---
+  - @children.each do |child|
+    - if @child === child
+      %option{value: child.id, selected: "selected", data:{size:{id: child.size_id}}}= child.name
+    - else
+      %option{value: child.id, data:{size:{id: child.size_id}}}= child.name
