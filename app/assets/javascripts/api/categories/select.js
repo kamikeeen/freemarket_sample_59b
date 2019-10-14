@@ -12,8 +12,8 @@ $(function(){
       .done(function(html){
         $("#category_children").remove();
         $("#category_grand_children").remove();
-        $(".items__new__sell__form__item__detail-form__size").remove();
-        $(".items__new__sell__form__item__detail-form__category").append(html);
+        $(".items__sell__form__item__detail-form__size").remove();
+        $(".items__sell__form__item__detail-form__category").append(html);
       })
       .fail(function(){
       })
@@ -21,6 +21,7 @@ $(function(){
       $("#category_children").remove();
       $("#category_grand_children").remove();
       $(".items__new__sell__form__item__detail-form__size").remove();
+
     }
   })
 
@@ -35,14 +36,14 @@ $(function(){
       })
       .done(function(html){
         $("#category_grand_children").remove();
-        $(".items__new__sell__form__item__detail-form__category").append(html);
-        $(".items__new__sell__form__item__detail-form__size").remove();
+        $(".items__sell__form__item__detail-form__category").append(html);
+        $(".items__sell__form__item__detail-form__size").remove();
       })
       .fail(function(){
       })
     }else{
       $("#category_grand_children").remove();
-      $(".items__new__sell__form__item__detail-form__size").remove();
+      $(".items__sell__form__item__detail-form__size").remove();
     }
   })
   
@@ -58,11 +59,11 @@ $(function(){
         dataType: "html"
       })
       .done(function(html){
-        $(".items__new__sell__form__item__detail-form__size").remove();
-        $(".items__new__sell__form__item__detail-form__status").before(html);
+        $(".items__sell__form__item__detail-form__size").remove();
+        $(".items__sell__form__item__detail-form__status").before(html);
       })
     }else{
-      $(".items__new__sell__form__item__detail-form__size").remove();
+      $(".items__sell__form__item__detail-form__size").remove();
     }
   })
 })

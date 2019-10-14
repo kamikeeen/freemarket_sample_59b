@@ -1,0 +1,174 @@
+.items__edit__background
+  = render "shared/center_logo_header"
+  #item_id= @item.id
+  .items__edit__sell
+    .items__edit__sell__title
+      .items__edit__sell__title-text
+        商品の情報を入力
+    .items__edit__sell__form
+      = form_for @item do |f|
+        .items__edit__sell__form__upload-image
+          = f.label :"出品画像"
+          %span.items__edit__sell__form__require
+            必須
+          %br
+          %span.items__edit__sell__form__upload-image-text
+            最大10枚までアップロードできます
+          %br
+          .items__edit__sell__form__upload-image-form
+            - @item.images.each.with_index do |image,num|
+              - if image.name.present?
+                .image_preview
+                  %div{class:  "image#{num}", "data-num" => "#{num}"}
+                    = image_tag image.name.url, width: "122px", height: "103px"
+                  .btns
+                    .btn.edit
+                      編集
+                    .btn.delete
+                      削除
+            - @item.images.each do |image|
+              =f.fields_for :images,image do |img|
+                = img.label :name do
+                  %span
+                    ドラッグアンドドロップ
+                    %br
+                    またはクリックしてファイルをアップロード
+                  = img.file_field :name, accept: "image/*" 
+                  = img.hidden_field :name_cache unless image.name.blank?
+          .items__edit__sell__form__confirm-text
+            = render partial: 'shared/error-message', locals: {model: @item, column: "im"}
+            
+        .items__edit__sell__form__items
+          .items__edit__sell__form__items-name
+            = f.label :"商品名"
+            %span.items__edit__sell__form__require
+              必須
+            %br
+            = f.text_field :name, placeholder:"商品名（必須４０文字まで）"
+          .items__edit__sell__form__confirm-text
+            = render partial: 'shared/error-message', locals: {model: @item, column: "name"}
+            
+          .items__edit__sell__form__items-explanation
+            = f.label :"商品の説明"
+            %span.items__edit__sell__form__require
+              必須
+            %br
+            = f.text_area :text, placeholder:"商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+          .items__edit__sell__form__confirm-text
+            = render partial: 'shared/error-message', locals: {model: @item, column: "text"}
+
+            
+        .items__edit__sell__form__item__detail
+          .items__edit__sell__form__item__detail-title
+            商品の詳細
+          .items__edit__sell__form__item__detail-form
+            .items__edit__sell__form__item__detail-form__category
+              = f.label :"カテゴリー"
+              %span.items__edit__sell__form__require
+                必須
+              %br
+              = collection_select :items, :category_id, Category.where(ancestry: nil), :id, :name, {include_blank: '---', selected: @item.category.root.id }
+            
+            .items__edit__sell__form__item__detail-form__brand
+              = f.label :"ブランド"
+              %span.items__edit__sell__form__require__option
+                任意
+              %br
+              %input.brand_form{value: "#{@item.brand.name}"}
+              = f.hidden_field :brand_id, type: "hidden"
+              .brand__result__box
+                %ul.brand__result__lists
+            .items__edit__sell__form__confirm-text
+              = render partial: 'shared/error-message', locals: {model: @item, column: "category"}
+
+              
+            .items__edit__sell__form__item__detail-form__status
+              = f.label :"商品の状態"
+              %span.items__edit__sell__form__require
+                必須
+              %br
+              = f.select :damage, Item.damages_i18n.invert, include_blank: '---'
+            .items__edit__sell__form__confirm-text
+              = render partial: 'shared/error-message', locals: {model: @item, column: "damage"}
+
+              
+        .items__edit__sell__form__about-delivery
+          .items__edit__sell__form__about-delivery-title
+            = "配送について"
+            = link_to "#" do
+              = fa_icon 'question-circle'
+          .items__edit__sell__form__about-delivery-form
+            .items__edit__sell__form__about-delivery-form__postage
+              = f.label :"配送料の負担"
+              %span.items__edit__sell__form__require
+                必須
+              %br
+              = f.select :postage_side, Item.postage_sides_i18n.invert, include_blank: '---'
+            .items__edit__sell__form__confirm-text
+              = render partial: 'shared/error-message', locals: {model: @item, column: "postage_side"}
+            
+            .items__edit__sell__form__about-delivery-form__post-area
+              = f.label :"発送元の地域"
+              %span.items__edit__sell__form__require
+                必須
+              %br
+              = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: "---"}
+            .items__edit__sell__form__confirm-text
+              = render partial: 'shared/error-message', locals: {model: @item, column: "prefecture_id"}
+
+              
+            .items__edit__sell__form__about-delivery-form__arrival
+              = f.label :"発送までの日数"
+              %span.items__edit__sell__form__require
+                必須
+              %br
+              = f.select :arrival, Item.arrivals_i18n.invert, include_blank: '---'
+            .items__edit__sell__form__confirm-text
+              = render partial: 'shared/error-message', locals: {model: @item, column: "arrival"}
+
+              
+        .items__edit__sell__form__price
+          .items__edit__sell__form__price-title
+            = "販売価格(300〜9,999,999)"
+            = link_to "#" do
+              = fa_icon 'question-circle'
+          .items__edit__sell__form__price-form
+            .items__edit__sell__form__price-form-price
+              = f.label :"価格"
+              %span.items__edit__sell__form__require
+                必須
+              %span.items__edit__sell__form__price-mark
+                ¥
+              = f.text_field :price, placeholder:"例）300"
+              .items__edit__sell__form__confirm-text
+                = render partial: 'shared/error-message', locals: {model: @item, column: "price"}
+
+                
+            .items__edit__sell__form__price-form-commission
+              .items__edit__sell__form__price-form-commission-title
+                販売手数料
+              .items__edit__sell__form__price-form-commission-price
+                = "-"
+            .items__edit__sell__form__price-form-profit
+              .items__edit__sell__form__price-form-profit-title
+                販売利益
+              .items__edit__sell__form__price-form-profit-price
+                = "-"
+        .items__edit__sell__form__button
+          .items__edit__sell__form__button__confirmation
+            =link_to "禁止されている出品", "#"
+            、
+            =link_to "行為","#"
+            を必ずご確認ください。
+            %br
+            またブランド品でシリアルナンバー等がある場合はご記載ください。偽ブランドの販売は犯罪であり処罰される可能性があります。
+            %br
+            また、出品をもちまして
+            =link_to "加盟店規約","#"
+            に同意したことになります。
+          .items__edit__sell__form__button__sell-button
+            = f.submit "出品する"
+          .items__edit__sell__form__button__back-button
+            = link_to root_path do
+              %input{type:"button", value:"もどる"}
+  = render "shared/center_logo_footer"
