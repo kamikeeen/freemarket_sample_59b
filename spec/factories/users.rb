@@ -13,7 +13,7 @@ FactoryBot.define do
   end
   factory :another_user, class: User do
     nickname                {"test2"}
-    email                   {"test44@gmail.com"}
+    email                   {Faker::Internet.email}
     password                {"test321"}
     password_confirmation   {"test321"}
     familyname              {"test2"}
