@@ -20,11 +20,36 @@
         width: 300px;
         height: 420px;
         &__main {
+          position: relative;
           height: 300px;
+          .item__badge {
+            border-color: red transparent transparent transparent;
+            border-width: 120px 120px 0 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            &__text {
+              top: 15px;
+              left: -5px;
+              font-size: 35px;
+              transform: rotate(-45deg);
+              color: white;
+              position: absolute;
+           }
+         }
         }
         &__sub {
           float: left;
           height: 60px;
+          display: inline-flex;
+          flex-wrap: wrap;
+          justify-content: flex-start;
+          .picture{
+            height: 60px;
+          }
         }
       }
       &__details, table {
@@ -281,15 +306,20 @@
     }
     &__items {
       width: 700px;
-      display: inline-flex;
+      display: flex;
       flex-wrap: wrap;
-      justify-content: space-between;
+      justify-content: flex-start;
       &__item-box {
+        margin-right: 20px;
         margin-bottom: 20px;
         height: 330px;
         width: 220px;
         background-color: #FFFFFF;
+        &:nth-child(3n) {
+          margin-right: 0;
+        }
         &__item-link {
+          text-decoration: none;
           color: #000000;
           &__picture {
             height: 220px;
@@ -344,8 +374,12 @@
       width: 700px;
       display: inline-flex;
       flex-wrap: wrap;
-      justify-content: space-between;
+      justify-content: flex-start;
+      &:nth-child(3n) {
+        margin-right: 0;
+      }
       &__item-box {
+        margin-right: 20px;
         margin-bottom: 20px;
         height: 330px;
         width: 220px;

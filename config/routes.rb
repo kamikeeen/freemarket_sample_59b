@@ -6,7 +6,7 @@ Rails.application.routes.draw do
               controllers: { omniauth_callbacks: 'users/omniauth_callbacks',
               registrations: 'users/registrations',
               sessions: 'users/sessions' }
-  resources :tests
+              
   resources :signups, only: [:index,:new, :create] do
     collection do
       get 'registration', to: 'signups#registration'
@@ -19,9 +19,10 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :items, only: [:index, :new, :create, :show, :edit, :destroy] do
-    collection do #member?
-      get 'purchase/:id', to: 'items#purchase', as: 'purchase'
+  resources :items do
+    member do 
+      get 'purchase', to: 'items#purchase', as: 'purchase'
+      get "buy", to: "items#buy"
     end
   end
 
@@ -38,7 +39,12 @@ Rails.application.routes.draw do
   namespace :api do
     get "categories/select_children"
     get "categories/select_grand_children"
+    get "categories/set_children"
+    get "categories/set_grand_children"
     get "sizes/select"
+    get "sizes/set"
     get "delivery_methods/select"
+    get "delivery_methods/set"
+    get "brands/form"
   end
 end

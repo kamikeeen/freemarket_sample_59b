@@ -1,8 +1,10 @@
 !!!
 %html
   %head
+    = favicon_link_tag('titletab.png')
     %meta{content: "text/html; charset=UTF-8", http: { equiv: "Content-Type" }}/
-    %title FreemarketSample59b
+    %title めるかり 簡単フリマアプリ
+    %script{src: "https://js.pay.jp/", type: "text/javascript"}
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
