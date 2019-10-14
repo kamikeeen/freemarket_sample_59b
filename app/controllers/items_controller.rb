@@ -25,13 +25,15 @@ class ItemsController < ApplicationController
     end
 
     @itemsCategory1 = Item.where(category_id: [Category.find(category1).descendant_ids]).order('id Desc').limit(10)
-    @CategoryName1 = Category.find(category1).name
+    @Category1 = Category.find(category1)
     @itemsCategory2 = Item.where(category_id: [Category.find(category2).descendant_ids]).order('id Desc').limit(10)
-    @CategoryName2 = Category.find(category2).name
+    @Category2 = Category.find(category2)
     @itemsCategory3 = Item.where(category_id: [Category.find(category3).descendant_ids]).order('id Desc').limit(10)
-    @CategoryName3 = Category.find(category3).name
+    @Category3 = Category.find(category3)
     @itemsCategory4 = Item.where(category_id: [Category.find(category4).descendant_ids]).order('id Desc').limit(10)
-    @CategoryName4 = Category.find(category4).name
+    @Category4 = Category.find(category4)
+
+    @grandCategory = Category.all.where(ancestry: nil)
 
   end
 

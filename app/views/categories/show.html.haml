@@ -1,13 +1,67 @@
 = render 'items/top-page-header'
-- breadcrumb :category
+- breadcrumb :categories
+-# - breadcrumb :parentCategory, @category
+-# - breadcrumb :childCategory, @category
+- breadcrumb :grandChildCategory, @category
 = render "layouts/breadcrumbs"
-.test05
-  .test1
-    .test2-2
-    .test2-3
-      .test3-4
-        .h2
-          かてごりーの商品一覧
-      .test3-5
-        .test4-2
-= render 'items/top-page-footer'
+
+.category-show-contents
+  .category-show-contents__content
+    - @category.children.each_with_index do |category, i|
+      - if i == 9 then
+        - break
+      - else
+        .category-show-contents__content__category-link
+          = link_to category_path(category.id) do
+            %p
+              = category.name
+    .category-show-contents__content__items
+      .category-show-contents__content__items__category-name
+        %p
+          #{@category.name}の一覧商品
+      .category-show-contents__content__items__lists
+        - @items.each do |item|
+          .category-show-contents__content__items__lists__item
+            = link_to item_path(item.id) do
+              .category-show-contents__content__items__lists__item__image
+                = image_tag "#{item.images[0].name}", height: '163'
+              .category-show-contents__content__items__lists__item__price
+                = item.price.to_s(:currency, precision: 0, format: '¥%n')
+              .category-show-contents__content__items__lists__item__name
+                %p 
+                  = item.name
+
+    .category-show-contents__content__pagination
+      = paginate(@items)
+    .category-show-contents__content__explanation-box
+      .category-show-contents__content__explanation-box__category-name
+        %p
+          #{@category.name}
+          - if @category.has_parent? then
+            (#{@category.root.name})
+      .category-show-contents__content__explanation-box__category-explanetion
+        %p
+          #{@category.name}
+          - if @category.has_parent? then
+            (#{@category.root.name})
+          の着ない服、いらない洋服を売るならメルカリへ。#{@category.name}は
+          - if @category.has_parent? then
+            #{@category.root.name}の下にあるカテゴリで商品は
+          #{@items.length}点あります。よく見られているカテゴリーは
+          - if @category.has_children? then
+            #{@category.children[0].name}
+            や
+            #{@category.children[1].name}
+          - else
+            #{@category.siblings[0].name}
+            や
+            #{@category.siblings[1].name}
+          です。特に人気の商品は
+          「-」
+          や
+          「-」
+          があります。#{@category.name}の買い取りやリサイクル処分、服の整理を検討中の方にお勧めです。
+
+  = render 'items/top-page-footer'
+.top-page-shipping-button
+  = render "items/shipping-button"

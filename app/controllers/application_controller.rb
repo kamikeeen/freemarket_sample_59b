@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :basic_auth, if: :production?
+  before_action :set_grandCategory
   protect_from_forgery with: :exception
 
 
@@ -18,4 +19,9 @@ class ApplicationController < ActionController::Base
       username == Rails.application.credentials.basic_auth_user && password == Rails.application.credentials.basic_auth_password
     end
   end
+
+  def set_grandCategory
+    @grandCategory = Category.all.where(ancestry: nil)
+  end
+  
 end
