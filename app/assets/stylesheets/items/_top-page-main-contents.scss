@@ -100,7 +100,7 @@
                 position:relative;
                 .item__badge {
                   border-color: red transparent transparent transparent;
-                  border-width: 120px 120px 0 0;
+                  border-width: 90px 90px 0 0;
                   position: absolute;
                   top: 0;
                   left: 0;
@@ -110,7 +110,7 @@
                   &__text {
                     top: 15px;
                     left: -5px;
-                    font-size: 35px;
+                    font-size: 24px;
                     transform: rotate(-45deg);
                     color: white;
                     position: absolute;

@@ -15,7 +15,7 @@
         .show-item.fade-off
           = link_to item_path(item.id), class:"modify-link-to" do
             .show-item__image
-              - if @item.status != 'selling'
+              - if item.status != 'selling'
                 .item__badge
                 .item__badge__text
                   SOLD
@@ -41,7 +41,7 @@
         .show-item.fade-off
           = link_to item_path(item.id), class:"modify-link-to" do
             .show-item__image
-              - if @item.status != 'selling'
+              - if item.status != 'selling'
                 .item__badge
                 .item__badge__text
                   SOLD
@@ -67,7 +67,7 @@
         .show-item.fade-off
           = link_to item_path(item.id), class:"modify-link-to" do
             .show-item__image
-              - if @item.status != 'selling'
+              - if item.status != 'selling'
                 .item__badge
                 .item__badge__text
                   SOLD
@@ -93,7 +93,7 @@
         .show-item.fade-off
           = link_to item_path(item.id), class:"modify-link-to" do
             .show-item__image
-              - if @item.status != 'selling'
+              - if item.status != 'selling'
                 .item__badge
                 .item__badge__text
                   SOLD
