@@ -72,6 +72,13 @@ class ItemsController < ApplicationController
   end
 
   def destroy
+    @item = Item.find(params[:id])
+    if @item.selling?
+      @item.destroy if @item.user_id == current_user.id
+      redirect_to listings_mypage_path
+    else
+      redirect_to item_path(params[:id])
+    end
   end
 
   def purchase
