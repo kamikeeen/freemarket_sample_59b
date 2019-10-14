@@ -61,11 +61,11 @@
             %li test
         .mypage-wrapper
           .mypage-content
-            = link_to "" do
+            = link_to mypage_path(current_user.id), class:"mypage__text" do
               .mypage
                 .mypage__icon
                   = image_tag "top-page/defalte-user-icon.png"
-                = link_to mypage_path(current_user.id), class:"mypage__text" do
+                .mypage__text
                   マイページ
           .pull-down
             %li test
