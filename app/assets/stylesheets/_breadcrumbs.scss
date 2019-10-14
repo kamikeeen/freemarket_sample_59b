@@ -30,7 +30,9 @@ nav.bread_crumb{
     }
   }
 }
-
+.current {
+  font-weight: bold;
+}
 // .breadcrumb li:first-child a:before{
 //   content: "\f3c5"; /* 好きなアイコンに変更してください。 */
 //   font-size: 1.5em;  /* アイコンの大きさ */

@@ -1,11 +1,14 @@
 = render 'items/top-page-header'
-- breadcrumb :category
+- breadcrumb :categories
+-# - breadcrumb :parentCategory, @category
+-# - breadcrumb :childCategory, @category
+- breadcrumb :grandChildCategory, @category
 = render "layouts/breadcrumbs"
 
 .category-show-contents
   .category-show-contents__content
     - @category.children.each_with_index do |category, i|
-      - if i == 10 then
+      - if i == 9 then
         - break
       - else
         .category-show-contents__content__category-link

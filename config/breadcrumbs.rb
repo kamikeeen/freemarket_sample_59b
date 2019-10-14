@@ -25,11 +25,53 @@ crumb :categories do
   parent :root
 end
 
-# カテゴリー商品一覧
-crumb :category do
-  link "カテゴリー商品一覧", category_path
+# 親カテゴリー
+crumb :parentCategory do |category|
+  link category.root.name, category_path(category.root.id)
   parent :categories
 end
+
+# 子カテゴリー
+crumb :childCategory do |category|
+  if category.has_parent? && category.has_children? then
+    # currentCategoryが子のとき
+    link category.name, category_path(category.id)
+    parent :parentCategory, category
+  else
+    # currentCategoryが親・孫のとき
+    if category.parent.blank? then
+      # currentCategoryが親のとき
+      parent :parentCategory, category
+    else
+      # currentCategoryが孫のとき
+      link category.parent.name, category_path(category.parent.id)
+      parent :parentCategory, category
+    end
+  end
+end
+
+# 孫カテゴリー
+crumb :grandChildCategory do |category|
+  if category.has_parent? && category.has_children? then
+    # currentCategoryが子のとき
+    parent :childCategory, category
+  else
+    # currentCategoryが親・孫のとき
+    if category.children.blank? then
+      # currentCategoryが孫のとき
+      link category.name, category_path(category.id)
+      parent :childCategory, category
+    else
+      parent :childCategory, category
+    end
+  end
+end
+
+# カテゴリー商品一覧
+# crumb :category do
+#   link "カテゴリー商品一覧", category_path
+#   parent :categories
+# end
 
 # crumb :category do |category|
 #   link "#{category.name}", categories_path(category)
