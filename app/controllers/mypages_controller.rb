@@ -30,6 +30,10 @@ class MypagesController < ApplicationController
     
   end
 
+  def listings
+    @items = Item.where(user_id: current_user.id)
+  end
+
   private
 
   def really_current_user?
