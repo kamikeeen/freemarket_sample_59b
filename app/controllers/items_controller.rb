@@ -1,11 +1,11 @@
 class ItemsController < ApplicationController
   require 'payjp'
   before_action :authenticate_user!, except:[:index, :show]
-  before_action :set_item, only: [:show, :edit, :update, :purchase, :buy]
+  before_action :set_item, only: [:show, :edit, :update, :purchase, :buy, :destroy]
   before_action :set_card, only: [:purchase, :buy]
-  before_action :status_selling?, only: [:buy, :purchase, :edit, :update]
+  before_action :status_selling?, only: [:buy, :purchase, :edit, :update, :destroy]
   before_action :buyer?, only: [:buy, :purchase]
-  before_action :seller?, only: [:edit, :update]
+  before_action :seller?, only: [:edit, :update, :destroy]
 
   def index
     if Rails.env == "test" then
@@ -72,13 +72,8 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @item = Item.find(params[:id])
-    if @item.selling?
-      @item.destroy if @item.user_id == current_user.id
+      @item.destroy
       redirect_to listings_mypage_path(current_user.id)
-    else
-      redirect_to item_path(params[:id])
-    end
   end
 
   def purchase
