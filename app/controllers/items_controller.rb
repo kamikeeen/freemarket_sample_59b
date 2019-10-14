@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
   require 'payjp'
   before_action :set_item, only: [:show, :purchase, :buy]
   before_action :set_card, only: [:purchase, :buy]
+  before_action :set_ransack, only: [:index, :show]
 
   def index
     if Rails.env == "test" then
@@ -109,5 +110,5 @@ class ItemsController < ApplicationController
   def set_card
     @card = current_user.card
   end
-
+  
 end

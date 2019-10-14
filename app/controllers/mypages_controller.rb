@@ -1,4 +1,5 @@
 class MypagesController < ApplicationController
+  before_action :set_ransack
 
   def index
   end

@@ -27,7 +27,7 @@ ja:
         yu_packet: "ゆうパケット"
       status:
         selling: "出品中"
-        contract: "発送待ち"
+        contract: "売り切れ"
         sent: "配送中"
         arrived: "取引完了"
   activerecord:
