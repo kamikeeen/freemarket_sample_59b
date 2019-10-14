@@ -1,4 +1,11 @@
 class ItemsController < ApplicationController
+  require 'payjp'
+  before_action :authenticate_user!, except:[:index, :show]
+  before_action :set_item, only: [:show, :edit, :update, :purchase, :buy]
+  before_action :set_card, only: [:purchase, :buy]
+  before_action :status_selling?, only: [:buy, :purchase, :edit, :update]
+  before_action :buyer?, only: [:buy, :purchase]
+  before_action :seller?, only: [:edit, :update]
 
   def index
   end
@@ -79,4 +86,32 @@ class ItemsController < ApplicationController
       ]
     ).merge(user_id: current_user.id)
   end
+    
+  def image_build
+    image_limit = 10
+    (image_limit - @item.images.count).times {@item.images.build}
+  end
+
+  def set_card
+    @card = current_user.card
+  end
+
+  def status_selling?
+    if @item.status != "selling"
+      redirect_to action: "show"
+    end
+  end
+
+  def buyer?
+    if @item.user_id == current_user.id
+      redirect_to action: "show"
+    end
+  end
+
+  def seller?
+    if @item.user_id != current_user.id
+      redirect_to action: "show"
+    end
+  end
+
 end
