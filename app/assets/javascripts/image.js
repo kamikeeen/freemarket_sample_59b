@@ -31,10 +31,10 @@ $(function(){
   
   var num = $(".image_preview").length
   var form_width = `100%`
-  $(".items__sell__form__upload-image-form").on("change", $(`#item_images_attributes_${num}_name`), function(e){
+  $(".items__new__sell__form__upload-image-form").on("change", $(`#item_images_attributes_${num}_name`), function(e){
       $(`label[for=item_images_attributes_${num}_name`).css("display", "none")
       if (num === 0){
-        $(".items__sell__form__upload-image-form").prepend(buildHtml(num))
+        $(".items__new__sell__form__upload-image-form").prepend(buildHtml(num))
       }else{
         $(".image_preview").last().after(buildHtml(num))
       }
@@ -84,7 +84,7 @@ $(function(){
       form_width = `100%`
     }
 
-    $(".items__sell__form__upload-image-form label").css("display", "none")
+    $(".items__new__sell__form__upload-image-form label").css("display", "none")
     $(`label[for=item_images_attributes_${index}_name`).remove()
     $(`.image_preview`).each(function(i, image){
       $(image).children().attr("data-num", `${i}`)
@@ -92,12 +92,12 @@ $(function(){
     })
 
     if (num === 0){
-      $(".items__sell__form__upload-image-form").prepend(buildForm(num, form_width))
+      $(".items__new__sell__form__upload-image-form").prepend(buildForm(num, form_width))
     }else{
-      $(`.items__sell__form__upload-image-form label:eq(${num - 1})`).after(buildForm(num, form_width))
+      $(`.items__new__sell__form__upload-image-form label:eq(${num - 1})`).after(buildForm(num, form_width))
     }
 
-    $(".items__sell__form__upload-image-form label").children("input").each(function(i, input){
+    $(".items__new__sell__form__upload-image-form label").children("input").each(function(i, input){
         $(input).attr("id", `item_images_attributes_${i}_name`)
         $(input).parent().attr("for", `item_images_attributes_${i}_name`)
       })

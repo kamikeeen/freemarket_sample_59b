@@ -41,5 +41,5 @@ FactoryBot.define do
       item.images << FactoryBot.build(:image)
     end
   end
-  
+
 end

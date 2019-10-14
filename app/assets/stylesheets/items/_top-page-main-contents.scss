@@ -78,17 +78,13 @@
           .items-wrapper {
             display: flex;
             flex-wrap: wrap;
-            justify-content: flex-start;
+            justify-content: space-between;
             .show-item {
-              margin-right: 20px;
               width: 18%;
               background-color: white;
               position: relative;
               box-shadow: 1px 1px rgba(179, 179, 179, 0.589);
               margin-bottom: 15px;
-              &:nth-child(5n) {
-                margin-right: 0;
-              }
               .modify-link-to {
                 text-decoration: none;
               }

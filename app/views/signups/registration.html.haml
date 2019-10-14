@@ -15,7 +15,7 @@
               %br/
               = f.text_field :nickname, placeholder: "例）メルカリ太郎"
             .user__input__basic__main-form__confirm-text
-              = render partial: '/signups/error-message', locals: {model: @user, column: "nickname"}
+              = render partial: 'error-message', locals: {model: @user, column: "nickname"}
             .user__input__basic__main-form-field
               = f.label :"メールアドレス"
               %span.user__input__basic__main-form-field__require
@@ -23,27 +23,23 @@
               %br/
               = f.email_field :email, autocomplete: "email", placeholder: "PC・携帯どちらでも可"
             .user__input__basic__main-form__confirm-text
-              = render partial: '/signups/error-message', locals: {model: @user, column: "email"}
-            - if session["devise.sns_uid"].blank?
-              .user__input__basic__main-form-field
-                = f.label :"パスワード"
-                %span.user__input__basic__main-form-field__require
-                  必須
-                %br/
-                = f.password_field :password, autocomplete: "new-password", placeholder: "７文字以上"
-              .user__input__basic__main-form__confirm-text
-                = render partial: '/signups/error-message', locals: {model: @user, column: "password"}
-              .user__input__basic__main-form-field
-                = f.label :"パスワード（確認）"
-                %span.user__input__basic__main-form-field__require
-                  必須
-                %br/
-                = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "７文字以上"
-            - else
-              = f.hidden_field :password
-              = f.hidden_field :password_confirmation
+              = render partial: 'error-message', locals: {model: @user, column: "email"}
+            .user__input__basic__main-form-field
+              = f.label :"パスワード"
+              %span.user__input__basic__main-form-field__require
+                必須
+              %br/
+              = f.password_field :password, autocomplete: "new-password", placeholder: "７文字以上" 
             .user__input__basic__main-form__confirm-text
-              = render partial: '/signups/error-message', locals: {model: @user, column: "password_confirmation"}
+              = render partial: 'error-message', locals: {model: @user, column: "password"}
+            .user__input__basic__main-form-field
+              = f.label :"パスワード（確認）"
+              %span.user__input__basic__main-form-field__require
+                必須
+              %br/
+              = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "７文字以上"
+            .user__input__basic__main-form__confirm-text
+              = render partial: 'error-message', locals: {model: @user, column: "password_confirmation"}
             .user__input__basic__main__identification
               .user__input__basic__main__identification-title
                 本人確認
@@ -60,8 +56,8 @@
                 %li
                   = f.text_field :firstname, placeholder: "例）彩"
             .user__input__basic__main-form__confirm-text
-              = render partial: '/signups/error-message', locals: {model: @user, column: "familyname"}
-              = render partial: '/signups/error-message', locals: {model: @user, column: "firstname"}
+              = render partial: 'error-message', locals: {model: @user, column: "familyname"}
+              = render partial: 'error-message', locals: {model: @user, column: "firstname"}
             .user__input__basic__main-form-field__name
               = f.label :"お名前カナ(全角)" 
               %span.user__input__basic__main-form-field__require
@@ -73,8 +69,8 @@
                 %li
                   = f.text_field :firstname_kana, placeholder: "例）アヤ"
             .user__input__basic__main-form__confirm-text
-              = render partial: '/signups/error-message', locals: {model: @user, column: "familyname_kana"}
-              = render partial: '/signups/error-message', locals: {model: @user, column: "firstname_kana"}
+              = render partial: 'error-message', locals: {model: @user, column: "familyname_kana"}
+              = render partial: 'error-message', locals: {model: @user, column: "firstname_kana"}
             .user__input__basic__main-form-field__birthday
               = f.label :"生年月日" 
               %span.user__input__basic__main-form-field__require
@@ -83,7 +79,7 @@
               %li
                 != sprintf(f.date_select(:birthday, use_month_numbers: true, start_year: (Time.now.year), end_year: 1900, date_separator: '%s'),'年', '月') + '日'
             .user__input__basic__main-form__confirm-text
-              = render partial: '/signups/error-message', locals: {model: @user, column: "birthday"}
+              = render partial: 'error-message', locals: {model: @user, column: "birthday"}
             -# recaptchaがはいる予定
             %br/
             %br/

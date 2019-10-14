@@ -1,6 +1,4 @@
 class MypagesController < ApplicationController
-  
-  before_action :really_current_user?
 
   def index
   end
@@ -12,7 +10,6 @@ class MypagesController < ApplicationController
   end
 
   def edit
-    
   end
 
   def destroy
@@ -32,14 +29,6 @@ class MypagesController < ApplicationController
 
   def cards
     
-  end
-
-  private
-
-  def really_current_user?
-    if current_user.id != params[:id].to_i
-      redirect_to root_path
-    end
   end
 
 end

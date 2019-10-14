@@ -12,21 +12,21 @@
         .confirm_purchase_items__contents__purchase__inner
           .confirm_purchase_items__contents__purchase__inner__item
             .confirm_purchase_items__contents__purchase__inner__item__item-picture
-              = image_tag "#{@item.images.first.name}", size: '64x64'
+              = image_tag 'confirm_purchase_items__item__picture.jpg', size: '64x64'
             .confirm_purchase_items__contents__purchase__inner__item__item-name
-              = @item.name
+              【9月中値下げ】小鳥遊 コスプレ ウィッグ
           .confirm_purchase_items__contents__purchase__inner__price
             %p.confirm_purchase_items__contents__purchase__inner__price__price
-              = @item.price.to_s(:currency, precision: 0, format: '¥%n')
+              ¥2,500
             %p.confirm_purchase_items__contents__purchase__inner__price__postage
-              = @item.postage_side_i18n
+              送料込み
           .confirm_purchase_items__contents__purchase__inner__points
             ポイントはありません
           .confirm_purchase_items__contents__purchase__inner__payment
             .confirm_purchase_items__contents__purchase__inner__payment__price
               支払い金額
             .confirm_purchase_items__contents__purchase__inner__payment__money
-              = @item.price.to_s(:currency, precision: 0, format: '¥%n')
+              ¥2,500
           .confirm_purchase_items__contents__purchase__inner__validate
             配送先と支払い方法の入力を完了してください。
           %button{type: 'submit', class: "confirm_purchase_items__contents__purchase__inner__purchase"}
