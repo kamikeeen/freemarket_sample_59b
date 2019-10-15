@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_grandCategory
-    @grandCategory = Category.all.where(ancestry: nil)
+    @grandCategory = Category.where(ancestry: nil)
   end
   
 end
