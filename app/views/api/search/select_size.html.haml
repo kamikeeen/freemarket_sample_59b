@@ -2,6 +2,6 @@
   - @size_chirdren_id.each do |child|
     .check__boxes__detail
       %input{name: "q[size_id_in][]", type: "checkbox", value: child.id, id: "q_size_id_in_#{child.id}"}
-      %label{:for => "q_size_id_in_#{child.id}"}= child.name
+      %label{for: "q_size_id_in_#{child.id}"}= child.name
 
 

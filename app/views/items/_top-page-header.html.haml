@@ -10,11 +10,6 @@
           = search_form_for @q, url: search_index_path do |f|
             = f.search_field :name_cont, class: "form__field", placeholder: "何かお探しですか？"
             = f.submit
-
-          -# = form_tag () do
-          -#   = text_field_tag :search, "何かお探しですか？", class: "form__field"
-          -#   = button_tag type: "submit", class: "form__button" do
-          -#     = fa_icon "search"
     .lower
       .search-category-wrapper
         = render "items/category-search-pulldown"
