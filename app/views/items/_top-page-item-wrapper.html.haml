@@ -1,105 +1,104 @@
-.recommend-box
-  .recommend-item
-    .header
-      .title
-        #{categoryName1}新着アイテム
-      .see-more
-        = link_to "", class:"modify-link-to" do
-          .see-more__box
-            .see-more__box__text
-              もっと見る
-            .see-more__box__icon
-              = fa_icon "angle-right"
-    .items-wrapper
-      - itemsCategory1.each do |item|
-        .show-item.fade-off
-          = link_to item_path(item.id), class:"modify-link-to" do
-            .show-item__image
-              - if item.status != 'selling'
-                .item__badge
-                .item__badge__text
-                  SOLD
-              = image_tag "#{item.images[0].name}", height: '163'
-            .show-item__price
-              = item.price.to_s(:currency, precision: 0, format: '¥%n')
-            .show-item__name
-              %p 
-                = item.name
-  .recommend-item
-    .header
-      .title
-        #{categoryName2}新着アイテム
-      .see-more
-        = link_to "", class:"modify-link-to" do
-          .see-more__box
-            .see-more__box__text
-              もっと見る
-            .see-more__box__icon
-              = fa_icon "angle-right"
-    .items-wrapper
-      - itemsCategory2.each do |item|
-        .show-item.fade-off
-          = link_to item_path(item.id), class:"modify-link-to" do
-            .show-item__image
-              - if item.status != 'selling'
-                .item__badge
-                .item__badge__text
-                  SOLD
-              = image_tag "#{item.images[0].name}", height: '163'
-            .show-item__price
-              = item.price.to_s(:currency, precision: 0, format: '¥%n')
-            .show-item__name
-              %p 
-                = item.name
-  .recommend-item
-    .header
-      .title
-        #{categoryName3}新着アイテム
-      .see-more
-        = link_to "", class:"modify-link-to" do
-          .see-more__box
-            .see-more__box__text
-              もっと見る
-            .see-more__box__icon
-              = fa_icon "angle-right"
-    .items-wrapper
-      - itemsCategory3.each do |item|
-        .show-item.fade-off
-          = link_to item_path(item.id), class:"modify-link-to" do
-            .show-item__image
-              - if item.status != 'selling'
-                .item__badge
-                .item__badge__text
-                  SOLD
-              = image_tag "#{item.images[0].name}", height: '163'
-            .show-item__price
-              = item.price.to_s(:currency, precision: 0, format: '¥%n')
-            .show-item__name
-              %p 
-                = item.name
-  .recommend-item
-    .header
-      .title
-        #{categoryName4}新着アイテム
-      .see-more
-        = link_to "", class:"modify-link-to" do
-          .see-more__box
-            .see-more__box__text
-              もっと見る
-            .see-more__box__icon
-              = fa_icon "angle-right"
-    .items-wrapper
-      - itemsCategory4.each do |item|
-        .show-item.fade-off
-          = link_to item_path(item.id), class:"modify-link-to" do
-            .show-item__image
-              - if item.status != 'selling'
-                .item__badge
-                .item__badge__text
-                  SOLD
-              = image_tag "#{item.images[0].name}", height: '163'
-            .show-item__price
-              = item.price.to_s(:currency, precision: 0, format: '¥%n')
-            .show-item__name
-              %p 
-                = item.name
+.recommend-item
+  .header
+    .title{id: "categoryPath1"}
+      #{category1.name}新着アイテム
+    .see-more
+      = link_to category_path(category1.id), class:"modify-link-to" do
+        .see-more__box
+          .see-more__box__text
+            もっと見る
+          .see-more__box__icon
+            = fa_icon "angle-right"
+  .items-wrapper
+    - itemsCategory1.each do |item|
+      .show-item.fade-off
+        = link_to item_path(item.id), class:"modify-link-to" do
+          .show-item__image
+            - if item.status != 'selling'
+              .item__badge
+              .item__badge__text
+                SOLD
+            = image_tag "#{item.images[0].name}", height: '163'
+          .show-item__price
+            = item.price.to_s(:currency, precision: 0, format: '¥%n')
+          .show-item__name
+            %p 
+              = item.name
+.recommend-item
+  .header
+    .title{id: "categoryPath2"}
+      #{category2.name}新着アイテム
+    .see-more
+      = link_to category_path(category2.id), class:"modify-link-to" do
+        .see-more__box
+          .see-more__box__text
+            もっと見る
+          .see-more__box__icon
+            = fa_icon "angle-right"
+  .items-wrapper
+    - itemsCategory2.each do |item|
+      .show-item.fade-off
+        = link_to item_path(item.id), class:"modify-link-to" do
+          .show-item__image
+            - if item.status != 'selling'
+              .item__badge
+              .item__badge__text
+                SOLD
+            = image_tag "#{item.images[0].name}", height: '163'
+          .show-item__price
+            = item.price.to_s(:currency, precision: 0, format: '¥%n')
+          .show-item__name
+            %p 
+              = item.name
+.recommend-item
+  .header
+    .title{id: "categoryPath3"}
+      #{category3.name}新着アイテム
+    .see-more
+      = link_to category_path(category3.id), class:"modify-link-to" do
+        .see-more__box
+          .see-more__box__text
+            もっと見る
+          .see-more__box__icon
+            = fa_icon "angle-right"
+  .items-wrapper
+    - itemsCategory3.each do |item|
+      .show-item.fade-off
+        = link_to item_path(item.id), class:"modify-link-to" do
+          .show-item__image
+            - if item.status != 'selling'
+              .item__badge
+              .item__badge__text
+                SOLD
+            = image_tag "#{item.images[0].name}", height: '163'
+          .show-item__price
+            = item.price.to_s(:currency, precision: 0, format: '¥%n')
+          .show-item__name
+            %p 
+              = item.name
+.recommend-item
+  .header
+    .title{id: "categoryPath4"}
+      #{category4.name}新着アイテム
+    .see-more
+      = link_to category_path(category4.id), class:"modify-link-to" do
+        .see-more__box
+          .see-more__box__text
+            もっと見る
+          .see-more__box__icon
+            = fa_icon "angle-right"
+  .items-wrapper
+    - itemsCategory4.each do |item|
+      .show-item.fade-off
+        = link_to item_path(item.id), class:"modify-link-to" do
+          .show-item__image
+            - if item.status != 'selling'
+              .item__badge
+              .item__badge__text
+                SOLD
+            = image_tag "#{item.images[0].name}", height: '163'
+          .show-item__price
+            = item.price.to_s(:currency, precision: 0, format: '¥%n')
+          .show-item__name
+            %p 
+              = item.name

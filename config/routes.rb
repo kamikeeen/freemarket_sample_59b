@@ -46,6 +46,8 @@ Rails.application.routes.draw do
     get "brands/form"
   end
 
+  resources :brands, only: [:index, :show]
+
   resources :card, only: [:new, :show] do
     collection do
       post 'show', to: 'card#show'

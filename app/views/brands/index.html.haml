@@ -1,0 +1,39 @@
+= render 'items/top-page-header'
+- breadcrumb :categories
+= render "layouts/breadcrumbs"
+
+.category-index-contents
+  .category-index-contents__content
+    .category-index-contents__content__category-list
+      %h1
+        カテゴリー一覧
+    .category-index-contents__content__parent-category-box
+      .category-index-contents__content__parent-category-box__parent-category-list
+        %ul
+          - @parentCategories.each_with_index do |parentCategory, i|
+            = link_to "#parentCategory#{i}" do
+              %li
+                #{parentCategory.name}
+    .category-index-contents__content__box
+      - @parentCategories.each_with_index do |parentCategory, i|
+        .category-index-contents__content__box__parent-box{id: "parentCategory#{i}"}
+          #{parentCategory.name}
+        .category-index-contents__content__box__descendant-box
+          .category-index-contents__content__box__descendant-box__parent-all
+            = link_to category_path(parentCategory.id) do
+              すべて
+            - parentCategory.children.each do |childCategory|
+              .category-index-contents__content__box__descendant-box__child-category
+                #{childCategory.name}
+              .category-index-contents__content__box__descendant-box__descendant
+                %p
+                  = link_to category_path(childCategory.id) do
+                    すべて
+                - childCategory.children.each do |grandChildCategory|
+                  %p
+                    = link_to category_path(grandChildCategory.id) do
+                      #{grandChildCategory.name}
+
+  = render 'items/top-page-footer'
+.top-page-shipping-button
+  = render "items/shipping-button"
