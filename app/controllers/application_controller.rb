@@ -24,4 +24,9 @@ class ApplicationController < ActionController::Base
     @grandCategory = Category.where(ancestry: nil)
   end
   
+  def set_ransack
+    @q = Item.ransack(params[:q])
+    @items = @q.result(distinct: true)
+  end
+
 end

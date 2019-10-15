@@ -1,5 +1,6 @@
 class MypagesController < ApplicationController
   
+  before_action :set_ransack
   before_action :really_current_user?
 
   def index

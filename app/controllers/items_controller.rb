@@ -3,9 +3,11 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, except:[:index, :show]
   before_action :set_item, only: [:show, :edit, :update, :purchase, :buy]
   before_action :set_card, only: [:purchase, :buy]
+  before_action :set_ransack, only: [:index, :show]
   before_action :status_selling?, only: [:buy, :purchase, :edit, :update]
   before_action :buyer?, only: [:buy, :purchase]
   before_action :seller?, only: [:edit, :update]
+
 
   def index
     if Rails.env == "test" then
