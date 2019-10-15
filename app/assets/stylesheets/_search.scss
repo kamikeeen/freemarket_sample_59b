@@ -140,9 +140,18 @@
             padding: 8px 12px;
             box-sizing: border-box;
             height: 58px;;
+            word-break: break-word;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            overflow: hidden;
+            color: black;
+            background: -webkit-linear-gradient(-70deg, #000000, rgb(45, 45, 43), #FFFFFF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
           }
         }
-        .item:nth-child(4){
+        .item:nth-child(4n){
           margin-right: 0;
         }
       }

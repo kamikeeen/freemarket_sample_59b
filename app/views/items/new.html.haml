@@ -23,7 +23,7 @@
                   %br
                   またはクリックしてファイルをアップロード
                 = f.file_field :name, accept: "image/*"
-          .items__new__sell__form__confirm-text
+          .items__sell__form__confirm-text
             = render partial: 'shared/error-message', locals: {model: @item, column: "images"}        
         .items__sell__form__items
           .items__sell__form__items-name
@@ -56,7 +56,7 @@
               %br
               = collection_select :items, :category_id, Category.where(ancestry: nil), :id, :name, include_blank: '---'
               
-            .items__new__sell__form__item__detail-form__brand
+            .items__sell__form__item__detail-form__brand
               = f.label :"ブランド"
               %span.items__sell__form__require__option
                 任意
