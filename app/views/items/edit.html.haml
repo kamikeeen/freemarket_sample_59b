@@ -74,7 +74,7 @@
               %span.items__edit__sell__form__require__option
                 任意
               %br
-              %input.brand_form{value: "#{@item.brand.name}"}
+              %input.brand_form{value: "#{@item.brand.name if @item.brand}"}
               = f.hidden_field :brand_id, type: "hidden"
               .brand__result__box
                 %ul.brand__result__lists

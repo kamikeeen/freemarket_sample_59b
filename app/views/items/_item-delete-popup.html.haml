@@ -1,0 +1,19 @@
+#item-delete-confimation-popup
+  .content
+    .content__upper
+      .confirmation
+        確認
+      .text
+        %P
+          削除すると二度と復活できません。
+          %br
+          削除する代わりに停止することもできます。
+          %br
+          %br
+          本当に削除しますか？
+
+    .content__lower
+      = link_to "" ,class: "content__lower--cancel" do
+        キャンセル
+      = link_to item_path(@item.id), method: :delete, class: "content__lower--delete" do
+        削除する
