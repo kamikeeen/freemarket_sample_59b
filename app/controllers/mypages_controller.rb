@@ -31,7 +31,7 @@ class MypagesController < ApplicationController
   end
 
   def listings
-    @items = Item.where(user_id: current_user.id)
+    @items = current_user.items
   end
 
   private
