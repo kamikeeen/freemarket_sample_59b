@@ -18,7 +18,8 @@
                   = link_to categories_path(cc.id) do
                     #{cc.name}
                   %ul.child-category
-                    - cc.children.each do |gcc|
-                      %li
-                        = link_to categories_path(gcc.id) do
-                          #{gcc.name}
+                    - cc.children.each_with_index do |gcc, i|
+                      - if i < 14
+                        %li
+                          = link_to categories_path(gcc.id) do
+                            #{gcc.name}
