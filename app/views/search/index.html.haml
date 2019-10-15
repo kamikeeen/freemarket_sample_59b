@@ -1,0 +1,90 @@
+= render "items/top-page-header"
+.search
+  .search__page
+    = search_form_for @q, url: search_index_path, html:{class: "conditions"} do |f|
+      .select__sort
+        = f.select( :sorts, { '並び替え': 'id desc', '価格の安い順': 'price asc', '価格の高い順': 'price desc', '出品の古い順': 'updated_at asc', '出品の新しい順': 'updated_at desc' } , { selected: params[:q][:sorts] }, { onchange: 'this.form.submit()'} )
+      .conditions__form
+        %p 詳細検索
+        .conditions__form__detail
+          = f.label :name_cont, "商品名"
+          = f.search_field :name_cont
+        .conditions__form__detail
+          = f.label :category_id_in, "カテゴリー"
+          = f.collection_select :category_id_in, Category.where(ancestry: nil), :id, :name, include_blank: '---'
+        .conditions__form__detail.brand__select
+          = f.label :brand_id_in, "ブランド"
+          -# = f.collection_select :brand_id_in, Brand.all, :id, :name, include_blank: '---'
+          %input.brand_form
+            = f.text_field :brand_id_in, type: "hidden"
+            .brand__result__box
+              %ul.brand__result__lists
+        .conditions__form__detail
+          = f.label :size_id_in, "サイズ"
+          = f.collection_select :size_id_in, Size.where(ancestry: nil), :id, :name, include_blank: '---'
+        .conditions__form__detail
+          = f.label :price
+          %br
+          %select{name: "price", id: "price__select"}
+            %option{value: ""} 選択してください
+            %option{value: "0"} 300 ~ 1000
+            %option{value: "1"} 1000 ~ 5000
+            %option{value: "2"} 5000 ~ 10000
+            %option{value: "3"} 10000 ~ 30000
+            %option{value: "4"} 30000 ~ 50000
+            %option{value: "5"} 50000 ~
+          = f.text_field :price_gteq, placeholder: "￥Min"
+          %span ~
+          = f.text_field :price_lteq, placeholder: "￥Max"
+        .conditions__form__detail
+          = f.label :prefecture_id_eq, "配送元地域"
+          = f.collection_select :prefecture_id_eq, Prefecture.all, :id, :name, include_blank: '---'
+        .conditions__form__detail
+          = f.label :damage_in, "商品の状態"
+          .check__boxes
+            .check__boxes__detail
+              %input{type: "checkbox", class: "all_check"}
+              全て
+            = f.collection_check_boxes :damage_in, Item.damages, :last, :first do |b|
+              .check__boxes__detail
+                = b.check_box
+                = Item.damages_i18n[b.object.send(:first)]
+        .conditions__form__detail
+          = f.label :postage_side_in, "配送料負担"
+          .check__boxes
+            .check__boxes__detail
+              %input{type: "checkbox", class: "all_check"}
+              全て
+            = f.collection_check_boxes :postage_side_in, Item.postage_sides, :last, :first do |b|
+              .check__boxes__detail
+                = b.check_box
+                = Item.postage_sides_i18n[b.object.send(:first)]
+        .conditions__form__detail
+          = f.label :status_in, "販売状況"
+          .check__boxes
+            .check__boxes__detail
+              %input{type: "checkbox", class: "all_check"}
+              全て
+            = f.collection_check_boxes :status_in, Item.statuses.to_a.slice(0..1), :last, :first do |b|
+              .check__boxes__detail
+                = b.check_box
+                = Item.statuses_i18n[b.object.send(:first)]
+        .btns
+          %input.all_clear{type: "reset", value: "クリア"}
+          = f.submit class: "search__btn", value: "完了"
+    .result
+      - if params[:q][:name_cont] != ""
+        = "#{params[:q][:name_cont]}の検索結果"
+      - else
+        検索結果
+      .result__items
+        - @items.each do |item|
+          = link_to item_path(item.id), class:"item" do
+            .item__image
+              = image_tag "#{item.images[0].name}"
+            .item__price
+              = item.price.to_s(:currency, precision: 0, format: '¥%n')
+            .item__name
+              %p
+                = item.name
+= render "items/top-page-footer"

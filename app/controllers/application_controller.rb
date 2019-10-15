@@ -18,4 +18,11 @@ class ApplicationController < ActionController::Base
       username == Rails.application.credentials.basic_auth_user && password == Rails.application.credentials.basic_auth_password
     end
   end
+
+  def set_ransack
+    @q = Item.ransack(params[:q])
+    @items = @q.result(distinct: true)
+  end
+
+
 end

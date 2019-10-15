@@ -24,8 +24,7 @@
                   またはクリックしてファイルをアップロード
                 = f.file_field :name, accept: "image/*"
           .items__sell__form__confirm-text
-            = render partial: 'shared/error-message', locals: {model: @item, column: "im"}
-            
+            = render partial: 'shared/error-message', locals: {model: @item, column: "images"}        
         .items__sell__form__items
           .items__sell__form__items-name
             = f.label :"商品名"

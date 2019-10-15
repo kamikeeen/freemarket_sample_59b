@@ -15,6 +15,10 @@
         .show-item.fade-off
           = link_to item_path(item.id), class:"modify-link-to" do
             .show-item__image
+              - if item.status != 'selling'
+                .item__badge
+                .item__badge__text
+                  SOLD
               = image_tag "#{item.images[0].name}", height: '163'
             .show-item__price
               = item.price.to_s(:currency, precision: 0, format: '¥%n')
@@ -37,6 +41,10 @@
         .show-item.fade-off
           = link_to item_path(item.id), class:"modify-link-to" do
             .show-item__image
+              - if item.status != 'selling'
+                .item__badge
+                .item__badge__text
+                  SOLD
               = image_tag "#{item.images[0].name}", height: '163'
             .show-item__price
               = item.price.to_s(:currency, precision: 0, format: '¥%n')
@@ -59,6 +67,10 @@
         .show-item.fade-off
           = link_to item_path(item.id), class:"modify-link-to" do
             .show-item__image
+              - if item.status != 'selling'
+                .item__badge
+                .item__badge__text
+                  SOLD
               = image_tag "#{item.images[0].name}", height: '163'
             .show-item__price
               = item.price.to_s(:currency, precision: 0, format: '¥%n')
@@ -81,6 +93,10 @@
         .show-item.fade-off
           = link_to item_path(item.id), class:"modify-link-to" do
             .show-item__image
+              - if item.status != 'selling'
+                .item__badge
+                .item__badge__text
+                  SOLD
               = image_tag "#{item.images[0].name}", height: '163'
             .show-item__price
               = item.price.to_s(:currency, precision: 0, format: '¥%n')

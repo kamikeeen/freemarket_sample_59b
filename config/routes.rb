@@ -45,6 +45,9 @@ Rails.application.routes.draw do
     get "delivery_methods/select"
     get "delivery_methods/set"
     get "brands/form"
+    get "search/select_children"
+    get "search/select_grand_children"
+    get "search/select_size"
   end
 
   resources :card, only: [:new, :show] do
@@ -52,6 +55,12 @@ Rails.application.routes.draw do
       post 'show', to: 'card#show'
       post 'pay', to: 'card#pay'
       post 'delete', to: 'card#delete'
+    end
+  end
+
+  resources :search, only: [:index] do
+    collection do
+      get "search", to: "search#search"
     end
   end
 end
