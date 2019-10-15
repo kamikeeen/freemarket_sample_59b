@@ -1,0 +1,40 @@
+.mypage__shipping-item-list
+  .transaction
+    .transaction__header
+      出品した商品
+    .transaction__tabs
+      .tab.active
+        出品中
+      .tab
+        取引中
+      .tab
+        売却済み
+    .transaction__contents
+      .box__content.show
+        - @items.each do |item|
+          = link_to item_path(item.id), class: "content" do
+            = image_tag "mypage_index.logo.png", class: "content__image"
+            .content__main
+              .content__main__text
+                = item.name
+              .content__main__status-wait
+                出品中
+            %i.fa.fa-chevron-right.content__icon
+
+
+
+      .box__content
+        = link_to "#", class: "content" do
+          = image_tag "mypage_index.logo.png", class: "content__image"
+          .content__main
+            .content__main__text
+              取引中の商品はありません
+          %i.fa.fa-chevron-right.content__icon
+
+      .box__content
+        = link_to "#", class: "content" do
+          = image_tag "mypage_index.logo.png", class: "content__image"
+          .content__main
+            .content__main__text
+              売却済みの商品はありません
+          %i.fa.fa-chevron-right.content__icon
