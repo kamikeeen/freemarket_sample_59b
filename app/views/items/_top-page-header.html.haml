@@ -16,19 +16,25 @@
         = render partial: "items/category-search-pulldown", locals: {grandCategory: @grandCategory}
       .search-brand-wrapper
         .search-brand-content
-          = link_to "" do
+          = link_to brands_path do
             .search-brand
               .search-brand__icon
                 = image_tag "top-page/brand-icon.png"
               .search-brand__text
                 ブランドから探す
         .pull-down
-          %li シャネル
-          %li ナイキ
-          %li ルイ ヴィットン
-          %li シュプリーム
-          %li アディダス
-          %li ブランド一覧
+          %li 
+            = link_to "シャネル" , brand_path(6198)
+          %li
+            = link_to "ナイキ" , brand_path(4356)
+          %li
+            = link_to "ルイヴィトン" , brand_path(724)
+          %li
+            = link_to "シュプリーム" , brand_path(6071)
+          %li
+            = link_to "アディダス" , brand_path(9716)
+          %li
+            = link_to "ブランド一蘭" , brands_path
       - if user_signed_in?
         .good-list-wrapper
           .good-list-content
