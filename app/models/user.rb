@@ -36,12 +36,15 @@ class User < ApplicationRecord
     uid = auth.uid
     provider = auth.provider
     snscredential = SnsCredential.where(uid: uid, provider: provider).first
+    password = Devise.friendly_token.first(7)
     if snscredential.present? #sns登録のみ完了してるユーザー
       user = User.where(id: snscredential.user_id).first
       unless user.present? #ユーザーが存在しないなら
         user = User.new(
           nickname: auth.info.name,
-          email: auth.info.email
+          email: auth.info.email,
+          password: password,
+          password_confirmation: password
         )
       end
       # snscredentialのid,uid,provider,user_idを持ってもう一度callbacksコントローラへ
@@ -57,7 +60,9 @@ class User < ApplicationRecord
       else #会員登録 未
         user = User.new(
           nickname: auth.info.name,
-          email: auth.info.email
+          email: auth.info.email,
+          password: password,
+          password_confirmation: password
         )
         sns = SnsCredential.new(
           uid: uid,

@@ -1,8 +1,9 @@
 class SignupsController < ApplicationController
-
+  
   before_action :validates_registration, only: :sms_confirmation
   before_action :validates_sms_confirmation, only: :sms
   before_action :validates_address, only: :payment
+  before_action :already_signed_in?
 
   def index
   end
@@ -68,6 +69,9 @@ class SignupsController < ApplicationController
     if @user.save
       session[:id] = @user.id
       redirect_to end_signups_path
+      if session["devise.sns_uid"].present?
+        SnsCredential.create(uid: session["devise.sns_uid"] , provider: session["devise.sns_provider"], user_id: @user.id) 
+      end
     else
       render 'payment'
     end
@@ -200,6 +204,12 @@ class SignupsController < ApplicationController
   def modify_phone_number(number)
     str = number.tr('０-９', '0-9').to_s
     str.gsub(/-/, "")
+  end
+
+  def already_signed_in?
+    if user_signed_in?
+      redirect_to root_path
+    end
   end
 
 end

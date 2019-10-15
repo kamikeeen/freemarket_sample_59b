@@ -15,6 +15,9 @@ describe Item do
       it 'is exist with item-name and item-price' do
         expect(build(:item, user_id: nil, category_id: nil, damage: nil, postage_side: nil, delivery_method: nil, prefecture_id: nil, arrival: nil, text: nil, size_id: nil)).to be
       end
+    end
+  end
+  
 
   describe '#create' do
     let(:category) {create(:category)}
