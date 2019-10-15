@@ -21,7 +21,12 @@ class ApplicationController < ActionController::Base
   end
 
   def set_grandCategory
-    @grandCategory = Category.all.where(ancestry: nil)
+    @grandCategory = Category.where(ancestry: nil)
   end
   
+  def set_ransack
+    @q = Item.ransack(params[:q])
+    @items = @q.result(distinct: true).page(params[:page]).per(5)
+  end
+
 end

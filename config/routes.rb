@@ -30,6 +30,7 @@ Rails.application.routes.draw do
     member do
       get "edit_identification", to: "mypages#identification"
       get "logout", to: "mypages#logout"
+      get "listings", to: "mypages#listings"
     end
   end
 
@@ -44,6 +45,9 @@ Rails.application.routes.draw do
     get "delivery_methods/select"
     get "delivery_methods/set"
     get "brands/form"
+    get "search/select_children"
+    get "search/select_grand_children"
+    get "search/select_size"
   end
 
   resources :brands, only: [:index, :show]
@@ -53,6 +57,12 @@ Rails.application.routes.draw do
       post 'show', to: 'card#show'
       post 'pay', to: 'card#pay'
       post 'delete', to: 'card#delete'
+    end
+  end
+
+  resources :search, only: [:index] do
+    collection do
+      get "search", to: "search#search"
     end
   end
 end

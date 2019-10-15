@@ -45,6 +45,7 @@ $(function(){
     var get_brand_id = $(this).data("id")
     var get_brand_name = $(this).text()
     $("#item_brand_id").val(get_brand_id)
+    $("#q_brand_id_in").val(get_brand_id)
     $(".brand_form").val(get_brand_name)
     $(".brand__result__lists li").remove()
   })

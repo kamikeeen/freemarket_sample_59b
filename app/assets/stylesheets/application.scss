@@ -3,6 +3,7 @@
 @import "font-awesome";
 @import url(//use.fontawesome.com/releases/v5.0.0/css/all.css);
 @import url(//use.fontawesome.com/releases/v5.11.1/css/all.css);
+@import "search.scss";
 @import "mypages/mixin.scss";
 @import "users/mixin";
 @import 'items/mixin';
@@ -35,4 +36,6 @@
 @import "users/new";
 @import "categories/index";
 @import "categories/show";
+@import "mypages/shipping-item-list";
+@import "items/item-delete-popup";
 @import "kaminari/kaminari";

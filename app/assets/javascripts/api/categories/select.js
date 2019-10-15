@@ -20,7 +20,7 @@ $(function(){
     }else{
       $("#category_children").remove();
       $("#category_grand_children").remove();
-      $(".items__sell__form__item__detail-form__size").remove();
+      $(".items__new__sell__form__item__detail-form__size").remove();
 
     }
   })

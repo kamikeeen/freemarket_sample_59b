@@ -1,5 +1,6 @@
 class MypagesController < ApplicationController
   
+  before_action :set_ransack
   before_action :really_current_user?
 
   def index
@@ -28,6 +29,10 @@ class MypagesController < ApplicationController
 
   def cards
     
+  end
+
+  def listings
+    @items = current_user.items
   end
 
   private
