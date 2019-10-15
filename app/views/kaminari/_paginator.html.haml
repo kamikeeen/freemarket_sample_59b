@@ -13,7 +13,7 @@
       - if page.display_tag?
         = page_tag page
       - elsif !page.was_truncated?
-        = gap_tag
+        -# = gap_tag
     = last_page_tag unless current_page.last?
     = next_page_tag unless current_page.last?
     

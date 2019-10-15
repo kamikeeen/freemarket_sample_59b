@@ -1,5 +1,7 @@
 class CategoriesController < ApplicationController
 
+  before_action :set_ransack
+
   def index
     @parentCategories = Category.where(ancestry: nil)
   end

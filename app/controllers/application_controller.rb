@@ -26,7 +26,7 @@ class ApplicationController < ActionController::Base
   
   def set_ransack
     @q = Item.ransack(params[:q])
-    @items = @q.result(distinct: true)
+    @items = @q.result(distinct: true).page(params[:page]).per(5)
   end
 
 end

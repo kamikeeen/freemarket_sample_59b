@@ -87,4 +87,6 @@
             .item__name
               %p
                 = item.name
+      .category-show-contents__content__pagination
+        = paginate(@items)
 = render "items/top-page-footer"
