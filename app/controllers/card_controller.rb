@@ -1,6 +1,7 @@
 class CardController < ApplicationController
   require "payjp"
   before_action :set_card
+  before_action :set_ransack
 
   def new
     redirect_to action: "show" if @card
