@@ -23,36 +23,46 @@
         float: left;
         width: 300px;
         height: 420px;
-        &__main {
+        overflow: hidden;
+        &__main__thumbnail {
           position: relative;
-          height: 300px;
-          .item__badge {
-            border-color: red transparent transparent transparent;
-            border-width: 120px 120px 0 0;
+          display: flex;
+          opacity: 1;
+          .picture__m{
+          }
+        .item__badge {
+          border-color: red transparent transparent transparent;
+          border-width: 120px 120px 0 0;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 0;
+          height: 0;
+          border-style: solid;
+          &__text {
+            top: 15px;
+            left: -5px;
+            font-size: 35px;
+            transform: rotate(-45deg);
+            color: white;
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 0;
-            height: 0;
-            border-style: solid;
-            &__text {
-              top: 15px;
-              left: -5px;
-              font-size: 35px;
-              transform: rotate(-45deg);
-              color: white;
-              position: absolute;
            }
          }
         }
-        &__sub {
+        &__sub__thumbnail-thumb {
           float: left;
           height: 60px;
           display: inline-flex;
           flex-wrap: wrap;
           justify-content: flex-start;
-          .picture{
-            height: 60px;
+          &__.slick-next{
+            right: 20px; z-index: 100;
+          }
+          &__.slick-prev{
+            left: 15px; z-index: 100;
+          }
+          &__.slick-current{
+            opacity: 0.5;
           }
         }
       }

@@ -6,18 +6,17 @@
 
       .item-detail__contents__inner__name
         = @item.name
-
       .item-detail__contents__inner__pictures
-        .item-detail__contents__inner__pictures__main
+        %ur.item-detail__contents__inner__pictures__main__thumbnail
           - if @item.status != 'selling'
             .item__badge
             .item__badge__text
               SOLD
-          = image_tag "#{@item.images.first.name}", size: '300x300'
-        %ul.item-detail__contents__inner__pictures__sub
+          = image_tag "#{@item.images.first.name}", size: '300x300', data_imagesrc: "#{@item.images.first.name}"
+        %ul.item-detail__contents__inner__pictures__sub__thumbnail-thumb
           - @item.images.each do |image|
             %li.picture
-              = image_tag "#{image.name}", size: '60x60'
+              = image_tag "#{image.name}", size: '60x60', class:'.picture', data_imagesrc: "#{image.name}"
       %table.item-detail__contents__inner__details
         %tr
           %th
@@ -229,7 +228,4 @@
                   .item-detail__another-brands__items__item-box__item-link__simple-detail__boxes__box__good-counts
                     %p
                       2
-      
-                  
-/ パンくず
 = render 'items/top-page-footer'
