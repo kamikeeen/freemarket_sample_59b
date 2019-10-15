@@ -1,0 +1,104 @@
+.recommend-item
+  .header
+    .title{id: "brandPath1"}
+      #{brand1.name}新着アイテム
+    .see-more
+      = link_to brand_path(brand1.id), class:"modify-link-to" do
+        .see-more__box
+          .see-more__box__text
+            もっと見る
+          .see-more__box__icon
+            = fa_icon "angle-right"
+  .items-wrapper
+    - itemsBrand1.each do |item|
+      .show-item.fade-off
+        = link_to item_path(item.id), class:"modify-link-to" do
+          .show-item__image
+            - if item.status != 'selling'
+              .item__badge
+              .item__badge__text
+                SOLD
+            = image_tag "#{item.images[0].name}", height: '163'
+          .show-item__price
+            = item.price.to_s(:currency, precision: 0, format: '¥%n')
+          .show-item__name
+            %p 
+              = item.name
+.recommend-item
+  .header
+    .title{id: "brandPath2"}
+      #{brand2.name}新着アイテム
+    .see-more
+      = link_to brand_path(brand2.id), class:"modify-link-to" do
+        .see-more__box
+          .see-more__box__text
+            もっと見る
+          .see-more__box__icon
+            = fa_icon "angle-right"
+  .items-wrapper
+    - itemsBrand2.each do |item|
+      .show-item.fade-off
+        = link_to item_path(item.id), class:"modify-link-to" do
+          .show-item__image
+            - if item.status != 'selling'
+              .item__badge
+              .item__badge__text
+                SOLD
+            = image_tag "#{item.images[0].name}", height: '163'
+          .show-item__price
+            = item.price.to_s(:currency, precision: 0, format: '¥%n')
+          .show-item__name
+            %p 
+              = item.name
+.recommend-item
+  .header
+    .title{id: "brandPath3"}
+      #{brand3.name}新着アイテム
+    .see-more
+      = link_to brand_path(brand3.id), class:"modify-link-to" do
+        .see-more__box
+          .see-more__box__text
+            もっと見る
+          .see-more__box__icon
+            = fa_icon "angle-right"
+  .items-wrapper
+    - itemsBrand3.each do |item|
+      .show-item.fade-off
+        = link_to item_path(item.id), class:"modify-link-to" do
+          .show-item__image
+            - if item.status != 'selling'
+              .item__badge
+              .item__badge__text
+                SOLD
+            = image_tag "#{item.images[0].name}", height: '163'
+          .show-item__price
+            = item.price.to_s(:currency, precision: 0, format: '¥%n')
+          .show-item__name
+            %p 
+              = item.name
+.recommend-item
+  .header
+    .title{id: "brandPath4"}
+      #{brand4.name}新着アイテム
+    .see-more
+      = link_to brand_path(brand4.id), class:"modify-link-to" do
+        .see-more__box
+          .see-more__box__text
+            もっと見る
+          .see-more__box__icon
+            = fa_icon "angle-right"
+  .items-wrapper
+    - itemsBrand4.each do |item|
+      .show-item.fade-off
+        = link_to item_path(item.id), class:"modify-link-to" do
+          .show-item__image
+            - if item.status != 'selling'
+              .item__badge
+              .item__badge__text
+                SOLD
+            = image_tag "#{item.images[0].name}", height: '163'
+          .show-item__price
+            = item.price.to_s(:currency, precision: 0, format: '¥%n')
+          .show-item__name
+            %p 
+              = item.name

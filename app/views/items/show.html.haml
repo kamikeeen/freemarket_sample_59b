@@ -210,29 +210,30 @@
                       2
 
   .item-detail__another-brands
-    .item-detail__another-brands__box
-      = link_to '#', class: 'link_to item-detail__another-brands__box__buyer' do
-        %p
-          カスタネのロングワンピース その他の商品
-      .item-detail__another-brands__items
-        .item-detail__another-brands__items__item-box
-          = link_to '#', class: 'link_to item-detail__another-brands__items__item-box__item-link' do
-            .item-detail__another-brands__items__item-box__item-link__picture
-              = image_tag 'item-detail.jpg', size: '220x220'
-            .item-detail__another-brands__items__item-box__item-link__simple-detail
-              .item-detail__another-brands__items__item-box__item-link__simple-detail__name
-                %p
-                  カスタネ 花柄カシュークールワンピ ピンクベージュ
-              .item-detail__another-brands__items__item-box__item-link__simple-detail__boxes
-                .item-detail__another-brands__items__item-box__item-link__simple-detail__boxes__price
+    - @brand_items.each do |brand_item|
+      .item-detail__another-brands__box
+        = link_to '#', class: 'link_to item-detail__another-brands__box__buyer' do
+          %p
+            = "#{@item.brand.name}のその他の商品"
+        .item-detail__another-brands__items
+          .item-detail__another-brands__items__item-box
+            = link_to item_path(brand_item.id), class: 'link_to item-detail__another-brands__items__item-box__item-link' do
+              .item-detail__another-brands__items__item-box__item-link__picture
+                = image_tag "#{brand_item.images.first.name}", size: '220x220'
+              .item-detail__another-brands__items__item-box__item-link__simple-detail
+                .item-detail__another-brands__items__item-box__item-link__simple-detail__name
                   %p
-                    ¥4,500
-                .item-detail__another-brands__items__item-box__item-link__simple-detail__boxes__box
-                  .item-detail__another-brands__items__item-box__item-link__simple-detail__boxes__box__good
-                    = fa_icon 'heart', class: 'item-detail__another-brands__items__item-box__item-link__simple-detail__boxes__box__good__heart'
-                  .item-detail__another-brands__items__item-box__item-link__simple-detail__boxes__box__good-counts
+                    = brand_item.name
+                .item-detail__another-brands__items__item-box__item-link__simple-detail__boxes
+                  .item-detail__another-brands__items__item-box__item-link__simple-detail__boxes__price
                     %p
-                      2
+                      = brand_item.price.to_s(:currency, precision: 0, format: '¥%n')
+                  .item-detail__another-brands__items__item-box__item-link__simple-detail__boxes__box
+                    .item-detail__another-brands__items__item-box__item-link__simple-detail__boxes__box__good
+                      = fa_icon 'heart', class: 'item-detail__another-brands__items__item-box__item-link__simple-detail__boxes__box__good__heart'
+                    .item-detail__another-brands__items__item-box__item-link__simple-detail__boxes__box__good-counts
+                      %p
+                        2
       
                   
 / パンくず
