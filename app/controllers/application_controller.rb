@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :basic_auth, if: :production?
+  before_action :set_grandCategory
   protect_from_forgery with: :exception
 
 
@@ -19,10 +20,13 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def set_grandCategory
+    @grandCategory = Category.where(ancestry: nil)
+  end
+  
   def set_ransack
     @q = Item.ransack(params[:q])
-    @items = @q.result(distinct: true)
+    @items = @q.result(distinct: true).page(params[:page]).per(5)
   end
-
 
 end

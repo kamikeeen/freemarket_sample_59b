@@ -1,4 +1,3 @@
-
 nav.bread_crumb{
   background-color: #fff;
   border-top: 1px solid #eee;
@@ -19,6 +18,7 @@ nav.bread_crumb{
       .breadcrumbs{
         a{
           color: black;
+          text-decoration: none;
         }
         .fa{
           font-size: 16px;
@@ -30,10 +30,6 @@ nav.bread_crumb{
     }
   }
 }
-
-// .breadcrumb li:first-child a:before{
-//   content: "\f3c5"; /* 好きなアイコンに変更してください。 */
-//   font-size: 1.5em;  /* アイコンの大きさ */
-//  }
-// font-family: "Font Awesome 5 Free";
-// content: "\f105";
+.current {
+  font-weight: bold;
+}

@@ -34,7 +34,8 @@
 @import "users/sign-up";
 @import "users/sign-in";
 @import "users/new";
-@import "categories/categori";
-@import "categories/categori-show";
+@import "categories/index";
+@import "categories/show";
 @import "mypages/shipping-item-list";
-@import "items/item-delete-popup"
+@import "items/item-delete-popup";
+@import "kaminari/kaminari";

@@ -12,7 +12,7 @@
             = f.submit
     .lower
       .search-category-wrapper
-        = render "items/category-search-pulldown"
+        = render partial: "items/category-search-pulldown", locals: {grandCategory: @grandCategory}
       .search-brand-wrapper
         .search-brand-content
           = link_to "" do

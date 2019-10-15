@@ -77,7 +77,7 @@
   .child-category li a:hover {
     background-color: rgb(233, 233, 233);
     color: black;
-  }
+  }  
 
   li.category-search__list ul.grand-category {
     position: absolute;
@@ -89,7 +89,6 @@
       position: relative;
       &:hover {
         background-color:rgb(234, 53, 45);
-        color: white;
       }
       & ul.parent-category li:hover {
         background-color: rgb(233, 233, 233);
@@ -133,28 +132,16 @@
     }
   }
 
-  .count:nth-child(1) > ul.child-category {
-    top: -1px;
+  @for $i from 0 through 50 {
+    .count:nth-child(#{$i + 1}) > ul.child-category {
+      top: calc(-1 * #{$i} * 100% - 1px);
+    }
   }
 
-  .count:nth-child(2) > ul.child-category {
-    top: calc(-100% - 1px);
+  @for $i from 0 through 50 {
+    .count:nth-child(#{$i + 1}) > ul.parent-category {
+      top: calc(-1 * #{$i} * 100% - 1px);
+    }
   }
 
-  .count:nth-child(3) > ul.child-category {
-    top: calc(-200% - 1px);
-  }
-
-
-  .count:nth-child(1) > ul.parent-category {
-    top: -1px;
-  }
-
-  .count:nth-child(2) > ul.parent-category {
-    top: calc(-100% - 1px);
-  }
-
-  .count:nth-child(3) > ul.parent-category {
-    top: calc(-200% - 1px);
-  }
 }
