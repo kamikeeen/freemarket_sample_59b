@@ -29,8 +29,6 @@ class ItemsController < ApplicationController
     @itemsCategory4 = Item.where(category_id: [Category.find(category4).descendant_ids]).order('id Desc').limit(10)
     @Category4 = Category.find(category4)
 
-    @grandCategory = Category.all.where(ancestry: nil)
-
   end
 
   def new
