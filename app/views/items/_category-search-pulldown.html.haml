@@ -1,7 +1,7 @@
 .category-search-pulldown
   %ul.category-search
     %li.category-search__list
-      = link_to "/categories/" do
+      = link_to categories_path do
         .category-search__list__title
           .category-search__list__title--icon
             = image_tag "top-page/category-icon.png"
@@ -10,15 +10,15 @@
       %ul.grand-category
         - grandCategory.each do |gc|
           %li.count
-            = link_to "/categories/#{gc.id}" do
+            = link_to categories_path(gc.id) do
               #{gc.name}
             %ul.parent-category
               - gc.children.each do |cc|
                 %li.count
-                  = link_to "/categories/#{cc.id}" do
+                  = link_to categories_path(cc.id) do
                     #{cc.name}
                   %ul.child-category
                     - cc.children.each do |gcc|
                       %li
-                        = link_to "/categories/#{gcc.id}" do
+                        = link_to categories_path(gcc.id) do
                           #{gcc.name}
