@@ -31,6 +31,10 @@ class MypagesController < ApplicationController
     
   end
 
+  def listings
+    @items = current_user.items
+  end
+
   private
 
   def really_current_user?
