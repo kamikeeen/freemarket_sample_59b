@@ -1,16 +1,16 @@
 .recommend-item
   .header
-    .title{id: "categoryPath1"}
-      #{category1.name}新着アイテム
+    .title{id: "brandPath1"}
+      #{brand1.name}新着アイテム
     .see-more
-      = link_to category_path(category1.id), class:"modify-link-to" do
+      = link_to brand_path(brand1.id), class:"modify-link-to" do
         .see-more__box
           .see-more__box__text
             もっと見る
           .see-more__box__icon
             = fa_icon "angle-right"
   .items-wrapper
-    - itemsCategory1.each do |item|
+    - itemsBrand1.each do |item|
       .show-item.fade-off
         = link_to item_path(item.id), class:"modify-link-to" do
           .show-item__image
@@ -26,17 +26,17 @@
               = item.name
 .recommend-item
   .header
-    .title{id: "categoryPath2"}
-      #{category2.name}新着アイテム
+    .title{id: "brandPath2"}
+      #{brand2.name}新着アイテム
     .see-more
-      = link_to category_path(category2.id), class:"modify-link-to" do
+      = link_to brand_path(brand2.id), class:"modify-link-to" do
         .see-more__box
           .see-more__box__text
             もっと見る
           .see-more__box__icon
             = fa_icon "angle-right"
   .items-wrapper
-    - itemsCategory2.each do |item|
+    - itemsBrand2.each do |item|
       .show-item.fade-off
         = link_to item_path(item.id), class:"modify-link-to" do
           .show-item__image
@@ -52,17 +52,17 @@
               = item.name
 .recommend-item
   .header
-    .title{id: "categoryPath3"}
-      #{category3.name}新着アイテム
+    .title{id: "brandPath3"}
+      #{brand3.name}新着アイテム
     .see-more
-      = link_to category_path(category3.id), class:"modify-link-to" do
+      = link_to brand_path(brand3.id), class:"modify-link-to" do
         .see-more__box
           .see-more__box__text
             もっと見る
           .see-more__box__icon
             = fa_icon "angle-right"
   .items-wrapper
-    - itemsCategory3.each do |item|
+    - itemsBrand3.each do |item|
       .show-item.fade-off
         = link_to item_path(item.id), class:"modify-link-to" do
           .show-item__image
@@ -78,17 +78,17 @@
               = item.name
 .recommend-item
   .header
-    .title{id: "categoryPath4"}
-      #{category4.name}新着アイテム
+    .title{id: "brandPath4"}
+      #{brand4.name}新着アイテム
     .see-more
-      = link_to category_path(category4.id), class:"modify-link-to" do
+      = link_to brand_path(brand4.id), class:"modify-link-to" do
         .see-more__box
           .see-more__box__text
             もっと見る
           .see-more__box__icon
             = fa_icon "angle-right"
   .items-wrapper
-    - itemsCategory4.each do |item|
+    - itemsBrand4.each do |item|
       .show-item.fade-off
         = link_to item_path(item.id), class:"modify-link-to" do
           .show-item__image

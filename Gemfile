@@ -99,4 +99,5 @@ gem "dropzonejs-rails"
 gem "unf_ext"
 gem 'payjp'
 gem 'kaminari'
+gem 'miyabi'
 gem 'ransack'

@@ -50,6 +50,8 @@ Rails.application.routes.draw do
     get "search/select_size"
   end
 
+  resources :brands, only: [:index, :show]
+
   resources :card, only: [:new, :show] do
     collection do
       post 'show', to: 'card#show'

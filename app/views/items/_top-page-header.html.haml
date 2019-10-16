@@ -9,25 +9,31 @@
         .form
           = search_form_for @q, url: search_index_path do |f|
             = f.search_field :name_cont, class: "form__field", placeholder: "何かお探しですか？"
-            = f.submit
+            = f.submit class:"form__button"
     .lower
       .search-category-wrapper
         = render partial: "items/category-search-pulldown", locals: {grandCategory: @grandCategory}
       .search-brand-wrapper
         .search-brand-content
-          = link_to "" do
+          = link_to brands_path do
             .search-brand
               .search-brand__icon
                 = image_tag "top-page/brand-icon.png"
               .search-brand__text
                 ブランドから探す
         .pull-down
-          %li シャネル
-          %li ナイキ
-          %li ルイ ヴィットン
-          %li シュプリーム
-          %li アディダス
-          %li ブランド一覧
+          %li 
+            = link_to "シャネル" , brand_path(6198)
+          %li
+            = link_to "ナイキ" , brand_path(4356)
+          %li
+            = link_to "ルイヴィトン" , brand_path(724)
+          %li
+            = link_to "シュプリーム" , brand_path(6071)
+          %li
+            = link_to "アディダス" , brand_path(9716)
+          %li
+            = link_to "ブランド一蘭" , brands_path
       - if user_signed_in?
         .good-list-wrapper
           .good-list-content
@@ -45,9 +51,9 @@
                   = fa_icon "bell"
                 .notice__text
                   お知らせ
-          .pull-down
-            %li test
-            %li test
+          -# .pull-down
+          -#   %li test
+          -#   %li test
         .todo-list-wrapper
           .todo-list-content
             = link_to "" do
@@ -56,8 +62,8 @@
                   = fa_icon "check"
                 .todo-list__text
                   やることリスト
-          .pull-down
-            %li test
+          -# .pull-down
+          -#   %li test
         .mypage-wrapper
           .mypage-content
             = link_to mypage_path(current_user.id), class:"mypage__text" do
@@ -66,12 +72,12 @@
                   = image_tag "top-page/defalte-user-icon.png"
                 .mypage__text
                   マイページ
-          .pull-down
-            %li test
-            %li test
-            %li test
-            %li test
-            %li test
+          -# .pull-down
+          -#   %li test
+          -#   %li test
+          -#   %li test
+          -#   %li test
+          -#   %li test
       - else
         .sign-up-wrapper
           .sign-up-button

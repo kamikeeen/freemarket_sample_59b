@@ -24,76 +24,27 @@
               #{category4.name}
       .recommend-box
         = render partial: "top-page-item-wrapper", locals: {itemsCategory1: @itemsCategory1, category1: @Category1, |
-                                                    itemsCategory2: @itemsCategory2, category2: @Category2, |
-                                                    itemsCategory3: @itemsCategory3, category3: @Category3, |
-                                                    itemsCategory4: @itemsCategory4, category4: @Category4}
+                                                              itemsCategory2: @itemsCategory2, category2: @Category2, |
+                                                              itemsCategory3: @itemsCategory3, category3: @Category3, |
+                                                              itemsCategory4: @itemsCategory4, category4: @Category4,}
       .show-recommend
         .text
           人気のブランド
         .list-box
           .list-box__list
-            ブランド1
+            = link_to "#brandPath1" do
+              #{brand1.name}
           .list-box__list
-            ブランド2
+            = link_to "#brandPath2" do
+              #{brand2.name}
           .list-box__list
-            ブランド3
+            = link_to "#brandPath3" do
+              #{brand3.name}
           .list-box__list
-            ブランド4
+            = link_to "#brandPath4" do
+              #{brand4.name}
       .recommend-box
-        .recommend-item
-          .header
-            .title
-              ブランド1新着アイテム
-            .see-more
-              = link_to "", class:"modify-link-to" do
-                .see-more__box
-                  .see-more__box__text
-                    もっと見る
-                  .see-more__box__icon
-                    = fa_icon "angle-right"
-          .items-wrapper
-            - 10.times do
-              .show-item
-                = link_to "", class:"modify-link-to" do
-                  .show-item__image
-                    = image_tag "top-page/item-sample-image.png"
-                  .show-item__price
-                    ¥4,000
-                  .show-item__name
-                    %p ニンテンドースイッチ スプラトゥーン2
-        .recommend-item
-          .header
-            .title
-              ブランド2新着アイテム
-            .see-more
-              = link_to "", class:"modify-link-to" do
-                .see-more__box
-                  .see-more__box__text
-                    もっと見る
-                  .see-more__box__icon
-                    = fa_icon "angle-right"
-          .items-wrapper
-        .recommend-item
-          .header
-            .title
-              ブランド3新着アイテム
-            .see-more
-              = link_to "", class:"modify-link-to" do
-                .see-more__box
-                  .see-more__box__text
-                    もっと見る
-                  .see-more__box__icon
-                    = fa_icon "angle-right"
-          .items-wrapper
-        .recommend-item
-          .header
-            .title
-              ブランド4新着アイテム
-            .see-more
-              = link_to "", class:"modify-link-to" do
-                .see-more__box
-                  .see-more__box__text
-                    もっと見る
-                  .see-more__box__icon
-                    = fa_icon "angle-right"
-          .items-wrapper
+        = render partial: "top-page-item-wrapper-brand", locals: {itemsBrand1: @itemsBrand1, brand1: @Brand1, |
+                                                        itemsBrand2: @itemsBrand2, brand2: @Brand2, |
+                                                        itemsBrand3: @itemsBrand3, brand3: @Brand3, |
+                                                        itemsBrand4: @itemsBrand4, brand4: @Brand4}
