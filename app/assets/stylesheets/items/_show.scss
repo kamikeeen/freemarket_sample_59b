@@ -210,7 +210,6 @@
           &__effort-for-safety {
             float: right;
             margin: 8px 0px 0px 44px;
-            
           }
           &__effort-for-safety * , & .link_to {
             @include mouseover__thincolor();
