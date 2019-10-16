@@ -1,0 +1,161 @@
+.search{
+  background-color: rgb(245, 245, 245);
+  &__page{
+    display: flex;
+    margin: 0 auto;
+    width: 1020px;
+    padding-top: 40px;
+    .conditions{
+      width: 280px;
+      margin: 0 40px 0 0;
+      .select__sort{
+        select{
+          height: 48px;
+          width: 100%;
+          background-color: white;
+          border: 1px solid #ccc;
+        }
+      }
+      .conditions__form{
+        margin: 40px 0 ;
+        padding: 16px;
+        background-color: white;
+        p{
+          font-weight: bold;
+          font-size: 16px;
+        }
+        .brand__select{
+          position: relative;
+          .brand__result__lists{
+            box-shadow: 0 0 4px 0 rgba(0,0,0,0.64);
+            width: 100%;
+            overflow: scroll;
+            position: fixed;
+            position: absolute;
+            max-height: 225px;
+            top: 90px;
+            left: 0;
+          }
+        }
+        &__detail{
+          margin: 40px 0 0;
+          #q_name_cont, #q_category_id_in, .brand_form, #q_size_id_in,
+          #q_price_gteq, #q_price_lteq, #q_prefecture_id_eq,
+          #select_category_children, #select_category_grand_children,
+          #price__select{
+            width: 100%;
+            height: 48px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            margin: 8px 0 0;
+            padding: 10px 16px 8px;
+            box-sizing: border-box;
+            font-size: 16px;
+          }
+          #q_price_gteq, #q_price_lteq{
+            width: 40%;
+          }
+          .check__boxes{
+            display: flex;
+            flex-wrap: wrap;
+            input{
+              margin: 9px 5px 0 0;
+              display: block;
+            }
+            &__detail{
+              margin: 16px 0 0;
+              width: 50%;
+              height: 30px;
+              font-size: 14px;
+              display: flex;
+            }
+          }
+          label{
+            font-weight: bold;
+          }
+        }
+      }
+      .btns{
+        margin-top: 30px;
+        display: flex;
+        justify-content: space-between;
+        .all_clear{
+          width: 45%;
+          height: 48px;
+          line-height: 48px;
+          text-align: center;
+          background-color: #ccc;
+          color: white;
+          cursor: pointer;
+          &:focus{
+            outline: 0;
+          }
+        }
+        input{
+          display: block;
+          width: 45%;
+          height: 48px;
+          line-height: 48px;
+          text-align: center;
+          background-color: #ea352d;
+          color: white;
+          border-style: none;
+          cursor: pointer;
+        }
+      }
+    }
+    .result{
+      margin-bottom: 40px;
+      width: 700px;
+      &__items{
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        .item{
+          width: 160px;
+          height: 218px;
+          background-color: white;
+          display: block;
+          text-decoration: none;
+          color: black;
+          position: relative;
+          margin: 0 20px 20px 0;
+          &__image{
+            margin: 0 auto;
+            height: 160px;
+            img{
+              width: 160px;
+              height: 160px;
+            }
+          }
+          &__price{
+            border-radius: 0 14px 14px 0;
+            background-color: rgba(0, 0, 0, 0.548);
+            position: absolute;
+            padding: 0 14px;
+            color: white;
+            top: 60%;
+          }
+          &__name{
+            color: black;
+            padding: 8px 12px;
+            box-sizing: border-box;
+            height: 58px;;
+            word-break: break-word;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            overflow: hidden;
+            background: -webkit-linear-gradient(-70deg, #000000, rgb(45, 45, 43), #FFFFFF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+          }
+        }
+        .item:nth-child(4n){
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}
