@@ -138,6 +138,7 @@
             top: 60%;
           }
           &__name{
+            color: black;
             padding: 8px 12px;
             box-sizing: border-box;
             height: 58px;;
@@ -146,7 +147,6 @@
             -webkit-box-orient: vertical;
             -webkit-line-clamp: 2;
             overflow: hidden;
-            color: black;
             background: -webkit-linear-gradient(-70deg, #000000, rgb(45, 45, 43), #FFFFFF);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
