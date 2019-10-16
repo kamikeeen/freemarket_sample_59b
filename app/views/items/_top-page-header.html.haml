@@ -9,7 +9,7 @@
         .form
           = search_form_for @q, url: search_index_path do |f|
             = f.search_field :name_cont, class: "form__field", placeholder: "何かお探しですか？"
-            = f.submit
+            = f.submit class:"form__button"
     .lower
       .search-category-wrapper
         = render partial: "items/category-search-pulldown", locals: {grandCategory: @grandCategory}
@@ -51,9 +51,9 @@
                   = fa_icon "bell"
                 .notice__text
                   お知らせ
-          .pull-down
-            %li test
-            %li test
+          -# .pull-down
+          -#   %li test
+          -#   %li test
         .todo-list-wrapper
           .todo-list-content
             = link_to "" do
@@ -62,8 +62,8 @@
                   = fa_icon "check"
                 .todo-list__text
                   やることリスト
-          .pull-down
-            %li test
+          -# .pull-down
+          -#   %li test
         .mypage-wrapper
           .mypage-content
             = link_to mypage_path(current_user.id), class:"mypage__text" do
@@ -72,12 +72,12 @@
                   = image_tag "top-page/defalte-user-icon.png"
                 .mypage__text
                   マイページ
-          .pull-down
-            %li test
-            %li test
-            %li test
-            %li test
-            %li test
+          -# .pull-down
+          -#   %li test
+          -#   %li test
+          -#   %li test
+          -#   %li test
+          -#   %li test
       - else
         .sign-up-wrapper
           .sign-up-button
