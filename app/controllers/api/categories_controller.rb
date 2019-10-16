@@ -16,7 +16,7 @@ class Api::CategoriesController < ApplicationController
   end
 
   def select_grand_children
+    @children_id = params[:children_id]
     @grand_children = Category.find(params[:children_id]).children
-      render body: nil if @grand_children.empty?
   end
 end

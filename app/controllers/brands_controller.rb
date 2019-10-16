@@ -1,5 +1,6 @@
 class BrandsController < ApplicationController
   require 'miyabi'
+  before_action :set_ransack
 
   def index
     @brands = Brand.order('name Asc')
