@@ -3,5 +3,6 @@ $(function(){
 
   logoutbutton.on('click',function(){
     $(this).css('background-color','gray');
+    $(this).css('border','gray');
   })
 })

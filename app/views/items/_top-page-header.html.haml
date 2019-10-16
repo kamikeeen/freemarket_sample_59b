@@ -9,7 +9,8 @@
         .form
           = search_form_for @q, url: search_index_path do |f|
             = f.search_field :name_cont, class: "form__field", placeholder: "何かお探しですか？"
-            = f.submit class:"form__button"
+            = f.submit class:"form__button", id: 'searchBtn'
+            = fa_icon "search", class: "searchIcon"
     .lower
       .search-category-wrapper
         = render partial: "items/category-search-pulldown", locals: {grandCategory: @grandCategory}
@@ -33,7 +34,7 @@
           %li
             = link_to "アディダス" , brand_path(9716)
           %li
-            = link_to "ブランド一蘭" , brands_path
+            = link_to "ブランド一覧" , brands_path
       - if user_signed_in?
         .good-list-wrapper
           .good-list-content
