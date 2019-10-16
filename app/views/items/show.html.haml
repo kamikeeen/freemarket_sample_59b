@@ -53,13 +53,13 @@
             .item-detail__contents__inner__details__category-sub
               = fa_icon 'angle-right', class: 'item-detail__contents__inner__details__category-sub__angle-right'
               = link_to @item.category.name, "#", class: 'link_to'
-        - if @item.brand
-          %tr
-            %th
-              %p
-                ブランド
-            %td
-              .item-detail__contents__inner__details__brand-name
+        %tr
+          %th
+            %p
+              ブランド
+          %td
+            .item-detail__contents__inner__details__brand-name
+              - if @item.brand
                 = link_to @item.brand.name, "#", class: 'link_to'
         - if @item.size
           %tr
@@ -118,10 +118,11 @@
         %p.item-detail__contents__inner__details__price__shipping
           送料込み
       - if @item.status == "selling"
-        = link_to purchase_item_path(@item.id) do
-          .item-detail__contents__inner__details__confirm-purchase-item
-            購入画面に進む
         - if user_signed_in?
+          - if @item.user_id != current_user.id
+            = link_to purchase_item_path(@item.id) do
+              .item-detail__contents__inner__details__confirm-purchase-item
+                購入画面に進む
           - if @item.user_id == current_user.id
             =link_to edit_item_path(@item.id) do
               .item-detail__contents__inner__details__confirm-edit-item
@@ -129,6 +130,10 @@
             =link_to "" do
               .item-detail__contents__inner__details__confirm-delete-item
                 この商品を削除する
+        - else
+          = link_to purchase_item_path(@item.id) do
+            .item-detail__contents__inner__details__confirm-purchase-item
+              購入画面に進む
       = render partial: 'item-delete-popup', locals: {item: @item}
 
       .item-detail__contents__inner__details__text
@@ -162,19 +167,20 @@
         %textarea{rows: '4', cols: ''}
       .item-detail__comments__inner__validate
         %p
-          入力してください
       .item-detail__comments__inner__submit-comment
         %input{type: 'button', form: '#', value: "コメントする"}
 
   .item-detail__prev-and-next
-    = link_to "#", class: 'link_to item-detail__prev-and-next__prev-item' do
-      = fa_icon 'angle-left', class: 'item-detail__prev-and-next__prev-item__angle-left'
-      %p
-        ホットヨガラバ ヨガマットケース
-    = link_to "#", class: 'link_to item-detail__prev-and-next__next-item' do
-      %p
-        JAL ドリームエクスプレス
-      = fa_icon 'angle-right', class: 'item-detail__prev-and-next__next-item__angle-right'
+    - if @before_item
+      = link_to item_path(@before_item.id), class: 'link_to item-detail__prev-and-next__prev-item' do
+        = fa_icon 'angle-left', class: 'item-detail__prev-and-next__prev-item__angle-left'
+        %p
+          = @before_item.name
+    - if @after_item
+      = link_to item_path(@after_item.id), class: 'link_to item-detail__prev-and-next__next-item' do
+        %p
+          = @after_item.name
+        = fa_icon 'angle-right', class: 'item-detail__prev-and-next__next-item__angle-right'
       
   .item-detail__SNS-shares
     %ul
@@ -219,30 +225,32 @@
                       2
 
   .item-detail__another-brands
-    - @brand_items.each do |brand_item|
+    - if @item.brand_id
+      -# - @brand_items.each do |brand_item|
       .item-detail__another-brands__box
         = link_to '#', class: 'link_to item-detail__another-brands__box__buyer' do
           %p
             = "#{@item.brand.name}のその他の商品"
         .item-detail__another-brands__items
-          .item-detail__another-brands__items__item-box
-            = link_to item_path(brand_item.id), class: 'link_to item-detail__another-brands__items__item-box__item-link' do
-              .item-detail__another-brands__items__item-box__item-link__picture
-                = image_tag "#{brand_item.images.first.name}", size: '220x220'
-              .item-detail__another-brands__items__item-box__item-link__simple-detail
-                .item-detail__another-brands__items__item-box__item-link__simple-detail__name
-                  %p
-                    = brand_item.name
-                .item-detail__another-brands__items__item-box__item-link__simple-detail__boxes
-                  .item-detail__another-brands__items__item-box__item-link__simple-detail__boxes__price
+          - @brand_items.each do |brand_item|
+            .item-detail__another-brands__items__item-box
+              = link_to item_path(brand_item.id), class: 'link_to item-detail__another-brands__items__item-box__item-link' do
+                .item-detail__another-brands__items__item-box__item-link__picture
+                  = image_tag "#{brand_item.images.first.name}", size: '220x220'
+                .item-detail__another-brands__items__item-box__item-link__simple-detail
+                  .item-detail__another-brands__items__item-box__item-link__simple-detail__name
                     %p
-                      = brand_item.price.to_s(:currency, precision: 0, format: '¥%n')
-                  .item-detail__another-brands__items__item-box__item-link__simple-detail__boxes__box
-                    .item-detail__another-brands__items__item-box__item-link__simple-detail__boxes__box__good
-                      = fa_icon 'heart', class: 'item-detail__another-brands__items__item-box__item-link__simple-detail__boxes__box__good__heart'
-                    .item-detail__another-brands__items__item-box__item-link__simple-detail__boxes__box__good-counts
+                      = brand_item.name
+                  .item-detail__another-brands__items__item-box__item-link__simple-detail__boxes
+                    .item-detail__another-brands__items__item-box__item-link__simple-detail__boxes__price
                       %p
-                        2
+                        = brand_item.price.to_s(:currency, precision: 0, format: '¥%n')
+                    .item-detail__another-brands__items__item-box__item-link__simple-detail__boxes__box
+                      .item-detail__another-brands__items__item-box__item-link__simple-detail__boxes__box__good
+                        = fa_icon 'heart', class: 'item-detail__another-brands__items__item-box__item-link__simple-detail__boxes__box__good__heart'
+                      .item-detail__another-brands__items__item-box__item-link__simple-detail__boxes__box__good-counts
+                        %p
+                          2
       
                   
 / パンくず

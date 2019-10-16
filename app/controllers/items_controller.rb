@@ -71,8 +71,13 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    @before_item = @item.previous
+    @after_item = @item.next
+
     @another_items = Item.where(user_id: @item.user_id).where.not(id: @item.id).limit(6)
-    @brand_items = Item.where(brand_id: @item.brand.id).where.not(id: @item.id).limit(6)
+    if @item.brand_id
+      @brand_items = Item.where(brand_id: @item.brand_id).where.not(id: @item.id).limit(6)
+    end
   end
 
   def edit
