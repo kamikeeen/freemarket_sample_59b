@@ -320,6 +320,25 @@
           color: #000000;
           &__picture {
             height: 220px;
+            position: relative;
+            .item__badge {
+              border-color: red transparent transparent transparent;
+              border-width: 120px 120px 0 0;
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 0;
+              height: 0;
+              border-style: solid;
+              &__text {
+                top: 15px;
+                left: -5px;
+                font-size: 35px;
+                transform: rotate(-45deg);
+                color: white;
+                position: absolute;
+               }
+            }
           }
           &__simple-detail {
             padding: 16px;
