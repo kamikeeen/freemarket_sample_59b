@@ -15,9 +15,11 @@
         }
       }
       .search-box {
+        width: 100%;
         .form {
           height: 40px;
-          width: 841px;
+          width: calc(100%- 179px);
+          // width: 841px;
           position: relative;
           &__field {
             border: solid 1px rgb(158, 158, 158);
@@ -27,6 +29,11 @@
             height: 38px;
             border-radius: 4px;
           }
+          & .searchIcon {
+            position: absolute;
+            top: 10px;
+            right: 22px;
+          }
           &__button {
             background-color: inherit;
             position: absolute;
@@ -35,6 +42,8 @@
             height: 38px;
             font-size: 18px;
             cursor : pointer;
+            opacity: 0;
+            z-index: 9999;
           }
         }
       }
