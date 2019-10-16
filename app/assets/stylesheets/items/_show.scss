@@ -26,9 +26,9 @@
         overflow: hidden;
         &__main__thumbnail {
           position: relative;
-          display: flex;
           opacity: 1;
           .picture__m{
+            display: none;
           }
         .item__badge {
           border-color: red transparent transparent transparent;
@@ -55,15 +55,6 @@
           display: inline-flex;
           flex-wrap: wrap;
           justify-content: flex-start;
-          &__.slick-next{
-            right: 20px; z-index: 100;
-          }
-          &__.slick-prev{
-            left: 15px; z-index: 100;
-          }
-          &__.slick-current{
-            opacity: 0.5;
-          }
         }
       }
       &__details, table {
