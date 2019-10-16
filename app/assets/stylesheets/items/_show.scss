@@ -12,7 +12,6 @@
       a{
         text-decoration: none;
       }
-
       &__name {
         padding-bottom: 16px;
         font-weight: bold;
@@ -25,6 +24,7 @@
         height: 420px;
         &__main {
           overflow: hidden;
+        }
         &__main__thumbnail {
           position: relative;
           opacity: 1;
@@ -57,7 +57,7 @@
           flex-wrap: wrap;
           justify-content: flex-start;
         }
-      }
+      } 
       &__details, table {
         float: right;
         margin-left: 20px;
@@ -457,6 +457,5 @@
         }
       }
     }
-  }
   }
 }
