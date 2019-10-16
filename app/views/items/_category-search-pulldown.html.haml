@@ -8,140 +8,18 @@
           .category-search__list__title--text
             カテゴリーから探す
       %ul.grand-category
-        / 第一階層
-        %li.count
-          = link_to "" do
-            grand-category
-          %ul.parent-category
-            / 第二階層
-            %li.count
-              = link_to "" do
-                parent-category
-              %ul.child-category
-                / 第三階層
-                %li
-                  = link_to "" do
-                    child-category
-                %li
-                  = link_to "" do
-                    child-category
-                %li
-                  = link_to "" do
-                    child-category
-                %li
-                  = link_to "" do
-                    child-category
-            %li.count
-              = link_to "" do
-                parent-category
-              %ul.child-category
-                / 第三階層
-                %li
-                  = link_to "" do
-                    child-category
-                %li
-                  = link_to "" do
-                    child-category
-                %li
-                  = link_to "" do
-                    child-category
-                %li
-                  = link_to "" do
-                    child-category
-                %li
-                  = link_to "" do
-                    child-category
-            %li.count
-              = link_to "" do
-                parent-category
-              %ul.child-category
-                / 第三階層
-                %li
-                  = link_to "" do
-                    child-category
-                %li
-                  = link_to "" do
-                    child-category
-                %li
-                  = link_to "" do
-                    child-category
-            %li.count
-              = link_to "" do
-                parent-category
-            %li.count
-              = link_to "" do
-                parent-category
-            %li.count
-              = link_to "" do
-                parent-category
-        %li.count
-          = link_to "" do
-            grand-category
-          %ul.parent-category
-            / 第二階層
-            %li.count
-              = link_to "" do
-                parent-category
-              %ul.child-category
-                / 第三階層
-                %li
-                  = link_to "" do
-                    child-category
-                %li
-                  = link_to "" do
-                    child-category
-                %li
-                  = link_to "" do
-                    child-category
-            %li.count
-              = link_to "" do
-                parent-category
-              %ul.child-category
-                / 第三階層
-                %li
-                  = link_to "" do
-                    child-category
-                %li
-                  = link_to "" do
-                    child-category
-                %li
-                  = link_to "" do
-                    child-category
-                %li
-                  = link_to "" do
-                    child-category
-            %li.count
-              = link_to "" do
-                parent-category
-              %ul.child-category
-                / 第三階層
-                %li
-                  = link_to "" do
-                    child-category
-                %li
-                  = link_to "" do
-                    child-category
-                %li
-                  = link_to "" do
-                    child-category
-                %li
-                  = link_to "" do
-                    child-category
-                %li
-                  = link_to "" do
-                    child-category
-            %li.count
-              = link_to "" do
-                parent-category
-            %li.count
-              = link_to "" do
-                parent-category
-        %li.count
-          = link_to "" do
-            grand-category
-        %li.count
-          = link_to "" do
-            grand-category
-        %li.count
-          = link_to "" do
-            grand-category
+        - grandCategory.each do |gc|
+          %li.count
+            = link_to category_path(gc.id) do
+              #{gc.name}
+            %ul.parent-category
+              - gc.children.each do |cc|
+                %li.count
+                  = link_to category_path(cc.id) do
+                    #{cc.name}
+                  %ul.child-category
+                    - cc.children.each_with_index do |gcc, i|
+                      - if i < 14
+                        %li
+                          = link_to category_path(gcc.id) do
+                            #{gcc.name}

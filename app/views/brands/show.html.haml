@@ -1,0 +1,30 @@
+= render 'items/top-page-header'
+-# - breadcrumb :categories
+-# -# - breadcrumb :parentCategory, @category
+-# -# - breadcrumb :childCategory, @category
+-# - breadcrumb :grandChildCategory, @brands
+= render "layouts/breadcrumbs"
+
+.category-show-contents
+  .category-show-contents__content
+    .category-show-contents__content__items
+      .category-show-contents__content__items__category-name
+        %p
+          #{@brand.name}の一覧商品
+      .category-show-contents__content__items__lists
+        - @items.each do |item|
+          .category-show-contents__content__items__lists__item
+            = link_to item_path(item.id) do
+              .category-show-contents__content__items__lists__item__image
+                = image_tag "#{item.images[0].name}", height: '163'
+              .category-show-contents__content__items__lists__item__price
+                = item.price.to_s(:currency, precision: 0, format: '¥%n')
+              .category-show-contents__content__items__lists__item__name
+                %p 
+                  = item.name
+
+    .category-show-contents__content__pagination
+      = paginate(@items)
+  = render 'items/top-page-footer'
+.top-page-shipping-button
+  = render "items/shipping-button"

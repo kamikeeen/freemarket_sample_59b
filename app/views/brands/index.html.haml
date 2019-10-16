@@ -1,0 +1,21 @@
+= render 'items/top-page-header'
+- breadcrumb :categories
+= render "layouts/breadcrumbs"
+
+.category-index-contents
+  .category-index-contents__content
+    .category-index-contents__content__category-list
+      %h1
+        ブランド一覧
+    .category-index-contents__content__parent-category-box
+    .category-index-contents__content__box__descendant-box
+      .category-index-contents__content__box__descendant-box__parent-all
+      .category-index-contents__content__box__descendant-box__descendant
+        - @brands.each do |brand|
+          %p
+            = link_to brand_path(brand.id) do
+              #{brand.name}
+
+  = render 'items/top-page-footer'
+.top-page-shipping-button
+  = render "items/shipping-button"

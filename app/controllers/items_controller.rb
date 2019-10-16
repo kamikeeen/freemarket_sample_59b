@@ -20,7 +20,14 @@ class ItemsController < ApplicationController
       category2 = recommenndCategories[1]
       category3 = recommenndCategories[2]
       category4 = recommenndCategories[3]
-
+      
+      brands = [724, 4356, 6071, 6198, 9716]
+      recommenndBrands = brands.sample(4)
+  
+      brand1 = recommenndBrands[0]
+      brand2 = recommenndBrands[1]
+      brand3 = recommenndBrands[2]
+      brand4 = recommenndBrands[3]
     end
 
     @itemsCategory1 = Item.where(category_id: [Category.find(category1).descendant_ids]).order('id Desc').limit(10)
@@ -32,6 +39,16 @@ class ItemsController < ApplicationController
     @itemsCategory4 = Item.where(category_id: [Category.find(category4).descendant_ids]).order('id Desc').limit(10)
     @CategoryName4 = Category.find(category4).name
 
+    @grandCategory = Category.all.where(ancestry: nil)
+
+    @itemsBrand1 = Item.where(brand_id: [Brand.find(brand1).id]).order('id Desc').limit(10)
+    @Brand1 = Brand.find(brand1)
+    @itemsBrand2 = Item.where(brand_id: [Brand.find(brand2).id]).order('id Desc').limit(10)
+    @Brand2 = Brand.find(brand2)
+    @itemsBrand3 = Item.where(brand_id: [Brand.find(brand3).id]).order('id Desc').limit(10)
+    @Brand3 = Brand.find(brand3)
+    @itemsBrand4 = Item.where(brand_id: [Brand.find(brand4).id]).order('id Desc').limit(10)
+    @Brand4 = Brand.find(brand4)
   end
 
   def new
@@ -51,7 +68,13 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    @before_item = @item.previous
+    @after_item = @item.next
+
     @another_items = Item.where(user_id: @item.user_id).where.not(id: @item.id).limit(6)
+    if @item.brand_id
+      @brand_items = Item.where(brand_id: @item.brand_id).where.not(id: @item.id).limit(6)
+    end
   end
 
   def edit

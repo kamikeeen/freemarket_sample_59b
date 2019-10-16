@@ -1,10 +1,14 @@
 .main-header
   = render "items/top-page-header"
 .main-content
-  = render partial: "items/top-page-main-contents", locals: {itemsCategory1: @itemsCategory1, categoryName1: @CategoryName1, |
-                                                              itemsCategory2: @itemsCategory2, categoryName2: @CategoryName2, |
-                                                              itemsCategory3: @itemsCategory3, categoryName3: @CategoryName3, |
-                                                              itemsCategory4: @itemsCategory4, categoryName4: @CategoryName4}
+  = render partial: "items/top-page-main-contents", locals: {itemsCategory1: @itemsCategory1, category1: @Category1, |
+                                                              itemsCategory2: @itemsCategory2, category2: @Category2, |
+                                                              itemsCategory3: @itemsCategory3, category3: @Category3, |
+                                                              itemsCategory4: @itemsCategory4, category4: @Category4, |
+                                                              itemsBrand1: @itemsBrand1, brand1: @Brand1, |
+                                                              itemsBrand2: @itemsBrand2, brand2: @Brand2, |
+                                                              itemsBrand3: @itemsBrand3, brand3: @Brand3, |
+                                                              itemsBrand4: @itemsBrand4, brand4: @Brand4}
 
 .top-page-shipping-button
   = render "items/shipping-button"
