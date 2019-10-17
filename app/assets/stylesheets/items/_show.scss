@@ -24,13 +24,8 @@
         width: 300px;
         height: 420px;
         &__main {
-          overflow: hidden;
-        &__main__thumbnail {
           position: relative;
-          opacity: 1;
-          .picture__m{
-            display: none;
-          }
+          height: 300px;
           .item__badge {
             border-color: red transparent transparent transparent;
             border-width: 120px 120px 0 0;
@@ -50,12 +45,15 @@
             }
           }
         }
-        &__sub__thumbnail-thumb {
+        &__sub {
           float: left;
           height: 60px;
           display: inline-flex;
           flex-wrap: wrap;
           justify-content: flex-start;
+          .picture{
+            height: 60px;
+          }
         }
       }
       &__details, table {
@@ -360,8 +358,8 @@
                 transform: rotate(-45deg);
                 color: white;
                 position: absolute;
-              }
-            }
+             }
+           }
           }
           &__simple-detail {
             padding: 16px;
@@ -457,6 +455,5 @@
         }
       }
     }
-  }
   }
 }
