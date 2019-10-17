@@ -19,7 +19,6 @@
         .form {
           height: 40px;
           width: calc(100%- 179px);
-          // width: 841px;
           position: relative;
           &__field {
             border: solid 1px rgb(158, 158, 158);
@@ -60,6 +59,7 @@
 
       }
       .search-brand-wrapper {
+        min-width:136px;
         @include a-text-decoration;
         padding-left: 10px;
         @include pulldown;
@@ -96,6 +96,7 @@
         }
       }
       .good-list-wrapper {
+        min-width: 126px;
         margin: 0 0 0 auto;
         @include a-text-decoration;
         .good-list-content {
@@ -112,6 +113,7 @@
         }
       }
       .notice-wrapper {
+        min-width:112px;
         @include a-text-decoration;
         @include pulldown;
         .notice-content {
@@ -142,6 +144,7 @@
         }
       }
       .todo-list-wrapper {
+        min-width:126px;
         @include pulldown;
         @include a-text-decoration;
         padding: 0 14px;
@@ -171,6 +174,7 @@
         }
       }
       .mypage-wrapper {
+        min-width:125px;
         @include pulldown;
         @include a-text-decoration;
           .mypage {

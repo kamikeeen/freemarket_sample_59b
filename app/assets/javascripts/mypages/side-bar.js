@@ -1,6 +1,6 @@
 $(function() {
     //マウスを乗せたら発動
-  $('a.myside-bar-nav-list-item').hover(function() {
+  $('.myside-bar-nav-list-item').hover(function() {
     //マウスを乗せたら色が変わる
     $(this).css('background', '#E5E5E5');
     //ここにはマウスを離したときの動作を記述
