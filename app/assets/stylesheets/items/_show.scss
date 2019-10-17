@@ -3,16 +3,18 @@
   padding: 40px 0px;
   width: 100%;
   border-bottom: 1px solid #EEEEEE;
+    p {
+      word-break: break-word;
+    }
   &__contents {
     margin: 0px auto;
     width: 700px;
     background-color: #FFFFFF;
     &__inner {
       padding: 24px 40px 40px;
-      a{
+      a {
         text-decoration: none;
       }
-
       &__name {
         padding-bottom: 16px;
         font-weight: bold;
@@ -364,6 +366,20 @@
           &__simple-detail {
             padding: 16px;
             font-size: 14px;
+            &__name {
+              height:42px;
+              p {
+                word-break: break-word;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 2;
+                overflow: hidden;
+                color: black;
+                background: -webkit-linear-gradient(-70deg, #000000, rgb(45, 45, 43), #FFFFFF);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+              }
+            }
             &__boxes {
               &__price {
                 margin-top: 8px;
@@ -412,15 +428,18 @@
       display: inline-flex;
       flex-wrap: wrap;
       justify-content: flex-start;
-      &:nth-child(3n) {
-        margin-right: 0;
-      }
       &__item-box {
+        a {
+          text-decoration: none;
+        }
         margin-right: 20px;
         margin-bottom: 20px;
         height: 330px;
         width: 220px;
         background-color: #FFFFFF;
+        &:nth-child(3n) {
+          margin-right: 0;
+        }
         &__item-link {
           color: #000000;
           &__picture {
@@ -429,6 +448,20 @@
           &__simple-detail {
             padding: 16px;
             font-size: 14px;
+            &__name {
+              height:42px;
+              p {
+                word-break: break-word;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 2;
+                overflow: hidden;
+                color: black;
+                background: -webkit-linear-gradient(-70deg, #000000, rgb(45, 45, 43), #FFFFFF);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+              }
+            }
             &__boxes {
               &__price {
                 margin-top: 8px;
