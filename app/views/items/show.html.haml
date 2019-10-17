@@ -6,17 +6,20 @@
 
       .item-detail__contents__inner__name
         = @item.name
+
       .item-detail__contents__inner__pictures
-        %ur.item-detail__contents__inner__pictures__main__thumbnail
-          - if @item.status != 'selling'
-            .item__badge
-            .item__badge__text
-              SOLD
-          = image_tag "#{@item.images.first.name}", size: '300x300', data_imagesrc: "#{@item.images.first.name}"
+        .item-detail__contents__inner__pictures__main__thumbnail
+          - @item.images.each do |images|
+            %li.picture__m
+              = image_tag "#{@item.images.first.name}", size: '300x300'
+              - if @item.status != 'selling'
+                .item__badge
+                .item__badge__text
+                  SOLD
         %ul.item-detail__contents__inner__pictures__sub__thumbnail-thumb
           - @item.images.each do |image|
             %li.picture
-              = image_tag "#{image.name}", size: '60x60', class:'.picture', data_imagesrc: "#{image.name}"
+              = image_tag "#{image.name}", size: '60x60'
       %table.item-detail__contents__inner__details
         %tr
           %th
@@ -44,14 +47,14 @@
               カテゴリー
           %td
             .item-detail__contents__inner__details__category-main
-              = link_to @item.category.root.name, "#", class: 'link_to'
+              = link_to @item.category.root.name, category_path(@item.category.root.id), class: 'link_to'
             / おそらくeach文でカテゴリを取り出すため、クラス名をmainとsubに分けた
             .item-detail__contents__inner__details__category-sub
               = fa_icon 'angle-right', class: 'item-detail__contents__inner__details__category-sub__angle-right'
-              = link_to @item.category.parent.name, "#", class: 'link_to'
+              = link_to @item.category.parent.name, category_path(@item.category.parent.id), class: 'link_to'
             .item-detail__contents__inner__details__category-sub
               = fa_icon 'angle-right', class: 'item-detail__contents__inner__details__category-sub__angle-right'
-              = link_to @item.category.name, "#", class: 'link_to'
+              = link_to @item.category.name, category_path(@item.category.id), class: 'link_to'
         %tr
           %th
             %p
