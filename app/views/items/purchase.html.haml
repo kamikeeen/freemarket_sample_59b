@@ -41,12 +41,15 @@
         .confirm_purchase_items__contents__shipping__address
           配送先
         .confirm_purchase_items__contents__shipping__information
-          〒-
-        .confirm_purchase_items__contents__shipping__inner
-          %a{href: '#', class: 'confirm_purchase_items__contents__shipping__inner__edit'}
-            変更する
-          = fa_icon 'angle-right', class: 'confirm_purchase_items__contents__shipping__inner__edit__icon fa-2x'
-
+          = "〒#{@item.user.addresses.first.zip_code}"
+          %br
+          =  @item.user.addresses.first.prefecture.name
+          =  @item.user.addresses.first.city
+          =  @item.user.addresses.first.address_line
+          =  @item.user.addresses.first.building_name
+          %br
+          =  @item.user.addresses.first.familyname
+          =  @item.user.addresses.first.firstname
       .confirm_purchase_items__contents__method
         .confirm_purchase_items__contents__method__payment
           支払方法
