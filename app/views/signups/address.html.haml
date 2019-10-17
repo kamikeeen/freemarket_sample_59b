@@ -7,7 +7,7 @@
           住所入力
       .user__input__address__main
         .user__input__address__main-form
-          = form_for @user, url: payment_signups_path, method: :get do |f|
+          = form_for @user, url: signups_path, method: :post do |f|
             = f.fields_for :addresses do |f|
               .user__input__address__main-form-field
                 = f.label :"お名前(全角)" 
