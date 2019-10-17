@@ -213,6 +213,7 @@
             text-decoration: none;
             color: white;
             padding: 0 0 0 10px;
+            vertical-align: text-bottom;
           }
         }
       }
@@ -228,6 +229,7 @@
             border: solid 1px #0095EE;
             border-radius: 4px;
             padding: 0 0 0 10px;
+            vertical-align: text-bottom;
             display: block;
             &:hover {
               background-color: #0095EE;
