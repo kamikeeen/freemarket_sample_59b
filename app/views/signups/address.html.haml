@@ -7,7 +7,7 @@
           住所入力
       .user__input__address__main
         .user__input__address__main-form
-          = form_for @user, url: payment_signups_path, method: :get do |f|
+          = form_for @user, url: signups_path, method: :post do |f|
             = f.fields_for :addresses do |f|
               .user__input__address__main-form-field
                 = f.label :"お名前(全角)" 
@@ -79,7 +79,7 @@
                 = render partial: 'error-message', locals: {model: @address, column: "phone_number"}
               %br/
               .user__input__address__main-form-field__next-button
-                = f.submit "次へ進む"
+                = f.submit "登録を完了する
             .user__input__address__main__about-registration
               .user__input__address__main__about-registration-text
                 = link_to "" do
