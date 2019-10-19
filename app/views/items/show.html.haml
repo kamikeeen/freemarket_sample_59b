@@ -11,7 +11,7 @@
         .item-detail__contents__inner__pictures__main__thumbnail
           - @item.images.each do |images|
             %li.picture__m
-              = image_tag "#{@item.images.first.name}", size: '300x300'
+              = image_tag "#{images.name}", size: '300x300'
               - if @item.status != 'selling'
                 .item__badge
                 .item__badge__text

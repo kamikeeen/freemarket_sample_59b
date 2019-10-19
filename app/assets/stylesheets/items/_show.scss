@@ -23,12 +23,11 @@
         float: left;
         width: 300px;
         height: 420px;
-        overflow: hidden;
         &__main__thumbnail {
           position: relative;
-          display: none;
           opacity: 1;
           .picture__m{
+            display: none;
           }
         .item__badge {
           border-color: red transparent transparent transparent;
