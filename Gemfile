@@ -101,5 +101,5 @@ gem 'payjp'
 gem 'kaminari'
 gem 'miyabi'
 gem 'ransack'
-gem "json"
+gem 'json', '~> 2.2'
 gem "recaptcha"
