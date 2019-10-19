@@ -104,7 +104,7 @@ class SignupsController < ApplicationController
       "birthday(3i)": session["birthday(3i)"],
       phone_number: "09099999999"
     )
-    render 'registration' unless @user.valid?
+    render 'registration' unless (@user.valid? && verify_recaptcha(model: @user))
   end
 
   def validates_sms_confirmation

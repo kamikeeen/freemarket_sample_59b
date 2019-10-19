@@ -101,3 +101,4 @@ gem 'payjp'
 gem 'kaminari'
 gem 'miyabi'
 gem 'ransack'
+gem "recaptcha"
